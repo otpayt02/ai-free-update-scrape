@@ -1,0 +1,44 @@
+# Your ranked personal use cases — edit this once, re-rank forever
+# The ranker LLM scores every detected tool against this list
+# Score 1 (low) to 10 (critical match)
+
+use_cases:
+  - id: local_llm_inference
+    description: Running LLMs locally via Ollama or llama.cpp with no API costs
+    priority: 10
+
+  - id: prompt_engineering
+    description: Prompt refinement loops, critique workflows, canonical prompt pipelines
+    priority: 10
+
+  - id: web_scraping
+    description: Scraping news, GitHub, Reddit, HN, arxiv for AI releases
+    priority: 9
+
+  - id: agent_frameworks
+    description: Building multi-step AI agents with tool use and memory
+    priority: 9
+
+  - id: free_saas_alternatives
+    description: Open-source replacements for paid SaaS (Perplexity, Cursor, Zapier, etc.)
+    priority: 9
+
+  - id: workflow_automation
+    description: n8n / Activepieces style automation pipelines, cron-driven
+    priority: 8
+
+  - id: rag_vector_db
+    description: RAG pipelines, vector databases (Qdrant, Chroma), embeddings
+    priority: 8
+
+  - id: code_generation
+    description: AI-assisted code generation, completion, review in VS Code
+    priority: 8
+
+  - id: repo_scaffolding
+    description: Auto-generating GitHub repos and project structures
+    priority: 7
+
+  - id: free_cloud_storage
+    description: Self-hosted or free-tier cloud storage, MinIO, Nextcloud
+    priority: 6
