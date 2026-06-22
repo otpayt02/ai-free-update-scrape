@@ -23,8 +23,12 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/ai_free_update_scrape"]
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "pytest>=8.0",
     "ruff>=0.4",
 ]
+
+[tool.uv]
+index-url = "https://pypi.org/simple"
+extra-index-url = ["https://mirrors.aliyun.com/pypi/simple/"]
