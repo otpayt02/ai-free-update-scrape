@@ -66,13 +66,18 @@ type State = {
   run: { status: string; log: string[]; run_id?: string; started_at?: string };
   stats: Record<string, number>;
 };
+type Candidate = { id: string; name: string; url: string; domain: string; category: string; headline: string; selected: boolean };
+type SourcePlan = { source: string; url: string; status: string; http_status?: number; robots: string; tips: string[] };
+type RunFolder = { id: string; count: number; files: { name: string; size: number }[] };
 
 const nav = [
+  "Sources",
+  "Pipeline",
   "Overview",
   "Live run",
   "Categories",
-  "Sources",
   "Results",
+  "Artifacts",
   "Failures",
   "Traces",
   "Schedules",
@@ -526,6 +531,39 @@ function Sources({
 }
 
 const columnHelper = createColumnHelper<Result>();
+function Pipeline({ config, onProduction, onNotice }: { config: Config; onProduction: () => void; onNotice: (value: string) => void }) {
+  const [stage, setStage] = useState(1);
+  const [busy, setBusy] = useState(false);
+  const [candidates, setCandidates] = useState<Candidate[]>([]);
+  const [plans, setPlans] = useState<SourcePlan[]>([]);
+  const runDiscovery = async () => {
+    setBusy(true);
+    try {
+      const data = await api<{ candidates: Candidate[] }>("/api/pipeline/discover", { method: "POST", body: JSON.stringify({ sources_per_category: config.sources_per_category, max_sources: config.max_sources }) });
+      setCandidates(data.candidates); setStage(1); onNotice(`${data.candidates.length} sources discovered`);
+    } catch (error) { onNotice((error as Error).message); } finally { setBusy(false); }
+  };
+  const runPlanning = async () => {
+    setBusy(true);
+    try {
+      const data = await api<{ plans: SourcePlan[] }>("/api/pipeline/plan", { method: "POST", body: JSON.stringify({ sources: candidates.filter((item) => item.selected), tips_per_source: 5 }) });
+      setPlans(data.plans); setStage(2); onNotice(`${data.plans.length} source plans created`);
+    } catch (error) { onNotice((error as Error).message); } finally { setBusy(false); }
+  };
+  return <div className="view-stack">
+    <section className="stage-strip"><button className={stage === 1 ? "active" : ""} onClick={() => setStage(1)}><b>01</b><span>Discover sources</span></button><button className={stage === 2 ? "active" : ""} onClick={() => setStage(2)}><b>02</b><span>Plan access</span></button><button className={stage === 3 ? "active" : ""} onClick={() => setStage(3)}><b>03</b><span>Production scrape</span></button></section>
+    {stage === 1 && <section className="panel table-panel"><div className="panel-title"><span>Who to scrape</span><button className="button primary" disabled={busy} onClick={runDiscovery}>{busy ? "Scanning" : "Scan today"}</button></div><div className="limit-line">{String(config.sources_per_category)} sources/category · {String(config.max_sources)} max sources · current web/news discovery</div>{candidates.length ? <table><thead><tr><th>Use</th><th>Source</th><th>Category</th><th>Current signal</th></tr></thead><tbody>{candidates.map((item) => <tr key={item.id}><td><input type="checkbox" checked={item.selected} onChange={(event) => setCandidates((rows) => rows.map((row) => row.id === item.id ? { ...row, selected: event.target.checked } : row))} /></td><td><a href={item.url} target="_blank">{item.domain}</a></td><td>{item.category}</td><td>{item.headline}</td></tr>)}</tbody></table> : <Empty>Run discovery to find current sources by enabled category.</Empty>}<div className="panel-action"><button className="button" disabled={!candidates.some((item) => item.selected)} onClick={runPlanning}>Plan selected sources</button></div></section>}
+    {stage === 2 && <section className="panel table-panel"><div className="panel-title"><span>How to scrape</span><small>up to 5 findings/source</small></div>{plans.length ? <table><thead><tr><th>Source</th><th>Access</th><th>HTTP</th><th>Robots</th><th>Plan</th></tr></thead><tbody>{plans.map((plan) => <tr key={plan.url}><td>{plan.source}</td><td><Status value={plan.status} /></td><td>{plan.http_status || "—"}</td><td>{plan.robots}</td><td>{plan.tips.join(" · ")}</td></tr>)}</tbody></table> : <Empty>Select sources in stage 01, then generate access plans.</Empty>}</section>}
+    {stage === 3 && <section className="panel production-stage"><div><span className="eyebrow">Production limits</span><h2>Run the configured topic scrape</h2><p>{String(config.results_per_source)} results/source · {String(config.max_total_requests)} requests max · {String(config.max_items_per_run)} results max</p></div><button className="button primary" onClick={onProduction}>Run production scrape</button></section>}
+  </div>;
+}
+
+function Artifacts({ onNotice }: { onNotice: (value: string) => void }) {
+  const [runs, setRuns] = useState<RunFolder[]>([]);
+  useEffect(() => { api<{ runs: RunFolder[] }>("/api/runs").then((data) => setRuns(data.runs)).catch((error) => onNotice(error.message)); }, [onNotice]);
+  return <div className="artifact-grid">{runs.map((run) => <section className="panel run-folder" key={run.id}><div className="panel-title"><span>{run.id}</span><small>{run.count} files</small></div>{run.files.map((file) => <a key={file.name} href={`/api/runs/${run.id}/${file.name}`}>{file.name}<small>{Math.ceil(file.size / 1024)} KB</small></a>)}</section>)}{!runs.length && <Empty>No stage artifacts yet.</Empty>}</div>;
+}
+
 function Results({ rows }: { rows: Result[] }) {
   const columns = useMemo(
     () => [
@@ -681,6 +719,12 @@ function Configuration({
     "nvidia_temperature",
     "nvidia_top_p",
     "nvidia_max_tokens",
+    "sources_per_category",
+    "results_per_source",
+    "max_sources",
+    "max_total_requests",
+    "scrapes_per_day",
+    "shorts_per_day",
   ];
   return (
     <div className="config-layout">
@@ -848,6 +892,19 @@ function Schedules({
   );
 }
 
+function DashboardAssistant({ onNotice }: { onNotice: (value: string) => void }) {
+  const [open, setOpen] = useState(false);
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
+  const ask = async () => {
+    try {
+      const data = await api<{ answer: string }>("/api/assistant", { method: "POST", body: JSON.stringify({ question }) });
+      setAnswer(data.answer);
+    } catch (error) { onNotice((error as Error).message); }
+  };
+  return <div className={`assistant ${open ? "open" : ""}`}><button className="assistant-trigger" aria-label="Open dashboard assistant" onClick={() => setOpen((value) => !value)}>✦</button>{open && <section><div className="panel-title"><span>Business assistant</span><button className="icon-button" onClick={() => setOpen(false)}>×</button></div><small>Scraper + yt_auto context</small>{answer && <p>{answer}</p>}<textarea value={question} onChange={(event) => setQuestion(event.target.value)} placeholder="Ask about a run, source, result, or Shorts plan" /><button className="button primary" disabled={!question.trim()} onClick={ask}>Ask</button></section>}</div>;
+}
+
 export default function App() {
   const [view, setView] = useState<View>("Overview");
   const [dashboard, setDashboard] = useState<Dashboard | null>(null);
@@ -953,6 +1010,7 @@ export default function App() {
           </button>
         )}
         <div className="content">
+          {view === "Pipeline" && <Pipeline config={state?.config || {}} onProduction={start} onNotice={setNotice} />}{" "}
           {view === "Overview" && <Overview dashboard={dashboard} />}{" "}
           {view === "Live run" && (
             <LiveRun
@@ -987,6 +1045,7 @@ export default function App() {
             />
           )}{" "}
           {view === "Results" && <Results rows={results} />}{" "}
+          {view === "Artifacts" && <Artifacts onNotice={setNotice} />}{" "}
           {view === "Failures" &&
             (failures.length ? (
               <EventList events={failures} />
@@ -1011,6 +1070,7 @@ export default function App() {
           )}
         </div>
       </main>
+      <DashboardAssistant onNotice={setNotice} />
     </div>
   );
 }

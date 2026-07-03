@@ -25,11 +25,13 @@ from ..providers import (
     credential_statuses,
     discover_local_models,
     discover_models,
+    generate_json,
     save_user_credential,
     test_model,
 )
 from ..session import DEFAULT_SESSION, SessionProfile, select_session_items
 from ..telemetry import TelemetryStore
+from ..workflow import archive_production_run, discover_sources, list_runs, plan_sources
 
 
 BASE = Path(__file__).resolve().parents[3]
@@ -50,19 +52,27 @@ CONFIG_FIELDS = {
     "web_limit": (1, 100),
     "plan_days": (1, 365),
     "plan_per_day": (1, 20),
+    "sources_per_category": (1, 20),
+    "results_per_source": (1, 100),
+    "max_sources": (1, 500),
+    "max_total_requests": (10, 10000),
+    "scrapes_per_day": (1, 24),
+    "shorts_per_day": (0, 20),
 }
 
 
 def _default_config() -> dict:
     profile = DEFAULT_SESSION.as_dict()
     return {
-        **{key: profile[key] for key in CONFIG_FIELDS},
+        **{key: profile[key] for key in CONFIG_FIELDS if key in profile},
         "llm_model": profile["llm_model"], "skip_llm": False,
         "request_timeout_seconds": 20, "retry_limit": 3, "retry_backoff_seconds": 2,
         "global_concurrency": 6, "per_domain_concurrency": 2, "requests_per_minute": 60,
         "freshness_hours": 72, "duplicate_threshold": 0.92, "retention_days": 90,
         "timezone": "America/New_York", "refresh_seconds": 5, "log_level": "INFO",
         "selected_provider": "nvidia", "selected_model": "",
+        "sources_per_category": 3, "results_per_source": 10, "max_sources": 60,
+        "max_total_requests": 500, "scrapes_per_day": 3, "shorts_per_day": 4,
         "nvidia_model": "", "nvidia_temperature": 0.7, "nvidia_top_p": 0.95,
         "nvidia_max_tokens": 4096, "nvidia_thinking": False, "nvidia_stream": False,
     }
@@ -224,6 +234,8 @@ def build_app() -> Flask:
                 run_state["log"].append(line.rstrip())
             telemetry.emit(run_id, "pipeline", "event", message=line.rstrip()[:500])
         exit_code = process.wait()
+        if exit_code == 0:
+            archive_production_run(DATA)
         with run_lock:
             run_state.update(status="succeeded" if exit_code == 0 else "failed", finished_at=datetime.now().isoformat(timespec="seconds"), exit_code=exit_code, process=None)
         telemetry.emit(run_id, "run_completion", "ok" if exit_code == 0 else "error", exit_code=exit_code)
@@ -287,6 +299,53 @@ def build_app() -> Flask:
     def results_list():
         articles = _read_jsonl(DATA / "processed" / "processed_articles.jsonl")
         return jsonify({"results": articles[-250:]})
+
+    @app.post("/api/pipeline/discover")
+    def pipeline_discover():
+        config = _load_config()
+        payload = request.get_json(silent=True) or {}
+        result = discover_sources(DATA, load_categories(CATEGORIES_CONFIG), int(payload.get("sources_per_category", config["sources_per_category"])), int(payload.get("max_sources", config["max_sources"])))
+        telemetry.emit(result["run_id"], "source_discovery", "ok", candidates=len(result["candidates"]))
+        return jsonify(result)
+
+    @app.post("/api/pipeline/plan")
+    def pipeline_plan():
+        payload = request.get_json(silent=True) or {}
+        sources = payload.get("sources", [])
+        if not sources:
+            return jsonify({"ok": False, "error": "Select at least one discovered source"}), 400
+        result = plan_sources(DATA, sources, min(int(payload.get("tips_per_source", 5)), 5))
+        telemetry.emit(result["run_id"], "source_planning", "ok", sources=len(result["plans"]))
+        return jsonify(result)
+
+    @app.get("/api/runs")
+    def runs_list():
+        return jsonify({"runs": list_runs(DATA)})
+
+    @app.get("/api/runs/<run_id>/<path:filename>")
+    def run_artifact(run_id: str, filename: str):
+        folder = (DATA / "runs" / run_id).resolve()
+        if folder.parent != (DATA / "runs").resolve():
+            return jsonify({"error": "Invalid run"}), 400
+        return send_from_directory(folder, filename, as_attachment=True)
+
+    @app.post("/api/assistant")
+    def assistant():
+        question = str((request.get_json(silent=True) or {}).get("question", "")).strip()
+        if not question:
+            return jsonify({"error": "Ask a question"}), 400
+        view = snapshot()
+        runs = list_runs(DATA)[:5]
+        answer = f"Current state: {view['stats']['articles']} articles, {view['stats']['sources']} enabled sources, and {len(runs)} recent stage runs. For the Shorts business, send high-relevance topics into yt_auto and plan {view['config']['shorts_per_day']} Shorts per day."
+        provider = str(view["config"].get("selected_provider", ""))
+        model = str(view["config"].get("selected_model", ""))
+        if model and credential_status(provider) == "configured":
+            try:
+                response = generate_json(provider, model, f'Return JSON with one concise "answer". Question: {question}\nDashboard context: {json.dumps({"stats": view["stats"], "config": view["config"], "recent_runs": runs[:3], "yt_auto": "YouTube Shorts research and production pipeline"}, default=str)}')
+                answer = str(response.get("answer", answer))
+            except Exception:
+                answer += " The configured model was unavailable, so this answer uses local dashboard context only."
+        return jsonify({"answer": answer, "context": {"scraper": view["stats"], "recent_runs": runs, "yt_auto_path": str(Path.home() / "Projects" / "yt_auto")}})
 
     @app.get("/api/events")
     def events_list():
