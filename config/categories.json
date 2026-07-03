@@ -1,0 +1,513 @@
+[
+  {
+    "id": "foundation-model-releases",
+    "name": "Foundation model releases",
+    "enabled": true,
+    "priority": 1,
+    "include_keywords": [
+      "model release",
+      "foundation model",
+      "new model"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#22d3ee"
+  },
+  {
+    "id": "reasoning-models",
+    "name": "Reasoning models",
+    "enabled": true,
+    "priority": 2,
+    "include_keywords": [
+      "reasoning",
+      "thinking model",
+      "chain of thought"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#a78bfa"
+  },
+  {
+    "id": "multimodal-models",
+    "name": "Multimodal models",
+    "enabled": true,
+    "priority": 3,
+    "include_keywords": [
+      "multimodal",
+      "vision language",
+      "vlm"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#34d399"
+  },
+  {
+    "id": "image-generation",
+    "name": "Image generation",
+    "enabled": true,
+    "priority": 4,
+    "include_keywords": [
+      "image generation",
+      "text-to-image",
+      "diffusion"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#f59e0b"
+  },
+  {
+    "id": "video-generation",
+    "name": "Video generation",
+    "enabled": true,
+    "priority": 5,
+    "include_keywords": [
+      "video generation",
+      "text-to-video",
+      "video model"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#f472b6"
+  },
+  {
+    "id": "speech-and-audio-ai",
+    "name": "Speech and audio AI",
+    "enabled": true,
+    "priority": 6,
+    "include_keywords": [
+      "speech",
+      "audio",
+      "voice",
+      "text-to-speech"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#22d3ee"
+  },
+  {
+    "id": "ai-agents",
+    "name": "AI agents",
+    "enabled": true,
+    "priority": 7,
+    "include_keywords": [
+      "ai agent",
+      "agentic",
+      "autonomous agent"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#a78bfa"
+  },
+  {
+    "id": "agent-frameworks",
+    "name": "Agent frameworks",
+    "enabled": true,
+    "priority": 8,
+    "include_keywords": [
+      "agent framework",
+      "multi-agent",
+      "orchestration"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#34d399"
+  },
+  {
+    "id": "mcp-servers-and-integrations",
+    "name": "MCP servers and integrations",
+    "enabled": true,
+    "priority": 9,
+    "include_keywords": [
+      "mcp",
+      "model context protocol"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#f59e0b"
+  },
+  {
+    "id": "developer-sdks-and-apis",
+    "name": "Developer SDKs and APIs",
+    "enabled": true,
+    "priority": 10,
+    "include_keywords": [
+      "sdk",
+      "api",
+      "developer platform"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#f472b6"
+  },
+  {
+    "id": "coding-assistants",
+    "name": "Coding assistants",
+    "enabled": true,
+    "priority": 11,
+    "include_keywords": [
+      "coding assistant",
+      "code generation",
+      "copilot"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#22d3ee"
+  },
+  {
+    "id": "open-source-repositories",
+    "name": "Open-source repositories",
+    "enabled": true,
+    "priority": 12,
+    "include_keywords": [
+      "github",
+      "repository",
+      "open source"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#a78bfa"
+  },
+  {
+    "id": "local-ai-and-edge-inference",
+    "name": "Local AI and edge inference",
+    "enabled": true,
+    "priority": 13,
+    "include_keywords": [
+      "local ai",
+      "on-device",
+      "edge inference"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#34d399"
+  },
+  {
+    "id": "model-optimization-and-quantization",
+    "name": "Model optimization and quantization",
+    "enabled": true,
+    "priority": 14,
+    "include_keywords": [
+      "quantization",
+      "gguf",
+      "optimization"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#f59e0b"
+  },
+  {
+    "id": "training-and-fine-tuning",
+    "name": "Training and fine-tuning",
+    "enabled": true,
+    "priority": 15,
+    "include_keywords": [
+      "fine-tuning",
+      "training",
+      "lora"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#f472b6"
+  },
+  {
+    "id": "datasets-and-benchmarks",
+    "name": "Datasets and benchmarks",
+    "enabled": true,
+    "priority": 16,
+    "include_keywords": [
+      "dataset",
+      "benchmark",
+      "leaderboard"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#22d3ee"
+  },
+  {
+    "id": "research-papers",
+    "name": "Research papers",
+    "enabled": true,
+    "priority": 17,
+    "include_keywords": [
+      "paper",
+      "arxiv",
+      "research"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#a78bfa"
+  },
+  {
+    "id": "ai-infrastructure-and-gpus",
+    "name": "AI infrastructure and GPUs",
+    "enabled": true,
+    "priority": 18,
+    "include_keywords": [
+      "gpu",
+      "inference server",
+      "accelerator"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#34d399"
+  },
+  {
+    "id": "cloud-ai-services",
+    "name": "Cloud AI services",
+    "enabled": true,
+    "priority": 19,
+    "include_keywords": [
+      "cloud ai",
+      "managed ai",
+      "vertex",
+      "bedrock"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#f59e0b"
+  },
+  {
+    "id": "product-launches-and-feature-updates",
+    "name": "Product launches and feature updates",
+    "enabled": true,
+    "priority": 20,
+    "include_keywords": [
+      "launch",
+      "feature",
+      "update"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#f472b6"
+  },
+  {
+    "id": "free-tiers-and-promotions",
+    "name": "Free tiers and promotions",
+    "enabled": true,
+    "priority": 21,
+    "include_keywords": [
+      "free tier",
+      "free plan",
+      "promotion"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#22d3ee"
+  },
+  {
+    "id": "open-source-alternatives",
+    "name": "Open-source alternatives",
+    "enabled": true,
+    "priority": 22,
+    "include_keywords": [
+      "alternative",
+      "self-hosted",
+      "open-source"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#a78bfa"
+  },
+  {
+    "id": "pricing-changes",
+    "name": "Pricing changes",
+    "enabled": true,
+    "priority": 23,
+    "include_keywords": [
+      "pricing",
+      "price change",
+      "cost"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#34d399"
+  },
+  {
+    "id": "funding-acquisitions-and-company-activity",
+    "name": "Funding, acquisitions, and company activity",
+    "enabled": true,
+    "priority": 24,
+    "include_keywords": [
+      "funding",
+      "acquisition",
+      "raises"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#f59e0b"
+  },
+  {
+    "id": "regulation-policy-and-safety",
+    "name": "Regulation, policy, and safety",
+    "enabled": true,
+    "priority": 25,
+    "include_keywords": [
+      "regulation",
+      "policy",
+      "ai safety"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#f472b6"
+  },
+  {
+    "id": "security-vulnerabilities-and-incidents",
+    "name": "Security vulnerabilities and incidents",
+    "enabled": true,
+    "priority": 26,
+    "include_keywords": [
+      "vulnerability",
+      "security incident",
+      "cve"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#22d3ee"
+  },
+  {
+    "id": "tutorials-and-implementation-guides",
+    "name": "Tutorials and implementation guides",
+    "enabled": true,
+    "priority": 27,
+    "include_keywords": [
+      "tutorial",
+      "guide",
+      "how to"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#a78bfa"
+  },
+  {
+    "id": "workflow-automation",
+    "name": "Workflow automation",
+    "enabled": true,
+    "priority": 28,
+    "include_keywords": [
+      "automation",
+      "workflow",
+      "no-code"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#34d399"
+  },
+  {
+    "id": "business-use-cases",
+    "name": "Business use cases",
+    "enabled": true,
+    "priority": 29,
+    "include_keywords": [
+      "business",
+      "enterprise",
+      "case study"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#f59e0b"
+  },
+  {
+    "id": "creator-tools-and-content-production",
+    "name": "Creator tools and content production",
+    "enabled": true,
+    "priority": 30,
+    "include_keywords": [
+      "creator",
+      "content production",
+      "video editor"
+    ],
+    "exclude_keywords": [],
+    "source_ids": [],
+    "result_target": 10,
+    "freshness_hours": 72,
+    "minimum_relevance": 0.45,
+    "color": "#f472b6"
+  }
+]
