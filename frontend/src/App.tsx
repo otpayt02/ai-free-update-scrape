@@ -1,40 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import ReactECharts from "echarts-for-react";
-import {
-  createColumnHelper,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
 
-type Category = {
-  id: string;
-  name: string;
-  enabled: boolean;
-  priority: number;
-  include_keywords: string[];
-  exclude_keywords: string[];
-  source_ids: string[];
-  result_target: number;
-  mandatory_results: boolean;
-  freshness_hours: number;
-  date_mode: "freshness" | "custom";
-  date_start: string;
-  date_end: string;
-  minimum_relevance: number;
-  color: string;
-};
-type Source = { name: string; url: string; enabled?: boolean; type?: string };
-type Event = {
-  event_id: string;
-  run_id: string;
-  trace_id: string;
-  timestamp: number;
-  stage: string;
-  status: string;
-  message?: string;
-  exit_code?: number;
-};
 type Result = {
   title: string;
   url: string;
@@ -45,1032 +10,132 @@ type Result = {
   ranking?: { top_score?: number };
   detection?: { type?: string };
 };
-type Config = Record<string, string | number | boolean>;
-type Dashboard = {
-  stats: Record<string, number>;
-  run: Record<string, unknown>;
-  events: Event[];
-  categories: Category[];
-  credential_status: string;
-  credential_statuses: Record<string, string>;
-};
-type ModelOption = {
-  id: string;
-  name: string;
-  provider: string;
-  metadata?: Record<string, unknown>;
-};
-type State = {
-  config: Config;
-  sources: { rss: Source[]; scrape: Source[] };
-  run: { status: string; log: string[]; run_id?: string; started_at?: string };
-  stats: Record<string, number>;
-};
-type Candidate = { id: string; name: string; url: string; domain: string; category: string; headline: string; selected: boolean };
-type SourcePlan = { source: string; url: string; status: string; http_status?: number; robots: string; tips: string[] };
-type RunFolder = { id: string; count: number; files: { name: string; size: number }[] };
 
-const nav = [
-  "Sources",
-  "Pipeline",
-  "Overview",
-  "Live run",
-  "Categories",
-  "Results",
-  "Artifacts",
-  "Failures",
-  "Traces",
-  "Schedules",
-  "Configuration",
-] as const;
-type View = (typeof nav)[number];
+type Dashboard = {
+  run: { finished_at?: string; started_at?: string };
+};
+
+type State = {
+  run: { status: string };
+};
+
+type Decision = "relevant" | "ignored" | "sheets";
+type TimeFilter = "today" | "3days" | "week";
+type SortMode = "recent" | "relevance";
+
+const categories = ["Models", "Tools", "Infra", "Policy", "Business"];
+const tagOptions = ["Free/open-source", "Local", "Reasoning", "Cloud", "Storage/KB"];
+
 const api = async <T,>(url: string, options?: RequestInit): Promise<T> => {
   const response = await fetch(url, {
     headers: { "Content-Type": "application/json" },
     ...options,
   });
   const data = await response.json();
-  if (!response.ok)
-    throw new Error(data.error || data.errors?.join(". ") || "Request failed");
+  if (!response.ok) throw new Error(data.error || "Request failed");
   return data;
 };
 
-function Stat({
-  label,
-  value,
-  tone = "cyan",
-}: {
-  label: string;
-  value: string | number;
-  tone?: string;
-}) {
-  return (
-    <div className={`stat tone-${tone}`}>
-      <span>{label}</span>
-      <strong>{value}</strong>
-    </div>
-  );
-}
-function Status({ value }: { value: string }) {
-  return <span className={`status status-${value}`}>{value}</span>;
-}
-function Empty({ children }: { children: string }) {
-  return <div className="empty">{children}</div>;
+function categoryFor(item: Result): string {
+  const text = `${item.categories?.join(" ")} ${item.topics?.join(" ")} ${item.title}`.toLowerCase();
+  if (/policy|regulat|safety|law/.test(text)) return "Policy";
+  if (/business|funding|enterprise|pricing/.test(text)) return "Business";
+  if (/infra|gpu|cloud|database|storage|vector/.test(text)) return "Infra";
+  if (/tool|agent|sdk|api|workflow|assistant/.test(text)) return "Tools";
+  return "Models";
 }
 
-function Overview({ dashboard }: { dashboard: Dashboard | null }) {
-  const events = dashboard?.events || [];
-  const buckets = useMemo(() => {
-    const map = new Map<string, { ok: number; error: number }>();
-    events.forEach((event) => {
-      const time = new Date(event.timestamp * 1000).toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      });
-      const bucket = map.get(time) || { ok: 0, error: 0 };
-      event.status === "error" ? bucket.error++ : bucket.ok++;
-      map.set(time, bucket);
-    });
-    return [...map.entries()].slice(-18);
-  }, [events]);
-  const chart = {
-    backgroundColor: "transparent",
-    tooltip: { trigger: "axis" },
-    legend: { textStyle: { color: "#7f91a7" }, data: ["events", "errors"] },
-    grid: { left: 35, right: 12, top: 35, bottom: 25 },
-    xAxis: {
-      type: "category",
-      data: buckets.map((x) => x[0]),
-      axisLabel: { color: "#66788d" },
-      axisLine: { lineStyle: { color: "#263749" } },
-    },
-    yAxis: {
-      type: "value",
-      axisLabel: { color: "#66788d" },
-      splitLine: { lineStyle: { color: "#162536" } },
-    },
-    series: [
-      {
-        name: "events",
-        type: "line",
-        smooth: true,
-        showSymbol: false,
-        data: buckets.map((x) => x[1].ok),
-        lineStyle: { color: "#22d3ee" },
-        areaStyle: { color: "rgba(34,211,238,.12)" },
-      },
-      {
-        name: "errors",
-        type: "line",
-        showSymbol: false,
-        data: buckets.map((x) => x[1].error),
-        lineStyle: { color: "#fb7185" },
-      },
-    ],
-  };
-  return (
-    <div className="view-stack">
-      <div className="stats-grid">
-        <Stat label="articles" value={dashboard?.stats.articles ?? 0} />
-        <Stat
-          label="selected"
-          value={dashboard?.stats.session_articles ?? 0}
-          tone="green"
-        />
-        <Stat
-          label="sources"
-          value={dashboard?.stats.sources ?? 0}
-          tone="violet"
-        />
-        <Stat label="runs" value={dashboard?.stats.runs ?? 0} />
-        <Stat label="events" value={dashboard?.stats.telemetry_events ?? 0} />
-        <Stat
-          label="failures"
-          value={dashboard?.stats.failures ?? 0}
-          tone="red"
-        />
-      </div>
-      <section className="panel chart-panel">
-        <div className="panel-title">
-          <span>Pipeline activity</span>
-          <small>events / minute</small>
-        </div>
-        {buckets.length ? (
-          <ReactECharts option={chart} className="activity-chart" />
-        ) : (
-          <Empty>No telemetry yet. Run a scrape to populate this chart.</Empty>
-        )}
-      </section>
-      <div className="split">
-        <section className="panel">
-          <div className="panel-title">
-            <span>Stage volume</span>
-            <small>bounded labels</small>
-          </div>
-          <div className="metric-list">
-            {Object.entries(dashboard?.stats || {})
-              .slice(0, 8)
-              .map(([key, value]) => (
-                <div key={key}>
-                  <span>{key.replaceAll("_", " ")}</span>
-                  <b>{value}</b>
-                </div>
-              ))}
-          </div>
-        </section>
-        <section className="panel">
-          <div className="panel-title">
-            <span>Recent events</span>
-            <small>latest 8</small>
-          </div>
-          <EventList events={events.slice(-8).reverse()} />
-        </section>
-      </div>
-    </div>
-  );
-}
-function EventList({ events }: { events: Event[] }) {
-  return events.length ? (
-    <div className="event-list">
-      {events.map((event) => (
-        <div className="event-row" key={event.event_id}>
-          <Status value={event.status} />
-          <span>{event.stage.replaceAll("_", " ")}</span>
-          <time>{new Date(event.timestamp * 1000).toLocaleTimeString()}</time>
-        </div>
-      ))}
-    </div>
-  ) : (
-    <Empty>No events recorded.</Empty>
-  );
-}
-function LiveRun({
-  state,
-  onCancel,
-}: {
-  state: State | null;
-  onCancel: () => void;
-}) {
-  const run = state?.run;
-  return (
-    <div className="view-stack">
-      <div className="stats-grid">
-        <Stat
-          label="state"
-          value={run?.status || "idle"}
-          tone={run?.status === "failed" ? "red" : "green"}
-        />
-        <Stat label="run id" value={run?.run_id?.slice(0, 8) || "—"} />
-        <Stat label="log lines" value={run?.log?.length || 0} />
-      </div>
-      <section className="panel">
-        <div className="panel-title">
-          <span>Execution stream</span>
-          <button
-            className="button danger"
-            disabled={run?.status !== "running"}
-            onClick={onCancel}
-          >
-            Cancel
-          </button>
-        </div>
-        <pre className="console">
-          {run?.log?.join("\n") || "No active execution."}
-        </pre>
-      </section>
-    </div>
-  );
-}
-
-function Categories({
-  items,
-  onSave,
-}: {
-  items: Category[];
-  onSave: (items: Category[]) => void;
-}) {
-  const [rows, setRows] = useState(items);
-  const [selected, setSelected] = useState<Category | null>(null);
-  const [equalPriority, setEqualPriority] = useState(false);
-  const [dragged, setDragged] = useState<string | null>(null);
-  useEffect(() => setRows(items), [items]);
-  const update = (next: Category) => {
-    setRows((current) =>
-      current.map((item) => (item.id === next.id ? next : item)),
-    );
-    setSelected(next);
-  };
-  const reorder = (targetId: string) => {
-    if (!dragged || equalPriority || dragged === targetId) return;
-    setRows((current) => {
-      const next = [...current];
-      const from = next.findIndex((item) => item.id === dragged);
-      const to = next.findIndex((item) => item.id === targetId);
-      const [moved] = next.splice(from, 1);
-      next.splice(to, 0, moved);
-      return next.map((item, index) => ({ ...item, priority: index + 1 }));
-    });
-  };
-  return (
-    <div className="with-inspector">
-      <section className="panel table-panel">
-        <div className="panel-title">
-          <span>{rows.length} categories</span>
-          <label className="compact-control"><input type="checkbox" checked={equalPriority} onChange={(event) => {
-            setEqualPriority(event.target.checked);
-            if (event.target.checked) setRows((current) => current.map((item) => ({ ...item, priority: 1 })));
-          }} /> Equal priority</label>
-          <button className="button primary" onClick={() => onSave(rows)}>
-            Save
-          </button>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Order / On</th>
-              <th>Category</th>
-              <th>Priority (1-1000)</th>
-              <th>Required / Target (1-100)</th>
-              <th>Freshness (1-8760h)</th>
-              <th>Min relevance (0-100%)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.id} draggable={!equalPriority} onDragStart={() => setDragged(row.id)} onDragOver={(event) => event.preventDefault()} onDrop={() => reorder(row.id)} onClick={() => setSelected(row)}>
-                <td>
-                  <button className="drag-control" disabled={equalPriority}>Drag</button>
-                  <input
-                    type="checkbox"
-                    checked={row.enabled}
-                    onChange={(event) =>
-                      update({ ...row, enabled: event.target.checked })
-                    }
-                  />
-                </td>
-                <td>
-                  <code>{row.color}</code> {row.name}
-                </td>
-                <td>{equalPriority ? "Equal" : row.priority}</td>
-                <td><input type="checkbox" checked={row.mandatory_results} title="Require target before category completion" onChange={(event) => update({ ...row, mandatory_results: event.target.checked })} /><input className="table-number" type="number" min="1" max="100" value={row.result_target} onChange={(event) => update({ ...row, result_target: Number(event.target.value) })} /></td>
-                <td>{row.date_mode === "custom" ? `${row.date_start || "Start"} to ${row.date_end || "End"}` : <input className="table-number" type="number" min="1" max="8760" value={row.freshness_hours} onChange={(event) => update({ ...row, freshness_hours: Number(event.target.value) })} />}</td>
-                <td><input className="table-number" type="number" min="0" max="100" value={Math.round(row.minimum_relevance * 100)} onChange={(event) => update({ ...row, minimum_relevance: Number(event.target.value) / 100 })} /></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
-      {selected && (
-        <aside className="inspector">
-          <div className="panel-title">
-            <span>Edit category</span>
-            <button className="icon-button" onClick={() => setSelected(null)}>
-              ×
-            </button>
-          </div>
-          <Field
-            label="Name"
-            value={selected.name}
-            onChange={(value) => update({ ...selected, name: value })}
-          />
-          <Field
-            label="Priority"
-            type="number"
-            value={selected.priority}
-            onChange={(value) =>
-              update({ ...selected, priority: Number(value) })
-            }
-          />
-          <Field
-            label="Result target"
-            type="number"
-            value={selected.result_target}
-            onChange={(value) =>
-              update({ ...selected, result_target: Number(value) })
-            }
-          />
-          <Field
-            label="Freshness hours"
-            type="number"
-            value={selected.freshness_hours}
-            onChange={(value) =>
-              update({ ...selected, freshness_hours: Number(value) })
-            }
-          />
-          <label className="field"><span>Date filter</span><select value={selected.date_mode} onChange={(event) => update({ ...selected, date_mode: event.target.value as Category["date_mode"] })}><option value="freshness">Rolling freshness</option><option value="custom">Custom range</option></select></label>
-          {selected.date_mode === "custom" && <><Field label="Start date" type="date" value={selected.date_start} onChange={(value) => update({ ...selected, date_start: value })} /><Field label="End date" type="date" value={selected.date_end} onChange={(value) => update({ ...selected, date_end: value })} /></>}
-          <Field
-            label="Include keywords"
-            value={selected.include_keywords.join(", ")}
-            onChange={(value) =>
-              update({
-                ...selected,
-                include_keywords: value
-                  .split(",")
-                  .map((x) => x.trim())
-                  .filter(Boolean),
-              })
-            }
-          />
-          <Field
-            label="Exclude keywords"
-            value={selected.exclude_keywords.join(", ")}
-            onChange={(value) =>
-              update({
-                ...selected,
-                exclude_keywords: value
-                  .split(",")
-                  .map((x) => x.trim())
-                  .filter(Boolean),
-              })
-            }
-          />
-          <Field
-            label="Chart color"
-            type="color"
-            value={selected.color}
-            onChange={(value) => update({ ...selected, color: value })}
-          />
-        </aside>
-      )}
-    </div>
-  );
-}
-function Field({
-  label,
-  value,
-  onChange,
-  type = "text",
-}: {
-  label: string;
-  value: string | number;
-  onChange: (value: string) => void;
-  type?: string;
-}) {
-  return (
-    <label className="field">
-      <span>{label}</span>
-      <input
-        type={type}
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-      />
-    </label>
-  );
-}
-function Sources({
-  sources,
-  onSave,
-  onTest,
-}: {
-  sources: { rss: Source[]; scrape: Source[] };
-  onSave: (value: { rss: Source[]; scrape: Source[] }) => void;
-  onTest: (source: Source) => void;
-}) {
-  const [value, setValue] = useState(sources);
-  useEffect(() => setValue(sources), [sources]);
-  const all = [
-    ...value.rss.map((x) => ({ ...x, group: "rss" })),
-    ...value.scrape.map((x) => ({ ...x, group: "scrape" })),
-  ];
-  return (
-    <section className="panel table-panel">
-      <div className="panel-title">
-        <span>{all.length} sources</span>
-        <button className="button primary" onClick={() => onSave(value)}>
-          Save
-        </button>
-      </div>
-      <table>
-        <thead>
-          <tr>
-            <th>On</th>
-            <th>Source</th>
-            <th>Type</th>
-            <th>URL</th>
-            <th>Probe</th>
-          </tr>
-        </thead>
-        <tbody>
-          {all.map((source, index) => (
-            <tr key={`${source.group}-${source.url}`}>
-              <td>
-                <input
-                  type="checkbox"
-                  checked={source.enabled !== false}
-                  onChange={(event) => {
-                    const key = source.group as "rss" | "scrape";
-                    setValue((current) => ({
-                      ...current,
-                      [key]: current[key].map((item, i) =>
-                        i ===
-                        (source.group === "rss"
-                          ? index
-                          : index - value.rss.length)
-                          ? { ...item, enabled: event.target.checked }
-                          : item,
-                      ),
-                    }));
-                  }}
-                />
-              </td>
-              <td>{source.name}</td>
-              <td>{source.type || "rss"}</td>
-              <td className="truncate">{source.url}</td>
-              <td>
-                <button className="button" onClick={() => onTest(source)}>
-                  Test
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </section>
-  );
-}
-
-const columnHelper = createColumnHelper<Result>();
-function Pipeline({ config, onProduction, onNotice }: { config: Config; onProduction: () => void; onNotice: (value: string) => void }) {
-  const [stage, setStage] = useState(1);
-  const [busy, setBusy] = useState(false);
-  const [candidates, setCandidates] = useState<Candidate[]>([]);
-  const [plans, setPlans] = useState<SourcePlan[]>([]);
-  const runDiscovery = async () => {
-    setBusy(true);
-    try {
-      const data = await api<{ candidates: Candidate[] }>("/api/pipeline/discover", { method: "POST", body: JSON.stringify({ sources_per_category: config.sources_per_category, max_sources: config.max_sources }) });
-      setCandidates(data.candidates); setStage(1); onNotice(`${data.candidates.length} sources discovered`);
-    } catch (error) { onNotice((error as Error).message); } finally { setBusy(false); }
-  };
-  const runPlanning = async () => {
-    setBusy(true);
-    try {
-      const data = await api<{ plans: SourcePlan[] }>("/api/pipeline/plan", { method: "POST", body: JSON.stringify({ sources: candidates.filter((item) => item.selected), tips_per_source: 5 }) });
-      setPlans(data.plans); setStage(2); onNotice(`${data.plans.length} source plans created`);
-    } catch (error) { onNotice((error as Error).message); } finally { setBusy(false); }
-  };
-  return <div className="view-stack">
-    <section className="stage-strip"><button className={stage === 1 ? "active" : ""} onClick={() => setStage(1)}><b>01</b><span>Discover sources</span></button><button className={stage === 2 ? "active" : ""} onClick={() => setStage(2)}><b>02</b><span>Plan access</span></button><button className={stage === 3 ? "active" : ""} onClick={() => setStage(3)}><b>03</b><span>Production scrape</span></button></section>
-    {stage === 1 && <section className="panel table-panel"><div className="panel-title"><span>Who to scrape</span><button className="button primary" disabled={busy} onClick={runDiscovery}>{busy ? "Scanning" : "Scan today"}</button></div><div className="limit-line">{String(config.sources_per_category)} sources/category · {String(config.max_sources)} max sources · current web/news discovery</div>{candidates.length ? <table><thead><tr><th>Use</th><th>Source</th><th>Category</th><th>Current signal</th></tr></thead><tbody>{candidates.map((item) => <tr key={item.id}><td><input type="checkbox" checked={item.selected} onChange={(event) => setCandidates((rows) => rows.map((row) => row.id === item.id ? { ...row, selected: event.target.checked } : row))} /></td><td><a href={item.url} target="_blank">{item.domain}</a></td><td>{item.category}</td><td>{item.headline}</td></tr>)}</tbody></table> : <Empty>Run discovery to find current sources by enabled category.</Empty>}<div className="panel-action"><button className="button" disabled={!candidates.some((item) => item.selected)} onClick={runPlanning}>Plan selected sources</button></div></section>}
-    {stage === 2 && <section className="panel table-panel"><div className="panel-title"><span>How to scrape</span><small>up to 5 findings/source</small></div>{plans.length ? <table><thead><tr><th>Source</th><th>Access</th><th>HTTP</th><th>Robots</th><th>Plan</th></tr></thead><tbody>{plans.map((plan) => <tr key={plan.url}><td>{plan.source}</td><td><Status value={plan.status} /></td><td>{plan.http_status || "—"}</td><td>{plan.robots}</td><td>{plan.tips.join(" · ")}</td></tr>)}</tbody></table> : <Empty>Select sources in stage 01, then generate access plans.</Empty>}</section>}
-    {stage === 3 && <section className="panel production-stage"><div><span className="eyebrow">Production limits</span><h2>Run the configured topic scrape</h2><p>{String(config.results_per_source)} results/source · {String(config.max_total_requests)} requests max · {String(config.max_items_per_run)} results max</p></div><button className="button primary" onClick={onProduction}>Run production scrape</button></section>}
-  </div>;
-}
-
-function Artifacts({ onNotice }: { onNotice: (value: string) => void }) {
-  const [runs, setRuns] = useState<RunFolder[]>([]);
-  useEffect(() => { api<{ runs: RunFolder[] }>("/api/runs").then((data) => setRuns(data.runs)).catch((error) => onNotice(error.message)); }, [onNotice]);
-  return <div className="artifact-grid">{runs.map((run) => <section className="panel run-folder" key={run.id}><div className="panel-title"><span>{run.id}</span><small>{run.count} files</small></div>{run.files.map((file) => <a key={file.name} href={`/api/runs/${run.id}/${file.name}`}>{file.name}<small>{Math.ceil(file.size / 1024)} KB</small></a>)}</section>)}{!runs.length && <Empty>No stage artifacts yet.</Empty>}</div>;
-}
-
-function Results({ rows }: { rows: Result[] }) {
-  const columns = useMemo(
-    () => [
-      columnHelper.accessor("title", {
-        header: "Title",
-        cell: (info) => (
-          <a href={info.row.original.url} target="_blank">
-            {info.getValue()}
-          </a>
-        ),
-      }),
-      columnHelper.accessor("source", { header: "Source" }),
-      columnHelper.accessor("published", { header: "Published" }),
-      columnHelper.display({
-        id: "score",
-        header: "Score",
-        cell: (info) => info.row.original.ranking?.top_score ?? "—",
-      }),
-      columnHelper.display({
-        id: "topics",
-        header: "Topics",
-        cell: (info) =>
-          (info.row.original.categories || info.row.original.topics || []).join(
-            ", ",
-          ) || "—",
-      }),
-    ],
-    [],
-  );
-  const table = useReactTable({
-    data: rows,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
+function tagsFor(item: Result): string[] {
+  const text = `${item.title} ${item.categories?.join(" ")} ${item.topics?.join(" ")} ${item.detection?.type || ""}`.toLowerCase();
+  return tagOptions.filter((tag) => {
+    if (tag === "Free/open-source") return /free|open.source|github|self.host/.test(text);
+    if (tag === "Local") return /local|on.device|edge|offline/.test(text);
+    if (tag === "Reasoning") return /reason|thinking|chain.of.thought/.test(text);
+    if (tag === "Cloud") return /cloud|hosted|api|context/.test(text);
+    return /storage|knowledge base|\bkb\b|vector|memory/.test(text);
   });
-  return (
-    <section className="panel table-panel">
-      <div className="panel-title">
-        <span>{rows.length} results</span>
-        <small>latest processed</small>
-      </div>
-      <table>
-        <thead>
-          {table.getHeaderGroups().map((group) => (
-            <tr key={group.id}>
-              {group.headers.map((header) => (
-                <th key={header.id}>
-                  {flexRender(
-                    header.column.columnDef.header,
-                    header.getContext(),
-                  )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </section>
-  );
-}
-function Configuration({
-  config,
-  onSave,
-  onNotice,
-}: {
-  config: Config;
-  onSave: (value: Config) => void;
-  onNotice: (message: string) => void;
-}) {
-  const [value, setValue] = useState(config);
-  const [dirty, setDirty] = useState(false);
-  const [models, setModels] = useState<ModelOption[]>([]);
-  const [modelFilter, setModelFilter] = useState("");
-  const [loadingModels, setLoadingModels] = useState(false);
-  const [statuses, setStatuses] = useState<Record<string, string>>({});
-  const [keyInputs, setKeyInputs] = useState<Record<string, string>>({});
-  useEffect(() => {
-    if (!dirty) setValue(config);
-  }, [config, dirty]);
-  const set = (key: string, next: string | number | boolean) => {
-    setDirty(true);
-    setValue((current) => ({ ...current, [key]: next }));
-  };
-  const discover = useCallback(async () => {
-    setLoadingModels(true);
-    try {
-      const data = await api<{
-        models: ModelOption[];
-        errors: Record<string, string>;
-        credential_statuses: Record<string, string>;
-      }>("/api/models?provider=all");
-      setModels(data.models);
-      setStatuses(data.credential_statuses);
-      const failures = Object.keys(data.errors);
-      onNotice(
-        `${data.models.length} models loaded${failures.length ? `; unavailable: ${failures.join(", ")}` : ""}`,
-      );
-    } catch (error) {
-      onNotice((error as Error).message);
-    } finally {
-      setLoadingModels(false);
-    }
-  }, [onNotice]);
-  useEffect(() => {
-    api<{ providers: Record<string, string> }>("/api/credentials/status")
-      .then((data) => setStatuses(data.providers))
-      .catch((error) => onNotice(error.message));
-    discover();
-  }, [discover, onNotice]);
-  const saveCredential = async (provider: string) => {
-    const apiKey = keyInputs[provider] || "";
-    if (!apiKey) return;
-    try {
-      await api("/api/credentials", {
-        method: "POST",
-        body: JSON.stringify({ provider, api_key: apiKey }),
-      });
-      setKeyInputs((current) => ({ ...current, [provider]: "" }));
-      setStatuses((current) => ({ ...current, [provider]: "configured" }));
-      onNotice(`${provider} credential saved to the Windows user environment`);
-      await discover();
-    } catch (error) {
-      setKeyInputs((current) => ({ ...current, [provider]: "" }));
-      onNotice((error as Error).message);
-    }
-  };
-  const selectedProvider = String(value.selected_provider || "nvidia");
-  const visibleModels = models.filter(
-    (model) =>
-      (selectedProvider === "all" || model.provider === selectedProvider) &&
-      `${model.name} ${model.id}`.toLowerCase().includes(modelFilter.toLowerCase()),
-  );
-  const numeric = [
-    "global_concurrency",
-    "per_domain_concurrency",
-    "requests_per_minute",
-    "request_timeout_seconds",
-    "retry_limit",
-    "retry_backoff_seconds",
-    "freshness_hours",
-    "retention_days",
-    "refresh_seconds",
-    "nvidia_temperature",
-    "nvidia_top_p",
-    "nvidia_max_tokens",
-    "sources_per_category",
-    "results_per_source",
-    "max_sources",
-    "max_total_requests",
-    "scrapes_per_day",
-    "shorts_per_day",
-  ];
-  return (
-    <div className="config-layout">
-      <section className="panel form-panel">
-        <div className="panel-title">
-          <span>Runtime</span>
-          <button
-            className="button primary"
-            onClick={() => {
-              onSave(value);
-              setDirty(false);
-            }}
-          >
-            {dirty ? "Save changes" : "Saved"}
-          </button>
-        </div>
-        {numeric.slice(0, 9).map((key) => (
-          <Field
-            key={key}
-            label={key.replaceAll("_", " ")}
-            type="number"
-            value={String(value[key] ?? "")}
-            onChange={(next) => set(key, Number(next))}
-          />
-        ))}
-      </section>
-      <section className="panel form-panel">
-        <div className="panel-title">
-          <span>Models</span>
-          <button className="button" disabled={loadingModels} onClick={discover}>
-            {loadingModels ? "Loading" : "Refresh"}
-          </button>
-        </div>
-        <label className="field">
-          <span>Provider</span>
-          <select
-            value={selectedProvider}
-            onChange={(event) => set("selected_provider", event.target.value)}
-          >
-            {["nvidia", "openrouter", "gemini", "featherless", "openai", "lm-studio", "vllm", "llama-cpp", "ollama-local"].map((provider) => (
-              <option key={provider} value={provider}>{provider}</option>
-            ))}
-          </select>
-        </label>
-        <Field label="Filter models" value={modelFilter} onChange={setModelFilter} />
-        <label className="field">
-          <span>Model ({visibleModels.length})</span>
-          <select
-            value={String(value.selected_model || "")}
-            onChange={(event) => set("selected_model", event.target.value)}
-          >
-            <option value="">Select a model</option>
-            {visibleModels.map((model) => (
-              <option key={`${model.provider}:${model.id}`} value={model.id}>
-                {model.name}
-              </option>
-            ))}
-          </select>
-        </label>
-        {numeric.slice(9).map((key) => (
-          <Field
-            key={key}
-            label={key.replaceAll("_", " ")}
-            type="number"
-            value={String(value[key] ?? "")}
-            onChange={(next) => set(key, Number(next))}
-          />
-        ))}
-        <label className="check">
-          <input
-            type="checkbox"
-            checked={Boolean(value.nvidia_thinking)}
-            onChange={(event) => set("nvidia_thinking", event.target.checked)}
-          />
-          thinking
-        </label>
-        <div className="action-row">
-          <button
-            className="button"
-            disabled={!value.selected_model}
-            onClick={() =>
-              api("/api/models/test", {
-                method: "POST",
-                body: JSON.stringify({
-                  provider: value.selected_provider,
-                  model: value.selected_model,
-                }),
-              })
-                .then((data) => onNotice(JSON.stringify(data)))
-                .catch((error) => onNotice(error.message))
-            }
-          >
-            Test
-          </button>
-        </div>
-      </section>
-      <section className="panel credential-panel">
-        <div className="panel-title"><span>Credentials</span><small>Windows user environment</small></div>
-        {Object.entries({
-          nvidia: "NVIDIA_API_KEY",
-          openrouter: "OPENROUTER_API_KEY",
-          gemini: "GEMINI_API_KEY",
-          featherless: "FEATHERLESS_API_KEY",
-          openai: "OPENAI_API_KEY",
-        }).map(([provider, envName]) => (
-          <div className="credential-row" key={provider}>
-            <div><b>{provider}</b><small>{envName}</small></div>
-            <Status value={statuses[provider] || "missing"} />
-            <input
-              type="password"
-              autoComplete="off"
-              placeholder="Paste replacement key"
-              value={keyInputs[provider] || ""}
-              onChange={(event) =>
-                setKeyInputs((current) => ({ ...current, [provider]: event.target.value }))
-              }
-            />
-            <button className="button" disabled={!keyInputs[provider]} onClick={() => saveCredential(provider)}>Save key</button>
-          </div>
-        ))}
-      </section>
-    </div>
-  );
 }
 
-function Schedules({
-  config,
-  onSave,
-}: {
-  config: Config;
-  onSave: (value: Config) => void;
-}) {
-  const [value, setValue] = useState(config);
-  useEffect(() => setValue(config), [config]);
-  return (
-    <section className="panel form-panel">
-      <div className="panel-title">
-        <span>Schedule defaults</span>
-        <button className="button primary" onClick={() => onSave(value)}>
-          Save
-        </button>
-      </div>
-      <Field
-        label="Timezone"
-        value={String(value.timezone || "America/New_York")}
-        onChange={(timezone) => setValue((current) => ({ ...current, timezone }))}
-      />
-      <Field
-        label="Planning days"
-        type="number"
-        value={String(value.plan_days || 60)}
-        onChange={(plan_days) =>
-          setValue((current) => ({ ...current, plan_days: Number(plan_days) }))
-        }
-      />
-      <Field
-        label="Items per day"
-        type="number"
-        value={String(value.plan_per_day || 4)}
-        onChange={(plan_per_day) =>
-          setValue((current) => ({ ...current, plan_per_day: Number(plan_per_day) }))
-        }
-      />
-    </section>
-  );
+function scoreFor(item: Result): number {
+  return Number(item.ranking?.top_score || 0);
 }
 
-function DashboardAssistant({ onNotice }: { onNotice: (value: string) => void }) {
-  const [open, setOpen] = useState(false);
-  const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
-  const ask = async () => {
-    try {
-      const data = await api<{ answer: string }>("/api/assistant", { method: "POST", body: JSON.stringify({ question }) });
-      setAnswer(data.answer);
-    } catch (error) { onNotice((error as Error).message); }
-  };
-  return <div className={`assistant ${open ? "open" : ""}`}><button className="assistant-trigger" aria-label="Open dashboard assistant" onClick={() => setOpen((value) => !value)}>✦</button>{open && <section><div className="panel-title"><span>Business assistant</span><button className="icon-button" onClick={() => setOpen(false)}>×</button></div><small>Scraper + yt_auto context</small>{answer && <p>{answer}</p>}<textarea value={question} onChange={(event) => setQuestion(event.target.value)} placeholder="Ask about a run, source, result, or Shorts plan" /><button className="button primary" disabled={!question.trim()} onClick={ask}>Ask</button></section>}</div>;
+function fitFor(item: Result): "Strong" | "Medium" | "Weak" {
+  const score = scoreFor(item);
+  if (score >= 0.7) return "Strong";
+  if (score >= 0.4) return "Medium";
+  return "Weak";
+}
+
+function coverageFor(item: Result): "Low" | "Medium" | "High" {
+  const count = (item.categories?.length || 0) + (item.topics?.length || 0) + tagsFor(item).length;
+  if (count >= 6) return "High";
+  if (count >= 3) return "Medium";
+  return "Low";
+}
+
+function itemKey(item: Result): string {
+  return item.url || `${item.source}-${item.title}`;
+}
+
+function Header({ lastScrape, running, onRun }: { lastScrape?: string; running: boolean; onRun: () => void }) {
+  return <header className="topbar"><div><h1>AI Free Stacker</h1><span>Last scrape: {lastScrape ? new Date(lastScrape).toLocaleString() : "Not available"}</span></div><button className="primary" disabled={running} onClick={onRun}>{running ? "Running…" : "Run new scrape"}</button></header>;
+}
+
+function Filters({ time, setTime, selectedCategories, toggleCategory, selectedTags, toggleTag }: { time: TimeFilter; setTime: (value: TimeFilter) => void; selectedCategories: string[]; toggleCategory: (value: string) => void; selectedTags: string[]; toggleTag: (value: string) => void }) {
+  return <aside className="filters"><FilterGroup label="Time">{[["Today", "today"], ["Last 3 days", "3days"], ["Last week", "week"]].map(([label, value]) => <button key={value} className={time === value ? "selected" : ""} onClick={() => setTime(value as TimeFilter)}>{label}</button>)}</FilterGroup><FilterGroup label="Category">{categories.map((value) => <button key={value} className={selectedCategories.includes(value) ? "selected" : ""} onClick={() => toggleCategory(value)}>{value}</button>)}</FilterGroup><FilterGroup label="Tags">{tagOptions.map((value) => <button key={value} className={selectedTags.includes(value) ? "selected" : ""} onClick={() => toggleTag(value)}>{value}</button>)}</FilterGroup></aside>;
+}
+
+function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
+  return <section><h2>{label}</h2><div>{children}</div></section>;
+}
+
+function ResultsList({ items, decisions, onDecision }: { items: Result[]; decisions: Record<string, Decision>; onDecision: (item: Result, value: Decision) => void }) {
+  return <div className="table-wrap"><table><thead><tr><th>Update</th><th>Source</th><th>Published</th><th>Category</th><th>Tags</th><th>Fit</th><th>Coverage</th><th>Actions</th></tr></thead><tbody>{items.map((item) => { const key = itemKey(item); const tags = tagsFor(item); return <tr key={key}><td className="title-cell"><a href={item.url} target="_blank" rel="noreferrer">{item.title}</a></td><td>{item.source || "Unknown"}</td><td className="nowrap">{item.published ? new Date(item.published).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) : "—"}</td><td>{categoryFor(item)}</td><td><div className="tags">{tags.length ? tags.map((tag) => <span key={tag}>{tag}</span>) : <span>—</span>}</div></td><td><span className={`signal ${fitFor(item).toLowerCase()}`}>{fitFor(item)}</span></td><td>{coverageFor(item)}</td><td><div className="actions"><button className={decisions[key] === "relevant" ? "active" : ""} onClick={() => onDecision(item, "relevant")}>Relevant</button><button className={decisions[key] === "ignored" ? "active danger" : ""} onClick={() => onDecision(item, "ignored")}>Ignore</button><button className={decisions[key] === "sheets" ? "active" : ""} onClick={() => onDecision(item, "sheets")}>Send to Sheets</button></div></td></tr>; })}</tbody></table>{!items.length && <div className="empty">No updates match these filters.</div>}</div>;
+}
+
+function SelectedPanel({ items, decisions }: { items: Result[]; decisions: Record<string, Decision> }) {
+  const queued = items.filter((item) => ["relevant", "sheets"].includes(decisions[itemKey(item)]));
+  return <aside className="queue"><div className="queue-title"><h2>Selected</h2><span>{queued.length}</span></div>{queued.map((item) => <article key={itemKey(item)}><strong>{item.title}</strong><small>{categoryFor(item)} · {tagsFor(item).join(", ") || "No tags"}</small><span>{decisions[itemKey(item)] === "sheets" ? "Sheets" : "Relevant"}</span></article>)}{!queued.length && <p>Nothing selected.</p>}</aside>;
 }
 
 export default function App() {
-  const [view, setView] = useState<View>("Overview");
+  const [items, setItems] = useState<Result[]>([]);
   const [dashboard, setDashboard] = useState<Dashboard | null>(null);
   const [state, setState] = useState<State | null>(null);
-  const [results, setResults] = useState<Result[]>([]);
+  const [time, setTime] = useState<TimeFilter>("week");
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [sort, setSort] = useState<SortMode>("recent");
+  const [decisions, setDecisions] = useState<Record<string, Decision>>(() => JSON.parse(localStorage.getItem("triage-decisions") || "{}"));
   const [notice, setNotice] = useState("");
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
   const refresh = useCallback(async () => {
     try {
-      const [dash, current, resultData] = await Promise.all([
-        api<Dashboard>("/api/dashboard"),
-        api<State>("/api/state"),
-        api<{ results: Result[] }>("/api/results"),
-      ]);
-      setDashboard(dash);
-      setState(current);
-      setResults(resultData.results);
-    } catch (error) {
-      setNotice((error as Error).message);
-    }
+      const [results, dash, current] = await Promise.all([api<{ results: Result[] }>("/api/results"), api<Dashboard>("/api/dashboard"), api<State>("/api/state")]);
+      setItems(results.results); setDashboard(dash); setState(current);
+    } catch (error) { setNotice((error as Error).message); }
   }, []);
-  useEffect(() => {
-    refresh();
-    const timer = setInterval(refresh, 5000);
-    return () => clearInterval(timer);
-  }, [refresh]);
-  useEffect(() => {
-    if (!notice) return;
-    const timer = setTimeout(() => setNotice(""), 1500);
-    return () => clearTimeout(timer);
-  }, [notice]);
-  const mutate = async (url: string, body: unknown) => {
-    try {
-      await api(url, { method: "PUT", body: JSON.stringify(body) });
-      setNotice("Saved");
-      await refresh();
-    } catch (error) {
-      setNotice((error as Error).message);
-    }
+
+  useEffect(() => { refresh(); const timer = setInterval(refresh, 10000); return () => clearInterval(timer); }, [refresh]);
+  useEffect(() => { localStorage.setItem("triage-decisions", JSON.stringify(decisions)); }, [decisions]);
+  useEffect(() => { if (!notice) return; const timer = setTimeout(() => setNotice(""), 1800); return () => clearTimeout(timer); }, [notice]);
+
+  const run = async () => {
+    try { await api("/api/run", { method: "POST", body: JSON.stringify({}) }); setNotice("Scrape started"); await refresh(); } catch (error) { setNotice((error as Error).message); }
   };
-  const start = async () => {
-    try {
-      await api("/api/run", {
-        method: "POST",
-        body: JSON.stringify(state?.config || {}),
-      });
-      setView("Live run");
-      refresh();
-    } catch (error) {
-      setNotice((error as Error).message);
-    }
-  };
-  const failures = (dashboard?.events || []).filter(
-    (event) => event.status === "error",
-  );
-  return (
-    <div className={`app-shell ${sidebarCollapsed ? "sidebar-collapsed" : ""}`}>
-      <aside className="sidebar">
-        <button className="sidebar-toggle" onClick={() => setSidebarCollapsed((value) => !value)}>{sidebarCollapsed ? "Open" : "Collapse"}</button>
-        {!sidebarCollapsed && <>
-        <div className="workspace">OPERATIONS</div>
-        <nav>
-          {nav.map((item) => (
-            <button
-              key={item}
-              className={view === item ? "active" : ""}
-              onClick={() => setView(item)}
-            >
-              {item}
-            </button>
-          ))}
-        </nav>
-        <div className="sidebar-foot">
-          <Status value={String(state?.run.status || "idle")} />
-          <span>
-            {Object.values(dashboard?.credential_statuses || {}).filter((value) => value === "configured").length} APIs configured
-          </span>
-        </div>
-        </>}
-      </aside>
-      <main>
-        <header className="command">
-          <div>
-            <b>{view}</b>
-            <span>{state?.run.run_id?.slice(0, 8) || "No active run"}</span>
-          </div>
-          <div className="command-actions">
-            <button className="button" onClick={refresh}>
-              Refresh
-            </button>
-            <button
-              className="button primary"
-              disabled={state?.run.status === "running"}
-              onClick={start}
-            >
-              Run
-            </button>
-          </div>
-        </header>
-        {notice && (
-          <button className="notice" onClick={() => setNotice("")}>
-            {notice}
-          </button>
-        )}
-        <div className="content">
-          {view === "Pipeline" && <Pipeline config={state?.config || {}} onProduction={start} onNotice={setNotice} />}{" "}
-          {view === "Overview" && <Overview dashboard={dashboard} />}{" "}
-          {view === "Live run" && (
-            <LiveRun
-              state={state}
-              onCancel={() =>
-                api("/api/run/cancel", { method: "POST" })
-                  .then(refresh)
-                  .catch((error) => setNotice(error.message))
-              }
-            />
-          )}{" "}
-          {view === "Categories" && (
-            <Categories
-              items={dashboard?.categories || []}
-              onSave={(items) =>
-                mutate("/api/categories", { categories: items })
-              }
-            />
-          )}{" "}
-          {view === "Sources" && state && (
-            <Sources
-              sources={state.sources}
-              onSave={(sources) => mutate("/api/sources", sources)}
-              onTest={(source) =>
-                api("/api/sources/test", {
-                  method: "POST",
-                  body: JSON.stringify(source),
-                })
-                  .then((data) => setNotice(JSON.stringify(data)))
-                  .catch((error) => setNotice(error.message))
-              }
-            />
-          )}{" "}
-          {view === "Results" && <Results rows={results} />}{" "}
-          {view === "Artifacts" && <Artifacts onNotice={setNotice} />}{" "}
-          {view === "Failures" &&
-            (failures.length ? (
-              <EventList events={failures} />
-            ) : (
-              <Empty>No failures recorded.</Empty>
-            ))}{" "}
-          {view === "Traces" && (
-            <EventList events={(dashboard?.events || []).slice().reverse()} />
-          )}{" "}
-          {view === "Schedules" && state && (
-            <Schedules
-              config={state.config}
-              onSave={(config) => mutate("/api/config", config)}
-            />
-          )}{" "}
-          {view === "Configuration" && state && (
-            <Configuration
-              config={state.config}
-              onSave={(config) => mutate("/api/config", config)}
-              onNotice={setNotice}
-            />
-          )}
-        </div>
-      </main>
-      <DashboardAssistant onNotice={setNotice} />
-    </div>
-  );
+  const toggle = (value: string, list: string[], setter: (next: string[]) => void) => setter(list.includes(value) ? list.filter((item) => item !== value) : [...list, value]);
+  const onDecision = (item: Result, value: Decision) => setDecisions((current) => {
+    const next = { ...current };
+    if (next[itemKey(item)] === value) delete next[itemKey(item)];
+    else next[itemKey(item)] = value;
+    return next;
+  });
+  const visible = useMemo(() => {
+    const hours = time === "today" ? 24 : time === "3days" ? 72 : 168;
+    const cutoff = Date.now() - hours * 60 * 60 * 1000;
+    return items.filter((item) => !item.published || new Date(item.published).getTime() >= cutoff).filter((item) => !selectedCategories.length || selectedCategories.includes(categoryFor(item))).filter((item) => !selectedTags.length || selectedTags.some((tag) => tagsFor(item).includes(tag))).sort((a, b) => sort === "relevance" ? scoreFor(b) - scoreFor(a) : new Date(b.published || 0).getTime() - new Date(a.published || 0).getTime());
+  }, [items, time, selectedCategories, selectedTags, sort]);
+
+  return <><Header lastScrape={dashboard?.run.finished_at || dashboard?.run.started_at} running={state?.run.status === "running"} onRun={run} />{notice && <div className="notice">{notice}</div>}<div className="layout"><Filters time={time} setTime={setTime} selectedCategories={selectedCategories} toggleCategory={(value) => toggle(value, selectedCategories, setSelectedCategories)} selectedTags={selectedTags} toggleTag={(value) => toggle(value, selectedTags, setSelectedTags)} /><main><div className="results-head"><div><h2>Latest updates</h2><span>{visible.length} items</span></div><label>Sort<select value={sort} onChange={(event) => setSort(event.target.value as SortMode)}><option value="recent">Most recent</option><option value="relevance">Relevance</option></select></label></div><ResultsList items={visible} decisions={decisions} onDecision={onDecision} /></main><SelectedPanel items={items} decisions={decisions} /></div></>;
 }
