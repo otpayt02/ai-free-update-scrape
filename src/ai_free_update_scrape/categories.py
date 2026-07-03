@@ -18,6 +18,10 @@ CATEGORY_NAMES = [
     "Funding, acquisitions, and company activity", "Regulation, policy, and safety",
     "Security vulnerabilities and incidents", "Tutorials and implementation guides",
     "Workflow automation", "Business use cases", "Creator tools and content production",
+    "AI evaluation and observability", "Retrieval and AI search", "Robotics and embodied AI",
+    "Healthcare and life sciences AI", "Finance and accounting AI", "Education AI",
+    "Legal and compliance AI", "Privacy and responsible AI", "Synthetic data",
+    "Customer support and conversational AI",
 ]
 
 KEYWORDS = {
@@ -51,6 +55,16 @@ KEYWORDS = {
     "Workflow automation": ["automation", "workflow", "no-code"],
     "Business use cases": ["business", "enterprise", "case study"],
     "Creator tools and content production": ["creator", "content production", "video editor"],
+    "AI evaluation and observability": ["evaluation", "evals", "observability", "tracing"],
+    "Retrieval and AI search": ["retrieval", "rag", "semantic search", "vector search"],
+    "Robotics and embodied AI": ["robotics", "embodied ai", "humanoid"],
+    "Healthcare and life sciences AI": ["healthcare ai", "medical ai", "drug discovery"],
+    "Finance and accounting AI": ["finance ai", "accounting ai", "fintech ai"],
+    "Education AI": ["education ai", "edtech", "ai tutor"],
+    "Legal and compliance AI": ["legal ai", "compliance ai", "regtech"],
+    "Privacy and responsible AI": ["privacy", "responsible ai", "ai governance"],
+    "Synthetic data": ["synthetic data", "data generation"],
+    "Customer support and conversational AI": ["customer support ai", "chatbot", "conversational ai"],
 }
 
 
@@ -66,7 +80,11 @@ def default_categories() -> list[dict]:
             "exclude_keywords": [],
             "source_ids": [],
             "result_target": 10,
+            "mandatory_results": False,
             "freshness_hours": 72,
+            "date_mode": "freshness",
+            "date_start": "",
+            "date_end": "",
             "minimum_relevance": 0.45,
             "color": ["#22d3ee", "#a78bfa", "#34d399", "#f59e0b", "#f472b6"][index % 5],
         }
@@ -78,7 +96,9 @@ def load_categories(path: Path) -> list[dict]:
     """Load persisted categories, creating the default taxonomy when absent."""
     if not path.exists():
         path.write_text(json.dumps(default_categories(), indent=2) + "\n", encoding="utf-8")
-    return json.loads(path.read_text(encoding="utf-8"))
+    saved = json.loads(path.read_text(encoding="utf-8"))
+    saved_by_id = {item.get("id"): item for item in saved}
+    return [{**item, **saved_by_id.get(item["id"], {})} for item in default_categories()]
 
 
 def save_categories(path: Path, categories: list[dict]) -> None:
@@ -98,4 +118,3 @@ def classify_article(article: dict, categories: list[dict]) -> list[str]:
         if include and any(word in text for word in include) and not any(word in text for word in exclude):
             matches.append(category["id"])
     return matches
-

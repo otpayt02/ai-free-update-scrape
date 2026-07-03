@@ -267,6 +267,19 @@ def build_app() -> Flask:
         ids = [str(item.get("id", "")).strip() for item in categories]
         if any(not item for item in ids) or len(ids) != len(set(ids)):
             return jsonify({"ok": False, "error": "Category identifiers must be unique and non-empty"}), 400
+        for item in categories:
+            if not 1 <= int(item.get("priority", 0)) <= 1000:
+                return jsonify({"ok": False, "error": "Priority must be 1-1000"}), 400
+            if not 1 <= int(item.get("result_target", 0)) <= 100:
+                return jsonify({"ok": False, "error": "Target must be 1-100"}), 400
+            if not 1 <= int(item.get("freshness_hours", 0)) <= 8760:
+                return jsonify({"ok": False, "error": "Freshness must be 1-8760 hours"}), 400
+            if not 0 <= float(item.get("minimum_relevance", -1)) <= 1:
+                return jsonify({"ok": False, "error": "Minimum relevance must be 0-100%"}), 400
+            if item.get("date_mode", "freshness") not in ("freshness", "custom"):
+                return jsonify({"ok": False, "error": "Date mode must be freshness or custom"}), 400
+            if item.get("date_mode") == "custom" and item.get("date_start", "") > item.get("date_end", ""):
+                return jsonify({"ok": False, "error": "Start date must be before end date"}), 400
         save_categories(CATEGORIES_CONFIG, categories)
         return jsonify({"ok": True, "categories": categories})
 

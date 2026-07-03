@@ -16,7 +16,11 @@ type Category = {
   exclude_keywords: string[];
   source_ids: string[];
   result_target: number;
+  mandatory_results: boolean;
   freshness_hours: number;
+  date_mode: "freshness" | "custom";
+  date_start: string;
+  date_end: string;
   minimum_relevance: number;
   color: string;
 };
@@ -282,6 +286,8 @@ function Categories({
 }) {
   const [rows, setRows] = useState(items);
   const [selected, setSelected] = useState<Category | null>(null);
+  const [equalPriority, setEqualPriority] = useState(false);
+  const [dragged, setDragged] = useState<string | null>(null);
   useEffect(() => setRows(items), [items]);
   const update = (next: Category) => {
     setRows((current) =>
@@ -289,11 +295,26 @@ function Categories({
     );
     setSelected(next);
   };
+  const reorder = (targetId: string) => {
+    if (!dragged || equalPriority || dragged === targetId) return;
+    setRows((current) => {
+      const next = [...current];
+      const from = next.findIndex((item) => item.id === dragged);
+      const to = next.findIndex((item) => item.id === targetId);
+      const [moved] = next.splice(from, 1);
+      next.splice(to, 0, moved);
+      return next.map((item, index) => ({ ...item, priority: index + 1 }));
+    });
+  };
   return (
     <div className="with-inspector">
       <section className="panel table-panel">
         <div className="panel-title">
           <span>{rows.length} categories</span>
+          <label className="compact-control"><input type="checkbox" checked={equalPriority} onChange={(event) => {
+            setEqualPriority(event.target.checked);
+            if (event.target.checked) setRows((current) => current.map((item) => ({ ...item, priority: 1 })));
+          }} /> Equal priority</label>
           <button className="button primary" onClick={() => onSave(rows)}>
             Save
           </button>
@@ -301,18 +322,19 @@ function Categories({
         <table>
           <thead>
             <tr>
-              <th>On</th>
+              <th>Order / On</th>
               <th>Category</th>
-              <th>Priority</th>
-              <th>Target</th>
-              <th>Freshness</th>
-              <th>Threshold</th>
+              <th>Priority (1-1000)</th>
+              <th>Required / Target (1-100)</th>
+              <th>Freshness (1-8760h)</th>
+              <th>Min relevance (0-100%)</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={row.id} onClick={() => setSelected(row)}>
+              <tr key={row.id} draggable={!equalPriority} onDragStart={() => setDragged(row.id)} onDragOver={(event) => event.preventDefault()} onDrop={() => reorder(row.id)} onClick={() => setSelected(row)}>
                 <td>
+                  <button className="drag-control" disabled={equalPriority}>Drag</button>
                   <input
                     type="checkbox"
                     checked={row.enabled}
@@ -324,10 +346,10 @@ function Categories({
                 <td>
                   <code>{row.color}</code> {row.name}
                 </td>
-                <td>{row.priority}</td>
-                <td>{row.result_target}</td>
-                <td>{row.freshness_hours}h</td>
-                <td>{Math.round(row.minimum_relevance * 100)}%</td>
+                <td>{equalPriority ? "Equal" : row.priority}</td>
+                <td><input type="checkbox" checked={row.mandatory_results} title="Require target before category completion" onChange={(event) => update({ ...row, mandatory_results: event.target.checked })} /><input className="table-number" type="number" min="1" max="100" value={row.result_target} onChange={(event) => update({ ...row, result_target: Number(event.target.value) })} /></td>
+                <td>{row.date_mode === "custom" ? `${row.date_start || "Start"} to ${row.date_end || "End"}` : <input className="table-number" type="number" min="1" max="8760" value={row.freshness_hours} onChange={(event) => update({ ...row, freshness_hours: Number(event.target.value) })} />}</td>
+                <td><input className="table-number" type="number" min="0" max="100" value={Math.round(row.minimum_relevance * 100)} onChange={(event) => update({ ...row, minimum_relevance: Number(event.target.value) / 100 })} /></td>
               </tr>
             ))}
           </tbody>
@@ -370,6 +392,8 @@ function Categories({
               update({ ...selected, freshness_hours: Number(value) })
             }
           />
+          <label className="field"><span>Date filter</span><select value={selected.date_mode} onChange={(event) => update({ ...selected, date_mode: event.target.value as Category["date_mode"] })}><option value="freshness">Rolling freshness</option><option value="custom">Custom range</option></select></label>
+          {selected.date_mode === "custom" && <><Field label="Start date" type="date" value={selected.date_start} onChange={(value) => update({ ...selected, date_start: value })} /><Field label="End date" type="date" value={selected.date_end} onChange={(value) => update({ ...selected, date_end: value })} /></>}
           <Field
             label="Include keywords"
             value={selected.include_keywords.join(", ")}
@@ -830,6 +854,7 @@ export default function App() {
   const [state, setState] = useState<State | null>(null);
   const [results, setResults] = useState<Result[]>([]);
   const [notice, setNotice] = useState("");
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const refresh = useCallback(async () => {
     try {
       const [dash, current, resultData] = await Promise.all([
@@ -849,6 +874,11 @@ export default function App() {
     const timer = setInterval(refresh, 5000);
     return () => clearInterval(timer);
   }, [refresh]);
+  useEffect(() => {
+    if (!notice) return;
+    const timer = setTimeout(() => setNotice(""), 1500);
+    return () => clearTimeout(timer);
+  }, [notice]);
   const mutate = async (url: string, body: unknown) => {
     try {
       await api(url, { method: "PUT", body: JSON.stringify(body) });
@@ -874,8 +904,10 @@ export default function App() {
     (event) => event.status === "error",
   );
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${sidebarCollapsed ? "sidebar-collapsed" : ""}`}>
       <aside className="sidebar">
+        <button className="sidebar-toggle" onClick={() => setSidebarCollapsed((value) => !value)}>{sidebarCollapsed ? "Open" : "Collapse"}</button>
+        {!sidebarCollapsed && <>
         <div className="workspace">OPERATIONS</div>
         <nav>
           {nav.map((item) => (
@@ -891,11 +923,10 @@ export default function App() {
         <div className="sidebar-foot">
           <Status value={String(state?.run.status || "idle")} />
           <span>
-            {dashboard?.credential_status === "configured"
-              ? "NVIDIA ready"
-              : "NVIDIA missing"}
+            {Object.values(dashboard?.credential_statuses || {}).filter((value) => value === "configured").length} APIs configured
           </span>
         </div>
+        </>}
       </aside>
       <main>
         <header className="command">

@@ -12,10 +12,10 @@ from ai_free_update_scrape.providers import credential_status
 from ai_free_update_scrape.web.app import build_app
 
 
-def test_taxonomy_has_thirty_unique_categories():
+def test_taxonomy_has_forty_unique_categories():
     categories = default_categories()
-    assert len(categories) == 30
-    assert len({category["id"] for category in categories}) == 30
+    assert len(categories) == 40
+    assert len({category["id"] for category in categories}) == 40
 
 
 def test_category_classification_uses_configured_keywords():

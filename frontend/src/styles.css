@@ -39,6 +39,16 @@ input {
   grid-template-columns: 184px minmax(0, 1fr);
   min-height: 100vh;
 }
+.app-shell.sidebar-collapsed { grid-template-columns: 58px minmax(0, 1fr); }
+.sidebar-toggle {
+  border: 1px solid var(--line);
+  background: #0d1b28;
+  color: #a9bdd0;
+  padding: 7px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 10px;
+}
 .sidebar {
   position: sticky;
   top: 0;
@@ -335,6 +345,25 @@ th {
   padding: 9px 11px;
   border-bottom: 1px solid var(--line);
 }
+.table-panel th { position: static; }
+.table-panel input, .field select {
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: #07111b;
+  color: #dbe8f4;
+}
+.table-number { width: 72px; padding: 5px; margin-left: 6px; }
+.drag-control {
+  border: 1px solid #294057;
+  border-radius: 2px;
+  background: #0b1723;
+  color: #8297ac;
+  padding: 3px 5px;
+  margin-right: 7px;
+  cursor: grab;
+  font-size: 9px;
+}
+.compact-control { color: var(--muted); font-size: 10px; }
 td {
   padding: 9px 11px;
   border-bottom: 1px solid #172738;
