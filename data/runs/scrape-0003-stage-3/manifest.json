@@ -1,0 +1,11 @@
+{
+  "stage": 3,
+  "created_at": "2026-07-04T02:14:53.418326",
+  "run_id": "scrape-0003-stage-3",
+  "artifacts": [
+    "digests",
+    "exports",
+    "processed_articles.jsonl",
+    "ledger.jsonl"
+  ]
+}
