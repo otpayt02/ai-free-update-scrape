@@ -1,0 +1,50 @@
+[
+  {
+    "source_id": "run-test-01",
+    "name": "Hugging Face Blog",
+    "url": "https://huggingface.co/blog/feed.xml",
+    "type": "rss",
+    "category": "Models",
+    "discovered_at": "2026-07-15T19:58:05.733011+00:00",
+    "origin": "curated source-specific RSS discovery",
+    "status": "ready",
+    "reason": "test rule",
+    "http_status": 200,
+    "robots": "reviewed",
+    "parser": "feedparser",
+    "instruction": "test",
+    "selector_notes": "test"
+  },
+  {
+    "source_id": "run-test-02",
+    "name": "AWS Machine Learning Blog",
+    "url": "https://aws.amazon.com/blogs/machine-learning/feed/",
+    "type": "rss",
+    "category": "Models",
+    "discovered_at": "2026-07-15T19:58:05.733011+00:00",
+    "origin": "curated source-specific RSS discovery",
+    "status": "rejected",
+    "reason": "test rule",
+    "http_status": 200,
+    "robots": "reviewed",
+    "parser": "feedparser",
+    "instruction": "test",
+    "selector_notes": "test"
+  },
+  {
+    "source_id": "run-test-03",
+    "name": "NVIDIA Deep Learning",
+    "url": "https://blogs.nvidia.com/blog/category/deep-learning/feed/",
+    "type": "rss",
+    "category": "Models",
+    "discovered_at": "2026-07-15T19:58:05.733011+00:00",
+    "origin": "curated source-specific RSS discovery",
+    "status": "rejected",
+    "reason": "test rule",
+    "http_status": 200,
+    "robots": "reviewed",
+    "parser": "feedparser",
+    "instruction": "test",
+    "selector_notes": "test"
+  }
+]

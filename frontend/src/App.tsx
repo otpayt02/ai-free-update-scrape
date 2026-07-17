@@ -1,985 +1,120 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import ReactECharts from "echarts-for-react";
-import {
-  createColumnHelper,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
 
-type Category = {
-  id: string;
-  name: string;
-  enabled: boolean;
-  priority: number;
-  include_keywords: string[];
-  exclude_keywords: string[];
-  source_ids: string[];
-  result_target: number;
-  freshness_hours: number;
-  minimum_relevance: number;
-  color: string;
-};
-type Source = { name: string; url: string; enabled?: boolean; type?: string };
-type Event = {
-  event_id: string;
-  run_id: string;
-  trace_id: string;
-  timestamp: number;
-  stage: string;
-  status: string;
-  message?: string;
-  exit_code?: number;
-};
-type Result = {
-  title: string;
-  url: string;
-  source: string;
-  published: string;
-  topics?: string[];
-  categories?: string[];
-  ranking?: { top_score?: number };
-  detection?: { type?: string };
-};
+type Source = { name: string; url: string; enabled?: boolean; type?: string; source_id?: string; category?: string };
+type Event = { event_id: string; run_id?: string; stage: string; status: string; timestamp: number; message?: string; [key: string]: unknown };
 type Config = Record<string, string | number | boolean>;
-type Dashboard = {
-  stats: Record<string, number>;
-  run: Record<string, unknown>;
-  events: Event[];
-  categories: Category[];
-  credential_status: string;
-  credential_statuses: Record<string, string>;
-};
-type ModelOption = {
-  id: string;
-  name: string;
-  provider: string;
-  metadata?: Record<string, unknown>;
-};
-type State = {
-  config: Config;
-  sources: { rss: Source[]; scrape: Source[] };
-  run: { status: string; log: string[]; run_id?: string; started_at?: string };
-  stats: Record<string, number>;
-};
+type Rule = Source & { source_id: string; status: string; reason: string; http_status?: number; robots?: string; parser?: string; instruction?: string; selector_notes?: string };
+type Observability = { run: { status: string; run_id?: string; started_at?: string; finished_at?: string; exit_code?: number; log: string[] }; config: Config; sources: { rss: Source[]; scrape: Source[] }; events: Event[]; errors: Event[]; stats: Record<string, number>; updated_at: string };
+type Result = { title: string; url: string; source: string; published: string; summary?: string; ranking?: { top_score?: number; reason?: string } };
+type Rating = { title: string; url: string; source: string; score: number; metrics: Record<string, number>; reason: string };
+type Audit = { id: string; run_id: string; source: string; url: string; status: string; reason: string; retry: boolean; created_at: string; archive: string };
+type Category = { id: string; name: string; enabled: boolean; priority: number; result_target: number; freshness_hours: number };
+type Run = { id: string; status: string; ready_sources?: number; outputs?: string[]; created_at?: string; archived_at?: string; reason?: string };
+type Preview = { ok: boolean; url: string; status?: number; content_type?: string; latency_ms?: number; preview: string; error?: string };
+type LaneCandidate = { name: string; url: string; kind: string; setup: string };
+type SourceLane = { id: string; label: string; purpose: string; method: string; restriction: string; candidates: LaneCandidate[] };
+type LabelMatch = { id: string; label: string; score: number; matched_keywords: string[] };
+type ContentIdea = { id: string; suggested_title: string; hook: string; audience: LabelMatch; pillar: LabelMatch; recommended_format: "short" | "long"; format_options: string[]; content_velocity_score: number; score_components: Record<string, number | null>; score_basis: Record<string, string>; evidence_coverage: number; source_trust_score: number | null; source: string; source_url: string; source_title: string; review_status: string; data_gaps: string[]; offer_matches: string[]; approval_required: boolean };
+type ContentPayload = { ideas: ContentIdea[]; counts: { articles: number; research_signals: number; ideas: number }; audiences: { id: string; label: string }[]; pillars: { id: string; label: string }[]; collectors: { id: string; label: string; access: string; restriction: string }[]; scoring_notice: string; publishing: { automatic_upload: boolean; automatic_publish: boolean; human_approval_required: boolean } };
+type RegistrySource = { domain: string; sample_url: string; sample_title: string; status: string; trust_score: number; discovery_origin: string; missing_review: string[]; activation_allowed: boolean; next_action: string };
+type View = "Overview" | "Live" | "Sources" | "Discover" | "Access" | "Results" | "Ideas" | "Categories" | "Failures" | "Trace" | "Archive" | "Schedule" | "Config" | "Audit";
 
-const nav = [
-  "Overview",
-  "Live run",
-  "Categories",
-  "Sources",
-  "Results",
-  "Failures",
-  "Traces",
-  "Schedules",
-  "Configuration",
-] as const;
-type View = (typeof nav)[number];
-const api = async <T,>(url: string, options?: RequestInit): Promise<T> => {
-  const response = await fetch(url, {
-    headers: { "Content-Type": "application/json" },
-    ...options,
-  });
-  const data = await response.json();
-  if (!response.ok)
-    throw new Error(data.error || data.errors?.join(". ") || "Request failed");
-  return data;
-};
+const dock: { view: View; mark: string; label: string }[] = [
+  { view: "Overview", mark: "◎", label: "Overview" }, { view: "Live", mark: ">_", label: "Live" }, { view: "Sources", mark: "⌁", label: "Sources" }, { view: "Discover", mark: "⊞", label: "Discover" }, { view: "Access", mark: "≡", label: "Access" }, { view: "Results", mark: "≔", label: "Results" }, { view: "Ideas", mark: "◇", label: "Ideas" }, { view: "Categories", mark: "⌘", label: "Categories" }, { view: "Failures", mark: "!", label: "Failures" }, { view: "Trace", mark: "↯", label: "Trace" }, { view: "Archive", mark: "▣", label: "Archive" }, { view: "Schedule", mark: "◷", label: "Schedule" }, { view: "Config", mark: "⚙", label: "Config" }, { view: "Audit", mark: "✓", label: "Audit" },
+];
+const time = (value?: number | string) => value ? new Date(typeof value === "number" ? value * 1000 : value).toLocaleString() : "—";
+const displayStage = (stage: string) => stage === "pipeline" ? "run" : stage.replaceAll("_", " ");
+const itemLabel = (item: Source | Result) => "title" in item ? item.title : item.name;
+const itemState = (item: Source | Result) => "ranking" in item ? String(Math.round(item.ranking?.top_score || 0)) : (item as Source).enabled === false ? "off" : "on";
 
-function Stat({
-  label,
-  value,
-  tone = "cyan",
-}: {
-  label: string;
-  value: string | number;
-  tone?: string;
-}) {
-  return (
-    <div className={`stat tone-${tone}`}>
-      <span>{label}</span>
-      <strong>{value}</strong>
-    </div>
-  );
-}
-function Status({ value }: { value: string }) {
-  return <span className={`status status-${value}`}>{value}</span>;
-}
-function Empty({ children }: { children: string }) {
-  return <div className="empty">{children}</div>;
-}
+async function api<T>(url: string, options?: RequestInit): Promise<T> { const response = await fetch(url, { headers: { "Content-Type": "application/json" }, ...options }); const body = await response.json(); if (!response.ok) throw new Error(body.error || body.errors?.join(". ") || "Request failed"); return body; }
+function Flag({ value }: { value: string }) { return <span className={`flag ${value}`}>{value}</span>; }
+function Empty({ children }: { children: string }) { return <div className="empty">{children}</div>; }
+function Section({ title, action, children }: { title: string; action?: React.ReactNode; children: React.ReactNode }) { return <section className="panel"><header className="panel-head"><h2>{title}</h2>{action}</header>{children}</section>; }
+function MoreMenu({ label, values }: { label: string; values: Record<string, unknown> }) { const [open, setOpen] = useState(false); return <div className="more-wrap"><button className="more" aria-label={`Show ${label} parameters`} aria-expanded={open} onClick={(event) => { event.stopPropagation(); setOpen(!open); }}>•••</button>{open && <div className="parameter-popover" role="dialog" aria-label={`${label} parameters`}>{Object.entries(values).filter(([, value]) => value !== undefined && value !== null && value !== "").map(([key, value]) => <div key={key}><small>{key.replaceAll("_", " ")}</small><code>{typeof value === "object" ? JSON.stringify(value) : String(value)}</code></div>)}</div>}</div>; }
+type SourceAttempt = { id: string; source: string; status: string; http: string; parser: string; timestamp: number; message: string; raw: Event };
+function SourceAttemptTable({ events, sources, go }: { events: Event[]; sources: Source[]; go: (view: View) => void }) { const [sort, setSort] = useState<keyof Pick<SourceAttempt, "source" | "status" | "http" | "parser" | "timestamp">>("timestamp"); const [ascending, setAscending] = useState(false); const recorded = events.filter((event) => event.stage === "source_access").map((event, index) => ({ id: event.event_id || `${event.run_id}-${index}`, source: String(event.source || "Source check"), status: event.status, http: event.http_status ? String(event.http_status) : "—", parser: String(event.parser || "—"), timestamp: event.timestamp, message: event.message || "Source access check recorded.", raw: event })); const rows = (recorded.length ? recorded : sources.map((source, index) => ({ id: source.source_id || `${source.url}-${index}`, source: source.name, status: source.enabled === false ? "rejected" : "ready", http: "awaiting", parser: source.type || "rss", timestamp: 0, message: "Active source. Its next access result will replace this readiness row.", raw: { event_id: source.source_id || source.url, stage: "source_access", status: "ready", timestamp: 0, source_id: source.source_id } as Event }))).sort((a, b) => { const left = a[sort]; const right = b[sort]; const order = typeof left === "number" && typeof right === "number" ? left - right : String(left).localeCompare(String(right)); return ascending ? order : -order; }); const changeSort = (key: typeof sort) => { setAscending(key === sort ? !ascending : true); setSort(key); }; const headers: [typeof sort, string][] = [["source", "Source"], ["status", "State"], ["http", "HTTP"], ["parser", "Parser"], ["timestamp", "Checked"]]; return <div className="attempt-table"><div className="attempt-head">{headers.map(([key, label]) => <button key={key} onClick={() => changeSort(key)}>{label}{sort === key && <span aria-hidden="true"> {ascending ? "↑" : "↓"}</span>}</button>)}<span /></div>{rows.length ? rows.slice(0, 12).map((row) => <article key={row.id} tabIndex={0} onClick={() => go("Sources")} onKeyDown={(event) => { if (event.key === "Enter") go("Sources"); }}><strong>{row.source}</strong><Flag value={row.status} /><code>{row.http}</code><small>{row.parser}</small><time>{row.timestamp ? time(row.timestamp) : "queued"}</time><MoreMenu label={row.source} values={{ source: row.source, status: row.status, http_status: row.http, parser: row.parser, checked_at: row.timestamp ? time(row.timestamp) : "next run", reason: row.message, run_id: row.raw.run_id }} /></article>) : <Empty>No active sources. Open Discover to create an access-checked source set.</Empty>}</div>; }
 
-function Overview({ dashboard }: { dashboard: Dashboard | null }) {
-  const events = dashboard?.events || [];
-  const buckets = useMemo(() => {
-    const map = new Map<string, { ok: number; error: number }>();
-    events.forEach((event) => {
-      const time = new Date(event.timestamp * 1000).toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      });
-      const bucket = map.get(time) || { ok: 0, error: 0 };
-      event.status === "error" ? bucket.error++ : bucket.ok++;
-      map.set(time, bucket);
-    });
-    return [...map.entries()].slice(-18);
-  }, [events]);
-  const chart = {
-    backgroundColor: "transparent",
-    tooltip: { trigger: "axis" },
-    legend: { textStyle: { color: "#7f91a7" }, data: ["events", "errors"] },
-    grid: { left: 35, right: 12, top: 35, bottom: 25 },
-    xAxis: {
-      type: "category",
-      data: buckets.map((x) => x[0]),
-      axisLabel: { color: "#66788d" },
-      axisLine: { lineStyle: { color: "#263749" } },
-    },
-    yAxis: {
-      type: "value",
-      axisLabel: { color: "#66788d" },
-      splitLine: { lineStyle: { color: "#162536" } },
-    },
-    series: [
-      {
-        name: "events",
-        type: "line",
-        smooth: true,
-        showSymbol: false,
-        data: buckets.map((x) => x[1].ok),
-        lineStyle: { color: "#22d3ee" },
-        areaStyle: { color: "rgba(34,211,238,.12)" },
-      },
-      {
-        name: "errors",
-        type: "line",
-        showSymbol: false,
-        data: buckets.map((x) => x[1].error),
-        lineStyle: { color: "#fb7185" },
-      },
-    ],
-  };
-  return (
-    <div className="view-stack">
-      <div className="stats-grid">
-        <Stat label="articles" value={dashboard?.stats.articles ?? 0} />
-        <Stat
-          label="selected"
-          value={dashboard?.stats.session_articles ?? 0}
-          tone="green"
-        />
-        <Stat
-          label="sources"
-          value={dashboard?.stats.sources ?? 0}
-          tone="violet"
-        />
-        <Stat label="runs" value={dashboard?.stats.runs ?? 0} />
-        <Stat label="events" value={dashboard?.stats.telemetry_events ?? 0} />
-        <Stat
-          label="failures"
-          value={dashboard?.stats.failures ?? 0}
-          tone="red"
-        />
-      </div>
-      <section className="panel chart-panel">
-        <div className="panel-title">
-          <span>Pipeline activity</span>
-          <small>events / minute</small>
-        </div>
-        {buckets.length ? (
-          <ReactECharts option={chart} className="activity-chart" />
-        ) : (
-          <Empty>No telemetry yet. Run a scrape to populate this chart.</Empty>
-        )}
-      </section>
-      <div className="split">
-        <section className="panel">
-          <div className="panel-title">
-            <span>Stage volume</span>
-            <small>bounded labels</small>
-          </div>
-          <div className="metric-list">
-            {Object.entries(dashboard?.stats || {})
-              .slice(0, 8)
-              .map(([key, value]) => (
-                <div key={key}>
-                  <span>{key.replaceAll("_", " ")}</span>
-                  <b>{value}</b>
-                </div>
-              ))}
-          </div>
-        </section>
-        <section className="panel">
-          <div className="panel-title">
-            <span>Recent events</span>
-            <small>latest 8</small>
-          </div>
-          <EventList events={events.slice(-8).reverse()} />
-        </section>
-      </div>
-    </div>
-  );
+function Overview({ data, ratings, go }: { data: Observability | null; ratings: Rating[]; go: (view: View) => void }) { return <div className="grid overview"><section className="terminal-intro"><span>RUN CONTROL</span><h1>Signal matrix</h1><p>{data?.run.status === "running" ? "A scrape is active. Open the trace for each emitted event." : `${data?.errors.length || 0} retained exceptions require review.`}</p><div className="left-actions"><button onClick={() => go("Sources")}><span>Sources</span><b>{(data?.sources.rss.length || 0) + (data?.sources.scrape.length || 0)}</b></button><button onClick={() => go("Audit")}><span>Audit queue</span><b>{data?.errors.length || 0}</b></button><button onClick={() => go("Archive")}><span>Run archive</span><b>{data?.stats.runs || 0}</b></button></div><button className="command" onClick={() => go(data?.run.status === "running" ? "Live" : "Discover")}>{data?.run.status === "running" ? "Open live trace" : "Refresh source set"}</button></section><Section title="Live source attempts" action={<button className="text" onClick={() => go("Sources")}>Open sources</button>}><SourceAttemptTable events={data?.events || []} sources={[...(data?.sources.rss || []), ...(data?.sources.scrape || [])]} go={go} /></Section><Section title="Portfolio fit" action={<button className="text" onClick={() => go("Results")}>Open ranked evidence</button>}><div className="rating-list">{ratings.slice(0, 9).map((row, index) => <button key={row.url} onClick={() => go("Results")}><b>#{index + 1}</b><span><strong>{row.title}</strong><small>{row.source} · {row.reason}</small></span><em>{row.score}</em></button>)}{!ratings.length && <Empty>Run a scrape to create evidence-backed portfolio scores.</Empty>}</div></Section><Section title="Run inspector"><div className="metrics">{Object.entries(data?.stats || {}).map(([label, value]) => <div key={label}><small>{label.replaceAll("_", " ")}</small><b>{value}</b></div>)}</div></Section></div>; }
+function EventRows({ events, empty }: { events: Event[]; empty: string }) { return events.length ? <div className="event-rows">{events.map((event) => <article key={event.event_id}><time>{time(event.timestamp)}</time><Flag value={event.status === "event" ? "warning" : event.status} /><span><b>{displayStage(event.stage)}</b>{event.message && <small>{event.message}</small>}</span></article>)}</div> : <Empty>{empty}</Empty>; }
+function Live({ data, results, run, cancel }: { data: Observability | null; results: Result[]; run: () => void; cancel: () => void }) { const activeEvents = (data?.events || []).filter((event) => !data?.run.run_id || event.run_id === data.run.run_id); const entries = [...activeEvents, ...(data?.run.log || []).map((message, i) => ({ event_id: `live-${i}`, stage: "live", status: "stream", timestamp: Date.now() / 1000, message }))].slice(-500).reverse(); const stages = [{ key: "configuration_resolution", label: "Parameters locked", detail: "Run settings resolved" }, { key: "source_access", label: "Sources checked", detail: "Access, robots, and parser checks" }, { key: "source_replacement", label: "Sources activated", detail: "Approved set becomes active" }, { key: "pipeline", label: "Headlines collected", detail: "Feeds and extraction in progress" }, { key: "run_completion", label: "Run completed", detail: "Process outcome recorded" }, { key: "archive", label: "Evidence archived", detail: "Outputs and rules retained" }]; const stageEvents = (key: string) => activeEvents.filter((event) => event.stage === key); return <div className="stack live-workspace"><div className="commandline"><span>STATE <Flag value={data?.run.status || "loading"} /></span><code>{data?.run.run_id || "No active run"}</code><button className="command" disabled={data?.run.status === "running"} onClick={run}>Run scrape</button>{data?.run.status === "running" && <button className="danger" onClick={cancel}>Cancel</button>}</div><div className="run-map"><Section title="Run map" action={<span className="meta">{activeEvents.length} recorded events</span>}><div className="stage-flow">{stages.map((stage, index) => { const events = stageEvents(stage.key); const latest = events.at(-1); const pending = !latest; return <article className={pending ? "pending" : latest.status === "error" ? "failed" : "done"} key={stage.key}><span className="stage-index">{String(index + 1).padStart(2, "0")}</span><div><b>{stage.label}</b><small>{latest?.message || stage.detail}</small></div><Flag value={pending ? "queued" : latest.status} /><MoreMenu label={stage.label} values={{ stage: stage.key, event_count: events.length, status: latest?.status || "queued", last_message: latest?.message, last_seen: latest ? time(latest.timestamp) : undefined, run_id: data?.run.run_id }} /></article>; })}</div></Section><Section title="Source access" action={<span className="meta">{stageEvents("source_access").length} checks</span>}><SourceAttemptTable events={activeEvents} sources={[...(data?.sources.rss || []), ...(data?.sources.scrape || [])]} go={() => undefined} /></Section></div><div className="run-output"><Section title="Resulting headlines" action={<span className="meta">{results.length} retained</span>}><div className="headline-list">{results.slice(0, 14).map((item, index) => <article key={item.url}><a href={item.url} target="_blank" rel="noreferrer"><b>{String(index + 1).padStart(2, "0")}</b><span><strong>{item.title}</strong><small>{item.source} · {item.published}</small></span><i>↗</i></a><MoreMenu label={item.title} values={{ source: item.source, published: item.published, url: item.url, score: item.ranking?.top_score, reason: item.ranking?.reason, summary: item.summary }} /></article>)}</div></Section><Section title="Terminal trace" action={<span className="meta">{entries.length} events</span>}><div className="terminal live-terminal">{entries.map((event) => <article key={event.event_id}><time>{time(event.timestamp)}</time><span>{displayStage(event.stage)}</span><Flag value={event.status} /><code>{event.message || Object.entries(event).filter(([key]) => !["event_id", "run_id", "trace_id", "stage", "status", "timestamp"].includes(key)).map(([key, value]) => `${key}=${String(value)}`).join(" ") || "recorded"}</code></article>)}</div></Section></div></div>; }
+function Sources({ data, results }: { data: Observability | null; results: Result[] }) { const [target, setTarget] = useState<Source | Result | null>(null); const [preview, setPreview] = useState<Preview | null>(null); const [expanded, setExpanded] = useState(false); const inspect = async (source: Source | Result) => { setTarget(source); setPreview(null); try { setPreview(await api<Preview>(`/api/sources/preview?url=${encodeURIComponent(source.url)}`)); } catch (error) { setPreview({ ok: false, url: source.url, preview: "", error: (error as Error).message }); } }; const items = [...(data?.sources.rss || []), ...(data?.sources.scrape || []), ...results.slice(0, 20)]; return <div className="source-grid"><Section title="Sources"><div className="source-list">{items.map((item) => <article className="source-row" key={`${item.url}-${itemLabel(item)}`}><button className="source-open" onClick={() => inspect(item)}><span><b>{itemLabel(item)}</b><small>{"source" in item ? item.source : item.type || "rss"} · {itemState(item)}</small></span><i>↗</i></button><MoreMenu label={itemLabel(item)} values={{ name: itemLabel(item), url: item.url, type: "type" in item ? item.type : "result", source_id: "source_id" in item ? item.source_id : undefined, category: "category" in item ? item.category : undefined, enabled: "enabled" in item ? item.enabled : undefined, score: "ranking" in item ? item.ranking?.top_score : undefined }} /></article>)}</div></Section><section className={`preview ${expanded ? "expanded" : ""}`}>{target ? <><header className="panel-head"><div><small>SOURCE PREVIEW</small><h2>{"title" in target ? target.source : target.name}</h2></div><a className="command" href={target.url} target="_blank" rel="noreferrer">Open site</a></header><div className="preview-meta">{preview ? `${preview.status || "blocked"} · ${preview.content_type || "no content"} · ${preview.latency_ms || 0}ms` : "Fetching source"}</div><pre>{preview?.ok ? preview.preview : preview?.error || "Waiting for the source."}</pre><details><summary>Scraper rule / code</summary><code>{sourceCode(target)}</code></details><button className="plug" aria-label="Expand or collapse preview" onClick={() => setExpanded(!expanded)}>⌗</button></> : <Empty>Open a source row to preview its allowed response and collapsed scraper rule.</Empty>}</section></div>; }
+function sourceCode(source: Source | Result) { const type = "type" in source ? source.type || "rss" : "article preview"; return type === "rss" ? "feedparser.parse(url) → title, link, summary, published\nrule: one feed read per source-cycle; canonicalize URLs before dedupe" : `fetch_source(type=${type}) → supported parser\nrule: record HTTP status, parse yield, and failure reason`; }
+function Discover({ refresh, onDone }: { refresh: () => Promise<void>; onDone: (message: string) => void }) { const [rules, setRules] = useState<Rule[]>([]); const [lanes, setLanes] = useState<SourceLane[]>([]); const [busy, setBusy] = useState(false); useEffect(() => { api<{ lanes: SourceLane[] }>("/api/source-lanes").then((value) => setLanes(value.lanes)).catch((error) => onDone((error as Error).message)); }, [onDone]); const cycle = async () => { setBusy(true); try { const value = await api<{ rules: Rule[]; ready: number; run_id: string }>("/api/source-cycle", { method: "POST" }); setRules(value.rules); onDone(`${value.ready} ready sources replaced the previous active set.`); await refresh(); } catch (error) { onDone((error as Error).message); } finally { setBusy(false); } }; return <div className="discover-stack"><Section title="Video source lanes"><p className="copy">Choose the video intent first, then open an approved feed or API candidate. RSS candidates remain inactive until the current cycle passes access and parser checks.</p><div className="lane-grid">{lanes.map((lane) => <article className="lane-card" key={lane.id}><header><div><small>{lane.id.replaceAll("_", " ")}</small><h3>{lane.label}</h3></div><MoreMenu label={lane.label} values={{ purpose: lane.purpose, collection_method: lane.method, restriction: lane.restriction, candidate_count: lane.candidates.length }} /></header><p>{lane.purpose}</p><small>{lane.method}</small><div className="lane-sources">{lane.candidates.map((candidate) => <a key={candidate.url} href={candidate.url} target="_blank" rel="noreferrer"><span><b>{candidate.name}</b><small>{candidate.kind} · {candidate.setup}</small></span><i>↗</i></a>)}</div></article>)}</div></Section><SourceRegistry onDone={onDone} /><Section title="Automatic source cycle" action={<button className="command" disabled={busy} onClick={cycle}>{busy ? "Checking sources" : "Discover and replace"}</button>}><p className="copy">Creates current RSS candidates from enabled categories, rejects inaccessible or non-parseable candidates, archives the rules, then replaces the active source set.</p><RuleRows rules={rules} empty="No cycle has been run in this view." /></Section></div>; }
+function SourceRegistry({ onDone }: { onDone: (message: string) => void }) {
+  const [sources, setSources] = useState<RegistrySource[]>([]);
+  const [busy, setBusy] = useState(false);
+  const load = useCallback(async () => { try { const value = await api<{ sources: RegistrySource[] }>("/api/source-registry"); setSources(value.sources); } catch (error) { onDone((error as Error).message); } }, [onDone]);
+  useEffect(() => { load(); }, [load]);
+  const discover = async () => { setBusy(true); try { const value = await api<{ added: number; registry: RegistrySource[] }>("/api/source-registry/discover", { method: "POST" }); setSources(value.registry); onDone(`${value.added} novel domains staged for human trust review; none were activated.`); } catch (error) { onDone((error as Error).message); } finally { setBusy(false); } };
+  return <Section title="Permanent source candidate registry" action={<button className="command" disabled={busy} onClick={discover}>{busy ? "Discovering" : "Discover novel sources"}</button>}><p className="copy">Hacker News' official API supplies outbound domains. New domains enter this durable registry as review candidates only; a permitted RSS/API route and trust review are required before activation.</p><div className="registry-list">{sources.slice(0, 50).map((source) => <details key={source.domain}><summary><Flag value={source.status} /><b>{source.domain}</b><span>trust evidence {source.trust_score}/100 · {source.sample_title}</span></summary><div><code>{source.next_action}</code><small>Missing review: {source.missing_review.join(", ")}</small><a href={source.sample_url} target="_blank" rel="noreferrer">Open discovery evidence ↗</a></div></details>)}{!sources.length && <Empty>No novel domains have been staged yet.</Empty>}</div></Section>;
 }
-function EventList({ events }: { events: Event[] }) {
-  return events.length ? (
-    <div className="event-list">
-      {events.map((event) => (
-        <div className="event-row" key={event.event_id}>
-          <Status value={event.status} />
-          <span>{event.stage.replaceAll("_", " ")}</span>
-          <time>{new Date(event.timestamp * 1000).toLocaleTimeString()}</time>
-        </div>
-      ))}
-    </div>
-  ) : (
-    <Empty>No events recorded.</Empty>
-  );
-}
-function LiveRun({
-  state,
-  onCancel,
-}: {
-  state: State | null;
-  onCancel: () => void;
-}) {
-  const run = state?.run;
-  return (
-    <div className="view-stack">
-      <div className="stats-grid">
-        <Stat
-          label="state"
-          value={run?.status || "idle"}
-          tone={run?.status === "failed" ? "red" : "green"}
-        />
-        <Stat label="run id" value={run?.run_id?.slice(0, 8) || "—"} />
-        <Stat label="log lines" value={run?.log?.length || 0} />
-      </div>
-      <section className="panel">
-        <div className="panel-title">
-          <span>Execution stream</span>
-          <button
-            className="button danger"
-            disabled={run?.status !== "running"}
-            onClick={onCancel}
-          >
-            Cancel
-          </button>
-        </div>
-        <pre className="console">
-          {run?.log?.join("\n") || "No active execution."}
-        </pre>
-      </section>
-    </div>
-  );
-}
-
-function Categories({
-  items,
-  onSave,
-}: {
-  items: Category[];
-  onSave: (items: Category[]) => void;
-}) {
-  const [rows, setRows] = useState(items);
-  const [selected, setSelected] = useState<Category | null>(null);
-  useEffect(() => setRows(items), [items]);
-  const update = (next: Category) => {
-    setRows((current) =>
-      current.map((item) => (item.id === next.id ? next : item)),
-    );
-    setSelected(next);
-  };
-  return (
-    <div className="with-inspector">
-      <section className="panel table-panel">
-        <div className="panel-title">
-          <span>{rows.length} categories</span>
-          <button className="button primary" onClick={() => onSave(rows)}>
-            Save
-          </button>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>On</th>
-              <th>Category</th>
-              <th>Priority</th>
-              <th>Target</th>
-              <th>Freshness</th>
-              <th>Threshold</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.id} onClick={() => setSelected(row)}>
-                <td>
-                  <input
-                    type="checkbox"
-                    checked={row.enabled}
-                    onChange={(event) =>
-                      update({ ...row, enabled: event.target.checked })
-                    }
-                  />
-                </td>
-                <td>
-                  <code>{row.color}</code> {row.name}
-                </td>
-                <td>{row.priority}</td>
-                <td>{row.result_target}</td>
-                <td>{row.freshness_hours}h</td>
-                <td>{Math.round(row.minimum_relevance * 100)}%</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
-      {selected && (
-        <aside className="inspector">
-          <div className="panel-title">
-            <span>Edit category</span>
-            <button className="icon-button" onClick={() => setSelected(null)}>
-              ×
-            </button>
-          </div>
-          <Field
-            label="Name"
-            value={selected.name}
-            onChange={(value) => update({ ...selected, name: value })}
-          />
-          <Field
-            label="Priority"
-            type="number"
-            value={selected.priority}
-            onChange={(value) =>
-              update({ ...selected, priority: Number(value) })
-            }
-          />
-          <Field
-            label="Result target"
-            type="number"
-            value={selected.result_target}
-            onChange={(value) =>
-              update({ ...selected, result_target: Number(value) })
-            }
-          />
-          <Field
-            label="Freshness hours"
-            type="number"
-            value={selected.freshness_hours}
-            onChange={(value) =>
-              update({ ...selected, freshness_hours: Number(value) })
-            }
-          />
-          <Field
-            label="Include keywords"
-            value={selected.include_keywords.join(", ")}
-            onChange={(value) =>
-              update({
-                ...selected,
-                include_keywords: value
-                  .split(",")
-                  .map((x) => x.trim())
-                  .filter(Boolean),
-              })
-            }
-          />
-          <Field
-            label="Exclude keywords"
-            value={selected.exclude_keywords.join(", ")}
-            onChange={(value) =>
-              update({
-                ...selected,
-                exclude_keywords: value
-                  .split(",")
-                  .map((x) => x.trim())
-                  .filter(Boolean),
-              })
-            }
-          />
-          <Field
-            label="Chart color"
-            type="color"
-            value={selected.color}
-            onChange={(value) => update({ ...selected, color: value })}
-          />
-        </aside>
-      )}
-    </div>
-  );
-}
-function Field({
-  label,
-  value,
-  onChange,
-  type = "text",
-}: {
-  label: string;
-  value: string | number;
-  onChange: (value: string) => void;
-  type?: string;
-}) {
-  return (
-    <label className="field">
-      <span>{label}</span>
-      <input
-        type={type}
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-      />
-    </label>
-  );
-}
-function Sources({
-  sources,
-  onSave,
-  onTest,
-}: {
-  sources: { rss: Source[]; scrape: Source[] };
-  onSave: (value: { rss: Source[]; scrape: Source[] }) => void;
-  onTest: (source: Source) => void;
-}) {
-  const [value, setValue] = useState(sources);
-  useEffect(() => setValue(sources), [sources]);
-  const all = [
-    ...value.rss.map((x) => ({ ...x, group: "rss" })),
-    ...value.scrape.map((x) => ({ ...x, group: "scrape" })),
-  ];
-  return (
-    <section className="panel table-panel">
-      <div className="panel-title">
-        <span>{all.length} sources</span>
-        <button className="button primary" onClick={() => onSave(value)}>
-          Save
-        </button>
-      </div>
-      <table>
-        <thead>
-          <tr>
-            <th>On</th>
-            <th>Source</th>
-            <th>Type</th>
-            <th>URL</th>
-            <th>Probe</th>
-          </tr>
-        </thead>
-        <tbody>
-          {all.map((source, index) => (
-            <tr key={`${source.group}-${source.url}`}>
-              <td>
-                <input
-                  type="checkbox"
-                  checked={source.enabled !== false}
-                  onChange={(event) => {
-                    const key = source.group as "rss" | "scrape";
-                    setValue((current) => ({
-                      ...current,
-                      [key]: current[key].map((item, i) =>
-                        i ===
-                        (source.group === "rss"
-                          ? index
-                          : index - value.rss.length)
-                          ? { ...item, enabled: event.target.checked }
-                          : item,
-                      ),
-                    }));
-                  }}
-                />
-              </td>
-              <td>{source.name}</td>
-              <td>{source.type || "rss"}</td>
-              <td className="truncate">{source.url}</td>
-              <td>
-                <button className="button" onClick={() => onTest(source)}>
-                  Test
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </section>
-  );
-}
-
-const columnHelper = createColumnHelper<Result>();
-function Results({ rows }: { rows: Result[] }) {
-  const columns = useMemo(
-    () => [
-      columnHelper.accessor("title", {
-        header: "Title",
-        cell: (info) => (
-          <a href={info.row.original.url} target="_blank">
-            {info.getValue()}
-          </a>
-        ),
-      }),
-      columnHelper.accessor("source", { header: "Source" }),
-      columnHelper.accessor("published", { header: "Published" }),
-      columnHelper.display({
-        id: "score",
-        header: "Score",
-        cell: (info) => info.row.original.ranking?.top_score ?? "—",
-      }),
-      columnHelper.display({
-        id: "topics",
-        header: "Topics",
-        cell: (info) =>
-          (info.row.original.categories || info.row.original.topics || []).join(
-            ", ",
-          ) || "—",
-      }),
-    ],
-    [],
-  );
-  const table = useReactTable({
-    data: rows,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-  });
-  return (
-    <section className="panel table-panel">
-      <div className="panel-title">
-        <span>{rows.length} results</span>
-        <small>latest processed</small>
-      </div>
-      <table>
-        <thead>
-          {table.getHeaderGroups().map((group) => (
-            <tr key={group.id}>
-              {group.headers.map((header) => (
-                <th key={header.id}>
-                  {flexRender(
-                    header.column.columnDef.header,
-                    header.getContext(),
-                  )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </section>
-  );
-}
-function Configuration({
-  config,
-  onSave,
-  onNotice,
-}: {
-  config: Config;
-  onSave: (value: Config) => void;
-  onNotice: (message: string) => void;
-}) {
-  const [value, setValue] = useState(config);
-  const [dirty, setDirty] = useState(false);
-  const [models, setModels] = useState<ModelOption[]>([]);
-  const [modelFilter, setModelFilter] = useState("");
-  const [loadingModels, setLoadingModels] = useState(false);
-  const [statuses, setStatuses] = useState<Record<string, string>>({});
-  const [keyInputs, setKeyInputs] = useState<Record<string, string>>({});
-  useEffect(() => {
-    if (!dirty) setValue(config);
-  }, [config, dirty]);
-  const set = (key: string, next: string | number | boolean) => {
-    setDirty(true);
-    setValue((current) => ({ ...current, [key]: next }));
-  };
-  const discover = useCallback(async () => {
-    setLoadingModels(true);
+function Ideas({ onDone }: { onDone: (message: string) => void }) {
+  const [payload, setPayload] = useState<ContentPayload | null>(null);
+  const [audience, setAudience] = useState("all");
+  const [pillar, setPillar] = useState("all");
+  const [format, setFormat] = useState("all");
+  const [busy, setBusy] = useState(false);
+  const load = useCallback(async () => {
+    try { setPayload(await api<ContentPayload>("/api/content-intelligence")); }
+    catch (error) { onDone((error as Error).message); }
+  }, [onDone]);
+  useEffect(() => { load(); }, [load]);
+  const collect = async () => {
+    setBusy(true);
     try {
-      const data = await api<{
-        models: ModelOption[];
-        errors: Record<string, string>;
-        credential_statuses: Record<string, string>;
-      }>("/api/models?provider=all");
-      setModels(data.models);
-      setStatuses(data.credential_statuses);
-      const failures = Object.keys(data.errors);
-      onNotice(
-        `${data.models.length} models loaded${failures.length ? `; unavailable: ${failures.join(", ")}` : ""}`,
-      );
-    } catch (error) {
-      onNotice((error as Error).message);
-    } finally {
-      setLoadingModels(false);
-    }
-  }, [onNotice]);
-  useEffect(() => {
-    api<{ providers: Record<string, string> }>("/api/credentials/status")
-      .then((data) => setStatuses(data.providers))
-      .catch((error) => onNotice(error.message));
-    discover();
-  }, [discover, onNotice]);
-  const saveCredential = async (provider: string) => {
-    const apiKey = keyInputs[provider] || "";
-    if (!apiKey) return;
-    try {
-      await api("/api/credentials", {
-        method: "POST",
-        body: JSON.stringify({ provider, api_key: apiKey }),
-      });
-      setKeyInputs((current) => ({ ...current, [provider]: "" }));
-      setStatuses((current) => ({ ...current, [provider]: "configured" }));
-      onNotice(`${provider} credential saved to the Windows user environment`);
-      await discover();
-    } catch (error) {
-      setKeyInputs((current) => ({ ...current, [provider]: "" }));
-      onNotice((error as Error).message);
-    }
+      const value = await api<{ collected: number; added: number; collectors: { id: string; status: string; message: string }[] }>("/api/research/collect", { method: "POST" });
+      onDone(`Collected ${value.collected} approved-API signals; ${value.added} were new.`);
+      await load();
+    } catch (error) { onDone((error as Error).message); }
+    finally { setBusy(false); }
   };
-  const selectedProvider = String(value.selected_provider || "nvidia");
-  const visibleModels = models.filter(
-    (model) =>
-      (selectedProvider === "all" || model.provider === selectedProvider) &&
-      `${model.name} ${model.id}`.toLowerCase().includes(modelFilter.toLowerCase()),
-  );
-  const numeric = [
-    "global_concurrency",
-    "per_domain_concurrency",
-    "requests_per_minute",
-    "request_timeout_seconds",
-    "retry_limit",
-    "retry_backoff_seconds",
-    "freshness_hours",
-    "retention_days",
-    "refresh_seconds",
-    "nvidia_temperature",
-    "nvidia_top_p",
-    "nvidia_max_tokens",
-  ];
-  return (
-    <div className="config-layout">
-      <section className="panel form-panel">
-        <div className="panel-title">
-          <span>Runtime</span>
-          <button
-            className="button primary"
-            onClick={() => {
-              onSave(value);
-              setDirty(false);
-            }}
-          >
-            {dirty ? "Save changes" : "Saved"}
-          </button>
-        </div>
-        {numeric.slice(0, 9).map((key) => (
-          <Field
-            key={key}
-            label={key.replaceAll("_", " ")}
-            type="number"
-            value={String(value[key] ?? "")}
-            onChange={(next) => set(key, Number(next))}
-          />
-        ))}
-      </section>
-      <section className="panel form-panel">
-        <div className="panel-title">
-          <span>Models</span>
-          <button className="button" disabled={loadingModels} onClick={discover}>
-            {loadingModels ? "Loading" : "Refresh"}
-          </button>
-        </div>
-        <label className="field">
-          <span>Provider</span>
-          <select
-            value={selectedProvider}
-            onChange={(event) => set("selected_provider", event.target.value)}
-          >
-            {["nvidia", "openrouter", "gemini", "featherless", "openai", "lm-studio", "vllm", "llama-cpp", "ollama-local"].map((provider) => (
-              <option key={provider} value={provider}>{provider}</option>
-            ))}
-          </select>
-        </label>
-        <Field label="Filter models" value={modelFilter} onChange={setModelFilter} />
-        <label className="field">
-          <span>Model ({visibleModels.length})</span>
-          <select
-            value={String(value.selected_model || "")}
-            onChange={(event) => set("selected_model", event.target.value)}
-          >
-            <option value="">Select a model</option>
-            {visibleModels.map((model) => (
-              <option key={`${model.provider}:${model.id}`} value={model.id}>
-                {model.name}
-              </option>
-            ))}
-          </select>
-        </label>
-        {numeric.slice(9).map((key) => (
-          <Field
-            key={key}
-            label={key.replaceAll("_", " ")}
-            type="number"
-            value={String(value[key] ?? "")}
-            onChange={(next) => set(key, Number(next))}
-          />
-        ))}
-        <label className="check">
-          <input
-            type="checkbox"
-            checked={Boolean(value.nvidia_thinking)}
-            onChange={(event) => set("nvidia_thinking", event.target.checked)}
-          />
-          thinking
-        </label>
-        <div className="action-row">
-          <button
-            className="button"
-            disabled={!value.selected_model}
-            onClick={() =>
-              api("/api/models/test", {
-                method: "POST",
-                body: JSON.stringify({
-                  provider: value.selected_provider,
-                  model: value.selected_model,
-                }),
-              })
-                .then((data) => onNotice(JSON.stringify(data)))
-                .catch((error) => onNotice(error.message))
-            }
-          >
-            Test
-          </button>
-        </div>
-      </section>
-      <section className="panel credential-panel">
-        <div className="panel-title"><span>Credentials</span><small>Windows user environment</small></div>
-        {Object.entries({
-          nvidia: "NVIDIA_API_KEY",
-          openrouter: "OPENROUTER_API_KEY",
-          gemini: "GEMINI_API_KEY",
-          featherless: "FEATHERLESS_API_KEY",
-          openai: "OPENAI_API_KEY",
-        }).map(([provider, envName]) => (
-          <div className="credential-row" key={provider}>
-            <div><b>{provider}</b><small>{envName}</small></div>
-            <Status value={statuses[provider] || "missing"} />
-            <input
-              type="password"
-              autoComplete="off"
-              placeholder="Paste replacement key"
-              value={keyInputs[provider] || ""}
-              onChange={(event) =>
-                setKeyInputs((current) => ({ ...current, [provider]: event.target.value }))
-              }
-            />
-            <button className="button" disabled={!keyInputs[provider]} onClick={() => saveCredential(provider)}>Save key</button>
-          </div>
-        ))}
-      </section>
-    </div>
-  );
-}
-
-function Schedules({
-  config,
-  onSave,
-}: {
-  config: Config;
-  onSave: (value: Config) => void;
-}) {
-  const [value, setValue] = useState(config);
-  useEffect(() => setValue(config), [config]);
-  return (
-    <section className="panel form-panel">
-      <div className="panel-title">
-        <span>Schedule defaults</span>
-        <button className="button primary" onClick={() => onSave(value)}>
-          Save
-        </button>
+  const ideas = useMemo(() => (payload?.ideas || []).filter((idea) =>
+    (audience === "all" || idea.audience.id === audience)
+    && (pillar === "all" || idea.pillar.id === pillar)
+    && (format === "all" || idea.format_options.includes(format)),
+  ).slice(0, 60), [payload, audience, pillar, format]);
+  return <div className="ideas-workspace">
+    <Section title="Editorial research queue" action={<div className="idea-actions"><button className="text" onClick={load}>Refresh</button><button className="command" disabled={busy} onClick={collect}>{busy ? "Collecting" : "Collect approved signals"}</button></div>}>
+      <div className="idea-summary">
+        <div><small>Ranked ideas</small><b>{payload?.counts.ideas || 0}</b></div>
+        <div><small>News articles</small><b>{payload?.counts.articles || 0}</b></div>
+        <div><small>Pain signals</small><b>{payload?.counts.research_signals || 0}</b></div>
+        <p>{payload?.scoring_notice || "Loading evidence policy."} Upload and publishing remain human-approved.</p>
       </div>
-      <Field
-        label="Timezone"
-        value={String(value.timezone || "America/New_York")}
-        onChange={(timezone) => setValue((current) => ({ ...current, timezone }))}
-      />
-      <Field
-        label="Planning days"
-        type="number"
-        value={String(value.plan_days || 60)}
-        onChange={(plan_days) =>
-          setValue((current) => ({ ...current, plan_days: Number(plan_days) }))
-        }
-      />
-      <Field
-        label="Items per day"
-        type="number"
-        value={String(value.plan_per_day || 4)}
-        onChange={(plan_per_day) =>
-          setValue((current) => ({ ...current, plan_per_day: Number(plan_per_day) }))
-        }
-      />
-    </section>
-  );
+      <div className="idea-filters" aria-label="Idea queue filters">
+        <label><small>Audience</small><select value={audience} onChange={(event) => setAudience(event.target.value)}><option value="all">All audiences</option>{payload?.audiences.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
+        <label><small>Pillar</small><select value={pillar} onChange={(event) => setPillar(event.target.value)}><option value="all">All pillars</option>{payload?.pillars.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
+        <label><small>Format</small><select value={format} onChange={(event) => setFormat(event.target.value)}><option value="all">Short + long</option><option value="short">Short capable</option><option value="long">Long capable</option></select></label>
+      </div>
+    </Section>
+    <Section title={`${ideas.length} review candidates`}>
+      <div className="idea-ledger">{ideas.map((idea, index) => <details key={idea.id}>
+        <summary>
+          <b>{String(index + 1).padStart(2, "0")}</b>
+          <span><strong>{idea.suggested_title}</strong><small>{idea.audience.label} · {idea.pillar.label} · {idea.recommended_format} first</small></span>
+          <em>{idea.content_velocity_score}</em>
+          <Flag value={idea.review_status} />
+        </summary>
+        <div className="idea-evidence">
+          <p>{idea.hook}</p>
+          <div className="score-strip">{Object.entries(idea.score_components).map(([name, value]) => <span key={name}><small>{name.replaceAll("_", " ")}</small><b>{value === null ? "n/a" : Math.round(value)}</b><i>{idea.score_basis[name]}</i></span>)}</div>
+          <code>coverage {idea.evidence_coverage}% · trust {idea.source_trust_score ?? "unreviewed"} · gaps {idea.data_gaps.join(", ") || "none"}</code>
+          <div className="idea-links">{idea.source_url ? <a href={idea.source_url} target="_blank" rel="noreferrer">Open source evidence ↗</a> : <small>No source URL retained</small>}<small>Human approval required before scripting, offers, upload, or publish.</small></div>
+        </div>
+      </details>)}{!ideas.length && <Empty>No ideas match these filters. Run a scrape or collect approved research signals.</Empty>}</div>
+    </Section>
+  </div>;
 }
+function Access({ audit }: { audit: Audit[] }) { return <Section title="Access decisions"><RuleRows rules={audit.map((item) => ({ ...item, source_id: item.id, name: item.source, instruction: item.reason, selector_notes: item.archive } as Rule))} empty="No access decisions recorded." /></Section>; }
+function RuleRows({ rules, empty }: { rules: Rule[]; empty: string }) { return rules.length ? <div className="rule-rows">{rules.slice().reverse().map((rule) => <details key={rule.source_id}><summary><Flag value={rule.status} /><b>{rule.name}</b><span>{rule.reason}</span></summary><div><code>{rule.instruction || "No rule text"}</code><small>{rule.selector_notes || ""}</small></div></details>)}</div> : <Empty>{empty}</Empty>; }
+function Results({ results, ratings }: { results: Result[]; ratings: Rating[] }) { const [mode, setMode] = useState<"ratings" | "results">("ratings"); const rows = mode === "ratings" ? ratings : results; return <Section title="Ranked evidence" action={<button className="text" onClick={() => setMode(mode === "ratings" ? "results" : "ratings")}>{mode === "ratings" ? "Scrape score" : "Portfolio score"}</button>}><div className="table">{rows.map((row, index) => <a key={row.url} href={row.url} target="_blank" rel="noreferrer"><b>{index + 1}</b><span><strong>{row.title}</strong><small>{row.source}</small></span><em>{"score" in row ? row.score : Math.round(row.ranking?.top_score || 0)}</em>{"metrics" in row && <code>{Object.entries(row.metrics).map(([name, value]) => `${name}:${value}`).join(" ")}</code>}</a>)}</div></Section>; }
+function Categories({ categories, save }: { categories: Category[]; save: (value: Category[]) => void }) { const [rows, setRows] = useState(categories); useEffect(() => setRows(categories), [categories]); return <Section title="Category controls" action={<button className="command" onClick={() => save(rows)}>Save categories</button>}><div className="table categories">{rows.map((row) => <label key={row.id}><input type="checkbox" checked={row.enabled} onChange={(event) => setRows(rows.map((item) => item.id === row.id ? { ...item, enabled: event.target.checked } : item))} /><span><b>{row.name}</b><small>priority {row.priority} · target {row.result_target} · freshness {row.freshness_hours}h</small></span></label>)}</div></Section>; }
+function Failures({ data }: { data: Observability | null }) { return <Section title="Failures"><EventRows events={data?.errors || []} empty="No failed or degraded events retained." /></Section>; }
+function Trace({ data }: { data: Observability | null }) { return <Section title="Trace"><EventRows events={(data?.events || []).slice().reverse()} empty="No trace events retained." /></Section>; }
+function Archive({ runs }: { runs: Run[] }) { return <Section title="Archived runs"><div className="rule-rows">{runs.map((run) => <details key={run.id}><summary><Flag value={run.status} /><b>{run.id}</b><span>{run.ready_sources || 0} ready sources · {time(run.archived_at || run.created_at)}</span></summary><div><code>{run.outputs?.join(" · ") || run.reason || "No output manifest"}</code></div></details>)}</div></Section>; }
+function Schedule({ config }: { config: Config | null }) { return <Section title="Schedule"><div className="metrics">{["plan_days", "plan_per_day", "refresh_seconds", "freshness_hours", "retention_days"].map((key) => <div key={key}><small>{key.replaceAll("_", " ")}</small><b>{String(config?.[key] ?? "—")}</b></div>)}</div></Section>; }
+function ConfigView({ config, save }: { config: Config | null; save: (value: Config) => void }) { const [draft, setDraft] = useState<Config>({}); useEffect(() => setDraft(config || {}), [config]); return <Section title="Runtime configuration" action={<button className="command" onClick={() => save(draft)}>Save parameters</button>}><div className="config-grid">{Object.entries(draft).map(([key, value]) => <label key={key}><small>{key.replaceAll("_", " ")}</small>{typeof value === "boolean" ? <select value={String(value)} onChange={(event) => setDraft({ ...draft, [key]: event.target.value === "true" })}><option value="true">on</option><option value="false">off</option></select> : <input value={String(value)} onChange={(event) => setDraft({ ...draft, [key]: typeof value === "number" ? Number(event.target.value) : event.target.value })} />}</label>)}</div></Section>; }
+function Audit({ audit }: { audit: Audit[] }) { return <Section title="Persistent audit queue"><div className="audit-list">{audit.slice().reverse().map((item) => <article key={item.id}><Flag value={item.status} /><span><b>{item.source}</b><small>{item.reason}</small><code>{item.run_id} · retry {item.retry ? "eligible" : "not needed"} · {item.archive}</code></span><a href={item.url} target="_blank" rel="noreferrer">Open</a></article>)}</div></Section>; }
 
-export default function App() {
-  const [view, setView] = useState<View>("Overview");
-  const [dashboard, setDashboard] = useState<Dashboard | null>(null);
-  const [state, setState] = useState<State | null>(null);
-  const [results, setResults] = useState<Result[]>([]);
-  const [notice, setNotice] = useState("");
-  const refresh = useCallback(async () => {
-    try {
-      const [dash, current, resultData] = await Promise.all([
-        api<Dashboard>("/api/dashboard"),
-        api<State>("/api/state"),
-        api<{ results: Result[] }>("/api/results"),
-      ]);
-      setDashboard(dash);
-      setState(current);
-      setResults(resultData.results);
-    } catch (error) {
-      setNotice((error as Error).message);
-    }
-  }, []);
-  useEffect(() => {
-    refresh();
-    const timer = setInterval(refresh, 5000);
-    return () => clearInterval(timer);
-  }, [refresh]);
-  const mutate = async (url: string, body: unknown) => {
-    try {
-      await api(url, { method: "PUT", body: JSON.stringify(body) });
-      setNotice("Saved");
-      await refresh();
-    } catch (error) {
-      setNotice((error as Error).message);
-    }
-  };
-  const start = async () => {
-    try {
-      await api("/api/run", {
-        method: "POST",
-        body: JSON.stringify(state?.config || {}),
-      });
-      setView("Live run");
-      refresh();
-    } catch (error) {
-      setNotice((error as Error).message);
-    }
-  };
-  const failures = (dashboard?.events || []).filter(
-    (event) => event.status === "error",
-  );
-  return (
-    <div className="app-shell">
-      <aside className="sidebar">
-        <div className="workspace">OPERATIONS</div>
-        <nav>
-          {nav.map((item) => (
-            <button
-              key={item}
-              className={view === item ? "active" : ""}
-              onClick={() => setView(item)}
-            >
-              {item}
-            </button>
-          ))}
-        </nav>
-        <div className="sidebar-foot">
-          <Status value={String(state?.run.status || "idle")} />
-          <span>
-            {dashboard?.credential_status === "configured"
-              ? "NVIDIA ready"
-              : "NVIDIA missing"}
-          </span>
-        </div>
-      </aside>
-      <main>
-        <header className="command">
-          <div>
-            <b>{view}</b>
-            <span>{state?.run.run_id?.slice(0, 8) || "No active run"}</span>
-          </div>
-          <div className="command-actions">
-            <button className="button" onClick={refresh}>
-              Refresh
-            </button>
-            <button
-              className="button primary"
-              disabled={state?.run.status === "running"}
-              onClick={start}
-            >
-              Run
-            </button>
-          </div>
-        </header>
-        {notice && (
-          <button className="notice" onClick={() => setNotice("")}>
-            {notice}
-          </button>
-        )}
-        <div className="content">
-          {view === "Overview" && <Overview dashboard={dashboard} />}{" "}
-          {view === "Live run" && (
-            <LiveRun
-              state={state}
-              onCancel={() =>
-                api("/api/run/cancel", { method: "POST" })
-                  .then(refresh)
-                  .catch((error) => setNotice(error.message))
-              }
-            />
-          )}{" "}
-          {view === "Categories" && (
-            <Categories
-              items={dashboard?.categories || []}
-              onSave={(items) =>
-                mutate("/api/categories", { categories: items })
-              }
-            />
-          )}{" "}
-          {view === "Sources" && state && (
-            <Sources
-              sources={state.sources}
-              onSave={(sources) => mutate("/api/sources", sources)}
-              onTest={(source) =>
-                api("/api/sources/test", {
-                  method: "POST",
-                  body: JSON.stringify(source),
-                })
-                  .then((data) => setNotice(JSON.stringify(data)))
-                  .catch((error) => setNotice(error.message))
-              }
-            />
-          )}{" "}
-          {view === "Results" && <Results rows={results} />}{" "}
-          {view === "Failures" &&
-            (failures.length ? (
-              <EventList events={failures} />
-            ) : (
-              <Empty>No failures recorded.</Empty>
-            ))}{" "}
-          {view === "Traces" && (
-            <EventList events={(dashboard?.events || []).slice().reverse()} />
-          )}{" "}
-          {view === "Schedules" && state && (
-            <Schedules
-              config={state.config}
-              onSave={(config) => mutate("/api/config", config)}
-            />
-          )}{" "}
-          {view === "Configuration" && state && (
-            <Configuration
-              config={state.config}
-              onSave={(config) => mutate("/api/config", config)}
-              onNotice={setNotice}
-            />
-          )}
-        </div>
-      </main>
-    </div>
-  );
-}
+export default function App() { const [view, setView] = useState<View>("Overview"); const [data, setData] = useState<Observability | null>(null); const [results, setResults] = useState<Result[]>([]); const [ratings, setRatings] = useState<Rating[]>([]); const [audit, setAudit] = useState<Audit[]>([]); const [runs, setRuns] = useState<Run[]>([]); const [categories, setCategories] = useState<Category[]>([]); const [notice, setNotice] = useState(""); const refresh = useCallback(async () => { try { const [state, resultData, portfolio, auditData, runData, categoryData] = await Promise.all([api<Observability>("/api/observability"), api<{ results: Result[] }>("/api/results"), api<{ ratings: Rating[] }>("/api/portfolio"), api<{ entries: Audit[] }>("/api/audit"), api<{ runs: Run[] }>("/api/runs"), api<{ categories: Category[] }>("/api/categories")]); setData(state); setResults(resultData.results); setRatings(portfolio.ratings); setAudit(auditData.entries); setRuns(runData.runs); setCategories(categoryData.categories); } catch (error) { setNotice((error as Error).message); } }, []); useEffect(() => { refresh(); const timer = window.setInterval(refresh, 2500); return () => window.clearInterval(timer); }, [refresh]); const run = async () => { try { await api("/api/run", { method: "POST", body: JSON.stringify(data?.config || {}) }); setNotice("Source cycle started before the scrape."); refresh(); } catch (error) { setNotice((error as Error).message); } }; const cancel = async () => { try { await api("/api/run/cancel", { method: "POST" }); setNotice("Cancellation requested."); refresh(); } catch (error) { setNotice((error as Error).message); } }; const saveConfig = async (config: Config) => { try { await api("/api/config", { method: "PUT", body: JSON.stringify(config) }); setNotice("Configuration saved."); refresh(); } catch (error) { setNotice((error as Error).message); } }; const saveCategories = async (value: Category[]) => { try { await api("/api/categories", { method: "PUT", body: JSON.stringify({ categories: value }) }); setNotice("Categories saved."); refresh(); } catch (error) { setNotice((error as Error).message); } }; const content = { Overview: <Overview data={data} ratings={ratings} go={setView} />, Live: <Live data={data} results={results} run={run} cancel={cancel} />, Sources: <Sources data={data} results={results} />, Discover: <Discover refresh={refresh} onDone={setNotice} />, Access: <Access audit={audit} />, Results: <Results results={results} ratings={ratings} />, Ideas: <Ideas onDone={setNotice} />, Categories: <Categories categories={categories} save={saveCategories} />, Failures: <Failures data={data} />, Trace: <Trace data={data} />, Archive: <Archive runs={runs} />, Schedule: <Schedule config={data?.config || null} />, Config: <ConfigView config={data?.config || null} save={saveConfig} />, Audit: <Audit audit={audit} /> }[view]; return <div className="app"><header className="top"><button className="logo" onClick={() => setView("Overview")} aria-label="Open overview"><i /><i /><i /></button><div><small>SIGNAL CONSOLE / TERMINAL</small><b>{view}</b></div><div className="top-right"><Flag value={data?.run.status || "loading"} /><button className="text" onClick={refresh}>Refresh</button></div></header>{notice && <button className="notice" onClick={() => setNotice("")}>{notice}<span>Dismiss</span></button>}<main>{content}</main><nav className="dock" aria-label="Console views">{dock.map((item) => <button key={item.view} className={view === item.view ? "active" : ""} onClick={() => setView(item.view)}><b>{item.mark}</b><span>{item.label}</span></button>)}</nav></div>; }

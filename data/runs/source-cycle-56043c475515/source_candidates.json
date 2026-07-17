@@ -1,0 +1,110 @@
+[
+  {
+    "source_id": "source-c-01",
+    "name": "News search · Foundation model releases",
+    "url": "https://news.google.com/rss/search?q=Foundation%20model%20releases%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Foundation model releases",
+    "discovered_at": "2026-07-15T19:31:11.802480+00:00",
+    "origin": "automatic category discovery"
+  },
+  {
+    "source_id": "source-c-02",
+    "name": "News search · Reasoning models",
+    "url": "https://news.google.com/rss/search?q=Reasoning%20models%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Reasoning models",
+    "discovered_at": "2026-07-15T19:31:11.804240+00:00",
+    "origin": "automatic category discovery"
+  },
+  {
+    "source_id": "source-c-03",
+    "name": "News search · Multimodal models",
+    "url": "https://news.google.com/rss/search?q=Multimodal%20models%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Multimodal models",
+    "discovered_at": "2026-07-15T19:31:11.804240+00:00",
+    "origin": "automatic category discovery"
+  },
+  {
+    "source_id": "source-c-04",
+    "name": "News search · Image generation",
+    "url": "https://news.google.com/rss/search?q=Image%20generation%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Image generation",
+    "discovered_at": "2026-07-15T19:31:11.804240+00:00",
+    "origin": "automatic category discovery"
+  },
+  {
+    "source_id": "source-c-05",
+    "name": "News search · Video generation",
+    "url": "https://news.google.com/rss/search?q=Video%20generation%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Video generation",
+    "discovered_at": "2026-07-15T19:31:11.804240+00:00",
+    "origin": "automatic category discovery"
+  },
+  {
+    "source_id": "source-c-06",
+    "name": "News search · Speech and audio AI",
+    "url": "https://news.google.com/rss/search?q=Speech%20and%20audio%20AI%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Speech and audio AI",
+    "discovered_at": "2026-07-15T19:31:11.804240+00:00",
+    "origin": "automatic category discovery"
+  },
+  {
+    "source_id": "source-c-07",
+    "name": "News search · AI agents",
+    "url": "https://news.google.com/rss/search?q=AI%20agents%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "AI agents",
+    "discovered_at": "2026-07-15T19:31:11.804240+00:00",
+    "origin": "automatic category discovery"
+  },
+  {
+    "source_id": "source-c-08",
+    "name": "News search · Agent frameworks",
+    "url": "https://news.google.com/rss/search?q=Agent%20frameworks%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Agent frameworks",
+    "discovered_at": "2026-07-15T19:31:11.804240+00:00",
+    "origin": "automatic category discovery"
+  },
+  {
+    "source_id": "source-c-09",
+    "name": "News search · MCP servers and integrations",
+    "url": "https://news.google.com/rss/search?q=MCP%20servers%20and%20integrations%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "MCP servers and integrations",
+    "discovered_at": "2026-07-15T19:31:11.805257+00:00",
+    "origin": "automatic category discovery"
+  },
+  {
+    "source_id": "source-c-10",
+    "name": "News search · Developer SDKs and APIs",
+    "url": "https://news.google.com/rss/search?q=Developer%20SDKs%20and%20APIs%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Developer SDKs and APIs",
+    "discovered_at": "2026-07-15T19:31:11.805257+00:00",
+    "origin": "automatic category discovery"
+  },
+  {
+    "source_id": "source-c-11",
+    "name": "News search · Coding assistants",
+    "url": "https://news.google.com/rss/search?q=Coding%20assistants%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Coding assistants",
+    "discovered_at": "2026-07-15T19:31:11.805257+00:00",
+    "origin": "automatic category discovery"
+  },
+  {
+    "source_id": "source-c-12",
+    "name": "News search · Open-source repositories",
+    "url": "https://news.google.com/rss/search?q=Open-source%20repositories%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Open-source repositories",
+    "discovered_at": "2026-07-15T19:31:11.805257+00:00",
+    "origin": "automatic category discovery"
+  }
+]

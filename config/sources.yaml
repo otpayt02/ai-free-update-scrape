@@ -1,42 +1,26 @@
-# RSS + scrape sources for ai-free-update-scrape
-# Edit freely — these feed the ingest/ scrapers
-
 rss:
-  - name: HuggingFace Blog
-    url: https://huggingface.co/blog/feed.xml
-  - name: OpenAI Blog
-    url: https://openai.com/blog/rss.xml
-  - name: Simon Willison
-    url: https://simonwillison.net/atom/everything/
-  - name: Sebastian Raschka
-    url: https://sebastianraschka.com/rss_feed.xml
-  - name: Papers With Code
-    url: https://paperswithcode.com/rss
-  - name: TechCrunch AI
-    url: https://techcrunch.com/category/artificial-intelligence/feed/
-  - name: The Verge AI
-    url: https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
-  - name: Ars Technica AI
-    url: https://feeds.arstechnica.com/arstechnica/technology-lab
-  - name: Product Hunt
-    url: https://www.producthunt.com/feed
-  - name: DeepMind Blog
-    url: https://deepmind.google/blog/rss.xml
-
-scrape:
-  - name: GitHub Trending Python
-    url: https://github.com/trending/python?since=daily
-    type: github_trending
-  - name: GitHub Trending TypeScript
-    url: https://github.com/trending/typescript?since=daily
-    type: github_trending
-  - name: Hacker News Front Page
-    url: https://hacker-news.firebaseio.com/v0/topstories.json
-    type: hn_api
-    limit: 30
-  - name: r/LocalLLaMA
-    url: https://www.reddit.com/r/LocalLLaMA/top.json?t=day&limit=10
-    type: reddit_json
-  - name: arxiv cs.AI recent
-    url: https://arxiv.org/list/cs.AI/recent
-    type: arxiv
+- name: Hugging Face Blog
+  url: https://huggingface.co/blog/feed.xml
+  type: rss
+  enabled: true
+  source_id: source-c-02
+  category: Reasoning models | Multimodal models | AI agents
+- name: GitHub AI and ML
+  url: https://github.blog/ai-and-ml/feed/
+  type: rss
+  enabled: true
+  source_id: source-c-03
+  category: AI agents | Developer SDKs and APIs | Coding assistants
+- name: arXiv Computer Science AI
+  url: https://rss.arxiv.org/rss/cs.AI
+  type: rss
+  enabled: true
+  source_id: source-c-07
+  category: Foundation model releases | Reasoning models | AI agents
+- name: Hacker News AI
+  url: https://hnrss.org/newest?q=AI
+  type: rss
+  enabled: true
+  source_id: source-c-08
+  category: AI agents | MCP servers and integrations | Developer SDKs and APIs
+scrape: []

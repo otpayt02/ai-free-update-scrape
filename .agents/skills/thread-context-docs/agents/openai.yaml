@@ -1,0 +1,4 @@
+interface:
+  display_name: "Thread Context Docs"
+  short_description: "Generate an inspectable thread context ledger."
+  default_prompt: "Generate or refresh the current thread context documentation for this project."

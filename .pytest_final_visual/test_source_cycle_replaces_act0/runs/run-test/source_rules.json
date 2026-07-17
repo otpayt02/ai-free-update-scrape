@@ -1,0 +1,34 @@
+[
+  {
+    "source_id": "run-test-01",
+    "name": "News search · Models",
+    "url": "https://news.google.com/rss/search?q=Models%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Models",
+    "discovered_at": "2026-07-13T20:38:43.457999+00:00",
+    "origin": "automatic category discovery",
+    "status": "ready",
+    "reason": "test rule",
+    "http_status": 200,
+    "robots": "reviewed",
+    "parser": "feedparser",
+    "instruction": "test",
+    "selector_notes": "test"
+  },
+  {
+    "source_id": "run-test-02",
+    "name": "News search · Blocked",
+    "url": "https://news.google.com/rss/search?q=Blocked%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Blocked",
+    "discovered_at": "2026-07-13T20:38:43.457999+00:00",
+    "origin": "automatic category discovery",
+    "status": "rejected",
+    "reason": "test rule",
+    "http_status": 200,
+    "robots": "reviewed",
+    "parser": "feedparser",
+    "instruction": "test",
+    "selector_notes": "test"
+  }
+]

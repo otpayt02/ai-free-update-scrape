@@ -1,0 +1,29 @@
+{
+  "mode": "edit",
+  "componentId": "426279162676936704",
+  "projectId": "426275699289100288",
+  "selectedRevisionId": "426279162676936705",
+  "jobId": "426275699016470528-external-agent-426279660712779776",
+  "generatedName": "serenely-brook-5071",
+  "name": "Night Shift Landing",
+  "dimensions": {
+    "width": 1440,
+    "height": 1000
+  },
+  "selectedImages": [],
+  "editableFiles": [
+    {
+      "path": "src/App.tsx",
+      "sha256": "fd657b04bfe0ce3617da8de910f93cafa6f191b6760d3d38fe68275af379e178"
+    },
+    {
+      "path": "src/components/generated/NightShiftLanding.tsx",
+      "sha256": "6fb91321bb1cc7400dc9448d97b4263c20b42af1fd0179e0a5f4f07919288c7e"
+    },
+    {
+      "path": "src/index.css",
+      "sha256": "3af92f9f6b5e93767188381bda25e0b3e26d2885569cffb8b46ff6d8966b1860"
+    }
+  ],
+  "baseRevisionId": "426279162676936705"
+}

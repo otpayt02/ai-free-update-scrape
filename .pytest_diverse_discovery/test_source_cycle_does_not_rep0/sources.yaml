@@ -1,0 +1,4 @@
+rss:
+  - name: old
+    url: https://old.example/rss
+scrape: []

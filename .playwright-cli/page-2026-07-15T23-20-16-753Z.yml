@@ -1,0 +1,206 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - button "Open overview" [ref=e5] [cursor=pointer]
+    - generic [ref=e9]: SIGNAL CONSOLE / TERMINALDiscover
+    - generic [ref=e10]:
+      - generic [ref=e11]: idle
+      - button "Refresh" [ref=e12] [cursor=pointer]
+  - main [ref=e13]:
+    - generic [ref=e261]:
+      - generic [ref=e262]:
+        - heading "Video source lanes" [level=2] [ref=e264]
+        - paragraph [ref=e265]: Choose the video intent first, then open an approved feed or API candidate. RSS candidates remain inactive until the current cycle passes access and parser checks.
+        - generic [ref=e266]:
+          - article [ref=e267]:
+            - generic [ref=e268]:
+              - generic [ref=e269]:
+                - text: news updates
+                - heading "News updates" [level=3] [ref=e270]
+              - button "Show News updates parameters" [ref=e272] [cursor=pointer]: •••
+            - paragraph [ref=e273]: New releases, research announcements, and platform changes.
+            - generic [ref=e274]: Publisher RSS with a fresh access check on every cycle.
+            - generic [ref=e275]:
+              - link "Hugging Face Blog RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e276] [cursor=pointer]:
+                - /url: https://huggingface.co/blog/feed.xml
+                - generic [ref=e277]:
+                  - generic [ref=e278]: Hugging Face Blog
+                  - generic [ref=e279]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e280]: ↗
+              - link "GitHub AI and ML RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e281] [cursor=pointer]:
+                - /url: https://github.blog/ai-and-ml/feed/
+                - generic [ref=e282]:
+                  - generic [ref=e283]: GitHub AI and ML
+                  - generic [ref=e284]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e285]: ↗
+              - link "OpenAI News RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e286] [cursor=pointer]:
+                - /url: https://openai.com/news/rss.xml
+                - generic [ref=e287]:
+                  - generic [ref=e288]: OpenAI News
+                  - generic [ref=e289]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e290]: ↗
+              - link "Google AI Blog RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e291] [cursor=pointer]:
+                - /url: https://blog.google/technology/ai/rss/
+                - generic [ref=e292]:
+                  - generic [ref=e293]: Google AI Blog
+                  - generic [ref=e294]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e295]: ↗
+              - link "NVIDIA Deep Learning RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e296] [cursor=pointer]:
+                - /url: https://blogs.nvidia.com/blog/category/deep-learning/feed/
+                - generic [ref=e297]:
+                  - generic [ref=e298]: NVIDIA Deep Learning
+                  - generic [ref=e299]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e300]: ↗
+          - article [ref=e301]:
+            - generic [ref=e302]:
+              - generic [ref=e303]:
+                - text: development workflows
+                - heading "Development workflows" [level=3] [ref=e304]
+              - button "Show Development workflows parameters" [ref=e306] [cursor=pointer]: •••
+            - paragraph [ref=e307]: Engineering changes, implementation patterns, and tool adoption signals.
+            - generic [ref=e308]: GitHub RSS plus the official GitHub Issues API when configured.
+            - generic [ref=e309]:
+              - link "GitHub AI and ML RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e310] [cursor=pointer]:
+                - /url: https://github.blog/ai-and-ml/feed/
+                - generic [ref=e311]:
+                  - generic [ref=e312]: GitHub AI and ML
+                  - generic [ref=e313]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e314]: ↗
+              - link "Hacker News AI RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e315] [cursor=pointer]:
+                - /url: https://hnrss.org/newest?q=AI
+                - generic [ref=e316]:
+                  - generic [ref=e317]: Hacker News AI
+                  - generic [ref=e318]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e319]: ↗
+              - link "GitHub REST Issues API official API · Configure an approved GitHub token when needed. ↗" [ref=e320] [cursor=pointer]:
+                - /url: https://docs.github.com/en/rest/issues/issues
+                - generic [ref=e321]:
+                  - generic [ref=e322]: GitHub REST Issues API
+                  - generic [ref=e323]: official API · Configure an approved GitHub token when needed.
+                - generic [ref=e324]: ↗
+          - article [ref=e325]:
+            - generic [ref=e326]:
+              - generic [ref=e327]:
+                - text: tutorials
+                - heading "Tutorials" [level=3] [ref=e328]
+              - button "Show Tutorials parameters" [ref=e330] [cursor=pointer]: •••
+            - paragraph [ref=e331]: Teach a repeatable build, integration, or technical concept.
+            - generic [ref=e332]: Publisher RSS and documented developer sources.
+            - generic [ref=e333]:
+              - link "Hugging Face Blog RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e334] [cursor=pointer]:
+                - /url: https://huggingface.co/blog/feed.xml
+                - generic [ref=e335]:
+                  - generic [ref=e336]: Hugging Face Blog
+                  - generic [ref=e337]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e338]: ↗
+              - link "AWS Machine Learning Blog RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e339] [cursor=pointer]:
+                - /url: https://aws.amazon.com/blogs/machine-learning/feed/
+                - generic [ref=e340]:
+                  - generic [ref=e341]: AWS Machine Learning Blog
+                  - generic [ref=e342]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e343]: ↗
+              - link "GitHub AI and ML RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e344] [cursor=pointer]:
+                - /url: https://github.blog/ai-and-ml/feed/
+                - generic [ref=e345]:
+                  - generic [ref=e346]: GitHub AI and ML
+                  - generic [ref=e347]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e348]: ↗
+          - article [ref=e349]:
+            - generic [ref=e350]:
+              - generic [ref=e351]:
+                - text: pain points
+                - heading "Pain-point research" [level=3] [ref=e352]
+              - button "Show Pain-point research parameters" [ref=e354] [cursor=pointer]: •••
+            - paragraph [ref=e355]: Find recurring questions, failures, requests, and workflow friction.
+            - generic [ref=e356]: Official community APIs and public feeds, collected with required credentials.
+            - generic [ref=e357]:
+              - link "Hacker News AI RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e358] [cursor=pointer]:
+                - /url: https://hnrss.org/newest?q=AI
+                - generic [ref=e359]:
+                  - generic [ref=e360]: Hacker News AI
+                  - generic [ref=e361]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e362]: ↗
+              - link "Stack Exchange API official API · Use the documented API key and OAuth flow when required. ↗" [ref=e363] [cursor=pointer]:
+                - /url: https://api.stackexchange.com/docs
+                - generic [ref=e364]:
+                  - generic [ref=e365]: Stack Exchange API
+                  - generic [ref=e366]: official API · Use the documented API key and OAuth flow when required.
+                - generic [ref=e367]: ↗
+              - link "Reddit Data API official API · OAuth and Reddit developer terms are required; direct scraping is disabled. ↗" [ref=e368] [cursor=pointer]:
+                - /url: https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki
+                - generic [ref=e369]:
+                  - generic [ref=e370]: Reddit Data API
+                  - generic [ref=e371]: official API · OAuth and Reddit developer terms are required; direct scraping is disabled.
+                - generic [ref=e372]: ↗
+          - article [ref=e373]:
+            - generic [ref=e374]:
+              - generic [ref=e375]:
+                - text: website design problems
+                - heading "Website-design problems" [level=3] [ref=e376]
+              - button "Show Website-design problems parameters" [ref=e378] [cursor=pointer]: •••
+            - paragraph [ref=e379]: Surface UX, accessibility, CSS, and implementation problems worth solving on video.
+            - generic [ref=e380]: Official issue/community APIs and relevant publisher feeds.
+            - generic [ref=e381]:
+              - link "Stack Exchange API official API · Use the documented API key and OAuth flow when required. ↗" [ref=e382] [cursor=pointer]:
+                - /url: https://api.stackexchange.com/docs
+                - generic [ref=e383]:
+                  - generic [ref=e384]: Stack Exchange API
+                  - generic [ref=e385]: official API · Use the documented API key and OAuth flow when required.
+                - generic [ref=e386]: ↗
+              - link "GitHub REST Issues API official API · Configure an approved GitHub token when needed. ↗" [ref=e387] [cursor=pointer]:
+                - /url: https://docs.github.com/en/rest/issues/issues
+                - generic [ref=e388]:
+                  - generic [ref=e389]: GitHub REST Issues API
+                  - generic [ref=e390]: official API · Configure an approved GitHub token when needed.
+                - generic [ref=e391]: ↗
+              - link "Hacker News AI RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e392] [cursor=pointer]:
+                - /url: https://hnrss.org/newest?q=AI
+                - generic [ref=e393]:
+                  - generic [ref=e394]: Hacker News AI
+                  - generic [ref=e395]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e396]: ↗
+      - generic [ref=e397]:
+        - generic [ref=e398]:
+          - heading "Automatic source cycle" [level=2] [ref=e399]
+          - button "Discover and replace" [ref=e400] [cursor=pointer]
+        - paragraph [ref=e401]: Creates current RSS candidates from enabled categories, rejects inaccessible or non-parseable candidates, archives the rules, then replaces the active source set.
+        - generic [ref=e402]: No cycle has been run in this view.
+  - navigation "Console views" [ref=e52]:
+    - button "◎ Overview" [ref=e53] [cursor=pointer]:
+      - generic [ref=e54]: ◎
+      - generic [ref=e55]: Overview
+    - button ">_ Live" [ref=e56] [cursor=pointer]:
+      - generic [ref=e57]: ">_"
+      - generic [ref=e58]: Live
+    - button "⌁ Sources" [ref=e59] [cursor=pointer]:
+      - generic [ref=e60]: ⌁
+      - generic [ref=e61]: Sources
+    - button "⊞ Discover" [active] [ref=e62] [cursor=pointer]:
+      - generic [ref=e63]: ⊞
+      - generic [ref=e64]: Discover
+    - button "≡ Access" [ref=e65] [cursor=pointer]:
+      - generic [ref=e66]: ≡
+      - generic [ref=e67]: Access
+    - button "≔ Results" [ref=e68] [cursor=pointer]:
+      - generic [ref=e69]: ≔
+      - generic [ref=e70]: Results
+    - button "⌘ Categories" [ref=e71] [cursor=pointer]:
+      - generic [ref=e72]: ⌘
+      - generic [ref=e73]: Categories
+    - button "! Failures" [ref=e74] [cursor=pointer]:
+      - generic [ref=e75]: "!"
+      - generic [ref=e76]: Failures
+    - button "↯ Trace" [ref=e77] [cursor=pointer]:
+      - generic [ref=e78]: ↯
+      - generic [ref=e79]: Trace
+    - button "▣ Archive" [ref=e80] [cursor=pointer]:
+      - generic [ref=e81]: ▣
+      - generic [ref=e82]: Archive
+    - button "◷ Schedule" [ref=e83] [cursor=pointer]:
+      - generic [ref=e84]: ◷
+      - generic [ref=e85]: Schedule
+    - button "⚙ Config" [ref=e86] [cursor=pointer]:
+      - generic [ref=e87]: ⚙
+      - generic [ref=e88]: Config
+    - button "✓ Audit" [ref=e89] [cursor=pointer]:
+      - generic [ref=e90]: ✓
+      - generic [ref=e91]: Audit

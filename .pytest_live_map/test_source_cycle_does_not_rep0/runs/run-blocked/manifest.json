@@ -1,0 +1,6 @@
+{
+  "run_id": "run-blocked",
+  "status": "blocked",
+  "reason": "No source passed the automatic access rules.",
+  "created_at": "2026-07-14T16:42:35.174721+00:00"
+}

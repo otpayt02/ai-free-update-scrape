@@ -1,0 +1,584 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - button "Open overview" [ref=e5] [cursor=pointer]
+    - generic [ref=e9]: SIGNAL CONSOLE / TERMINALIdeas
+    - generic [ref=e10]:
+      - generic [ref=e11]: idle
+      - button "Refresh" [ref=e12] [cursor=pointer]
+  - main [ref=e13]:
+    - generic [ref=e264]:
+      - generic [ref=e265]:
+        - generic [ref=e266]:
+          - heading "Editorial research queue" [level=2] [ref=e267]
+          - generic [ref=e268]:
+            - button "Refresh" [ref=e269] [cursor=pointer]
+            - button "Collect approved signals" [ref=e270] [cursor=pointer]
+        - generic [ref=e271]:
+          - generic [ref=e272]:
+            - generic [ref=e273]: Ranked ideas
+            - generic [ref=e274]: "2914"
+          - generic [ref=e275]:
+            - generic [ref=e276]: News articles
+            - generic [ref=e277]: "2817"
+          - generic [ref=e278]:
+            - generic [ref=e279]: Pain signals
+            - generic [ref=e280]: "97"
+          - paragraph [ref=e281]: Evidence score only; it does not predict virality, revenue, or YouTube monetization approval. Upload and publishing remain human-approved.
+        - generic "Idea queue filters" [ref=e282]:
+          - generic [ref=e283]:
+            - generic [ref=e284]: Audience
+            - combobox "Audience" [ref=e285]:
+              - option "All audiences" [selected]
+              - option "Solo freelancers & operators"
+              - option "Vibe coders"
+              - option "Developers"
+              - option "Small businesses"
+              - option "Corporate professionals"
+              - option "Creators & educators"
+              - option "Everyday productivity users"
+          - generic [ref=e286]:
+            - generic [ref=e287]: Pillar
+            - combobox "Pillar" [ref=e288]:
+              - option "All pillars" [selected]
+              - option "AI & tech news updates"
+              - option "Tips & tricks"
+              - option "Pain-point solutions"
+              - option "Manual-task automation"
+              - option "Concept education"
+              - option "Tool instructions"
+              - option "Systems mindset & motivation"
+              - option "Use cases & portfolio showcases"
+              - option "Products, affiliates & backend offers"
+              - option "Comparisons & reviews"
+          - generic [ref=e289]:
+            - generic [ref=e290]: Format
+            - combobox "Format" [ref=e291]:
+              - option "Short + long" [selected]
+              - option "Short capable"
+              - option "Long capable"
+      - generic [ref=e292]:
+        - heading "60 review candidates" [level=2] [ref=e294]
+        - generic [ref=e295]:
+          - group [ref=e296]:
+            - 'generic "01 Fix this Developers workflow problem: FastAPI returning \"Out of range float values are not JSON compliant\" with Pandas NaN values Developers · Pain-point solutions · long first 47.13 needs_review" [ref=e297] [cursor=pointer]':
+              - generic [ref=e298]: "01"
+              - generic [ref=e299]:
+                - strong [ref=e300]: "Fix this Developers workflow problem: FastAPI returning \"Out of range float values are not JSON compliant\" with Pandas NaN values"
+                - generic [ref=e301]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e302]: "47.13"
+              - generic [ref=e303]: needs_review
+          - group [ref=e304]:
+            - 'generic "02 Fix this Everyday productivity users workflow problem: How do I clear Warning Message When Using SHM C to Python Everyday productivity users · Pain-point solutions · long first 46.72 needs_review" [ref=e305] [cursor=pointer]':
+              - generic [ref=e306]: "02"
+              - generic [ref=e307]:
+                - strong [ref=e308]: "Fix this Everyday productivity users workflow problem: How do I clear Warning Message When Using SHM C to Python"
+                - generic [ref=e309]: Everyday productivity users · Pain-point solutions · long first
+              - emphasis [ref=e310]: "46.72"
+              - generic [ref=e311]: needs_review
+          - group [ref=e312]:
+            - 'generic "03 Fix this Developers workflow problem: Passed timeout not overriding default timeout in GET/POST request Developers · Pain-point solutions · long first 46.26 needs_review" [ref=e313] [cursor=pointer]':
+              - generic [ref=e314]: "03"
+              - generic [ref=e315]:
+                - strong [ref=e316]: "Fix this Developers workflow problem: Passed timeout not overriding default timeout in GET/POST request"
+                - generic [ref=e317]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e318]: "46.26"
+              - generic [ref=e319]: needs_review
+          - group [ref=e320]:
+            - 'generic "04 Fix this Everyday productivity users workflow problem: not null constraint failed Everyday productivity users · Pain-point solutions · long first 46.09 needs_review" [ref=e321] [cursor=pointer]':
+              - generic [ref=e322]: "04"
+              - generic [ref=e323]:
+                - strong [ref=e324]: "Fix this Everyday productivity users workflow problem: not null constraint failed"
+                - generic [ref=e325]: Everyday productivity users · Pain-point solutions · long first
+              - emphasis [ref=e326]: "46.09"
+              - generic [ref=e327]: needs_review
+          - group [ref=e328]:
+            - 'generic "05 Fix this Everyday productivity users workflow problem: GIMP help install package: ''configure'' fails due to not finding \"right\" python Everyday productivity users · Pain-point solutions · long first 45.8 needs_review" [ref=e329] [cursor=pointer]':
+              - generic [ref=e330]: "05"
+              - generic [ref=e331]:
+                - strong [ref=e332]: "Fix this Everyday productivity users workflow problem: GIMP help install package: 'configure' fails due to not finding \"right\" python"
+                - generic [ref=e333]: Everyday productivity users · Pain-point solutions · long first
+              - emphasis [ref=e334]: "45.8"
+              - generic [ref=e335]: needs_review
+          - group [ref=e336]:
+            - 'generic "06 Fix this Creators & educators workflow problem: How can I prevent users from enrolling with a face shown over a video call in a Flutter + Python face recognit Creators & educators · Pain-point solutions · long first 45.58 needs_review" [ref=e337] [cursor=pointer]':
+              - generic [ref=e338]: "06"
+              - generic [ref=e339]:
+                - strong [ref=e340]: "Fix this Creators & educators workflow problem: How can I prevent users from enrolling with a face shown over a video call in a Flutter + Python face recognit"
+                - generic [ref=e341]: Creators & educators · Pain-point solutions · long first
+              - emphasis [ref=e342]: "45.58"
+              - generic [ref=e343]: needs_review
+          - group [ref=e344]:
+            - 'generic "07 Fix this Developers workflow problem: print of debug des not print Developers · Pain-point solutions · long first 45.52 needs_review" [ref=e345] [cursor=pointer]':
+              - generic [ref=e346]: "07"
+              - generic [ref=e347]:
+                - strong [ref=e348]: "Fix this Developers workflow problem: print of debug des not print"
+                - generic [ref=e349]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e350]: "45.52"
+              - generic [ref=e351]: needs_review
+          - group [ref=e352]:
+            - 'generic "08 Fix this Creators & educators workflow problem: FastAPI event loop blocked by Scikit-Learn Joblib thread-pool exhaustion during concurrent async inference Creators & educators · Pain-point solutions · long first 45.45 needs_review" [ref=e353] [cursor=pointer]':
+              - generic [ref=e354]: "08"
+              - generic [ref=e355]:
+                - strong [ref=e356]: "Fix this Creators & educators workflow problem: FastAPI event loop blocked by Scikit-Learn Joblib thread-pool exhaustion during concurrent async inference"
+                - generic [ref=e357]: Creators & educators · Pain-point solutions · long first
+              - emphasis [ref=e358]: "45.45"
+              - generic [ref=e359]: needs_review
+          - group [ref=e360]:
+            - 'generic "09 Fix this Everyday productivity users workflow problem: ArduinoRouterBridge and arduino.app_utils Troubleshoot Everyday productivity users · Pain-point solutions · long first 44.97 needs_review" [ref=e361] [cursor=pointer]':
+              - generic [ref=e362]: "09"
+              - generic [ref=e363]:
+                - strong [ref=e364]: "Fix this Everyday productivity users workflow problem: ArduinoRouterBridge and arduino.app_utils Troubleshoot"
+                - generic [ref=e365]: Everyday productivity users · Pain-point solutions · long first
+              - emphasis [ref=e366]: "44.97"
+              - generic [ref=e367]: needs_review
+          - group [ref=e368]:
+            - 'generic "10 Fix this Everyday productivity users workflow problem: Catch KeyboardInterrupt but not asyncio.CancelledError Everyday productivity users · Pain-point solutions · short first 44.78 needs_review" [ref=e369] [cursor=pointer]':
+              - generic [ref=e370]: "10"
+              - generic [ref=e371]:
+                - strong [ref=e372]: "Fix this Everyday productivity users workflow problem: Catch KeyboardInterrupt but not asyncio.CancelledError"
+                - generic [ref=e373]: Everyday productivity users · Pain-point solutions · short first
+              - emphasis [ref=e374]: "44.78"
+              - generic [ref=e375]: needs_review
+          - group [ref=e376]:
+            - 'generic "11 Fix this Developers workflow problem: Foundry Local SDK ignores CUDAExecutionProvider, forces CPUExecutionProvider on Windows Developers · Pain-point solutions · long first 44.41 needs_review" [ref=e377] [cursor=pointer]':
+              - generic [ref=e378]: "11"
+              - generic [ref=e379]:
+                - strong [ref=e380]: "Fix this Developers workflow problem: Foundry Local SDK ignores CUDAExecutionProvider, forces CPUExecutionProvider on Windows"
+                - generic [ref=e381]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e382]: "44.41"
+              - generic [ref=e383]: needs_review
+          - group [ref=e384]:
+            - 'generic "12 Full string not added to dictionary in loop: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · long first 43.07 needs_review" [ref=e385] [cursor=pointer]':
+              - generic [ref=e386]: "12"
+              - generic [ref=e387]:
+                - strong [ref=e388]: "Full string not added to dictionary in loop: what changes for Everyday productivity users"
+                - generic [ref=e389]: Everyday productivity users · AI & tech news updates · long first
+              - emphasis [ref=e390]: "43.07"
+              - generic [ref=e391]: needs_review
+          - group [ref=e392]:
+            - 'generic "13 Fix this Developers workflow problem: bug(core): cache implementing `__len__` makes `generate`/`agenerate` raise `KeyError` Developers · Pain-point solutions · long first 42.15 needs_review" [ref=e393] [cursor=pointer]':
+              - generic [ref=e394]: "13"
+              - generic [ref=e395]:
+                - strong [ref=e396]: "Fix this Developers workflow problem: bug(core): cache implementing `__len__` makes `generate`/`agenerate` raise `KeyError`"
+                - generic [ref=e397]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e398]: "42.15"
+              - generic [ref=e399]: needs_review
+          - group [ref=e400]:
+            - 'generic "14 Fix this Developers workflow problem: ChatAnthropic streaming drops thinking field from empty thinking blocks (signature_delta-only), replay fails w Developers · Pain-point solutions · long first 42.02 needs_review" [ref=e401] [cursor=pointer]':
+              - generic [ref=e402]: "14"
+              - generic [ref=e403]:
+                - strong [ref=e404]: "Fix this Developers workflow problem: ChatAnthropic streaming drops thinking field from empty thinking blocks (signature_delta-only), replay fails w"
+                - generic [ref=e405]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e406]: "42.02"
+              - generic [ref=e407]: needs_review
+          - group [ref=e408]:
+            - 'generic "15 How do I get a value from a tkinter scale/slider whilst when it is in a function?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · long first 41.95 needs_review" [ref=e409] [cursor=pointer]':
+              - generic [ref=e410]: "15"
+              - generic [ref=e411]:
+                - strong [ref=e412]: "How do I get a value from a tkinter scale/slider whilst when it is in a function?: what changes for Everyday productivity users"
+                - generic [ref=e413]: Everyday productivity users · AI & tech news updates · long first
+              - emphasis [ref=e414]: "41.95"
+              - generic [ref=e415]: needs_review
+          - group [ref=e416]:
+            - 'generic "16 Fix this Developers workflow problem: ChatMistralAI incompatible token output format for LangSmith traceability Developers · Pain-point solutions · long first 41.88 needs_review" [ref=e417] [cursor=pointer]':
+              - generic [ref=e418]: "16"
+              - generic [ref=e419]:
+                - strong [ref=e420]: "Fix this Developers workflow problem: ChatMistralAI incompatible token output format for LangSmith traceability"
+                - generic [ref=e421]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e422]: "41.88"
+              - generic [ref=e423]: needs_review
+          - group [ref=e424]:
+            - 'generic "17 Fix this Developers workflow problem: :Feature: Support Anthropic mid-conversation system messages (MidConversationSystemBlockParam / role:system in Developers · Pain-point solutions · long first 41.69 needs_review" [ref=e425] [cursor=pointer]':
+              - generic [ref=e426]: "17"
+              - generic [ref=e427]:
+                - strong [ref=e428]: "Fix this Developers workflow problem: :Feature: Support Anthropic mid-conversation system messages (MidConversationSystemBlockParam / role:system in"
+                - generic [ref=e429]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e430]: "41.69"
+              - generic [ref=e431]: needs_review
+          - group [ref=e432]:
+            - 'generic "18 venv not activating with source: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · long first 41.68 needs_review" [ref=e433] [cursor=pointer]':
+              - generic [ref=e434]: "18"
+              - generic [ref=e435]:
+                - strong [ref=e436]: "venv not activating with source: what changes for Everyday productivity users"
+                - generic [ref=e437]: Everyday productivity users · AI & tech news updates · long first
+              - emphasis [ref=e438]: "41.68"
+              - generic [ref=e439]: needs_review
+          - group [ref=e440]:
+            - 'generic "19 Fix this Developers workflow problem: AddableDict silently drops data on type-incompatible merge (langchain_core.runnables.utils) Developers · Pain-point solutions · long first 41.46 needs_review" [ref=e441] [cursor=pointer]':
+              - generic [ref=e442]: "19"
+              - generic [ref=e443]:
+                - strong [ref=e444]: "Fix this Developers workflow problem: AddableDict silently drops data on type-incompatible merge (langchain_core.runnables.utils)"
+                - generic [ref=e445]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e446]: "41.46"
+              - generic [ref=e447]: needs_review
+          - group [ref=e448]:
+            - 'generic "20 Fix this Developers workflow problem: HumanInTheLoopMiddleware silently auto-approves tools whose `InterruptOnConfig` is invalid (typo''d or missing Developers · Pain-point solutions · long first 41.31 needs_review" [ref=e449] [cursor=pointer]':
+              - generic [ref=e450]: "20"
+              - generic [ref=e451]:
+                - strong [ref=e452]: "Fix this Developers workflow problem: HumanInTheLoopMiddleware silently auto-approves tools whose `InterruptOnConfig` is invalid (typo'd or missing"
+                - generic [ref=e453]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e454]: "41.31"
+              - generic [ref=e455]: needs_review
+          - group [ref=e456]:
+            - 'generic "21 Fix this Developers workflow problem: ModelRetryMiddleware and ModelFallbackMiddleware swallow `GraphInterrupt` — interrupts are retried and convert Developers · Pain-point solutions · long first 41.31 needs_review" [ref=e457] [cursor=pointer]':
+              - generic [ref=e458]: "21"
+              - generic [ref=e459]:
+                - strong [ref=e460]: "Fix this Developers workflow problem: ModelRetryMiddleware and ModelFallbackMiddleware swallow `GraphInterrupt` — interrupts are retried and convert"
+                - generic [ref=e461]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e462]: "41.31"
+              - generic [ref=e463]: needs_review
+          - group [ref=e464]:
+            - 'generic "22 Fix this Developers workflow problem: [FEATURE] Preserve reasoning / reasoning_content field in streaming ChatOpenAI chunks Developers · Pain-point solutions · long first 41.31 needs_review" [ref=e465] [cursor=pointer]':
+              - generic [ref=e466]: "22"
+              - generic [ref=e467]:
+                - strong [ref=e468]: "Fix this Developers workflow problem: [FEATURE] Preserve reasoning / reasoning_content field in streaming ChatOpenAI chunks"
+                - generic [ref=e469]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e470]: "41.31"
+              - generic [ref=e471]: needs_review
+          - group [ref=e472]:
+            - 'generic "23 Fix this Developers workflow problem: Agent Performance Degradation and Infinite Reasoning Loop with enable_thinking=true Developers · Pain-point solutions · long first 41.13 needs_review" [ref=e473] [cursor=pointer]':
+              - generic [ref=e474]: "23"
+              - generic [ref=e475]:
+                - strong [ref=e476]: "Fix this Developers workflow problem: Agent Performance Degradation and Infinite Reasoning Loop with enable_thinking=true"
+                - generic [ref=e477]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e478]: "41.13"
+              - generic [ref=e479]: needs_review
+          - group [ref=e480]:
+            - 'generic "24 Fix this Developers workflow problem: ChatOpenAI (Responses API) mutates model_kwargs[\"text\"] in place: one JSON mode call permanently forces JSON m Developers · Pain-point solutions · long first 41.13 needs_review" [ref=e481] [cursor=pointer]':
+              - generic [ref=e482]: "24"
+              - generic [ref=e483]:
+                - strong [ref=e484]: "Fix this Developers workflow problem: ChatOpenAI (Responses API) mutates model_kwargs[\"text\"] in place: one JSON mode call permanently forces JSON m"
+                - generic [ref=e485]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e486]: "41.13"
+              - generic [ref=e487]: needs_review
+          - group [ref=e488]:
+            - 'generic "25 Fix this Developers workflow problem: ChatXAI builds four fresh httpx transports per instantiation — duplicated client construction and no shared de Developers · Pain-point solutions · long first 41.13 needs_review" [ref=e489] [cursor=pointer]':
+              - generic [ref=e490]: "25"
+              - generic [ref=e491]:
+                - strong [ref=e492]: "Fix this Developers workflow problem: ChatXAI builds four fresh httpx transports per instantiation — duplicated client construction and no shared de"
+                - generic [ref=e493]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e494]: "41.13"
+              - generic [ref=e495]: needs_review
+          - group [ref=e496]:
+            - 'generic "26 Fix this Developers workflow problem: PIIMiddleware: PIIMatch not exported from public package, and docs use wrong field names for custom detectors Developers · Pain-point solutions · long first 41.13 needs_review" [ref=e497] [cursor=pointer]':
+              - generic [ref=e498]: "26"
+              - generic [ref=e499]:
+                - strong [ref=e500]: "Fix this Developers workflow problem: PIIMiddleware: PIIMatch not exported from public package, and docs use wrong field names for custom detectors"
+                - generic [ref=e501]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e502]: "41.13"
+              - generic [ref=e503]: needs_review
+          - group [ref=e504]:
+            - 'generic "27 Fix this Developers workflow problem: Add TokenBudgetMiddleware for token-usage budgets in agents Developers · Pain-point solutions · long first 40.89 needs_review" [ref=e505] [cursor=pointer]':
+              - generic [ref=e506]: "27"
+              - generic [ref=e507]:
+                - strong [ref=e508]: "Fix this Developers workflow problem: Add TokenBudgetMiddleware for token-usage budgets in agents"
+                - generic [ref=e509]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e510]: "40.89"
+              - generic [ref=e511]: needs_review
+          - group [ref=e512]:
+            - 'generic "28 Fix this Developers workflow problem: ChatPerplexity Responses route mutates the caller''s `extra_body` dict in place — per-call params leak into the Developers · Pain-point solutions · long first 40.89 needs_review" [ref=e513] [cursor=pointer]':
+              - generic [ref=e514]: "28"
+              - generic [ref=e515]:
+                - strong [ref=e516]: "Fix this Developers workflow problem: ChatPerplexity Responses route mutates the caller's `extra_body` dict in place — per-call params leak into the"
+                - generic [ref=e517]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e518]: "40.89"
+              - generic [ref=e519]: needs_review
+          - group [ref=e520]:
+            - 'generic "29 Fix this Developers workflow problem: Exception on _create_chat_result when the response is neither a dict or a openai.BaseModel Developers · Pain-point solutions · long first 40.56 needs_review" [ref=e521] [cursor=pointer]':
+              - generic [ref=e522]: "29"
+              - generic [ref=e523]:
+                - strong [ref=e524]: "Fix this Developers workflow problem: Exception on _create_chat_result when the response is neither a dict or a openai.BaseModel"
+                - generic [ref=e525]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e526]: "40.56"
+              - generic [ref=e527]: needs_review
+          - group [ref=e528]:
+            - 'generic "30 Fix this Developers workflow problem: SummarizationMiddleware deletes conversation history when the summary model call fails, inserting the error te Developers · Pain-point solutions · long first 40.56 needs_review" [ref=e529] [cursor=pointer]':
+              - generic [ref=e530]: "30"
+              - generic [ref=e531]:
+                - strong [ref=e532]: "Fix this Developers workflow problem: SummarizationMiddleware deletes conversation history when the summary model call fails, inserting the error te"
+                - generic [ref=e533]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e534]: "40.56"
+              - generic [ref=e535]: needs_review
+          - group [ref=e536]:
+            - 'generic "31 Fix this Developers workflow problem: docs: Layerup Security integration docs describe a service that no longer exists Developers · Pain-point solutions · long first 40.56 needs_review" [ref=e537] [cursor=pointer]':
+              - generic [ref=e538]: "31"
+              - generic [ref=e539]:
+                - strong [ref=e540]: "Fix this Developers workflow problem: docs: Layerup Security integration docs describe a service that no longer exists"
+                - generic [ref=e541]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e542]: "40.56"
+              - generic [ref=e543]: needs_review
+          - group [ref=e544]:
+            - 'generic "32 The term ''Get-FileHash'' is not recognized as the name of a cmdlet, function, script file, or operable program: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 40.37 needs_review" [ref=e545] [cursor=pointer]':
+              - generic [ref=e546]: "32"
+              - generic [ref=e547]:
+                - strong [ref=e548]: "The term 'Get-FileHash' is not recognized as the name of a cmdlet, function, script file, or operable program: what changes for Everyday productivity users"
+                - generic [ref=e549]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e550]: "40.37"
+              - generic [ref=e551]: needs_review
+          - group [ref=e552]:
+            - 'generic "33 Fix this Developers workflow problem: feat(huggingface): support Intel XPU devices in HuggingFacePipeline.from_model_id Developers · Pain-point solutions · long first 40 needs_review" [ref=e553] [cursor=pointer]':
+              - generic [ref=e554]: "33"
+              - generic [ref=e555]:
+                - strong [ref=e556]: "Fix this Developers workflow problem: feat(huggingface): support Intel XPU devices in HuggingFacePipeline.from_model_id"
+                - generic [ref=e557]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e558]: "40"
+              - generic [ref=e559]: needs_review
+          - group [ref=e560]:
+            - 'generic "34 CNN digit recognition model: high local accuracy but poor predictions after deployment (Flask API): what changes for Developers Developers · AI & tech news updates · long first 30 needs_review" [ref=e561] [cursor=pointer]':
+              - generic [ref=e562]: "34"
+              - generic [ref=e563]:
+                - strong [ref=e564]: "CNN digit recognition model: high local accuracy but poor predictions after deployment (Flask API): what changes for Developers"
+                - generic [ref=e565]: Developers · AI & tech news updates · long first
+              - emphasis [ref=e566]: "30"
+              - generic [ref=e567]: needs_review
+          - group [ref=e568]:
+            - 'generic "35 How to make my voxel rasteriser run faster?: what changes for Developers Developers · AI & tech news updates · long first 29.96 needs_review" [ref=e569] [cursor=pointer]':
+              - generic [ref=e570]: "35"
+              - generic [ref=e571]:
+                - strong [ref=e572]: "How to make my voxel rasteriser run faster?: what changes for Developers"
+                - generic [ref=e573]: Developers · AI & tech news updates · long first
+              - emphasis [ref=e574]: "29.96"
+              - generic [ref=e575]: needs_review
+          - group [ref=e576]:
+            - generic "36 What does the \"yield\" keyword do in Python?, explained for Everyday productivity users Everyday productivity users · Concept education · long first 25.72 needs_review" [ref=e577] [cursor=pointer]:
+              - generic [ref=e578]: "36"
+              - generic [ref=e579]:
+                - strong [ref=e580]: What does the "yield" keyword do in Python?, explained for Everyday productivity users
+                - generic [ref=e581]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e582]: "25.72"
+              - generic [ref=e583]: needs_review
+          - group [ref=e584]:
+            - generic "37 The system behind How do I execute a program or call a system command? Everyday productivity users · Systems mindset & motivation · short first 25.62 needs_review" [ref=e585] [cursor=pointer]:
+              - generic [ref=e586]: "37"
+              - generic [ref=e587]:
+                - strong [ref=e588]: The system behind How do I execute a program or call a system command?
+                - generic [ref=e589]: Everyday productivity users · Systems mindset & motivation · short first
+              - emphasis [ref=e590]: "25.62"
+              - generic [ref=e591]: needs_review
+          - group [ref=e592]:
+            - 'generic "38 What does if __name__ == \"__main__\": do?, explained for Everyday productivity users Everyday productivity users · Concept education · long first 25.41 needs_review" [ref=e593] [cursor=pointer]':
+              - generic [ref=e594]: "38"
+              - generic [ref=e595]:
+                - strong [ref=e596]: "What does if __name__ == \"__main__\": do?, explained for Everyday productivity users"
+                - generic [ref=e597]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e598]: "25.41"
+              - generic [ref=e599]: needs_review
+          - group [ref=e600]:
+            - 'generic "39 How do I merge two dictionaries in a single expression in Python?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 25.4 needs_review" [ref=e601] [cursor=pointer]':
+              - generic [ref=e602]: "39"
+              - generic [ref=e603]:
+                - strong [ref=e604]: "How do I merge two dictionaries in a single expression in Python?: what changes for Everyday productivity users"
+                - generic [ref=e605]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e606]: "25.4"
+              - generic [ref=e607]: needs_review
+          - group [ref=e608]:
+            - 'generic "40 How do I check whether a file exists without exceptions?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 25.34 needs_review" [ref=e609] [cursor=pointer]':
+              - generic [ref=e610]: "40"
+              - generic [ref=e611]:
+                - strong [ref=e612]: "How do I check whether a file exists without exceptions?: what changes for Everyday productivity users"
+                - generic [ref=e613]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e614]: "25.34"
+              - generic [ref=e615]: needs_review
+          - group [ref=e616]:
+            - 'generic "41 Does Python have a ternary conditional operator?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 25.21 needs_review" [ref=e617] [cursor=pointer]':
+              - generic [ref=e618]: "41"
+              - generic [ref=e619]:
+                - strong [ref=e620]: "Does Python have a ternary conditional operator?: what changes for Everyday productivity users"
+                - generic [ref=e621]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e622]: "25.21"
+              - generic [ref=e623]: needs_review
+          - group [ref=e624]:
+            - 'generic "42 How do I get the current time in Python?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 25.17 needs_review" [ref=e625] [cursor=pointer]':
+              - generic [ref=e626]: "42"
+              - generic [ref=e627]:
+                - strong [ref=e628]: "How do I get the current time in Python?: what changes for Everyday productivity users"
+                - generic [ref=e629]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e630]: "25.17"
+              - generic [ref=e631]: needs_review
+          - group [ref=e632]:
+            - 'generic "43 How can I find the index for a given item in a list?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 25.13 needs_review" [ref=e633] [cursor=pointer]':
+              - generic [ref=e634]: "43"
+              - generic [ref=e635]:
+                - strong [ref=e636]: "How can I find the index for a given item in a list?: what changes for Everyday productivity users"
+                - generic [ref=e637]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e638]: "25.13"
+              - generic [ref=e639]: needs_review
+          - group [ref=e640]:
+            - 'generic "44 What are metaclasses in Python?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 25 needs_review" [ref=e641] [cursor=pointer]':
+              - generic [ref=e642]: "44"
+              - generic [ref=e643]:
+                - strong [ref=e644]: "What are metaclasses in Python?: what changes for Everyday productivity users"
+                - generic [ref=e645]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e646]: "25"
+              - generic [ref=e647]: needs_review
+          - group [ref=e648]:
+            - generic "45 How slicing in Python works, explained for Everyday productivity users Everyday productivity users · Concept education · long first 24.99 needs_review" [ref=e649] [cursor=pointer]:
+              - generic [ref=e650]: "45"
+              - generic [ref=e651]:
+                - strong [ref=e652]: How slicing in Python works, explained for Everyday productivity users
+                - generic [ref=e653]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e654]: "24.99"
+              - generic [ref=e655]: needs_review
+          - group [ref=e656]:
+            - 'generic "46 Fix this Everyday productivity users workflow problem: How do I make a flat list out of a list of lists? Everyday productivity users · Pain-point solutions · short first 24.96 needs_review" [ref=e657] [cursor=pointer]':
+              - generic [ref=e658]: "46"
+              - generic [ref=e659]:
+                - strong [ref=e660]: "Fix this Everyday productivity users workflow problem: How do I make a flat list out of a list of lists?"
+                - generic [ref=e661]: Everyday productivity users · Pain-point solutions · short first
+              - emphasis [ref=e662]: "24.96"
+              - generic [ref=e663]: needs_review
+          - group [ref=e664]:
+            - generic "47 What is the difference between @staticmethod and @classmethod in Python?, explained for Everyday productivity users Everyday productivity users · Concept education · long first 24.96 needs_review" [ref=e665] [cursor=pointer]:
+              - generic [ref=e666]: "47"
+              - generic [ref=e667]:
+                - strong [ref=e668]: What is the difference between @staticmethod and @classmethod in Python?, explained for Everyday productivity users
+                - generic [ref=e669]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e670]: "24.96"
+              - generic [ref=e671]: needs_review
+          - group [ref=e672]:
+            - 'generic "48 Fix this Everyday productivity users workflow problem: How do I create a directory, and any missing parent directories? Everyday productivity users · Pain-point solutions · short first 24.89 needs_review" [ref=e673] [cursor=pointer]':
+              - generic [ref=e674]: "48"
+              - generic [ref=e675]:
+                - strong [ref=e676]: "Fix this Everyday productivity users workflow problem: How do I create a directory, and any missing parent directories?"
+                - generic [ref=e677]: Everyday productivity users · Pain-point solutions · short first
+              - emphasis [ref=e678]: "24.89"
+              - generic [ref=e679]: needs_review
+          - group [ref=e680]:
+            - 'generic "49 How can I access the index value in a ''for'' loop?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 24.87 needs_review" [ref=e681] [cursor=pointer]':
+              - generic [ref=e682]: "49"
+              - generic [ref=e683]:
+                - strong [ref=e684]: "How can I access the index value in a 'for' loop?: what changes for Everyday productivity users"
+                - generic [ref=e685]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e686]: "24.87"
+              - generic [ref=e687]: needs_review
+          - group [ref=e688]:
+            - generic "50 How can I iterate over rows in a Pandas DataFrame?, explained for Everyday productivity users Everyday productivity users · Concept education · long first 24.86 needs_review" [ref=e689] [cursor=pointer]:
+              - generic [ref=e690]: "50"
+              - generic [ref=e691]:
+                - strong [ref=e692]: How can I iterate over rows in a Pandas DataFrame?, explained for Everyday productivity users
+                - generic [ref=e693]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e694]: "24.86"
+              - generic [ref=e695]: needs_review
+          - group [ref=e696]:
+            - generic "51 What is the difference between __str__ and __repr__?, explained for Everyday productivity users Everyday productivity users · Concept education · long first 24.64 needs_review" [ref=e697] [cursor=pointer]:
+              - generic [ref=e698]: "51"
+              - generic [ref=e699]:
+                - strong [ref=e700]: What is the difference between __str__ and __repr__?, explained for Everyday productivity users
+                - generic [ref=e701]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e702]: "24.64"
+              - generic [ref=e703]: needs_review
+          - group [ref=e704]:
+            - generic "52 How can I use a global variable in a function?, explained for Everyday productivity users Everyday productivity users · Concept education · long first 24.62 needs_review" [ref=e705] [cursor=pointer]:
+              - generic [ref=e706]: "52"
+              - generic [ref=e707]:
+                - strong [ref=e708]: How can I use a global variable in a function?, explained for Everyday productivity users
+                - generic [ref=e709]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e710]: "24.62"
+              - generic [ref=e711]: needs_review
+          - group [ref=e712]:
+            - generic "53 How to set up How do I allow my program to edit its configuration files in /usr/local/etc? Developers · Tool instructions · long first 24.48 needs_review" [ref=e713] [cursor=pointer]:
+              - generic [ref=e714]: "53"
+              - generic [ref=e715]:
+                - strong [ref=e716]: How to set up How do I allow my program to edit its configuration files in /usr/local/etc?
+                - generic [ref=e717]: Developers · Tool instructions · long first
+              - emphasis [ref=e718]: "24.48"
+              - generic [ref=e719]: needs_review
+          - group [ref=e720]:
+            - 'generic "54 Convert bytes to a string in Python 3: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 24.47 needs_review" [ref=e721] [cursor=pointer]':
+              - generic [ref=e722]: "54"
+              - generic [ref=e723]:
+                - strong [ref=e724]: "Convert bytes to a string in Python 3: what changes for Everyday productivity users"
+                - generic [ref=e725]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e726]: "24.47"
+              - generic [ref=e727]: needs_review
+          - group [ref=e728]:
+            - 'generic "55 Who GCS cross-region issue - Upload hangs indefinitely when uploading from a node in `Germany` to a gcp bucket in is actually for Creators & educators · Products, affiliates & backend offers · long first 24.42 needs_review" [ref=e729] [cursor=pointer]':
+              - generic [ref=e730]: "55"
+              - generic [ref=e731]:
+                - strong [ref=e732]: "Who GCS cross-region issue - Upload hangs indefinitely when uploading from a node in `Germany` to a gcp bucket in is actually for"
+                - generic [ref=e733]: Creators & educators · Products, affiliates & backend offers · long first
+              - emphasis [ref=e734]: "24.42"
+              - generic [ref=e735]: needs_review
+          - group [ref=e736]:
+            - 'generic "56 How do I copy a file?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 24.41 needs_review" [ref=e737] [cursor=pointer]':
+              - generic [ref=e738]: "56"
+              - generic [ref=e739]:
+                - strong [ref=e740]: "How do I copy a file?: what changes for Everyday productivity users"
+                - generic [ref=e741]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e742]: "24.41"
+              - generic [ref=e743]: needs_review
+          - group [ref=e744]:
+            - 'generic "57 How do I select rows from a DataFrame based on column values?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 24.32 needs_review" [ref=e745] [cursor=pointer]':
+              - generic [ref=e746]: "57"
+              - generic [ref=e747]:
+                - strong [ref=e748]: "How do I select rows from a DataFrame based on column values?: what changes for Everyday productivity users"
+                - generic [ref=e749]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e750]: "24.32"
+              - generic [ref=e751]: needs_review
+          - group [ref=e752]:
+            - 'generic "58 Iterating over a dictionary using a ''for'' loop, getting keys: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 24.32 needs_review" [ref=e753] [cursor=pointer]':
+              - generic [ref=e754]: "58"
+              - generic [ref=e755]:
+                - strong [ref=e756]: "Iterating over a dictionary using a 'for' loop, getting keys: what changes for Everyday productivity users"
+                - generic [ref=e757]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e758]: "24.32"
+              - generic [ref=e759]: needs_review
+          - group [ref=e760]:
+            - 'generic "59 How can I add new keys to a dictionary?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 24.31 needs_review" [ref=e761] [cursor=pointer]':
+              - generic [ref=e762]: "59"
+              - generic [ref=e763]:
+                - strong [ref=e764]: "How can I add new keys to a dictionary?: what changes for Everyday productivity users"
+                - generic [ref=e765]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e766]: "24.31"
+              - generic [ref=e767]: needs_review
+          - group [ref=e768]:
+            - generic "60 What is __init__.py for?, explained for Everyday productivity users Everyday productivity users · Concept education · long first 24.1 needs_review" [ref=e769] [cursor=pointer]:
+              - generic [ref=e770]: "60"
+              - generic [ref=e771]:
+                - strong [ref=e772]: What is __init__.py for?, explained for Everyday productivity users
+                - generic [ref=e773]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e774]: "24.1"
+              - generic [ref=e775]: needs_review
+  - navigation "Console views" [ref=e52]:
+    - button "◎ Overview" [ref=e53] [cursor=pointer]:
+      - generic [ref=e54]: ◎
+      - generic [ref=e55]: Overview
+    - button ">_ Live" [ref=e56] [cursor=pointer]:
+      - generic [ref=e57]: ">_"
+      - generic [ref=e58]: Live
+    - button "⌁ Sources" [ref=e59] [cursor=pointer]:
+      - generic [ref=e60]: ⌁
+      - generic [ref=e61]: Sources
+    - button "⊞ Discover" [ref=e62] [cursor=pointer]:
+      - generic [ref=e63]: ⊞
+      - generic [ref=e64]: Discover
+    - button "≡ Access" [ref=e65] [cursor=pointer]:
+      - generic [ref=e66]: ≡
+      - generic [ref=e67]: Access
+    - button "≔ Results" [ref=e68] [cursor=pointer]:
+      - generic [ref=e69]: ≔
+      - generic [ref=e70]: Results
+    - button "◇ Ideas" [active] [ref=e71] [cursor=pointer]:
+      - generic [ref=e72]: ◇
+      - generic [ref=e73]: Ideas
+    - button "⌘ Categories" [ref=e74] [cursor=pointer]:
+      - generic [ref=e75]: ⌘
+      - generic [ref=e76]: Categories
+    - button "! Failures" [ref=e77] [cursor=pointer]:
+      - generic [ref=e78]: "!"
+      - generic [ref=e79]: Failures
+    - button "↯ Trace" [ref=e80] [cursor=pointer]:
+      - generic [ref=e81]: ↯
+      - generic [ref=e82]: Trace
+    - button "▣ Archive" [ref=e83] [cursor=pointer]:
+      - generic [ref=e84]: ▣
+      - generic [ref=e85]: Archive
+    - button "◷ Schedule" [ref=e86] [cursor=pointer]:
+      - generic [ref=e87]: ◷
+      - generic [ref=e88]: Schedule
+    - button "⚙ Config" [ref=e89] [cursor=pointer]:
+      - generic [ref=e90]: ⚙
+      - generic [ref=e91]: Config
+    - button "✓ Audit" [ref=e92] [cursor=pointer]:
+      - generic [ref=e93]: ✓
+      - generic [ref=e94]: Audit

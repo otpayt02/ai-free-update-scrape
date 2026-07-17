@@ -1,0 +1,4 @@
+interface:
+  display_name: "Observe YouTube Workflow"
+  short_description: "Capture YouTube steps and safe automation ideas."
+  default_prompt: "Observe this YouTube workflow, log each visible step, and recommend the smallest safe automation boundary."

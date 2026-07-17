@@ -12,6 +12,7 @@ from rich.console import Console
 
 from .catalog import classify_topics, time_slot_for_now
 from .categories import classify_article, load_categories
+from .content_intelligence import build_idea_queue, load_strategy, write_idea_exports
 from .deliver.digest import write_digest
 from .enrich.alternatives import find_alternatives
 from .enrich.detector import detect_tool
@@ -25,7 +26,7 @@ from .providers import credential_status, discover_local_models, discover_models
 from .session import DEFAULT_SESSION, SessionProfile, select_session_items
 from .rank.ranker import load_use_cases, rank_article
 
-BASE = Path(__file__).parent.parent.parent
+BASE = Path(__file__).resolve().parent.parent
 CONFIG = BASE / "config"
 DATA = BASE / "data"
 console = Console()
@@ -215,6 +216,20 @@ def run(argv: list[str] | None = None) -> None:
         for article in enriched:
             handle.write(json.dumps(article) + "\n")
 
+    research_signals = []
+    research_path = DATA / "research" / "signals.jsonl"
+    if research_path.exists():
+        for line in research_path.read_text(encoding="utf-8").splitlines():
+            try:
+                research_signals.append(json.loads(line))
+            except json.JSONDecodeError:
+                continue
+    idea_queue = build_idea_queue(
+        enriched + research_signals,
+        load_strategy(CONFIG / "content_strategy.yaml"),
+    )
+    idea_exports = write_idea_exports(idea_queue, DATA / "exports")
+
     digest_path = write_digest(
         session_items,
         digests_dir=DATA / "digests",
@@ -242,6 +257,7 @@ def run(argv: list[str] | None = None) -> None:
     console.print(f"[bold]Digest written:[/bold] {digest_path}")
     console.print(f"[bold]Articles CSV written:[/bold] {articles_csv}")
     console.print(f"[bold]Shorts CSV written:[/bold] {shorts_csv}")
+    console.print(f"[bold]Content idea queue written:[/bold] {idea_exports['markdown']}")
     console.print(f"[bold]Workbook written:[/bold] {workbook_path}")
     console.print(f"[bold]Dashboard written:[/bold] {dashboard_path}")
     console.print("[bold green]Done.[/bold green]")

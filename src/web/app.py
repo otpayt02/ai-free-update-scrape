@@ -9,6 +9,8 @@ import sys
 import threading
 import time
 import uuid
+from html import unescape
+from re import sub
 from collections import Counter, deque
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
@@ -19,6 +21,7 @@ import yaml
 from flask import Flask, jsonify, request, send_from_directory
 
 from ..categories import load_categories, save_categories
+from ..content_intelligence import AUDIENCE_TAXONOMY, CONTENT_PILLARS, build_idea_queue, load_strategy, write_idea_exports
 from ..providers import (
     PROVIDERS,
     credential_status,
@@ -30,15 +33,25 @@ from ..providers import (
 )
 from ..session import DEFAULT_SESSION, SessionProfile, select_session_items
 from ..telemetry import TelemetryStore
+from ..source_cycle import archive_outputs, list_runs, run_source_cycle, source_lane_catalog
+from ..research import COLLECTOR_CATALOG, collect_research_signals, discover_source_candidates, source_registry_payload
+from ..yt_auto_mcp import TOOLS as YT_AUTO_TOOLS
+from ..yt_auto_mcp import call_tool as call_yt_auto_tool
+from ..yt_auto_mcp import handle_jsonrpc as handle_yt_auto_jsonrpc
+from ..yt_auto_mcp import status as yt_auto_status
 
 
-BASE = Path(__file__).resolve().parents[3]
+BASE = Path(__file__).resolve().parents[2]
 DATA = BASE / "data"
 CONFIG = BASE / "config"
 DASHBOARD_CONFIG = CONFIG / "dashboard.json"
 SOURCES_CONFIG = CONFIG / "sources.yaml"
 CATEGORIES_CONFIG = CONFIG / "categories.json"
 TELEMETRY_PATH = DATA / "telemetry" / "events.jsonl"
+WORKSPACE_PATH = DATA / "workspace.json"
+CONTENT_STRATEGY = CONFIG / "content_strategy.yaml"
+RESEARCH_SIGNALS = DATA / "research" / "signals.jsonl"
+SOURCE_REGISTRY = DATA / "source_registry.json"
 FRONTEND_DIST = BASE / "frontend" / "dist"
 
 CONFIG_FIELDS = {
@@ -85,6 +98,57 @@ def _read_csv(path: Path) -> list[dict]:
         return []
     with path.open(encoding="utf-8", newline="") as handle:
         return list(csv.DictReader(handle))
+
+
+def _load_workspace() -> dict:
+    """Load the operator journal and reusable content templates."""
+    default = {"journal": [], "templates": []}
+    if not WORKSPACE_PATH.exists():
+        return default
+    try:
+        payload = json.loads(WORKSPACE_PATH.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError, TypeError):
+        return default
+    return {
+        "journal": payload.get("journal", []) if isinstance(payload.get("journal", []), list) else [],
+        "templates": payload.get("templates", []) if isinstance(payload.get("templates", []), list) else [],
+    }
+
+
+def _save_workspace(payload: dict) -> None:
+    WORKSPACE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    WORKSPACE_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def _read_audit() -> list[dict]:
+    path = DATA / "audit_queue.json"
+    try:
+        return json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+    except json.JSONDecodeError:
+        return []
+
+
+def _portfolio_scores(articles: list[dict]) -> list[dict]:
+    """Derive inspectable 0-100 portfolio fit from stored article evidence."""
+    rows = []
+    for article in articles:
+        ranking = article.get("ranking", {})
+        relevance = min(100, round(float(ranking.get("top_score", 0) or 0) * 10))
+        topics = article.get("topics") or article.get("categories") or []
+        business = min(100, round(relevance * .75 + sum(8 for topic in topics if topic in {"product", "agents", "free"})))
+        reuse = min(100, round(len(topics) * 12 + min(48, len(str(article.get("summary", ""))) / 12) + (12 if article.get("alternatives") else 0)))
+        technical = min(100, sum({"models": 28, "agents": 24, "builders": 26, "product": 12, "free": 10}.get(topic, 6) for topic in topics) + (10 if article.get("detection", {}).get("new_tool") else 0))
+        proof = min(100, 15 + (25 if article.get("url") else 0) + (20 if article.get("published") else 0) + min(30, len(str(article.get("summary", ""))) / 20) + (10 if article.get("source") else 0))
+        scraped = str(article.get("scraped_at") or article.get("published") or "")
+        try:
+            published = datetime.fromisoformat(scraped.replace("Z", "+00:00"))
+            age_hours = max(0, (datetime.now(published.tzinfo) - published).total_seconds() / 3600)
+            current = max(0, round(relevance - age_hours / 10))
+        except ValueError:
+            current = relevance
+        total = round(business * .25 + reuse * .20 + technical * .20 + proof * .20 + current * .15)
+        rows.append({"title": article.get("title", "Untitled"), "url": article.get("url", ""), "source": article.get("source", "Unknown"), "score": total, "metrics": {"business": business, "reuse": reuse, "technical": technical, "proof": proof, "relevance": current}, "reason": ranking.get("reason") or f"Evidence: {len(topics)} topic tags, source fields, content depth, and current scrape time."})
+    return sorted(rows, key=lambda row: row["score"], reverse=True)[:20]
 
 
 def _load_config() -> dict:
@@ -215,6 +279,16 @@ def build_app() -> Flask:
             run_state.update(status="running", run_id=run_id, started_at=datetime.now().isoformat(timespec="seconds"), finished_at=None, exit_code=None)
             run_state["log"].clear()
         telemetry.emit(run_id, "configuration_resolution", "ok", config_snapshot={key: value for key, value in config.items() if "key" not in key.lower()})
+        cycle = run_source_cycle(DATA, SOURCES_CONFIG, load_categories(CATEGORIES_CONFIG), run_id)
+        for rule in cycle["rules"]:
+            telemetry.emit(run_id, "source_access", "ok" if rule["status"] == "ready" else "error", source_id=rule["source_id"], source=rule["name"], http_status=rule["http_status"], parser=rule["parser"], message=rule["reason"])
+        if not cycle["ok"]:
+            with run_lock:
+                run_state["log"].append(cycle["reason"])
+                run_state.update(status="failed", finished_at=datetime.now().isoformat(timespec="seconds"), exit_code=2)
+            telemetry.emit(run_id, "source_replacement", "error", message=cycle["reason"])
+            return
+        telemetry.emit(run_id, "source_replacement", "ok", ready_sources=cycle["ready"], message="Active source set replaced with this run's approved feeds.")
         process = subprocess.Popen(command, cwd=BASE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace")
         with run_lock:
             run_state["process"] = process
@@ -222,11 +296,14 @@ def build_app() -> Flask:
         for line in process.stdout:
             with run_lock:
                 run_state["log"].append(line.rstrip())
-            telemetry.emit(run_id, "pipeline", "event", message=line.rstrip()[:500])
+            telemetry.emit(run_id, "pipeline", "event", message=line.rstrip())
         exit_code = process.wait()
         with run_lock:
             run_state.update(status="succeeded" if exit_code == 0 else "failed", finished_at=datetime.now().isoformat(timespec="seconds"), exit_code=exit_code, process=None)
         telemetry.emit(run_id, "run_completion", "ok" if exit_code == 0 else "error", exit_code=exit_code)
+        if exit_code == 0:
+            copied = archive_outputs(DATA, run_id)
+            telemetry.emit(run_id, "archive", "ok", artifacts=copied, message="Run outputs archived with the source rules.")
 
     @app.get("/")
     def index():
@@ -273,15 +350,199 @@ def build_app() -> Flask:
     @app.get("/api/results")
     def results_list():
         articles = _read_jsonl(DATA / "processed" / "processed_articles.jsonl")
-        return jsonify({"results": articles[-250:]})
+        selected = select_session_items(articles, _profile_from_config(_load_config()))
+        return jsonify({"results": selected["selected"], "available": len(articles)})
+
+    @app.get("/api/portfolio")
+    def portfolio_list():
+        return jsonify({"weights": {"business": 25, "reuse": 20, "technical": 20, "proof": 20, "relevance": 15}, "ratings": _portfolio_scores(_read_jsonl(DATA / "processed" / "processed_articles.jsonl"))})
+
+    @app.get("/api/audit")
+    def audit_list():
+        return jsonify({"entries": _read_audit()[-500:]})
+
+    @app.get("/api/runs")
+    def archived_runs():
+        return jsonify({"runs": list_runs(DATA)})
+
+    @app.post("/api/source-cycle")
+    def source_cycle_start():
+        run_id = f"source-cycle-{uuid.uuid4().hex[:12]}"
+        cycle = run_source_cycle(DATA, SOURCES_CONFIG, load_categories(CATEGORIES_CONFIG), run_id)
+        for rule in cycle["rules"]:
+            telemetry.emit(run_id, "source_access", "ok" if rule["status"] == "ready" else "error", source_id=rule["source_id"], source=rule["name"], message=rule["reason"])
+        return jsonify(cycle), 200 if cycle["ok"] else 409
+
+    @app.get("/api/source-lanes")
+    def source_lanes_list():
+        return jsonify({"lanes": source_lane_catalog()})
+
+    @app.get("/api/content-intelligence")
+    def content_intelligence_list():
+        articles = _read_jsonl(DATA / "processed" / "processed_articles.jsonl")
+        research_signals = _read_jsonl(RESEARCH_SIGNALS)
+        strategy = load_strategy(CONTENT_STRATEGY)
+        queue = build_idea_queue(articles + research_signals, strategy)
+        return jsonify({
+            "ideas": queue[:250],
+            "counts": {"articles": len(articles), "research_signals": len(research_signals), "ideas": len(queue)},
+            "audiences": list(AUDIENCE_TAXONOMY),
+            "pillars": list(CONTENT_PILLARS),
+            "collectors": list(COLLECTOR_CATALOG),
+            "scoring_notice": "Evidence score only; it does not predict virality, revenue, or YouTube monetization approval.",
+            "publishing": strategy.get("publishing", {"automatic_upload": False, "automatic_publish": False, "human_approval_required": True}),
+        })
+
+    @app.post("/api/research/collect")
+    def research_collect():
+        result = collect_research_signals(CONTENT_STRATEGY, RESEARCH_SIGNALS, DATA / "research" / "imports")
+        records = _read_jsonl(DATA / "processed" / "processed_articles.jsonl") + _read_jsonl(RESEARCH_SIGNALS)
+        exports = write_idea_exports(build_idea_queue(records, load_strategy(CONTENT_STRATEGY)), DATA / "exports")
+        result["exports"] = {name: str(path.relative_to(BASE)) for name, path in exports.items()}
+        telemetry.emit("research-collection", "research_collection", "ok" if result["ok"] else "error", collected=result["collected"], added=result["added"], message="Official API and approved-import research pass completed.")
+        return jsonify(result), 200 if result["ok"] else 409
+
+    @app.get("/api/source-registry")
+    def source_registry_get():
+        return jsonify(source_registry_payload(SOURCE_REGISTRY))
+
+    @app.post("/api/source-registry/discover")
+    def source_registry_discover():
+        try:
+            result = discover_source_candidates(CONTENT_STRATEGY, SOURCE_REGISTRY)
+            telemetry.emit("source-discovery", "source_discovery", "ok", added=result["added"], discovered=result["discovered"], message="Novel domains were staged for trust and access review; none were activated.")
+            return jsonify(result)
+        except httpx.HTTPError as exc:
+            telemetry.emit("source-discovery", "source_discovery", "error", message=str(exc)[:240])
+            return jsonify({"ok": False, "error": str(exc)}), 502
+
+    @app.get("/api/workspace")
+    def workspace_get():
+        return jsonify(_load_workspace())
+
+    @app.post("/api/workspace/journal")
+    def workspace_journal_add():
+        payload = request.get_json(silent=True) or {}
+        text = str(payload.get("text", "")).strip()
+        stage = str(payload.get("stage", "observe")).strip().lower()
+        if not text or len(text) > 1000:
+            return jsonify({"ok": False, "error": "Journal text must be between 1 and 1000 characters"}), 400
+        if stage not in {"discover", "select", "template", "render", "approve", "publish", "observe"}:
+            return jsonify({"ok": False, "error": "Unknown workflow stage"}), 400
+        workspace = _load_workspace()
+        entry = {"id": str(uuid.uuid4()), "text": text, "stage": stage, "created_at": datetime.now().isoformat(timespec="seconds"), "automation_candidate": bool(payload.get("automation_candidate", False))}
+        workspace["journal"].insert(0, entry)
+        _save_workspace(workspace)
+        return jsonify({"ok": True, "entry": entry, "workspace": workspace}), 201
+
+    @app.post("/api/workspace/templates")
+    def workspace_template_add():
+        payload = request.get_json(silent=True) or {}
+        title = str(payload.get("title", "")).strip()
+        source_title = str(payload.get("source_title", "")).strip()
+        if not title or not source_title:
+            return jsonify({"ok": False, "error": "Template title and source title are required"}), 400
+        template = {
+            "id": str(uuid.uuid4()),
+            "title": title[:120],
+            "source_title": source_title[:300],
+            "source_url": str(payload.get("source_url", ""))[:1000],
+            "hook": str(payload.get("hook", ""))[:500],
+            "proof": str(payload.get("proof", ""))[:1000],
+            "cta": str(payload.get("cta", ""))[:500],
+            "format": str(payload.get("format", "signal-brief"))[:80],
+            "status": "draft",
+            "created_at": datetime.now().isoformat(timespec="seconds"),
+        }
+        workspace = _load_workspace()
+        workspace["templates"].insert(0, template)
+        _save_workspace(workspace)
+        return jsonify({"ok": True, "template": template, "workspace": workspace}), 201
 
     @app.get("/api/events")
     def events_list():
         return jsonify({"events": telemetry.read(min(int(request.args.get("limit", 500)), 2000))})
 
+    @app.get("/api/observability")
+    def observability():
+        """Return the complete persisted trace plus the active process buffer."""
+        view = snapshot()
+        events = telemetry.read(2000)
+        with run_lock:
+            run = {key: value for key, value in run_state.items() if key != "process"}
+            run["log"] = list(run_state["log"])
+        errors = [
+            event for event in events
+            if event.get("status") == "error"
+            or any(token in str(event.get("message", "")).lower() for token in ("error", "failed", "blocked", "unavailable", "skipped"))
+        ]
+        return jsonify({
+            "run": run,
+            "config": view["config"],
+            "sources": view["sources"],
+            "events": events,
+            "errors": errors[-200:],
+            "stats": view["stats"],
+            "updated_at": datetime.now().isoformat(timespec="seconds"),
+        })
+
+    @app.get("/api/sources/preview")
+    def source_preview():
+        """Fetch a small, readable source preview; opening the original remains available."""
+        url = str(request.args.get("url", "")).strip()
+        if not url.startswith(("http://", "https://")):
+            return jsonify({"ok": False, "error": "A valid http(s) source URL is required"}), 400
+        started = time.perf_counter()
+        try:
+            response = httpx.get(
+                url,
+                timeout=20,
+                follow_redirects=True,
+                headers={"User-Agent": "ai-free-update-scrape/1.0 (+local source inspector)"},
+            )
+            content_type = response.headers.get("content-type", "")
+            text = response.text if "html" in content_type or "text" in content_type else ""
+            text = sub(r"(?is)<(script|style|noscript).*?>.*?</\\1>", " ", text)
+            text = sub(r"(?s)<[^>]+>", " ", text)
+            text = sub(r"\\s+", " ", unescape(text)).strip()
+            return jsonify({
+                "ok": response.is_success,
+                "url": str(response.url),
+                "status": response.status_code,
+                "content_type": content_type,
+                "latency_ms": round((time.perf_counter() - started) * 1000),
+                "preview": text[:16000],
+                "error": "" if response.is_success else f"Source returned HTTP {response.status_code}",
+            })
+        except httpx.HTTPError as exc:
+            return jsonify({"ok": False, "url": url, "preview": "", "error": str(exc), "latency_ms": round((time.perf_counter() - started) * 1000)}), 400
+
     @app.get("/api/health")
     def health():
         return jsonify({"status": "ready", "credential_status": credential_status(), "credential_statuses": credential_statuses()})
+
+    @app.get("/api/yt-auto")
+    def yt_auto_overview():
+        return jsonify({"status": yt_auto_status(), "tools": [tool.as_mcp() for tool in YT_AUTO_TOOLS.values()]})
+
+    @app.post("/api/yt-auto/tools/<tool_name>")
+    def yt_auto_tool_call(tool_name: str):
+        if request.remote_addr not in ("127.0.0.1", "::1"):
+            return jsonify({"ok": False, "error": "YT Auto tools are localhost-only"}), 403
+        try:
+            result = call_yt_auto_tool(tool_name, request.get_json(silent=True) or {})
+            return jsonify(result), 200 if result.get("ok", True) else 400
+        except PermissionError as exc:
+            return jsonify({"ok": False, "error": str(exc)}), 403
+        except (ValueError, subprocess.TimeoutExpired) as exc:
+            return jsonify({"ok": False, "error": str(exc)}), 400
+
+    @app.post("/mcp")
+    def mcp_endpoint():
+        if request.remote_addr not in ("127.0.0.1", "::1"):
+            return jsonify({"error": "MCP endpoint is localhost-only"}), 403
+        response, status_code = handle_yt_auto_jsonrpc(request.get_json(silent=True) or {})
+        return jsonify(response), status_code
 
     @app.get("/api/credentials/status")
     def credentials_status():

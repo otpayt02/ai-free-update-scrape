@@ -1,0 +1,331 @@
+[
+  {
+    "domain": "abc.net.au",
+    "sample_url": "https://www.abc.net.au/news/2026-07-16/spotify-making-ai-music-easier-to-detect/106919814",
+    "sample_title": "Spotify removes 75 million \"AI slop\" songs",
+    "discovered_at": "2026-07-16T09:21:51.519403+00:00",
+    "discovery_origin": "Hacker News official Firebase API",
+    "relevance_keywords": [
+      "ai"
+    ],
+    "status": "review_required",
+    "trust_score": 5,
+    "trust_dimensions": {
+      "security": 5
+    },
+    "missing_review": [
+      "permitted_access",
+      "publisher_identity",
+      "primary_evidence",
+      "freshness",
+      "corroboration",
+      "corrections_transparency",
+      "commercial_disclosure"
+    ],
+    "activation_allowed": false,
+    "next_action": "Find a permitted RSS/API route, verify publisher identity and primary evidence, then complete human trust review.",
+    "last_seen_at": "2026-07-16T09:50:00.187852+00:00"
+  },
+  {
+    "domain": "bargo.ai",
+    "sample_url": "https://www.bargo.ai/research/slow-takeoff-fast-spending",
+    "sample_title": "Slower AI Improvement Means More Spending",
+    "discovered_at": "2026-07-16T09:48:26.858774+00:00",
+    "discovery_origin": "Hacker News official Firebase API",
+    "relevance_keywords": [
+      "ai"
+    ],
+    "status": "review_required",
+    "trust_score": 5,
+    "trust_dimensions": {
+      "security": 5
+    },
+    "missing_review": [
+      "permitted_access",
+      "publisher_identity",
+      "primary_evidence",
+      "freshness",
+      "corroboration",
+      "corrections_transparency",
+      "commercial_disclosure"
+    ],
+    "activation_allowed": false,
+    "next_action": "Find a permitted RSS/API route, verify publisher identity and primary evidence, then complete human trust review.",
+    "last_seen_at": "2026-07-16T09:50:00.187852+00:00"
+  },
+  {
+    "domain": "blog.codacy.com",
+    "sample_url": "https://blog.codacy.com/ai-code-review-is-not-enough-how-engineering-leaders-should-gate-ai-generated-code",
+    "sample_title": "Why AI code review is not enough",
+    "discovered_at": "2026-07-16T09:26:27.314330+00:00",
+    "discovery_origin": "Hacker News official Firebase API",
+    "relevance_keywords": [
+      "ai",
+      "code"
+    ],
+    "status": "review_required",
+    "trust_score": 5,
+    "trust_dimensions": {
+      "security": 5
+    },
+    "missing_review": [
+      "permitted_access",
+      "publisher_identity",
+      "primary_evidence",
+      "freshness",
+      "corroboration",
+      "corrections_transparency",
+      "commercial_disclosure"
+    ],
+    "activation_allowed": false,
+    "next_action": "Find a permitted RSS/API route, verify publisher identity and primary evidence, then complete human trust review.",
+    "last_seen_at": "2026-07-16T09:50:00.187852+00:00"
+  },
+  {
+    "domain": "cnbc.com",
+    "sample_url": "https://www.cnbc.com/2026/07/14/apple-prismml-ai-compression-iphone.html",
+    "sample_title": "Apple in talks with PrismML, which shrinks AI models up to 15x to run on iPhones",
+    "discovered_at": "2026-07-16T09:21:50.190885+00:00",
+    "discovery_origin": "Hacker News official Firebase API",
+    "relevance_keywords": [
+      "ai"
+    ],
+    "status": "review_required",
+    "trust_score": 5,
+    "trust_dimensions": {
+      "security": 5
+    },
+    "missing_review": [
+      "permitted_access",
+      "publisher_identity",
+      "primary_evidence",
+      "freshness",
+      "corroboration",
+      "corrections_transparency",
+      "commercial_disclosure"
+    ],
+    "activation_allowed": false,
+    "next_action": "Find a permitted RSS/API route, verify publisher identity and primary evidence, then complete human trust review.",
+    "last_seen_at": "2026-07-16T09:50:00.187852+00:00"
+  },
+  {
+    "domain": "docuwriter.ai",
+    "sample_url": "https://www.docuwriter.ai/",
+    "sample_title": "At DocuWriter.ai, the documentation will make you smile:)",
+    "discovered_at": "2026-07-16T09:48:29.734580+00:00",
+    "discovery_origin": "Hacker News official Firebase API",
+    "relevance_keywords": [
+      "ai"
+    ],
+    "status": "review_required",
+    "trust_score": 5,
+    "trust_dimensions": {
+      "security": 5
+    },
+    "missing_review": [
+      "permitted_access",
+      "publisher_identity",
+      "primary_evidence",
+      "freshness",
+      "corroboration",
+      "corrections_transparency",
+      "commercial_disclosure"
+    ],
+    "activation_allowed": false,
+    "next_action": "Find a permitted RSS/API route, verify publisher identity and primary evidence, then complete human trust review.",
+    "last_seen_at": "2026-07-16T09:50:00.187852+00:00"
+  },
+  {
+    "domain": "flanner.io",
+    "sample_url": "https://www.flanner.io/",
+    "sample_title": "Flanner.io - Stop drowning in AI .md files.",
+    "discovered_at": "2026-07-16T09:48:27.017365+00:00",
+    "discovery_origin": "Hacker News official Firebase API",
+    "relevance_keywords": [
+      "ai"
+    ],
+    "status": "review_required",
+    "trust_score": 5,
+    "trust_dimensions": {
+      "security": 5
+    },
+    "missing_review": [
+      "permitted_access",
+      "publisher_identity",
+      "primary_evidence",
+      "freshness",
+      "corroboration",
+      "corrections_transparency",
+      "commercial_disclosure"
+    ],
+    "activation_allowed": false,
+    "next_action": "Find a permitted RSS/API route, verify publisher identity and primary evidence, then complete human trust review.",
+    "last_seen_at": "2026-07-16T09:50:00.187852+00:00"
+  },
+  {
+    "domain": "github.com",
+    "sample_url": "https://github.com/rishi-sekantsec/sekant-intercept-js",
+    "sample_title": "Show HN: Enhanced YARA to detect threats in JavaScript using context and content",
+    "discovered_at": "2026-07-16T09:49:57.198220+00:00",
+    "discovery_origin": "Hacker News official Firebase API",
+    "relevance_keywords": [
+      "browser",
+      "security",
+      "web"
+    ],
+    "status": "review_required",
+    "trust_score": 5,
+    "trust_dimensions": {
+      "security": 5
+    },
+    "missing_review": [
+      "permitted_access",
+      "publisher_identity",
+      "primary_evidence",
+      "freshness",
+      "corroboration",
+      "corrections_transparency",
+      "commercial_disclosure"
+    ],
+    "activation_allowed": false,
+    "next_action": "Find a permitted RSS/API route, verify publisher identity and primary evidence, then complete human trust review."
+  },
+  {
+    "domain": "master.dev",
+    "sample_url": "https://master.dev/blog/ai-generated-ui-is-inaccessible-by-default/",
+    "sample_title": "AI-Generated UI Is Inaccessible by Default",
+    "discovered_at": "2026-07-16T09:48:26.647789+00:00",
+    "discovery_origin": "Hacker News official Firebase API",
+    "relevance_keywords": [
+      "ai"
+    ],
+    "status": "review_required",
+    "trust_score": 5,
+    "trust_dimensions": {
+      "security": 5
+    },
+    "missing_review": [
+      "permitted_access",
+      "publisher_identity",
+      "primary_evidence",
+      "freshness",
+      "corroboration",
+      "corrections_transparency",
+      "commercial_disclosure"
+    ],
+    "activation_allowed": false,
+    "next_action": "Find a permitted RSS/API route, verify publisher identity and primary evidence, then complete human trust review.",
+    "last_seen_at": "2026-07-16T09:50:00.187852+00:00"
+  },
+  {
+    "domain": "open-atelier.app",
+    "sample_url": "https://open-atelier.app",
+    "sample_title": "Atelier, an open source local AI desktop app for everyone",
+    "discovered_at": "2026-07-16T09:21:50.527808+00:00",
+    "discovery_origin": "Hacker News official Firebase API",
+    "relevance_keywords": [
+      "ai",
+      "open source"
+    ],
+    "status": "review_required",
+    "trust_score": 5,
+    "trust_dimensions": {
+      "security": 5
+    },
+    "missing_review": [
+      "permitted_access",
+      "publisher_identity",
+      "primary_evidence",
+      "freshness",
+      "corroboration",
+      "corrections_transparency",
+      "commercial_disclosure"
+    ],
+    "activation_allowed": false,
+    "next_action": "Find a permitted RSS/API route, verify publisher identity and primary evidence, then complete human trust review.",
+    "last_seen_at": "2026-07-16T09:50:00.187852+00:00"
+  },
+  {
+    "domain": "pokayoke.codes",
+    "sample_url": "https://pokayoke.codes",
+    "sample_title": "Show HN: Pokayoke – turn code conventions into checks for agents",
+    "discovered_at": "2026-07-16T09:49:56.994044+00:00",
+    "discovery_origin": "Hacker News official Firebase API",
+    "relevance_keywords": [
+      "agent",
+      "ai",
+      "code"
+    ],
+    "status": "review_required",
+    "trust_score": 5,
+    "trust_dimensions": {
+      "security": 5
+    },
+    "missing_review": [
+      "permitted_access",
+      "publisher_identity",
+      "primary_evidence",
+      "freshness",
+      "corroboration",
+      "corrections_transparency",
+      "commercial_disclosure"
+    ],
+    "activation_allowed": false,
+    "next_action": "Find a permitted RSS/API route, verify publisher identity and primary evidence, then complete human trust review."
+  },
+  {
+    "domain": "smh.com.au",
+    "sample_url": "https://www.smh.com.au/business/workplace/no-hiring-if-an-ai-can-do-the-job-staff-at-mining-giant-told-20260713-p60eth.html",
+    "sample_title": "No hiring if an AI can do the job, staff at mining giant told",
+    "discovered_at": "2026-07-16T09:48:27.183464+00:00",
+    "discovery_origin": "Hacker News official Firebase API",
+    "relevance_keywords": [
+      "ai"
+    ],
+    "status": "review_required",
+    "trust_score": 5,
+    "trust_dimensions": {
+      "security": 5
+    },
+    "missing_review": [
+      "permitted_access",
+      "publisher_identity",
+      "primary_evidence",
+      "freshness",
+      "corroboration",
+      "corrections_transparency",
+      "commercial_disclosure"
+    ],
+    "activation_allowed": false,
+    "next_action": "Find a permitted RSS/API route, verify publisher identity and primary evidence, then complete human trust review.",
+    "last_seen_at": "2026-07-16T09:50:00.187852+00:00"
+  },
+  {
+    "domain": "ted.com",
+    "sample_url": "https://www.ted.com/talks/peter_steinberger_how_i_created_openclaw_the_breakthrough_ai_agent",
+    "sample_title": "I created OpenClaw, the breakthrough AI agent [video]",
+    "discovered_at": "2026-07-16T09:48:29.978754+00:00",
+    "discovery_origin": "Hacker News official Firebase API",
+    "relevance_keywords": [
+      "agent",
+      "ai"
+    ],
+    "status": "review_required",
+    "trust_score": 5,
+    "trust_dimensions": {
+      "security": 5
+    },
+    "missing_review": [
+      "permitted_access",
+      "publisher_identity",
+      "primary_evidence",
+      "freshness",
+      "corroboration",
+      "corrections_transparency",
+      "commercial_disclosure"
+    ],
+    "activation_allowed": false,
+    "next_action": "Find a permitted RSS/API route, verify publisher identity and primary evidence, then complete human trust review.",
+    "last_seen_at": "2026-07-16T09:50:00.187852+00:00"
+  }
+]

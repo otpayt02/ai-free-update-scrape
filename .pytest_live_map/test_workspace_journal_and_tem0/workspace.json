@@ -1,0 +1,25 @@
+{
+  "journal": [
+    {
+      "id": "86cf9fd8-fe97-4f57-8b66-88004e9be025",
+      "text": "Reviewed the selected signal",
+      "stage": "select",
+      "created_at": "2026-07-14T12:42:35",
+      "automation_candidate": true
+    }
+  ],
+  "templates": [
+    {
+      "id": "e423279f-4d03-409e-9c20-7d10bf8030fa",
+      "title": "Signal Brief",
+      "source_title": "A real source",
+      "source_url": "",
+      "hook": "Why this matters",
+      "proof": "",
+      "cta": "",
+      "format": "signal-brief",
+      "status": "draft",
+      "created_at": "2026-07-14T12:42:35"
+    }
+  ]
+}

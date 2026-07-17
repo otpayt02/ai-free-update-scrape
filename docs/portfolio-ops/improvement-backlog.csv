@@ -1,0 +1,7 @@
+priority,item,evidence,acceptance_test,approval
+P0,Add source-level retry state,Reddit 403 was visible in the 2026-07-13 run,Failure appears in System and can be retried manually,None
+P0,Add template-to-render button,Template and Remotion composition both exist,A selected template creates a preview render without publishing,None
+P1,Add signed GitHub intake webhook,GitHub is already connected,Valid signed event creates a draft intake record,Required before external endpoint
+P1,Add client-owned YouTube private-draft adapter,Publish boundary is currently locked,OAuth test uploads only a private draft,Explicit client approval
+P2,Add approval notification connector,Approval queue is local-only,Notification contains no secret or unpublished media,Connector install approval
+

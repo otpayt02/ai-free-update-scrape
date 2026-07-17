@@ -1,0 +1,87 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - button "Open overview" [ref=e5] [cursor=pointer]
+    - generic [ref=e9]: SIGNAL CONSOLE / TERMINALIdeas
+    - generic [ref=e10]:
+      - generic [ref=e11]: idle
+      - button "Refresh" [ref=e12] [cursor=pointer]
+  - main [ref=e13]:
+    - generic [ref=e264]:
+      - generic [ref=e265]:
+        - generic [ref=e266]:
+          - heading "Editorial research queue" [level=2] [ref=e267]
+          - generic [ref=e268]:
+            - button "Refresh" [ref=e269] [cursor=pointer]
+            - button "Collect approved signals" [ref=e270] [cursor=pointer]
+        - generic [ref=e271]:
+          - generic [ref=e272]:
+            - generic [ref=e273]: Ranked ideas
+            - generic [ref=e274]: "0"
+          - generic [ref=e275]:
+            - generic [ref=e276]: News articles
+            - generic [ref=e277]: "0"
+          - generic [ref=e278]:
+            - generic [ref=e279]: Pain signals
+            - generic [ref=e280]: "0"
+          - paragraph [ref=e281]: Loading evidence policy. Upload and publishing remain human-approved.
+        - generic "Idea queue filters" [ref=e282]:
+          - generic [ref=e283]:
+            - generic [ref=e284]: Audience
+            - combobox "Audience" [ref=e285]:
+              - option "All audiences" [selected]
+          - generic [ref=e286]:
+            - generic [ref=e287]: Pillar
+            - combobox "Pillar" [ref=e288]:
+              - option "All pillars" [selected]
+          - generic [ref=e289]:
+            - generic [ref=e290]: Format
+            - combobox "Format" [ref=e291]:
+              - option "Short + long" [selected]
+              - option "Short capable"
+              - option "Long capable"
+      - generic [ref=e292]:
+        - heading "0 review candidates" [level=2] [ref=e294]
+        - generic [ref=e295]: No ideas match these filters. Run a scrape or collect approved research signals.
+  - navigation "Console views" [ref=e52]:
+    - button "◎ Overview" [ref=e53] [cursor=pointer]:
+      - generic [ref=e54]: ◎
+      - generic [ref=e55]: Overview
+    - button ">_ Live" [ref=e56] [cursor=pointer]:
+      - generic [ref=e57]: ">_"
+      - generic [ref=e58]: Live
+    - button "⌁ Sources" [ref=e59] [cursor=pointer]:
+      - generic [ref=e60]: ⌁
+      - generic [ref=e61]: Sources
+    - button "⊞ Discover" [ref=e62] [cursor=pointer]:
+      - generic [ref=e63]: ⊞
+      - generic [ref=e64]: Discover
+    - button "≡ Access" [ref=e65] [cursor=pointer]:
+      - generic [ref=e66]: ≡
+      - generic [ref=e67]: Access
+    - button "≔ Results" [ref=e68] [cursor=pointer]:
+      - generic [ref=e69]: ≔
+      - generic [ref=e70]: Results
+    - button "◇ Ideas" [active] [ref=e71] [cursor=pointer]:
+      - generic [ref=e72]: ◇
+      - generic [ref=e73]: Ideas
+    - button "⌘ Categories" [ref=e74] [cursor=pointer]:
+      - generic [ref=e75]: ⌘
+      - generic [ref=e76]: Categories
+    - button "! Failures" [ref=e77] [cursor=pointer]:
+      - generic [ref=e78]: "!"
+      - generic [ref=e79]: Failures
+    - button "↯ Trace" [ref=e80] [cursor=pointer]:
+      - generic [ref=e81]: ↯
+      - generic [ref=e82]: Trace
+    - button "▣ Archive" [ref=e83] [cursor=pointer]:
+      - generic [ref=e84]: ▣
+      - generic [ref=e85]: Archive
+    - button "◷ Schedule" [ref=e86] [cursor=pointer]:
+      - generic [ref=e87]: ◷
+      - generic [ref=e88]: Schedule
+    - button "⚙ Config" [ref=e89] [cursor=pointer]:
+      - generic [ref=e90]: ⚙
+      - generic [ref=e91]: Config
+    - button "✓ Audit" [ref=e92] [cursor=pointer]:
+      - generic [ref=e93]: ✓
+      - generic [ref=e94]: Audit

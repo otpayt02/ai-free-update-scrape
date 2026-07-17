@@ -1,0 +1,44 @@
+{
+  "title": "Signal Console — current thread context",
+  "requests": [
+    {"title": "Make scrape execution observable", "detail": "Show structured real-time output, parameters, results, and errors without decorative pills."},
+    {"title": "Make sources inspectable", "detail": "Open a scrollable preview when allowed and retain a direct link to the original website."},
+    {"title": "Create reusable thread documentation", "detail": "Track context, applied work, evidence, open queue, and inefficiencies."},
+    {"title": "Restore the full Signal Console", "detail": "Bring back the operational information density while keeping terminal hierarchy, source inspection, and automated safe source rotation."},
+    {"title": "Match the dense operations reference", "detail": "Use a compact dark command header, matrix-like data panes, a stacked inspector, and a thin symbol dock without decorative pill controls."},
+    {"title": "Final matrix and disclosure pass", "detail": "Make the Overview source-attempt table sortable, keep source opening direct, and move source and row parameters behind a three-dot control."},
+    {"title": "Video-ready live run map", "detail": "Show the complete scrape path, source decisions, produced headlines, and terminal events together while a run is active or retained."}
+  ],
+  "changes": [
+    {"title": "Added /api/observability", "detail": "Returns persisted telemetry, active process buffer, source configuration, parameters, and inferred error events."},
+    {"title": "Added /api/sources/preview", "detail": "Fetches a compact readable text preview and reports response metadata or an explicit failure."},
+    {"title": "Rebuilt the React console", "detail": "Three compact operational views: scrape trace, source inspector, and parameter contract."},
+    {"title": "Created thread-context-docs skill", "detail": "Generates this factual handoff from an editable JSON ledger."},
+    {"title": "Restored multi-view terminal console", "detail": "Added Overview, Live, Sources, Discover, Access, Results, Categories, Failures, Trace, Archive, Schedule, Config, and Audit views via a symbol dock."},
+    {"title": "Added automatic source-cycle and archive", "detail": "Current category feeds are access-checked, archived with source rules, queued for audit, and replace active sources only when ready."},
+    {"title": "Added quantitative portfolio ratings", "detail": "Ranks evidence with 25% business value, 20% reuse, 20% technical depth, 20% proof quality, and 15% current relevance."},
+    {"title": "Applied dense console skin", "detail": "Reworked the React styling into an ultra-compact terminal grid; added an action-bearing overview rail and expanded the highest-value lists to nine visible rows."},
+    {"title": "Added sortable source-attempt matrix", "detail": "Overview now prioritizes active source readiness or recorded source-access attempts, with five sortable headers and per-row parameter disclosure."},
+    {"title": "Added minimal source disclosure", "detail": "Each source row opens a preview; its parameters are available only from the adjacent ellipsis menu to preserve a compact scan surface."},
+    {"title": "Added live operator map", "detail": "Live now presents the run as six ordered stages alongside source-access decisions, retained output headlines, and the raw terminal trace."}
+  ],
+  "evidence": [
+    {"title": "Persisted telemetry", "detail": "Observed r/LocalLLaMA returning HTTP 403 while web and HN ingestion continued."},
+    {"title": "Automated tests", "detail": "Endpoint coverage includes health, control center, source input validation, and observability contract."},
+    {"title": "Browser verification", "detail": "Playwright opened the rebuilt localhost console, confirmed the full trace, then opened Sources and verified 33 clickable inspectable entries with an expanded preview and direct website link."},
+    {"title": "Restoration verification", "detail": "Frontend build passed; 15 backend tests passed, including source replacement and zero-ready-source protection. Browser verified 13 dock controls, collapsed scraper code, direct source link, and plug-control expansion."},
+    {"title": "Dense layout verification", "detail": "Playwright rendered the populated Overview at 1600×1000, verified the 13-function dock and action rail, and captured output/playwright/dense-console-final.png."},
+    {"title": "Final responsive verification", "detail": "Playwright opened all 13 desktop views, captured the source-attempt matrix and mobile source menu, and verified source preview, collapsed code, direct link, parameter menu, and no mobile document overflow."},
+    {"title": "Live map verification and scrape", "detail": "Playwright rendered six run stages, twelve source decisions, fourteen visible output headlines, and the terminal trace. The operator-triggered run b0e4389d-1859-4096-a61c-a634461e368a safely aborted because all discovered Google News feeds were robots-restricted."}
+  ],
+  "queue": [
+    {"title": "Run browser inspection of the rebuilt console", "mode": "automatic", "status": "applied"},
+    {"title": "Decide whether to replace Reddit source with an allowed feed", "mode": "approval_required", "status": "HTTP 403 needs a source choice"},
+    {"title": "Test source previews against selected news sites", "mode": "automatic", "status": "applied through the source inspector"},
+    {"title": "Run the first live automatic source cycle", "mode": "automatic", "status": "applied; run b0e4389d-1859-4096-a61c-a634461e368a aborted safely because no discovered source passed robots review"}
+  ],
+  "inefficiencies": [
+    {"title": "Global pytest temp directory is inaccessible", "detail": "Use a repo-local --basetemp for this Windows session."},
+    {"title": "Some publishers reject automated or embedded reads", "detail": "The inspector preserves a direct website link and exposes the response reason instead of hiding it."}
+  ]
+}

@@ -1,0 +1,584 @@
+- generic [ref=f1e3]:
+  - banner [ref=f1e4]:
+    - button "Open overview" [ref=f1e5] [cursor=pointer]
+    - generic [ref=f1e9]: SIGNAL CONSOLE / TERMINALIdeas
+    - generic [ref=f1e10]:
+      - generic [ref=f1e11]: idle
+      - button "Refresh" [ref=f1e12] [cursor=pointer]
+  - main [ref=f1e13]:
+    - generic [ref=f1e472]:
+      - generic [ref=f1e473]:
+        - generic [ref=f1e474]:
+          - heading "Editorial research queue" [level=2] [ref=f1e475]
+          - generic [ref=f1e476]:
+            - button "Refresh" [ref=f1e477] [cursor=pointer]
+            - button "Collect approved signals" [ref=f1e478] [cursor=pointer]
+        - generic [ref=f1e479]:
+          - generic [ref=f1e480]:
+            - generic [ref=f1e481]: Ranked ideas
+            - generic [ref=f1e482]: "2864"
+          - generic [ref=f1e483]:
+            - generic [ref=f1e484]: News articles
+            - generic [ref=f1e485]: "2817"
+          - generic [ref=f1e486]:
+            - generic [ref=f1e487]: Pain signals
+            - generic [ref=f1e488]: "97"
+          - paragraph [ref=f1e489]: Evidence score only; it does not predict virality, revenue, or YouTube monetization approval. Upload and publishing remain human-approved.
+        - generic "Idea queue filters" [ref=f1e490]:
+          - generic [ref=f1e491]:
+            - generic [ref=f1e492]: Audience
+            - combobox "Audience" [ref=f1e493]:
+              - option "All audiences" [selected]
+              - option "Solo freelancers & operators"
+              - option "Vibe coders"
+              - option "Developers"
+              - option "Small businesses"
+              - option "Corporate professionals"
+              - option "Creators & educators"
+              - option "Everyday productivity users"
+          - generic [ref=f1e494]:
+            - generic [ref=f1e495]: Pillar
+            - combobox "Pillar" [ref=f1e496]:
+              - option "All pillars" [selected]
+              - option "AI & tech news updates"
+              - option "Tips & tricks"
+              - option "Pain-point solutions"
+              - option "Manual-task automation"
+              - option "Concept education"
+              - option "Tool instructions"
+              - option "Systems mindset & motivation"
+              - option "Use cases & portfolio showcases"
+              - option "Products, affiliates & backend offers"
+              - option "Comparisons & reviews"
+          - generic [ref=f1e497]:
+            - generic [ref=f1e498]: Format
+            - combobox "Format" [ref=f1e499]:
+              - option "Short + long" [selected]
+              - option "Short capable"
+              - option "Long capable"
+      - generic [ref=f1e500]:
+        - heading "60 review candidates" [level=2] [ref=f1e502]
+        - generic [ref=f1e503]:
+          - group [ref=f1e504]:
+            - 'generic "01 Fix this Developers workflow problem: FastAPI returning \"Out of range float values are not JSON compliant\" with Pandas NaN values Developers · Pain-point solutions · long first 47.13 needs_review" [ref=f1e505] [cursor=pointer]':
+              - generic [ref=f1e506]: "01"
+              - generic [ref=f1e507]:
+                - strong [ref=f1e508]: "Fix this Developers workflow problem: FastAPI returning \"Out of range float values are not JSON compliant\" with Pandas NaN values"
+                - generic [ref=f1e509]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e510]: "47.13"
+              - generic [ref=f1e511]: needs_review
+          - group [ref=f1e512]:
+            - 'generic "02 Fix this Everyday productivity users workflow problem: Full string not added to dictionary in loop Everyday productivity users · Pain-point solutions · long first 47.07 needs_review" [ref=f1e513] [cursor=pointer]':
+              - generic [ref=f1e514]: "02"
+              - generic [ref=f1e515]:
+                - strong [ref=f1e516]: "Fix this Everyday productivity users workflow problem: Full string not added to dictionary in loop"
+                - generic [ref=f1e517]: Everyday productivity users · Pain-point solutions · long first
+              - emphasis [ref=f1e518]: "47.07"
+              - generic [ref=f1e519]: needs_review
+          - group [ref=f1e520]:
+            - 'generic "03 Fix this Everyday productivity users workflow problem: How do I clear Warning Message When Using SHM C to Python Everyday productivity users · Pain-point solutions · long first 46.72 needs_review" [ref=f1e521] [cursor=pointer]':
+              - generic [ref=f1e522]: "03"
+              - generic [ref=f1e523]:
+                - strong [ref=f1e524]: "Fix this Everyday productivity users workflow problem: How do I clear Warning Message When Using SHM C to Python"
+                - generic [ref=f1e525]: Everyday productivity users · Pain-point solutions · long first
+              - emphasis [ref=f1e526]: "46.72"
+              - generic [ref=f1e527]: needs_review
+          - group [ref=f1e528]:
+            - 'generic "04 Fix this Developers workflow problem: How do I allow my program to edit its configuration files in /usr/local/etc? Developers · Pain-point solutions · long first 46.48 needs_review" [ref=f1e529] [cursor=pointer]':
+              - generic [ref=f1e530]: "04"
+              - generic [ref=f1e531]:
+                - strong [ref=f1e532]: "Fix this Developers workflow problem: How do I allow my program to edit its configuration files in /usr/local/etc?"
+                - generic [ref=f1e533]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e534]: "46.48"
+              - generic [ref=f1e535]: needs_review
+          - group [ref=f1e536]:
+            - 'generic "05 Fix this Creators & educators workflow problem: GCS cross-region issue - Upload hangs indefinitely when uploading from a node in `Germany` to a gcp bucket in Creators & educators · Pain-point solutions · long first 46.42 needs_review" [ref=f1e537] [cursor=pointer]':
+              - generic [ref=f1e538]: "05"
+              - generic [ref=f1e539]:
+                - strong [ref=f1e540]: "Fix this Creators & educators workflow problem: GCS cross-region issue - Upload hangs indefinitely when uploading from a node in `Germany` to a gcp bucket in"
+                - generic [ref=f1e541]: Creators & educators · Pain-point solutions · long first
+              - emphasis [ref=f1e542]: "46.42"
+              - generic [ref=f1e543]: needs_review
+          - group [ref=f1e544]:
+            - 'generic "06 Fix this Developers workflow problem: Passed timeout not overriding default timeout in GET/POST request Developers · Pain-point solutions · long first 46.26 needs_review" [ref=f1e545] [cursor=pointer]':
+              - generic [ref=f1e546]: "06"
+              - generic [ref=f1e547]:
+                - strong [ref=f1e548]: "Fix this Developers workflow problem: Passed timeout not overriding default timeout in GET/POST request"
+                - generic [ref=f1e549]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e550]: "46.26"
+              - generic [ref=f1e551]: needs_review
+          - group [ref=f1e552]:
+            - 'generic "07 Fix this Everyday productivity users workflow problem: not null constraint failed Everyday productivity users · Pain-point solutions · long first 46.09 needs_review" [ref=f1e553] [cursor=pointer]':
+              - generic [ref=f1e554]: "07"
+              - generic [ref=f1e555]:
+                - strong [ref=f1e556]: "Fix this Everyday productivity users workflow problem: not null constraint failed"
+                - generic [ref=f1e557]: Everyday productivity users · Pain-point solutions · long first
+              - emphasis [ref=f1e558]: "46.09"
+              - generic [ref=f1e559]: needs_review
+          - group [ref=f1e560]:
+            - 'generic "08 Fix this Developers workflow problem: CNN digit recognition model: high local accuracy but poor predictions after deployment (Flask API) Developers · Pain-point solutions · long first 46 needs_review" [ref=f1e561] [cursor=pointer]':
+              - generic [ref=f1e562]: "08"
+              - generic [ref=f1e563]:
+                - strong [ref=f1e564]: "Fix this Developers workflow problem: CNN digit recognition model: high local accuracy but poor predictions after deployment (Flask API)"
+                - generic [ref=f1e565]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e566]: "46"
+              - generic [ref=f1e567]: needs_review
+          - group [ref=f1e568]:
+            - 'generic "09 Fix this Developers workflow problem: How to make my voxel rasteriser run faster? Developers · Pain-point solutions · long first 45.96 needs_review" [ref=f1e569] [cursor=pointer]':
+              - generic [ref=f1e570]: "09"
+              - generic [ref=f1e571]:
+                - strong [ref=f1e572]: "Fix this Developers workflow problem: How to make my voxel rasteriser run faster?"
+                - generic [ref=f1e573]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e574]: "45.96"
+              - generic [ref=f1e575]: needs_review
+          - group [ref=f1e576]:
+            - 'generic "10 Fix this Everyday productivity users workflow problem: How do I get a value from a tkinter scale/slider whilst when it is in a function? Everyday productivity users · Pain-point solutions · long first 45.95 needs_review" [ref=f1e577] [cursor=pointer]':
+              - generic [ref=f1e578]: "10"
+              - generic [ref=f1e579]:
+                - strong [ref=f1e580]: "Fix this Everyday productivity users workflow problem: How do I get a value from a tkinter scale/slider whilst when it is in a function?"
+                - generic [ref=f1e581]: Everyday productivity users · Pain-point solutions · long first
+              - emphasis [ref=f1e582]: "45.95"
+              - generic [ref=f1e583]: needs_review
+          - group [ref=f1e584]:
+            - 'generic "11 Fix this Everyday productivity users workflow problem: DB Browser for SQLite returns 0 rows for sqlite_master after opening a databasemessage in a Python UI automati Everyday productivity users · Pain-point solutions · long first 45.89 needs_review" [ref=f1e585] [cursor=pointer]':
+              - generic [ref=f1e586]: "11"
+              - generic [ref=f1e587]:
+                - strong [ref=f1e588]: "Fix this Everyday productivity users workflow problem: DB Browser for SQLite returns 0 rows for sqlite_master after opening a databasemessage in a Python UI automati"
+                - generic [ref=f1e589]: Everyday productivity users · Pain-point solutions · long first
+              - emphasis [ref=f1e590]: "45.89"
+              - generic [ref=f1e591]: needs_review
+          - group [ref=f1e592]:
+            - 'generic "12 Fix this Everyday productivity users workflow problem: GIMP help install package: ''configure'' fails due to not finding \"right\" python Everyday productivity users · Pain-point solutions · long first 45.8 needs_review" [ref=f1e593] [cursor=pointer]':
+              - generic [ref=f1e594]: "12"
+              - generic [ref=f1e595]:
+                - strong [ref=f1e596]: "Fix this Everyday productivity users workflow problem: GIMP help install package: 'configure' fails due to not finding \"right\" python"
+                - generic [ref=f1e597]: Everyday productivity users · Pain-point solutions · long first
+              - emphasis [ref=f1e598]: "45.8"
+              - generic [ref=f1e599]: needs_review
+          - group [ref=f1e600]:
+            - 'generic "13 Fix this Everyday productivity users workflow problem: venv not activating with source Everyday productivity users · Pain-point solutions · long first 45.68 needs_review" [ref=f1e601] [cursor=pointer]':
+              - generic [ref=f1e602]: "13"
+              - generic [ref=f1e603]:
+                - strong [ref=f1e604]: "Fix this Everyday productivity users workflow problem: venv not activating with source"
+                - generic [ref=f1e605]: Everyday productivity users · Pain-point solutions · long first
+              - emphasis [ref=f1e606]: "45.68"
+              - generic [ref=f1e607]: needs_review
+          - group [ref=f1e608]:
+            - 'generic "14 Fix this Creators & educators workflow problem: How can I prevent users from enrolling with a face shown over a video call in a Flutter + Python face recognit Creators & educators · Pain-point solutions · long first 45.58 needs_review" [ref=f1e609] [cursor=pointer]':
+              - generic [ref=f1e610]: "14"
+              - generic [ref=f1e611]:
+                - strong [ref=f1e612]: "Fix this Creators & educators workflow problem: How can I prevent users from enrolling with a face shown over a video call in a Flutter + Python face recognit"
+                - generic [ref=f1e613]: Creators & educators · Pain-point solutions · long first
+              - emphasis [ref=f1e614]: "45.58"
+              - generic [ref=f1e615]: needs_review
+          - group [ref=f1e616]:
+            - 'generic "15 Fix this Developers workflow problem: print of debug des not print Developers · Pain-point solutions · long first 45.52 needs_review" [ref=f1e617] [cursor=pointer]':
+              - generic [ref=f1e618]: "15"
+              - generic [ref=f1e619]:
+                - strong [ref=f1e620]: "Fix this Developers workflow problem: print of debug des not print"
+                - generic [ref=f1e621]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e622]: "45.52"
+              - generic [ref=f1e623]: needs_review
+          - group [ref=f1e624]:
+            - 'generic "16 Fix this Everyday productivity users workflow problem: Using Spyder without .py extension Everyday productivity users · Pain-point solutions · short first 45.49 needs_review" [ref=f1e625] [cursor=pointer]':
+              - generic [ref=f1e626]: "16"
+              - generic [ref=f1e627]:
+                - strong [ref=f1e628]: "Fix this Everyday productivity users workflow problem: Using Spyder without .py extension"
+                - generic [ref=f1e629]: Everyday productivity users · Pain-point solutions · short first
+              - emphasis [ref=f1e630]: "45.49"
+              - generic [ref=f1e631]: needs_review
+          - group [ref=f1e632]:
+            - 'generic "17 Fix this Creators & educators workflow problem: FastAPI event loop blocked by Scikit-Learn Joblib thread-pool exhaustion during concurrent async inference Creators & educators · Pain-point solutions · long first 45.45 needs_review" [ref=f1e633] [cursor=pointer]':
+              - generic [ref=f1e634]: "17"
+              - generic [ref=f1e635]:
+                - strong [ref=f1e636]: "Fix this Creators & educators workflow problem: FastAPI event loop blocked by Scikit-Learn Joblib thread-pool exhaustion during concurrent async inference"
+                - generic [ref=f1e637]: Creators & educators · Pain-point solutions · long first
+              - emphasis [ref=f1e638]: "45.45"
+              - generic [ref=f1e639]: needs_review
+          - group [ref=f1e640]:
+            - 'generic "18 Fix this Everyday productivity users workflow problem: ArduinoRouterBridge and arduino.app_utils Troubleshoot Everyday productivity users · Pain-point solutions · long first 44.97 needs_review" [ref=f1e641] [cursor=pointer]':
+              - generic [ref=f1e642]: "18"
+              - generic [ref=f1e643]:
+                - strong [ref=f1e644]: "Fix this Everyday productivity users workflow problem: ArduinoRouterBridge and arduino.app_utils Troubleshoot"
+                - generic [ref=f1e645]: Everyday productivity users · Pain-point solutions · long first
+              - emphasis [ref=f1e646]: "44.97"
+              - generic [ref=f1e647]: needs_review
+          - group [ref=f1e648]:
+            - 'generic "19 Fix this Everyday productivity users workflow problem: Catch KeyboardInterrupt but not asyncio.CancelledError Everyday productivity users · Pain-point solutions · short first 44.78 needs_review" [ref=f1e649] [cursor=pointer]':
+              - generic [ref=f1e650]: "19"
+              - generic [ref=f1e651]:
+                - strong [ref=f1e652]: "Fix this Everyday productivity users workflow problem: Catch KeyboardInterrupt but not asyncio.CancelledError"
+                - generic [ref=f1e653]: Everyday productivity users · Pain-point solutions · short first
+              - emphasis [ref=f1e654]: "44.78"
+              - generic [ref=f1e655]: needs_review
+          - group [ref=f1e656]:
+            - 'generic "20 Fix this Developers workflow problem: Foundry Local SDK ignores CUDAExecutionProvider, forces CPUExecutionProvider on Windows Developers · Pain-point solutions · long first 44.41 needs_review" [ref=f1e657] [cursor=pointer]':
+              - generic [ref=f1e658]: "20"
+              - generic [ref=f1e659]:
+                - strong [ref=f1e660]: "Fix this Developers workflow problem: Foundry Local SDK ignores CUDAExecutionProvider, forces CPUExecutionProvider on Windows"
+                - generic [ref=f1e661]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e662]: "44.41"
+              - generic [ref=f1e663]: needs_review
+          - group [ref=f1e664]:
+            - 'generic "21 Fix this Everyday productivity users workflow problem: The term ''Get-FileHash'' is not recognized as the name of a cmdlet, function, script file, or operable program Everyday productivity users · Pain-point solutions · short first 44.37 needs_review" [ref=f1e665] [cursor=pointer]':
+              - generic [ref=f1e666]: "21"
+              - generic [ref=f1e667]:
+                - strong [ref=f1e668]: "Fix this Everyday productivity users workflow problem: The term 'Get-FileHash' is not recognized as the name of a cmdlet, function, script file, or operable program"
+                - generic [ref=f1e669]: Everyday productivity users · Pain-point solutions · short first
+              - emphasis [ref=f1e670]: "44.37"
+              - generic [ref=f1e671]: needs_review
+          - group [ref=f1e672]:
+            - 'generic "22 Fix this Developers workflow problem: bug(core): cache implementing `__len__` makes `generate`/`agenerate` raise `KeyError` Developers · Pain-point solutions · long first 42.15 needs_review" [ref=f1e673] [cursor=pointer]':
+              - generic [ref=f1e674]: "22"
+              - generic [ref=f1e675]:
+                - strong [ref=f1e676]: "Fix this Developers workflow problem: bug(core): cache implementing `__len__` makes `generate`/`agenerate` raise `KeyError`"
+                - generic [ref=f1e677]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e678]: "42.15"
+              - generic [ref=f1e679]: needs_review
+          - group [ref=f1e680]:
+            - 'generic "23 Fix this Developers workflow problem: ChatAnthropic streaming drops thinking field from empty thinking blocks (signature_delta-only), replay fails w Developers · Pain-point solutions · long first 42.02 needs_review" [ref=f1e681] [cursor=pointer]':
+              - generic [ref=f1e682]: "23"
+              - generic [ref=f1e683]:
+                - strong [ref=f1e684]: "Fix this Developers workflow problem: ChatAnthropic streaming drops thinking field from empty thinking blocks (signature_delta-only), replay fails w"
+                - generic [ref=f1e685]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e686]: "42.02"
+              - generic [ref=f1e687]: needs_review
+          - group [ref=f1e688]:
+            - 'generic "24 Fix this Developers workflow problem: ChatMistralAI incompatible token output format for LangSmith traceability Developers · Pain-point solutions · long first 41.88 needs_review" [ref=f1e689] [cursor=pointer]':
+              - generic [ref=f1e690]: "24"
+              - generic [ref=f1e691]:
+                - strong [ref=f1e692]: "Fix this Developers workflow problem: ChatMistralAI incompatible token output format for LangSmith traceability"
+                - generic [ref=f1e693]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e694]: "41.88"
+              - generic [ref=f1e695]: needs_review
+          - group [ref=f1e696]:
+            - 'generic "25 Fix this Developers workflow problem: core: docstrings shouldn''t inherit from parents Developers · Pain-point solutions · short first 41.79 needs_review" [ref=f1e697] [cursor=pointer]':
+              - generic [ref=f1e698]: "25"
+              - generic [ref=f1e699]:
+                - strong [ref=f1e700]: "Fix this Developers workflow problem: core: docstrings shouldn't inherit from parents"
+                - generic [ref=f1e701]: Developers · Pain-point solutions · short first
+              - emphasis [ref=f1e702]: "41.79"
+              - generic [ref=f1e703]: needs_review
+          - group [ref=f1e704]:
+            - 'generic "26 Fix this Developers workflow problem: :Feature: Support Anthropic mid-conversation system messages (MidConversationSystemBlockParam / role:system in Developers · Pain-point solutions · long first 41.69 needs_review" [ref=f1e705] [cursor=pointer]':
+              - generic [ref=f1e706]: "26"
+              - generic [ref=f1e707]:
+                - strong [ref=f1e708]: "Fix this Developers workflow problem: :Feature: Support Anthropic mid-conversation system messages (MidConversationSystemBlockParam / role:system in"
+                - generic [ref=f1e709]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e710]: "41.69"
+              - generic [ref=f1e711]: needs_review
+          - group [ref=f1e712]:
+            - 'generic "27 Fix this Developers workflow problem: AddableDict silently drops data on type-incompatible merge (langchain_core.runnables.utils) Developers · Pain-point solutions · long first 41.46 needs_review" [ref=f1e713] [cursor=pointer]':
+              - generic [ref=f1e714]: "27"
+              - generic [ref=f1e715]:
+                - strong [ref=f1e716]: "Fix this Developers workflow problem: AddableDict silently drops data on type-incompatible merge (langchain_core.runnables.utils)"
+                - generic [ref=f1e717]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e718]: "41.46"
+              - generic [ref=f1e719]: needs_review
+          - group [ref=f1e720]:
+            - 'generic "28 Fix this Developers workflow problem: HumanInTheLoopMiddleware silently auto-approves tools whose `InterruptOnConfig` is invalid (typo''d or missing Developers · Pain-point solutions · long first 41.31 needs_review" [ref=f1e721] [cursor=pointer]':
+              - generic [ref=f1e722]: "28"
+              - generic [ref=f1e723]:
+                - strong [ref=f1e724]: "Fix this Developers workflow problem: HumanInTheLoopMiddleware silently auto-approves tools whose `InterruptOnConfig` is invalid (typo'd or missing"
+                - generic [ref=f1e725]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e726]: "41.31"
+              - generic [ref=f1e727]: needs_review
+          - group [ref=f1e728]:
+            - 'generic "29 Fix this Developers workflow problem: ModelRetryMiddleware and ModelFallbackMiddleware swallow `GraphInterrupt` — interrupts are retried and convert Developers · Pain-point solutions · long first 41.31 needs_review" [ref=f1e729] [cursor=pointer]':
+              - generic [ref=f1e730]: "29"
+              - generic [ref=f1e731]:
+                - strong [ref=f1e732]: "Fix this Developers workflow problem: ModelRetryMiddleware and ModelFallbackMiddleware swallow `GraphInterrupt` — interrupts are retried and convert"
+                - generic [ref=f1e733]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e734]: "41.31"
+              - generic [ref=f1e735]: needs_review
+          - group [ref=f1e736]:
+            - 'generic "30 Fix this Developers workflow problem: [FEATURE] Preserve reasoning / reasoning_content field in streaming ChatOpenAI chunks Developers · Pain-point solutions · long first 41.31 needs_review" [ref=f1e737] [cursor=pointer]':
+              - generic [ref=f1e738]: "30"
+              - generic [ref=f1e739]:
+                - strong [ref=f1e740]: "Fix this Developers workflow problem: [FEATURE] Preserve reasoning / reasoning_content field in streaming ChatOpenAI chunks"
+                - generic [ref=f1e741]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e742]: "41.31"
+              - generic [ref=f1e743]: needs_review
+          - group [ref=f1e744]:
+            - 'generic "31 Fix this Developers workflow problem: Add iFlow Search tool suite to crewAI tools Developers · Pain-point solutions · long first 41.13 needs_review" [ref=f1e745] [cursor=pointer]':
+              - generic [ref=f1e746]: "31"
+              - generic [ref=f1e747]:
+                - strong [ref=f1e748]: "Fix this Developers workflow problem: Add iFlow Search tool suite to crewAI tools"
+                - generic [ref=f1e749]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e750]: "41.13"
+              - generic [ref=f1e751]: needs_review
+          - group [ref=f1e752]:
+            - 'generic "32 Fix this Developers workflow problem: Agent Performance Degradation and Infinite Reasoning Loop with enable_thinking=true Developers · Pain-point solutions · long first 41.13 needs_review" [ref=f1e753] [cursor=pointer]':
+              - generic [ref=f1e754]: "32"
+              - generic [ref=f1e755]:
+                - strong [ref=f1e756]: "Fix this Developers workflow problem: Agent Performance Degradation and Infinite Reasoning Loop with enable_thinking=true"
+                - generic [ref=f1e757]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e758]: "41.13"
+              - generic [ref=f1e759]: needs_review
+          - group [ref=f1e760]:
+            - 'generic "33 Fix this Developers workflow problem: ChatOpenAI (Responses API) mutates model_kwargs[\"text\"] in place: one JSON mode call permanently forces JSON m Developers · Pain-point solutions · long first 41.13 needs_review" [ref=f1e761] [cursor=pointer]':
+              - generic [ref=f1e762]: "33"
+              - generic [ref=f1e763]:
+                - strong [ref=f1e764]: "Fix this Developers workflow problem: ChatOpenAI (Responses API) mutates model_kwargs[\"text\"] in place: one JSON mode call permanently forces JSON m"
+                - generic [ref=f1e765]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e766]: "41.13"
+              - generic [ref=f1e767]: needs_review
+          - group [ref=f1e768]:
+            - 'generic "34 Fix this Developers workflow problem: ChatXAI builds four fresh httpx transports per instantiation — duplicated client construction and no shared de Developers · Pain-point solutions · long first 41.13 needs_review" [ref=f1e769] [cursor=pointer]':
+              - generic [ref=f1e770]: "34"
+              - generic [ref=f1e771]:
+                - strong [ref=f1e772]: "Fix this Developers workflow problem: ChatXAI builds four fresh httpx transports per instantiation — duplicated client construction and no shared de"
+                - generic [ref=f1e773]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e774]: "41.13"
+              - generic [ref=f1e775]: needs_review
+          - group [ref=f1e776]:
+            - 'generic "35 Fix this Developers workflow problem: PIIMiddleware: PIIMatch not exported from public package, and docs use wrong field names for custom detectors Developers · Pain-point solutions · long first 41.13 needs_review" [ref=f1e777] [cursor=pointer]':
+              - generic [ref=f1e778]: "35"
+              - generic [ref=f1e779]:
+                - strong [ref=f1e780]: "Fix this Developers workflow problem: PIIMiddleware: PIIMatch not exported from public package, and docs use wrong field names for custom detectors"
+                - generic [ref=f1e781]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e782]: "41.13"
+              - generic [ref=f1e783]: needs_review
+          - group [ref=f1e784]:
+            - 'generic "36 Fix this Developers workflow problem: Add TokenBudgetMiddleware for token-usage budgets in agents Developers · Pain-point solutions · long first 40.89 needs_review" [ref=f1e785] [cursor=pointer]':
+              - generic [ref=f1e786]: "36"
+              - generic [ref=f1e787]:
+                - strong [ref=f1e788]: "Fix this Developers workflow problem: Add TokenBudgetMiddleware for token-usage budgets in agents"
+                - generic [ref=f1e789]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e790]: "40.89"
+              - generic [ref=f1e791]: needs_review
+          - group [ref=f1e792]:
+            - 'generic "37 Fix this Developers workflow problem: ChatPerplexity Responses route mutates the caller''s `extra_body` dict in place — per-call params leak into the Developers · Pain-point solutions · long first 40.89 needs_review" [ref=f1e793] [cursor=pointer]':
+              - generic [ref=f1e794]: "37"
+              - generic [ref=f1e795]:
+                - strong [ref=f1e796]: "Fix this Developers workflow problem: ChatPerplexity Responses route mutates the caller's `extra_body` dict in place — per-call params leak into the"
+                - generic [ref=f1e797]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e798]: "40.89"
+              - generic [ref=f1e799]: needs_review
+          - group [ref=f1e800]:
+            - 'generic "38 Fix this Developers workflow problem: Exception on _create_chat_result when the response is neither a dict or a openai.BaseModel Developers · Pain-point solutions · long first 40.56 needs_review" [ref=f1e801] [cursor=pointer]':
+              - generic [ref=f1e802]: "38"
+              - generic [ref=f1e803]:
+                - strong [ref=f1e804]: "Fix this Developers workflow problem: Exception on _create_chat_result when the response is neither a dict or a openai.BaseModel"
+                - generic [ref=f1e805]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e806]: "40.56"
+              - generic [ref=f1e807]: needs_review
+          - group [ref=f1e808]:
+            - 'generic "39 Fix this Developers workflow problem: SummarizationMiddleware deletes conversation history when the summary model call fails, inserting the error te Developers · Pain-point solutions · long first 40.56 needs_review" [ref=f1e809] [cursor=pointer]':
+              - generic [ref=f1e810]: "39"
+              - generic [ref=f1e811]:
+                - strong [ref=f1e812]: "Fix this Developers workflow problem: SummarizationMiddleware deletes conversation history when the summary model call fails, inserting the error te"
+                - generic [ref=f1e813]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e814]: "40.56"
+              - generic [ref=f1e815]: needs_review
+          - group [ref=f1e816]:
+            - 'generic "40 Fix this Developers workflow problem: docs: Layerup Security integration docs describe a service that no longer exists Developers · Pain-point solutions · long first 40.56 needs_review" [ref=f1e817] [cursor=pointer]':
+              - generic [ref=f1e818]: "40"
+              - generic [ref=f1e819]:
+                - strong [ref=f1e820]: "Fix this Developers workflow problem: docs: Layerup Security integration docs describe a service that no longer exists"
+                - generic [ref=f1e821]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e822]: "40.56"
+              - generic [ref=f1e823]: needs_review
+          - group [ref=f1e824]:
+            - 'generic "41 Fix this Developers workflow problem: [FEATURE] Native integration with Agentmetry for AI SIEM / Crew Audit Logging Developers · Pain-point solutions · long first 40 needs_review" [ref=f1e825] [cursor=pointer]':
+              - generic [ref=f1e826]: "41"
+              - generic [ref=f1e827]:
+                - strong [ref=f1e828]: "Fix this Developers workflow problem: [FEATURE] Native integration with Agentmetry for AI SIEM / Crew Audit Logging"
+                - generic [ref=f1e829]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e830]: "40"
+              - generic [ref=f1e831]: needs_review
+          - group [ref=f1e832]:
+            - 'generic "42 Fix this Developers workflow problem: docs: Document multimodal input formats in ModelProfile to resolve TODOs Developers · Pain-point solutions · long first 40 needs_review" [ref=f1e833] [cursor=pointer]':
+              - generic [ref=f1e834]: "42"
+              - generic [ref=f1e835]:
+                - strong [ref=f1e836]: "Fix this Developers workflow problem: docs: Document multimodal input formats in ModelProfile to resolve TODOs"
+                - generic [ref=f1e837]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e838]: "40"
+              - generic [ref=f1e839]: needs_review
+          - group [ref=f1e840]:
+            - 'generic "43 Fix this Developers workflow problem: feat(huggingface): support Intel XPU devices in HuggingFacePipeline.from_model_id Developers · Pain-point solutions · long first 40 needs_review" [ref=f1e841] [cursor=pointer]':
+              - generic [ref=f1e842]: "43"
+              - generic [ref=f1e843]:
+                - strong [ref=f1e844]: "Fix this Developers workflow problem: feat(huggingface): support Intel XPU devices in HuggingFacePipeline.from_model_id"
+                - generic [ref=f1e845]: Developers · Pain-point solutions · long first
+              - emphasis [ref=f1e846]: "40"
+              - generic [ref=f1e847]: needs_review
+          - group [ref=f1e848]:
+            - 'generic "44 3b1b / manim: what changes for Creators & educators Creators & educators · AI & tech news updates · short first 20 needs_review" [ref=f1e849] [cursor=pointer]':
+              - generic [ref=f1e850]: "44"
+              - generic [ref=f1e851]:
+                - strong [ref=f1e852]: "3b1b / manim: what changes for Creators & educators"
+                - generic [ref=f1e853]: Creators & educators · AI & tech news updates · short first
+              - emphasis [ref=f1e854]: "20"
+              - generic [ref=f1e855]: needs_review
+          - group [ref=f1e856]:
+            - generic "45 Who github / spec-kit is actually for Developers · Products, affiliates & backend offers · short first 20 needs_review" [ref=f1e857] [cursor=pointer]:
+              - generic [ref=f1e858]: "45"
+              - generic [ref=f1e859]:
+                - strong [ref=f1e860]: Who github / spec-kit is actually for
+                - generic [ref=f1e861]: Developers · Products, affiliates & backend offers · short first
+              - emphasis [ref=f1e862]: "20"
+              - generic [ref=f1e863]: needs_review
+          - group [ref=f1e864]:
+            - 'generic "46 Augani / openreel-video: the evidence-based choice Creators & educators · Comparisons & reviews · short first 18 needs_review" [ref=f1e865] [cursor=pointer]':
+              - generic [ref=f1e866]: "46"
+              - generic [ref=f1e867]:
+                - strong [ref=f1e868]: "Augani / openreel-video: the evidence-based choice"
+                - generic [ref=f1e869]: Creators & educators · Comparisons & reviews · short first
+              - emphasis [ref=f1e870]: "18"
+              - generic [ref=f1e871]: needs_review
+          - group [ref=f1e872]:
+            - 'generic "47 Graphify-Labs / graphify: what changes for Vibe coders Vibe coders · AI & tech news updates · short first 18 needs_review" [ref=f1e873] [cursor=pointer]':
+              - generic [ref=f1e874]: "47"
+              - generic [ref=f1e875]:
+                - strong [ref=f1e876]: "Graphify-Labs / graphify: what changes for Vibe coders"
+                - generic [ref=f1e877]: Vibe coders · AI & tech news updates · short first
+              - emphasis [ref=f1e878]: "18"
+              - generic [ref=f1e879]: needs_review
+          - group [ref=f1e880]:
+            - generic "48 How to set up practical-tutorials / project-based-learning Creators & educators · Tool instructions · long first 18 needs_review" [ref=f1e881] [cursor=pointer]:
+              - generic [ref=f1e882]: "48"
+              - generic [ref=f1e883]:
+                - strong [ref=f1e884]: How to set up practical-tutorials / project-based-learning
+                - generic [ref=f1e885]: Creators & educators · Tool instructions · long first
+              - emphasis [ref=f1e886]: "18"
+              - generic [ref=f1e887]: needs_review
+          - group [ref=f1e888]:
+            - 'generic "49 Vexa-ai / vexa: the evidence-based choice Developers · Comparisons & reviews · short first 18 needs_review" [ref=f1e889] [cursor=pointer]':
+              - generic [ref=f1e890]: "49"
+              - generic [ref=f1e891]:
+                - strong [ref=f1e892]: "Vexa-ai / vexa: the evidence-based choice"
+                - generic [ref=f1e893]: Developers · Comparisons & reviews · short first
+              - emphasis [ref=f1e894]: "18"
+              - generic [ref=f1e895]: needs_review
+          - group [ref=f1e896]:
+            - 'generic "50 mifi / lossless-cut: what changes for Creators & educators Creators & educators · AI & tech news updates · short first 18 needs_review" [ref=f1e897] [cursor=pointer]':
+              - generic [ref=f1e898]: "50"
+              - generic [ref=f1e899]:
+                - strong [ref=f1e900]: "mifi / lossless-cut: what changes for Creators & educators"
+                - generic [ref=f1e901]: Creators & educators · AI & tech news updates · short first
+              - emphasis [ref=f1e902]: "18"
+              - generic [ref=f1e903]: needs_review
+          - group [ref=f1e904]:
+            - 'generic "51 YishenTu / claudian: what changes for Developers Developers · AI & tech news updates · short first 15 needs_review" [ref=f1e905] [cursor=pointer]':
+              - generic [ref=f1e906]: "51"
+              - generic [ref=f1e907]:
+                - strong [ref=f1e908]: "YishenTu / claudian: what changes for Developers"
+                - generic [ref=f1e909]: Developers · AI & tech news updates · short first
+              - emphasis [ref=f1e910]: "15"
+              - generic [ref=f1e911]: needs_review
+          - group [ref=f1e912]:
+            - 'generic "52 moeru-ai / airi: what changes for Developers Developers · AI & tech news updates · short first 15 needs_review" [ref=f1e913] [cursor=pointer]':
+              - generic [ref=f1e914]: "52"
+              - generic [ref=f1e915]:
+                - strong [ref=f1e916]: "moeru-ai / airi: what changes for Developers"
+                - generic [ref=f1e917]: Developers · AI & tech news updates · short first
+              - emphasis [ref=f1e918]: "15"
+              - generic [ref=f1e919]: needs_review
+          - group [ref=f1e920]:
+            - 'generic "53 simstudioai / sim: what changes for Developers Developers · AI & tech news updates · short first 15 needs_review" [ref=f1e921] [cursor=pointer]':
+              - generic [ref=f1e922]: "53"
+              - generic [ref=f1e923]:
+                - strong [ref=f1e924]: "simstudioai / sim: what changes for Developers"
+                - generic [ref=f1e925]: Developers · AI & tech news updates · short first
+              - emphasis [ref=f1e926]: "15"
+              - generic [ref=f1e927]: needs_review
+          - group [ref=f1e928]:
+            - 'generic "54 github / docs: the evidence-based choice Developers · Comparisons & reviews · short first 12 needs_review" [ref=f1e929] [cursor=pointer]':
+              - generic [ref=f1e930]: "54"
+              - generic [ref=f1e931]:
+                - strong [ref=f1e932]: "github / docs: the evidence-based choice"
+                - generic [ref=f1e933]: Developers · Comparisons & reviews · short first
+              - emphasis [ref=f1e934]: "12"
+              - generic [ref=f1e935]: needs_review
+          - group [ref=f1e936]:
+            - 'generic "55 rmyndharis / OpenWA: the evidence-based choice Developers · Comparisons & reviews · short first 12 needs_review" [ref=f1e937] [cursor=pointer]':
+              - generic [ref=f1e938]: "55"
+              - generic [ref=f1e939]:
+                - strong [ref=f1e940]: "rmyndharis / OpenWA: the evidence-based choice"
+                - generic [ref=f1e941]: Developers · Comparisons & reviews · short first
+              - emphasis [ref=f1e942]: "12"
+              - generic [ref=f1e943]: needs_review
+          - group [ref=f1e944]:
+            - 'generic "56 vercel / vercel: the evidence-based choice Developers · Comparisons & reviews · short first 12 needs_review" [ref=f1e945] [cursor=pointer]':
+              - generic [ref=f1e946]: "56"
+              - generic [ref=f1e947]:
+                - strong [ref=f1e948]: "vercel / vercel: the evidence-based choice"
+                - generic [ref=f1e949]: Developers · Comparisons & reviews · short first
+              - emphasis [ref=f1e950]: "12"
+              - generic [ref=f1e951]: needs_review
+          - group [ref=f1e952]:
+            - 'generic "57 Fix this Everyday productivity users workflow problem: How can I boxplot values that wrap around using matplotlib? Everyday productivity users · Pain-point solutions · long first 7.93 needs_review" [ref=f1e953] [cursor=pointer]':
+              - generic [ref=f1e954]: "57"
+              - generic [ref=f1e955]:
+                - strong [ref=f1e956]: "Fix this Everyday productivity users workflow problem: How can I boxplot values that wrap around using matplotlib?"
+                - generic [ref=f1e957]: Everyday productivity users · Pain-point solutions · long first
+              - emphasis [ref=f1e958]: "7.93"
+              - generic [ref=f1e959]: needs_review
+          - group [ref=f1e960]:
+            - 'generic "58 TauricResearch / TradingAgents: what changes for Developers Developers · AI & tech news updates · short first 7.5 needs_review" [ref=f1e961] [cursor=pointer]':
+              - generic [ref=f1e962]: "58"
+              - generic [ref=f1e963]:
+                - strong [ref=f1e964]: "TauricResearch / TradingAgents: what changes for Developers"
+                - generic [ref=f1e965]: Developers · AI & tech news updates · short first
+              - emphasis [ref=f1e966]: "7.5"
+              - generic [ref=f1e967]: needs_review
+          - group [ref=f1e968]:
+            - 'generic "59 make-all / tuya-local: what changes for Developers Developers · AI & tech news updates · short first 7.5 needs_review" [ref=f1e969] [cursor=pointer]':
+              - generic [ref=f1e970]: "59"
+              - generic [ref=f1e971]:
+                - strong [ref=f1e972]: "make-all / tuya-local: what changes for Developers"
+                - generic [ref=f1e973]: Developers · AI & tech news updates · short first
+              - emphasis [ref=f1e974]: "7.5"
+              - generic [ref=f1e975]: needs_review
+          - group [ref=f1e976]:
+            - 'generic "60 p-e-w / heretic: what changes for Developers Developers · AI & tech news updates · short first 7.5 needs_review" [ref=f1e977] [cursor=pointer]':
+              - generic [ref=f1e978]: "60"
+              - generic [ref=f1e979]:
+                - strong [ref=f1e980]: "p-e-w / heretic: what changes for Developers"
+                - generic [ref=f1e981]: Developers · AI & tech news updates · short first
+              - emphasis [ref=f1e982]: "7.5"
+              - generic [ref=f1e983]: needs_review
+  - navigation "Console views" [ref=f1e52]:
+    - button "◎ Overview" [ref=f1e53] [cursor=pointer]:
+      - generic [ref=f1e54]: ◎
+      - generic [ref=f1e55]: Overview
+    - button ">_ Live" [ref=f1e56] [cursor=pointer]:
+      - generic [ref=f1e57]: ">_"
+      - generic [ref=f1e58]: Live
+    - button "⌁ Sources" [ref=f1e59] [cursor=pointer]:
+      - generic [ref=f1e60]: ⌁
+      - generic [ref=f1e61]: Sources
+    - button "⊞ Discover" [ref=f1e62] [cursor=pointer]:
+      - generic [ref=f1e63]: ⊞
+      - generic [ref=f1e64]: Discover
+    - button "≡ Access" [ref=f1e65] [cursor=pointer]:
+      - generic [ref=f1e66]: ≡
+      - generic [ref=f1e67]: Access
+    - button "≔ Results" [ref=f1e68] [cursor=pointer]:
+      - generic [ref=f1e69]: ≔
+      - generic [ref=f1e70]: Results
+    - button "◇ Ideas" [active] [ref=f1e71] [cursor=pointer]:
+      - generic [ref=f1e72]: ◇
+      - generic [ref=f1e73]: Ideas
+    - button "⌘ Categories" [ref=f1e74] [cursor=pointer]:
+      - generic [ref=f1e75]: ⌘
+      - generic [ref=f1e76]: Categories
+    - button "! Failures" [ref=f1e77] [cursor=pointer]:
+      - generic [ref=f1e78]: "!"
+      - generic [ref=f1e79]: Failures
+    - button "↯ Trace" [ref=f1e80] [cursor=pointer]:
+      - generic [ref=f1e81]: ↯
+      - generic [ref=f1e82]: Trace
+    - button "▣ Archive" [ref=f1e83] [cursor=pointer]:
+      - generic [ref=f1e84]: ▣
+      - generic [ref=f1e85]: Archive
+    - button "◷ Schedule" [ref=f1e86] [cursor=pointer]:
+      - generic [ref=f1e87]: ◷
+      - generic [ref=f1e88]: Schedule
+    - button "⚙ Config" [ref=f1e89] [cursor=pointer]:
+      - generic [ref=f1e90]: ⚙
+      - generic [ref=f1e91]: Config
+    - button "✓ Audit" [ref=f1e92] [cursor=pointer]:
+      - generic [ref=f1e93]: ✓
+      - generic [ref=f1e94]: Audit

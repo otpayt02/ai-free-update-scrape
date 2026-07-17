@@ -1,0 +1,13 @@
+{
+  "rss": [
+    {
+      "name": "News search · Models",
+      "url": "https://news.google.com/rss/search?q=Models%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+      "type": "rss",
+      "enabled": true,
+      "source_id": "run-test-01",
+      "category": "Models"
+    }
+  ],
+  "scrape": []
+}

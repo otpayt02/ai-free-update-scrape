@@ -1,0 +1,87 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - button "Open overview" [ref=e5] [cursor=pointer]
+    - generic [ref=e9]: SIGNAL CONSOLE / TERMINALOverview
+    - generic [ref=e10]:
+      - generic [ref=e11]: loading
+      - button "Refresh" [ref=e12] [cursor=pointer]
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]: RUN CONTROL
+        - heading "Signal matrix" [level=1] [ref=e17]
+        - paragraph [ref=e18]: 0 retained exceptions require review.
+        - generic [ref=e19]:
+          - button "Sources 0" [ref=e20] [cursor=pointer]:
+            - generic [ref=e21]: Sources
+            - generic [ref=e22]: "0"
+          - button "Audit queue 0" [ref=e23] [cursor=pointer]:
+            - generic [ref=e24]: Audit queue
+            - generic [ref=e25]: "0"
+          - button "Run archive 0" [ref=e26] [cursor=pointer]:
+            - generic [ref=e27]: Run archive
+            - generic [ref=e28]: "0"
+        - button "Refresh source set" [ref=e29] [cursor=pointer]
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - heading "Live source attempts" [level=2] [ref=e32]
+          - button "Open sources" [ref=e33] [cursor=pointer]
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - button "Source" [ref=e36] [cursor=pointer]
+            - button "State" [ref=e37] [cursor=pointer]
+            - button "HTTP" [ref=e38] [cursor=pointer]
+            - button "Parser" [ref=e39] [cursor=pointer]
+            - button "Checked" [ref=e40] [cursor=pointer]:
+              - text: Checked
+              - generic [ref=e41]: ↓
+          - generic [ref=e42]: No active sources. Open Discover to create an access-checked source set.
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - heading "Portfolio fit" [level=2] [ref=e45]
+          - button "Open ranked evidence" [ref=e46] [cursor=pointer]
+        - generic [ref=e47]: Run a scrape to create evidence-backed portfolio scores.
+      - heading "Run inspector" [level=2] [ref=e51]
+  - navigation "Console views" [ref=e52]:
+    - button "◎ Overview" [ref=e53] [cursor=pointer]:
+      - generic [ref=e54]: ◎
+      - generic [ref=e55]: Overview
+    - button ">_ Live" [ref=e56] [cursor=pointer]:
+      - generic [ref=e57]: ">_"
+      - generic [ref=e58]: Live
+    - button "⌁ Sources" [ref=e59] [cursor=pointer]:
+      - generic [ref=e60]: ⌁
+      - generic [ref=e61]: Sources
+    - button "⊞ Discover" [ref=e62] [cursor=pointer]:
+      - generic [ref=e63]: ⊞
+      - generic [ref=e64]: Discover
+    - button "≡ Access" [ref=e65] [cursor=pointer]:
+      - generic [ref=e66]: ≡
+      - generic [ref=e67]: Access
+    - button "≔ Results" [ref=e68] [cursor=pointer]:
+      - generic [ref=e69]: ≔
+      - generic [ref=e70]: Results
+    - button "◇ Ideas" [ref=e71] [cursor=pointer]:
+      - generic [ref=e72]: ◇
+      - generic [ref=e73]: Ideas
+    - button "⌘ Categories" [ref=e74] [cursor=pointer]:
+      - generic [ref=e75]: ⌘
+      - generic [ref=e76]: Categories
+    - button "! Failures" [ref=e77] [cursor=pointer]:
+      - generic [ref=e78]: "!"
+      - generic [ref=e79]: Failures
+    - button "↯ Trace" [ref=e80] [cursor=pointer]:
+      - generic [ref=e81]: ↯
+      - generic [ref=e82]: Trace
+    - button "▣ Archive" [ref=e83] [cursor=pointer]:
+      - generic [ref=e84]: ▣
+      - generic [ref=e85]: Archive
+    - button "◷ Schedule" [ref=e86] [cursor=pointer]:
+      - generic [ref=e87]: ◷
+      - generic [ref=e88]: Schedule
+    - button "⚙ Config" [ref=e89] [cursor=pointer]:
+      - generic [ref=e90]: ⚙
+      - generic [ref=e91]: Config
+    - button "✓ Audit" [ref=e92] [cursor=pointer]:
+      - generic [ref=e93]: ✓
+      - generic [ref=e94]: Audit

@@ -1,0 +1,79 @@
+channel:
+  name: ""
+  goal: "Help people use AI, Python, automation, and systems thinking with evidence-first videos."
+
+research:
+  max_items_per_collector: 25
+  freshness_hours: 168
+  collectors:
+    stackexchange:
+      enabled: true
+      tags:
+        - python
+        - automation
+        - langchain
+    github:
+      enabled: true
+      repositories:
+        - langchain-ai/langchain
+        - crewAIInc/crewAI
+    youtube:
+      enabled: false
+      video_ids: []
+      key_env: YOUTUBE_API_KEY
+    reddit:
+      enabled: false
+      communities:
+        - artificial
+        - MachineLearning
+        - smallbusiness
+        - freelance
+      token_env: REDDIT_ACCESS_TOKEN
+    review_import:
+      enabled: true
+      paths: []
+
+source_discovery:
+  enabled: true
+  hacker_news_story_limit: 50
+  relevance_keywords:
+    - ai
+    - artificial intelligence
+    - machine learning
+    - llm
+    - model
+    - agent
+    - automation
+    - python
+    - developer
+    - programming
+    - code
+    - software
+    - open source
+    - github
+    - api
+    - cloud
+    - aws
+    - database
+    - data
+    - security
+    - robot
+    - browser
+    - web
+    - mobile
+    - hardware
+  activation_requires_human_review: true
+
+offers: []
+affiliates: []
+
+scoring:
+  keyword_growth_velocity: 0.4
+  source_engagement: 0.3
+  monetization_intent: 0.3
+  affiliate_match_multiplier: 1.5
+
+publishing:
+  automatic_upload: false
+  automatic_publish: false
+  human_approval_required: true

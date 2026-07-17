@@ -1,0 +1,2104 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - button "Open overview" [ref=e5] [cursor=pointer]
+    - generic [ref=e9]: SIGNAL CONSOLE / TERMINALIdeas
+    - generic [ref=e10]:
+      - generic [ref=e11]: idle
+      - button "Refresh" [ref=e12] [cursor=pointer]
+  - main [ref=e13]:
+    - generic [ref=e264]:
+      - generic [ref=e265]:
+        - generic [ref=e266]:
+          - heading "Editorial research queue" [level=2] [ref=e267]
+          - generic [ref=e268]:
+            - button "Refresh" [ref=e269] [cursor=pointer]
+            - button "Collect approved signals" [ref=e270] [cursor=pointer]
+        - generic [ref=e271]:
+          - generic [ref=e272]:
+            - generic [ref=e273]: Ranked ideas
+            - generic [ref=e274]: "2867"
+          - generic [ref=e275]:
+            - generic [ref=e276]: News articles
+            - generic [ref=e277]: "2817"
+          - generic [ref=e278]:
+            - generic [ref=e279]: Pain signals
+            - generic [ref=e280]: "50"
+          - paragraph [ref=e281]: Evidence score only; it does not predict virality, revenue, or YouTube monetization approval. Upload and publishing remain human-approved.
+        - generic "Idea queue filters" [ref=e282]:
+          - generic [ref=e283]:
+            - generic [ref=e284]: Audience
+            - combobox "Audience" [ref=e285]:
+              - option "All audiences" [selected]
+              - option "Solo freelancers & operators"
+              - option "Vibe coders"
+              - option "Developers"
+              - option "Small businesses"
+              - option "Corporate professionals"
+              - option "Creators & educators"
+              - option "Everyday productivity users"
+          - generic [ref=e286]:
+            - generic [ref=e287]: Pillar
+            - combobox "Pillar" [ref=e288]:
+              - option "All pillars" [selected]
+              - option "AI & tech news updates"
+              - option "Tips & tricks"
+              - option "Pain-point solutions"
+              - option "Manual-task automation"
+              - option "Concept education"
+              - option "Tool instructions"
+              - option "Systems mindset & motivation"
+              - option "Use cases & portfolio showcases"
+              - option "Products, affiliates & backend offers"
+              - option "Comparisons & reviews"
+          - generic [ref=e289]:
+            - generic [ref=e290]: Format
+            - combobox "Format" [ref=e291]:
+              - option "Short + long" [selected]
+              - option "Short capable"
+              - option "Long capable"
+      - generic [ref=e292]:
+        - heading "250 review candidates" [level=2] [ref=e294]
+        - generic [ref=e295]:
+          - group [ref=e296]:
+            - generic "01 What does the \"yield\" keyword do in Python?, explained for Everyday productivity users Everyday productivity users · Concept education · long first 25.72 needs_review" [ref=e297] [cursor=pointer]:
+              - generic [ref=e298]: "01"
+              - generic [ref=e299]:
+                - strong [ref=e300]: What does the "yield" keyword do in Python?, explained for Everyday productivity users
+                - generic [ref=e301]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e302]: "25.72"
+              - generic [ref=e303]: needs_review
+          - group [ref=e304]:
+            - generic "02 The system behind How do I execute a program or call a system command? Everyday productivity users · Systems mindset & motivation · short first 25.62 needs_review" [ref=e305] [cursor=pointer]:
+              - generic [ref=e306]: "02"
+              - generic [ref=e307]:
+                - strong [ref=e308]: The system behind How do I execute a program or call a system command?
+                - generic [ref=e309]: Everyday productivity users · Systems mindset & motivation · short first
+              - emphasis [ref=e310]: "25.62"
+              - generic [ref=e311]: needs_review
+          - group [ref=e312]:
+            - 'generic "03 What does if __name__ == \"__main__\": do?, explained for Everyday productivity users Everyday productivity users · Concept education · long first 25.41 needs_review" [ref=e313] [cursor=pointer]':
+              - generic [ref=e314]: "03"
+              - generic [ref=e315]:
+                - strong [ref=e316]: "What does if __name__ == \"__main__\": do?, explained for Everyday productivity users"
+                - generic [ref=e317]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e318]: "25.41"
+              - generic [ref=e319]: needs_review
+          - group [ref=e320]:
+            - 'generic "04 How do I merge two dictionaries in a single expression in Python?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 25.4 needs_review" [ref=e321] [cursor=pointer]':
+              - generic [ref=e322]: "04"
+              - generic [ref=e323]:
+                - strong [ref=e324]: "How do I merge two dictionaries in a single expression in Python?: what changes for Everyday productivity users"
+                - generic [ref=e325]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e326]: "25.4"
+              - generic [ref=e327]: needs_review
+          - group [ref=e328]:
+            - 'generic "05 How do I check whether a file exists without exceptions?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 25.34 needs_review" [ref=e329] [cursor=pointer]':
+              - generic [ref=e330]: "05"
+              - generic [ref=e331]:
+                - strong [ref=e332]: "How do I check whether a file exists without exceptions?: what changes for Everyday productivity users"
+                - generic [ref=e333]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e334]: "25.34"
+              - generic [ref=e335]: needs_review
+          - group [ref=e336]:
+            - 'generic "06 Does Python have a ternary conditional operator?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 25.21 needs_review" [ref=e337] [cursor=pointer]':
+              - generic [ref=e338]: "06"
+              - generic [ref=e339]:
+                - strong [ref=e340]: "Does Python have a ternary conditional operator?: what changes for Everyday productivity users"
+                - generic [ref=e341]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e342]: "25.21"
+              - generic [ref=e343]: needs_review
+          - group [ref=e344]:
+            - 'generic "07 How do I get the current time in Python?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 25.17 needs_review" [ref=e345] [cursor=pointer]':
+              - generic [ref=e346]: "07"
+              - generic [ref=e347]:
+                - strong [ref=e348]: "How do I get the current time in Python?: what changes for Everyday productivity users"
+                - generic [ref=e349]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e350]: "25.17"
+              - generic [ref=e351]: needs_review
+          - group [ref=e352]:
+            - 'generic "08 How can I find the index for a given item in a list?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 25.13 needs_review" [ref=e353] [cursor=pointer]':
+              - generic [ref=e354]: "08"
+              - generic [ref=e355]:
+                - strong [ref=e356]: "How can I find the index for a given item in a list?: what changes for Everyday productivity users"
+                - generic [ref=e357]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e358]: "25.13"
+              - generic [ref=e359]: needs_review
+          - group [ref=e360]:
+            - 'generic "09 What are metaclasses in Python?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 25 needs_review" [ref=e361] [cursor=pointer]':
+              - generic [ref=e362]: "09"
+              - generic [ref=e363]:
+                - strong [ref=e364]: "What are metaclasses in Python?: what changes for Everyday productivity users"
+                - generic [ref=e365]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e366]: "25"
+              - generic [ref=e367]: needs_review
+          - group [ref=e368]:
+            - generic "10 How slicing in Python works, explained for Everyday productivity users Everyday productivity users · Concept education · long first 24.99 needs_review" [ref=e369] [cursor=pointer]:
+              - generic [ref=e370]: "10"
+              - generic [ref=e371]:
+                - strong [ref=e372]: How slicing in Python works, explained for Everyday productivity users
+                - generic [ref=e373]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e374]: "24.99"
+              - generic [ref=e375]: needs_review
+          - group [ref=e376]:
+            - 'generic "11 Fix this Everyday productivity users workflow problem: How do I make a flat list out of a list of lists? Everyday productivity users · Pain-point solutions · short first 24.96 needs_review" [ref=e377] [cursor=pointer]':
+              - generic [ref=e378]: "11"
+              - generic [ref=e379]:
+                - strong [ref=e380]: "Fix this Everyday productivity users workflow problem: How do I make a flat list out of a list of lists?"
+                - generic [ref=e381]: Everyday productivity users · Pain-point solutions · short first
+              - emphasis [ref=e382]: "24.96"
+              - generic [ref=e383]: needs_review
+          - group [ref=e384]:
+            - generic "12 What is the difference between @staticmethod and @classmethod in Python?, explained for Everyday productivity users Everyday productivity users · Concept education · long first 24.96 needs_review" [ref=e385] [cursor=pointer]:
+              - generic [ref=e386]: "12"
+              - generic [ref=e387]:
+                - strong [ref=e388]: What is the difference between @staticmethod and @classmethod in Python?, explained for Everyday productivity users
+                - generic [ref=e389]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e390]: "24.96"
+              - generic [ref=e391]: needs_review
+          - group [ref=e392]:
+            - 'generic "13 Fix this Everyday productivity users workflow problem: How do I create a directory, and any missing parent directories? Everyday productivity users · Pain-point solutions · short first 24.89 needs_review" [ref=e393] [cursor=pointer]':
+              - generic [ref=e394]: "13"
+              - generic [ref=e395]:
+                - strong [ref=e396]: "Fix this Everyday productivity users workflow problem: How do I create a directory, and any missing parent directories?"
+                - generic [ref=e397]: Everyday productivity users · Pain-point solutions · short first
+              - emphasis [ref=e398]: "24.89"
+              - generic [ref=e399]: needs_review
+          - group [ref=e400]:
+            - 'generic "14 How can I access the index value in a ''for'' loop?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 24.87 needs_review" [ref=e401] [cursor=pointer]':
+              - generic [ref=e402]: "14"
+              - generic [ref=e403]:
+                - strong [ref=e404]: "How can I access the index value in a 'for' loop?: what changes for Everyday productivity users"
+                - generic [ref=e405]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e406]: "24.87"
+              - generic [ref=e407]: needs_review
+          - group [ref=e408]:
+            - generic "15 How can I iterate over rows in a Pandas DataFrame?, explained for Everyday productivity users Everyday productivity users · Concept education · long first 24.86 needs_review" [ref=e409] [cursor=pointer]:
+              - generic [ref=e410]: "15"
+              - generic [ref=e411]:
+                - strong [ref=e412]: How can I iterate over rows in a Pandas DataFrame?, explained for Everyday productivity users
+                - generic [ref=e413]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e414]: "24.86"
+              - generic [ref=e415]: needs_review
+          - group [ref=e416]:
+            - generic "16 What is the difference between __str__ and __repr__?, explained for Everyday productivity users Everyday productivity users · Concept education · long first 24.64 needs_review" [ref=e417] [cursor=pointer]:
+              - generic [ref=e418]: "16"
+              - generic [ref=e419]:
+                - strong [ref=e420]: What is the difference between __str__ and __repr__?, explained for Everyday productivity users
+                - generic [ref=e421]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e422]: "24.64"
+              - generic [ref=e423]: needs_review
+          - group [ref=e424]:
+            - generic "17 How can I use a global variable in a function?, explained for Everyday productivity users Everyday productivity users · Concept education · long first 24.62 needs_review" [ref=e425] [cursor=pointer]:
+              - generic [ref=e426]: "17"
+              - generic [ref=e427]:
+                - strong [ref=e428]: How can I use a global variable in a function?, explained for Everyday productivity users
+                - generic [ref=e429]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e430]: "24.62"
+              - generic [ref=e431]: needs_review
+          - group [ref=e432]:
+            - 'generic "18 Convert bytes to a string in Python 3: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 24.47 needs_review" [ref=e433] [cursor=pointer]':
+              - generic [ref=e434]: "18"
+              - generic [ref=e435]:
+                - strong [ref=e436]: "Convert bytes to a string in Python 3: what changes for Everyday productivity users"
+                - generic [ref=e437]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e438]: "24.47"
+              - generic [ref=e439]: needs_review
+          - group [ref=e440]:
+            - 'generic "19 How do I copy a file?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 24.41 needs_review" [ref=e441] [cursor=pointer]':
+              - generic [ref=e442]: "19"
+              - generic [ref=e443]:
+                - strong [ref=e444]: "How do I copy a file?: what changes for Everyday productivity users"
+                - generic [ref=e445]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e446]: "24.41"
+              - generic [ref=e447]: needs_review
+          - group [ref=e448]:
+            - 'generic "20 How do I select rows from a DataFrame based on column values?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 24.32 needs_review" [ref=e449] [cursor=pointer]':
+              - generic [ref=e450]: "20"
+              - generic [ref=e451]:
+                - strong [ref=e452]: "How do I select rows from a DataFrame based on column values?: what changes for Everyday productivity users"
+                - generic [ref=e453]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e454]: "24.32"
+              - generic [ref=e455]: needs_review
+          - group [ref=e456]:
+            - 'generic "21 Iterating over a dictionary using a ''for'' loop, getting keys: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 24.32 needs_review" [ref=e457] [cursor=pointer]':
+              - generic [ref=e458]: "21"
+              - generic [ref=e459]:
+                - strong [ref=e460]: "Iterating over a dictionary using a 'for' loop, getting keys: what changes for Everyday productivity users"
+                - generic [ref=e461]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e462]: "24.32"
+              - generic [ref=e463]: needs_review
+          - group [ref=e464]:
+            - 'generic "22 How can I add new keys to a dictionary?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 24.31 needs_review" [ref=e465] [cursor=pointer]':
+              - generic [ref=e466]: "22"
+              - generic [ref=e467]:
+                - strong [ref=e468]: "How can I add new keys to a dictionary?: what changes for Everyday productivity users"
+                - generic [ref=e469]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e470]: "24.31"
+              - generic [ref=e471]: needs_review
+          - group [ref=e472]:
+            - generic "23 What is __init__.py for?, explained for Everyday productivity users Everyday productivity users · Concept education · long first 24.1 needs_review" [ref=e473] [cursor=pointer]:
+              - generic [ref=e474]: "23"
+              - generic [ref=e475]:
+                - strong [ref=e476]: What is __init__.py for?, explained for Everyday productivity users
+                - generic [ref=e477]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e478]: "24.1"
+              - generic [ref=e479]: needs_review
+          - group [ref=e480]:
+            - 'generic "24 Does Python have a string ''contains'' substring method?: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 23.78 needs_review" [ref=e481] [cursor=pointer]':
+              - generic [ref=e482]: "24"
+              - generic [ref=e483]:
+                - strong [ref=e484]: "Does Python have a string 'contains' substring method?: what changes for Everyday productivity users"
+                - generic [ref=e485]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e486]: "23.78"
+              - generic [ref=e487]: needs_review
+          - group [ref=e488]:
+            - generic "25 A faster way to use How can I catch multiple exceptions in one line? (in the \"except\" block) Everyday productivity users · Tips & tricks · long first 23.48 needs_review" [ref=e489] [cursor=pointer]:
+              - generic [ref=e490]: "25"
+              - generic [ref=e491]:
+                - strong [ref=e492]: A faster way to use How can I catch multiple exceptions in one line? (in the "except" block)
+                - generic [ref=e493]: Everyday productivity users · Tips & tricks · long first
+              - emphasis [ref=e494]: "23.48"
+              - generic [ref=e495]: needs_review
+          - group [ref=e496]:
+            - 'generic "26 3b1b / manim: what changes for Creators & educators Creators & educators · AI & tech news updates · short first 20 needs_review" [ref=e497] [cursor=pointer]':
+              - generic [ref=e498]: "26"
+              - generic [ref=e499]:
+                - strong [ref=e500]: "3b1b / manim: what changes for Creators & educators"
+                - generic [ref=e501]: Creators & educators · AI & tech news updates · short first
+              - emphasis [ref=e502]: "20"
+              - generic [ref=e503]: needs_review
+          - group [ref=e504]:
+            - generic "27 Who github / spec-kit is actually for Developers · Products, affiliates & backend offers · short first 20 needs_review" [ref=e505] [cursor=pointer]:
+              - generic [ref=e506]: "27"
+              - generic [ref=e507]:
+                - strong [ref=e508]: Who github / spec-kit is actually for
+                - generic [ref=e509]: Developers · Products, affiliates & backend offers · short first
+              - emphasis [ref=e510]: "20"
+              - generic [ref=e511]: needs_review
+          - group [ref=e512]:
+            - 'generic "28 Augani / openreel-video: the evidence-based choice Creators & educators · Comparisons & reviews · short first 18 needs_review" [ref=e513] [cursor=pointer]':
+              - generic [ref=e514]: "28"
+              - generic [ref=e515]:
+                - strong [ref=e516]: "Augani / openreel-video: the evidence-based choice"
+                - generic [ref=e517]: Creators & educators · Comparisons & reviews · short first
+              - emphasis [ref=e518]: "18"
+              - generic [ref=e519]: needs_review
+          - group [ref=e520]:
+            - 'generic "29 Graphify-Labs / graphify: what changes for Vibe coders Vibe coders · AI & tech news updates · short first 18 needs_review" [ref=e521] [cursor=pointer]':
+              - generic [ref=e522]: "29"
+              - generic [ref=e523]:
+                - strong [ref=e524]: "Graphify-Labs / graphify: what changes for Vibe coders"
+                - generic [ref=e525]: Vibe coders · AI & tech news updates · short first
+              - emphasis [ref=e526]: "18"
+              - generic [ref=e527]: needs_review
+          - group [ref=e528]:
+            - generic "30 How to set up practical-tutorials / project-based-learning Creators & educators · Tool instructions · long first 18 needs_review" [ref=e529] [cursor=pointer]:
+              - generic [ref=e530]: "30"
+              - generic [ref=e531]:
+                - strong [ref=e532]: How to set up practical-tutorials / project-based-learning
+                - generic [ref=e533]: Creators & educators · Tool instructions · long first
+              - emphasis [ref=e534]: "18"
+              - generic [ref=e535]: needs_review
+          - group [ref=e536]:
+            - 'generic "31 Vexa-ai / vexa: the evidence-based choice Developers · Comparisons & reviews · short first 18 needs_review" [ref=e537] [cursor=pointer]':
+              - generic [ref=e538]: "31"
+              - generic [ref=e539]:
+                - strong [ref=e540]: "Vexa-ai / vexa: the evidence-based choice"
+                - generic [ref=e541]: Developers · Comparisons & reviews · short first
+              - emphasis [ref=e542]: "18"
+              - generic [ref=e543]: needs_review
+          - group [ref=e544]:
+            - 'generic "32 mifi / lossless-cut: what changes for Creators & educators Creators & educators · AI & tech news updates · short first 18 needs_review" [ref=e545] [cursor=pointer]':
+              - generic [ref=e546]: "32"
+              - generic [ref=e547]:
+                - strong [ref=e548]: "mifi / lossless-cut: what changes for Creators & educators"
+                - generic [ref=e549]: Creators & educators · AI & tech news updates · short first
+              - emphasis [ref=e550]: "18"
+              - generic [ref=e551]: needs_review
+          - group [ref=e552]:
+            - 'generic "33 YishenTu / claudian: what changes for Developers Developers · AI & tech news updates · short first 15 needs_review" [ref=e553] [cursor=pointer]':
+              - generic [ref=e554]: "33"
+              - generic [ref=e555]:
+                - strong [ref=e556]: "YishenTu / claudian: what changes for Developers"
+                - generic [ref=e557]: Developers · AI & tech news updates · short first
+              - emphasis [ref=e558]: "15"
+              - generic [ref=e559]: needs_review
+          - group [ref=e560]:
+            - 'generic "34 moeru-ai / airi: what changes for Developers Developers · AI & tech news updates · short first 15 needs_review" [ref=e561] [cursor=pointer]':
+              - generic [ref=e562]: "34"
+              - generic [ref=e563]:
+                - strong [ref=e564]: "moeru-ai / airi: what changes for Developers"
+                - generic [ref=e565]: Developers · AI & tech news updates · short first
+              - emphasis [ref=e566]: "15"
+              - generic [ref=e567]: needs_review
+          - group [ref=e568]:
+            - 'generic "35 simstudioai / sim: what changes for Developers Developers · AI & tech news updates · short first 15 needs_review" [ref=e569] [cursor=pointer]':
+              - generic [ref=e570]: "35"
+              - generic [ref=e571]:
+                - strong [ref=e572]: "simstudioai / sim: what changes for Developers"
+                - generic [ref=e573]: Developers · AI & tech news updates · short first
+              - emphasis [ref=e574]: "15"
+              - generic [ref=e575]: needs_review
+          - group [ref=e576]:
+            - 'generic "36 github / docs: the evidence-based choice Developers · Comparisons & reviews · short first 12 needs_review" [ref=e577] [cursor=pointer]':
+              - generic [ref=e578]: "36"
+              - generic [ref=e579]:
+                - strong [ref=e580]: "github / docs: the evidence-based choice"
+                - generic [ref=e581]: Developers · Comparisons & reviews · short first
+              - emphasis [ref=e582]: "12"
+              - generic [ref=e583]: needs_review
+          - group [ref=e584]:
+            - 'generic "37 rmyndharis / OpenWA: the evidence-based choice Developers · Comparisons & reviews · short first 12 needs_review" [ref=e585] [cursor=pointer]':
+              - generic [ref=e586]: "37"
+              - generic [ref=e587]:
+                - strong [ref=e588]: "rmyndharis / OpenWA: the evidence-based choice"
+                - generic [ref=e589]: Developers · Comparisons & reviews · short first
+              - emphasis [ref=e590]: "12"
+              - generic [ref=e591]: needs_review
+          - group [ref=e592]:
+            - 'generic "38 vercel / vercel: the evidence-based choice Developers · Comparisons & reviews · short first 12 needs_review" [ref=e593] [cursor=pointer]':
+              - generic [ref=e594]: "38"
+              - generic [ref=e595]:
+                - strong [ref=e596]: "vercel / vercel: the evidence-based choice"
+                - generic [ref=e597]: Developers · Comparisons & reviews · short first
+              - emphasis [ref=e598]: "12"
+              - generic [ref=e599]: needs_review
+          - group [ref=e600]:
+            - 'generic "39 TauricResearch / TradingAgents: what changes for Developers Developers · AI & tech news updates · short first 7.5 needs_review" [ref=e601] [cursor=pointer]':
+              - generic [ref=e602]: "39"
+              - generic [ref=e603]:
+                - strong [ref=e604]: "TauricResearch / TradingAgents: what changes for Developers"
+                - generic [ref=e605]: Developers · AI & tech news updates · short first
+              - emphasis [ref=e606]: "7.5"
+              - generic [ref=e607]: needs_review
+          - group [ref=e608]:
+            - 'generic "40 make-all / tuya-local: what changes for Developers Developers · AI & tech news updates · short first 7.5 needs_review" [ref=e609] [cursor=pointer]':
+              - generic [ref=e610]: "40"
+              - generic [ref=e611]:
+                - strong [ref=e612]: "make-all / tuya-local: what changes for Developers"
+                - generic [ref=e613]: Developers · AI & tech news updates · short first
+              - emphasis [ref=e614]: "7.5"
+              - generic [ref=e615]: needs_review
+          - group [ref=e616]:
+            - 'generic "41 p-e-w / heretic: what changes for Developers Developers · AI & tech news updates · short first 7.5 needs_review" [ref=e617] [cursor=pointer]':
+              - generic [ref=e618]: "41"
+              - generic [ref=e619]:
+                - strong [ref=e620]: "p-e-w / heretic: what changes for Developers"
+                - generic [ref=e621]: Developers · AI & tech news updates · short first
+              - emphasis [ref=e622]: "7.5"
+              - generic [ref=e623]: needs_review
+          - group [ref=e624]:
+            - generic "42 How to set up [FEATURE] GuardrailProvider interface for pre-tool-call authorization Developers · Tool instructions · long first 4.65 needs_review" [ref=e625] [cursor=pointer]:
+              - generic [ref=e626]: "42"
+              - generic [ref=e627]:
+                - strong [ref=e628]: How to set up [FEATURE] GuardrailProvider interface for pre-tool-call authorization
+                - generic [ref=e629]: Developers · Tool instructions · long first
+              - emphasis [ref=e630]: "4.65"
+              - generic [ref=e631]: needs_review
+          - group [ref=e632]:
+            - 'generic "43 Fix this Developers workflow problem: Agent re-attempts original tool call after HumanInTheLoopMiddleware edit decision Developers · Pain-point solutions · long first 3.31 needs_review" [ref=e633] [cursor=pointer]':
+              - generic [ref=e634]: "43"
+              - generic [ref=e635]:
+                - strong [ref=e636]: "Fix this Developers workflow problem: Agent re-attempts original tool call after HumanInTheLoopMiddleware edit decision"
+                - generic [ref=e637]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e638]: "3.31"
+              - generic [ref=e639]: needs_review
+          - group [ref=e640]:
+            - 'generic "44 Fix this Developers workflow problem: Harmony: bad request on gpt-oss-120b and tool calls with `create_react_agent` Developers · Pain-point solutions · long first 2.92 needs_review" [ref=e641] [cursor=pointer]':
+              - generic [ref=e642]: "44"
+              - generic [ref=e643]:
+                - strong [ref=e644]: "Fix this Developers workflow problem: Harmony: bad request on gpt-oss-120b and tool calls with `create_react_agent`"
+                - generic [ref=e645]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e646]: "2.92"
+              - generic [ref=e647]: needs_review
+          - group [ref=e648]:
+            - 'generic "45 Fix this Developers workflow problem: OpenRouter / LiteLLM / OpenAI API compatibility across providers / proxies Developers · Pain-point solutions · long first 2.74 needs_review" [ref=e649] [cursor=pointer]':
+              - generic [ref=e650]: "45"
+              - generic [ref=e651]:
+                - strong [ref=e652]: "Fix this Developers workflow problem: OpenRouter / LiteLLM / OpenAI API compatibility across providers / proxies"
+                - generic [ref=e653]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e654]: "2.74"
+              - generic [ref=e655]: needs_review
+          - group [ref=e656]:
+            - 'generic "46 Architecture Proposal: Hardening PythonREPLTool Local Execution via Defense-in-Depth (AST + PEP 578): what changes for Developers Developers · AI & tech news updates · long first 2.71 needs_review" [ref=e657] [cursor=pointer]':
+              - generic [ref=e658]: "46"
+              - generic [ref=e659]:
+                - strong [ref=e660]: "Architecture Proposal: Hardening PythonREPLTool Local Execution via Defense-in-Depth (AST + PEP 578): what changes for Developers"
+                - generic [ref=e661]: Developers · AI & tech news updates · long first
+              - emphasis [ref=e662]: "2.71"
+              - generic [ref=e663]: needs_review
+          - group [ref=e664]:
+            - 'generic "47 Fix this Developers workflow problem: Doesn''t honour pydantic model field datatype and randomly throws `langchain_core.exceptions.OutputParserExcept Developers · Pain-point solutions · long first 2.71 needs_review" [ref=e665] [cursor=pointer]':
+              - generic [ref=e666]: "47"
+              - generic [ref=e667]:
+                - strong [ref=e668]: "Fix this Developers workflow problem: Doesn't honour pydantic model field datatype and randomly throws `langchain_core.exceptions.OutputParserExcept"
+                - generic [ref=e669]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e670]: "2.71"
+              - generic [ref=e671]: needs_review
+          - group [ref=e672]:
+            - 'generic "48 Fix this Developers workflow problem: Agent with structured output fails when OpenAI response has phased response with ''commentary'' and ''final_answe Developers · Pain-point solutions · long first 2.55 needs_review" [ref=e673] [cursor=pointer]':
+              - generic [ref=e674]: "48"
+              - generic [ref=e675]:
+                - strong [ref=e676]: "Fix this Developers workflow problem: Agent with structured output fails when OpenAI response has phased response with 'commentary' and 'final_answe"
+                - generic [ref=e677]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e678]: "2.55"
+              - generic [ref=e679]: needs_review
+          - group [ref=e680]:
+            - 'generic "49 Fix this Developers workflow problem: `EvaluationResult.feedback_config` silently drops unknown or partial dict fields without error Developers · Pain-point solutions · long first 2.55 needs_review" [ref=e681] [cursor=pointer]':
+              - generic [ref=e682]: "49"
+              - generic [ref=e683]:
+                - strong [ref=e684]: "Fix this Developers workflow problem: `EvaluationResult.feedback_config` silently drops unknown or partial dict fields without error"
+                - generic [ref=e685]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e686]: "2.55"
+              - generic [ref=e687]: needs_review
+          - group [ref=e688]:
+            - 'generic "50 _handle_rename in Claude file tool middleware raises KeyError on every rename command: what changes for Developers Developers · AI & tech news updates · long first 2.52 needs_review" [ref=e689] [cursor=pointer]':
+              - generic [ref=e690]: "50"
+              - generic [ref=e691]:
+                - strong [ref=e692]: "_handle_rename in Claude file tool middleware raises KeyError on every rename command: what changes for Developers"
+                - generic [ref=e693]: Developers · AI & tech news updates · long first
+              - emphasis [ref=e694]: "2.52"
+              - generic [ref=e695]: needs_review
+          - group [ref=e696]:
+            - 'generic "51 Fix this Developers workflow problem: Human In the Loop Middleware throws error when the agent is invoked as .ainvoke() Developers · Pain-point solutions · long first 2.48 needs_review" [ref=e697] [cursor=pointer]':
+              - generic [ref=e698]: "51"
+              - generic [ref=e699]:
+                - strong [ref=e700]: "Fix this Developers workflow problem: Human In the Loop Middleware throws error when the agent is invoked as .ainvoke()"
+                - generic [ref=e701]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e702]: "2.48"
+              - generic [ref=e703]: needs_review
+          - group [ref=e704]:
+            - 'generic "52 How to set up Support structured output with Pydantic models in `langchain-huggingface` Developers · Tool instructions · long first 2.48 needs_review" [ref=e705] [cursor=pointer]':
+              - generic [ref=e706]: "52"
+              - generic [ref=e707]:
+                - strong [ref=e708]: "How to set up Support structured output with Pydantic models in `langchain-huggingface`"
+                - generic [ref=e709]: Developers · Tool instructions · long first
+              - emphasis [ref=e710]: "2.48"
+              - generic [ref=e711]: needs_review
+          - group [ref=e712]:
+            - 'generic "53 Fix this Developers workflow problem: _extract_reasoning_from_additional_kwargs should ignore empty strings Developers · Pain-point solutions · long first 2.44 needs_review" [ref=e713] [cursor=pointer]':
+              - generic [ref=e714]: "53"
+              - generic [ref=e715]:
+                - strong [ref=e716]: "Fix this Developers workflow problem: _extract_reasoning_from_additional_kwargs should ignore empty strings"
+                - generic [ref=e717]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e718]: "2.44"
+              - generic [ref=e719]: needs_review
+          - group [ref=e720]:
+            - 'generic "54 Fix this Developers workflow problem: `create_agent`: stale `structured_response` from checkpoint causes premature exit on next turn Developers · Pain-point solutions · long first 2.44 needs_review" [ref=e721] [cursor=pointer]':
+              - generic [ref=e722]: "54"
+              - generic [ref=e723]:
+                - strong [ref=e724]: "Fix this Developers workflow problem: `create_agent`: stale `structured_response` from checkpoint causes premature exit on next turn"
+                - generic [ref=e725]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e726]: "2.44"
+              - generic [ref=e727]: needs_review
+          - group [ref=e728]:
+            - 'generic "55 Fix this Creators & educators workflow problem: create_agent Does Not Handle invalid_tool_calls from JSON Parsing Errors (langchain alpha v1) Creators & educators · Pain-point solutions · long first 2.4 needs_review" [ref=e729] [cursor=pointer]':
+              - generic [ref=e730]: "55"
+              - generic [ref=e731]:
+                - strong [ref=e732]: "Fix this Creators & educators workflow problem: create_agent Does Not Handle invalid_tool_calls from JSON Parsing Errors (langchain alpha v1)"
+                - generic [ref=e733]: Creators & educators · Pain-point solutions · long first
+              - emphasis [ref=e734]: "2.4"
+              - generic [ref=e735]: needs_review
+          - group [ref=e736]:
+            - 'generic "56 Fix this Creators & educators workflow problem: create_agent: model_to_tools router can return \"model\" but path_map omits it -> KeyError(''model'') Creators & educators · Pain-point solutions · long first 2.4 needs_review" [ref=e737] [cursor=pointer]':
+              - generic [ref=e738]: "56"
+              - generic [ref=e739]:
+                - strong [ref=e740]: "Fix this Creators & educators workflow problem: create_agent: model_to_tools router can return \"model\" but path_map omits it -> KeyError('model')"
+                - generic [ref=e741]: Creators & educators · Pain-point solutions · long first
+              - emphasis [ref=e742]: "2.4"
+              - generic [ref=e743]: needs_review
+          - group [ref=e744]:
+            - 'generic "57 Fix this Developers workflow problem: Support dynamic tool addition/removal after agent creation and in middleware Developers · Pain-point solutions · long first 2.4 needs_review" [ref=e745] [cursor=pointer]':
+              - generic [ref=e746]: "57"
+              - generic [ref=e747]:
+                - strong [ref=e748]: "Fix this Developers workflow problem: Support dynamic tool addition/removal after agent creation and in middleware"
+                - generic [ref=e749]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e750]: "2.4"
+              - generic [ref=e751]: needs_review
+          - group [ref=e752]:
+            - 'generic "58 Fix this Developers workflow problem: [langchain-openai] with_structured_output() silently drops previously bound tools and lacks support for OpenAI Developers · Pain-point solutions · long first 2.35 needs_review" [ref=e753] [cursor=pointer]':
+              - generic [ref=e754]: "58"
+              - generic [ref=e755]:
+                - strong [ref=e756]: "Fix this Developers workflow problem: [langchain-openai] with_structured_output() silently drops previously bound tools and lacks support for OpenAI"
+                - generic [ref=e757]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e758]: "2.35"
+              - generic [ref=e759]: needs_review
+          - group [ref=e760]:
+            - 'generic "59 Fix this Developers workflow problem: AzureChatOpenAI creates a new `httpx` client on each instantiation Developers · Pain-point solutions · long first 2.31 needs_review" [ref=e761] [cursor=pointer]':
+              - generic [ref=e762]: "59"
+              - generic [ref=e763]:
+                - strong [ref=e764]: "Fix this Developers workflow problem: AzureChatOpenAI creates a new `httpx` client on each instantiation"
+                - generic [ref=e765]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e766]: "2.31"
+              - generic [ref=e767]: needs_review
+          - group [ref=e768]:
+            - 'generic "60 Fix this Developers workflow problem: Bug: SSRF bypass in validate_safe_url when LANGCHAIN_ENV=local_test Developers · Pain-point solutions · long first 2.31 needs_review" [ref=e769] [cursor=pointer]':
+              - generic [ref=e770]: "60"
+              - generic [ref=e771]:
+                - strong [ref=e772]: "Fix this Developers workflow problem: Bug: SSRF bypass in validate_safe_url when LANGCHAIN_ENV=local_test"
+                - generic [ref=e773]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e774]: "2.31"
+              - generic [ref=e775]: needs_review
+          - group [ref=e776]:
+            - 'generic "61 HumanInTheLoopMiddleware executes rejected tool calls in LangGraph''s ToolNode: what changes for Developers Developers · AI & tech news updates · long first 2.31 needs_review" [ref=e777] [cursor=pointer]':
+              - generic [ref=e778]: "61"
+              - generic [ref=e779]:
+                - strong [ref=e780]: "HumanInTheLoopMiddleware executes rejected tool calls in LangGraph's ToolNode: what changes for Developers"
+                - generic [ref=e781]: Developers · AI & tech news updates · long first
+              - emphasis [ref=e782]: "2.31"
+              - generic [ref=e783]: needs_review
+          - group [ref=e784]:
+            - 'generic "62 Fix this Developers workflow problem: The batch method from ChatModels and all the Runnables does not really support the OpenAI batch API Developers · Pain-point solutions · long first 2.26 needs_review" [ref=e785] [cursor=pointer]':
+              - generic [ref=e786]: "62"
+              - generic [ref=e787]:
+                - strong [ref=e788]: "Fix this Developers workflow problem: The batch method from ChatModels and all the Runnables does not really support the OpenAI batch API"
+                - generic [ref=e789]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e790]: "2.26"
+              - generic [ref=e791]: needs_review
+          - group [ref=e792]:
+            - 'generic "63 Fix this Developers workflow problem: openai: `bind_tools` not callable after `with_structured_output` Developers · Pain-point solutions · long first 2.26 needs_review" [ref=e793] [cursor=pointer]':
+              - generic [ref=e794]: "63"
+              - generic [ref=e795]:
+                - strong [ref=e796]: "Fix this Developers workflow problem: openai: `bind_tools` not callable after `with_structured_output`"
+                - generic [ref=e797]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e798]: "2.26"
+              - generic [ref=e799]: needs_review
+          - group [ref=e800]:
+            - 'generic "64 Fix this Creators & educators workflow problem: VectorStore.add_texts exhausts generator inputs before creating documents Creators & educators · Pain-point solutions · long first 2.2 needs_review" [ref=e801] [cursor=pointer]':
+              - generic [ref=e802]: "64"
+              - generic [ref=e803]:
+                - strong [ref=e804]: "Fix this Creators & educators workflow problem: VectorStore.add_texts exhausts generator inputs before creating documents"
+                - generic [ref=e805]: Creators & educators · Pain-point solutions · long first
+              - emphasis [ref=e806]: "2.2"
+              - generic [ref=e807]: needs_review
+          - group [ref=e808]:
+            - 'generic "65 Fix this Creators & educators workflow problem: count_tokens_approximately over-counts audio/video/file blocks by char-counting their base64 payload Creators & educators · Pain-point solutions · long first 2.2 needs_review" [ref=e809] [cursor=pointer]':
+              - generic [ref=e810]: "65"
+              - generic [ref=e811]:
+                - strong [ref=e812]: "Fix this Creators & educators workflow problem: count_tokens_approximately over-counts audio/video/file blocks by char-counting their base64 payload"
+                - generic [ref=e813]: Creators & educators · Pain-point solutions · long first
+              - emphasis [ref=e814]: "2.2"
+              - generic [ref=e815]: needs_review
+          - group [ref=e816]:
+            - 'generic "66 Fix this Developers workflow problem: Bug: `merge_dicts` raises TypeError for float values during streaming chunk aggregation Developers · Pain-point solutions · long first 2.2 needs_review" [ref=e817] [cursor=pointer]':
+              - generic [ref=e818]: "66"
+              - generic [ref=e819]:
+                - strong [ref=e820]: "Fix this Developers workflow problem: Bug: `merge_dicts` raises TypeError for float values during streaming chunk aggregation"
+                - generic [ref=e821]: Developers · Pain-point solutions · long first
+              - emphasis [ref=e822]: "2.2"
+              - generic [ref=e823]: needs_review
+          - group [ref=e824]:
+            - 'generic "67 \"They screwed us\": Personality clashes sent Anthropic''s models offline: what changes for Corporate professionals Corporate professionals · AI & tech news updates · long first 0 needs_review" [ref=e825] [cursor=pointer]':
+              - generic [ref=e826]: "67"
+              - generic [ref=e827]:
+                - strong [ref=e828]: "\"They screwed us\": Personality clashes sent Anthropic's models offline: what changes for Corporate professionals"
+                - generic [ref=e829]: Corporate professionals · AI & tech news updates · long first
+              - emphasis [ref=e830]: "0"
+              - generic [ref=e831]: needs_review
+          - group [ref=e832]:
+            - 'generic "68 A Hippocampus for Linear Attention: An Exact Memory for What the Recurrent State Forgets: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e833] [cursor=pointer]':
+              - generic [ref=e834]: "68"
+              - generic [ref=e835]:
+                - strong [ref=e836]: "A Hippocampus for Linear Attention: An Exact Memory for What the Recurrent State Forgets: what changes for Everyday productivity users"
+                - generic [ref=e837]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e838]: "0"
+              - generic [ref=e839]: needs_review
+          - group [ref=e840]:
+            - 'generic "69 A behind-the-scenes look at Midjourney’s medical scanner leaves many questions unanswered: what changes for Creators & educators Creators & educators · AI & tech news updates · short first 0 needs_review" [ref=e841] [cursor=pointer]':
+              - generic [ref=e842]: "69"
+              - generic [ref=e843]:
+                - strong [ref=e844]: "A behind-the-scenes look at Midjourney’s medical scanner leaves many questions unanswered: what changes for Creators & educators"
+                - generic [ref=e845]: Creators & educators · AI & tech news updates · short first
+              - emphasis [ref=e846]: "0"
+              - generic [ref=e847]: needs_review
+          - group [ref=e848]:
+            - 'generic "70 A faster way to use 14× faster embeddings: how we rebuilt the ONNX path in Manticore Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e849] [cursor=pointer]':
+              - generic [ref=e850]: "70"
+              - generic [ref=e851]:
+                - strong [ref=e852]: "A faster way to use 14× faster embeddings: how we rebuilt the ONNX path in Manticore"
+                - generic [ref=e853]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e854]: "0"
+              - generic [ref=e855]: needs_review
+          - group [ref=e856]:
+            - generic "71 A faster way to use 1983 Northern Telecom Commodore Phone Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e857] [cursor=pointer]:
+              - generic [ref=e858]: "71"
+              - generic [ref=e859]:
+                - strong [ref=e860]: A faster way to use 1983 Northern Telecom Commodore Phone
+                - generic [ref=e861]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e862]: "0"
+              - generic [ref=e863]: needs_review
+          - group [ref=e864]:
+            - generic "72 A faster way to use A Special Wireless-Free Nikon Camera Is Publicly Available for the First Time Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e865] [cursor=pointer]:
+              - generic [ref=e866]: "72"
+              - generic [ref=e867]:
+                - strong [ref=e868]: A faster way to use A Special Wireless-Free Nikon Camera Is Publicly Available for the First Time
+                - generic [ref=e869]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e870]: "0"
+              - generic [ref=e871]: needs_review
+          - group [ref=e872]:
+            - generic "73 A faster way to use AI can't be listed as inventor on patent applications, Japan's top court rules Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e873] [cursor=pointer]:
+              - generic [ref=e874]: "73"
+              - generic [ref=e875]:
+                - strong [ref=e876]: A faster way to use AI can't be listed as inventor on patent applications, Japan's top court rules
+                - generic [ref=e877]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e878]: "0"
+              - generic [ref=e879]: needs_review
+          - group [ref=e880]:
+            - generic "74 A faster way to use Against Usefulness Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e881] [cursor=pointer]:
+              - generic [ref=e882]: "74"
+              - generic [ref=e883]:
+                - strong [ref=e884]: A faster way to use Against Usefulness
+                - generic [ref=e885]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e886]: "0"
+              - generic [ref=e887]: needs_review
+          - group [ref=e888]:
+            - generic "75 A faster way to use Alan Greenspan Dies at 100; Led Fed During Boom Before 2008 Bust Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e889] [cursor=pointer]:
+              - generic [ref=e890]: "75"
+              - generic [ref=e891]:
+                - strong [ref=e892]: A faster way to use Alan Greenspan Dies at 100; Led Fed During Boom Before 2008 Bust
+                - generic [ref=e893]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e894]: "0"
+              - generic [ref=e895]: needs_review
+          - group [ref=e896]:
+            - generic "76 A faster way to use Alibaba to ban Claude Code in workplace over alleged backdoor risks, source says Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e897] [cursor=pointer]:
+              - generic [ref=e898]: "76"
+              - generic [ref=e899]:
+                - strong [ref=e900]: A faster way to use Alibaba to ban Claude Code in workplace over alleged backdoor risks, source says
+                - generic [ref=e901]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e902]: "0"
+              - generic [ref=e903]: needs_review
+          - group [ref=e904]:
+            - generic "77 A faster way to use An American Privacy Emergency Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e905] [cursor=pointer]:
+              - generic [ref=e906]: "77"
+              - generic [ref=e907]:
+                - strong [ref=e908]: A faster way to use An American Privacy Emergency
+                - generic [ref=e909]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e910]: "0"
+              - generic [ref=e911]: needs_review
+          - group [ref=e912]:
+            - 'generic "78 A faster way to use Anatomy of Persistent Memory''s 3 Layers: Comparing ContextNest, Mem0 and Zep Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e913] [cursor=pointer]':
+              - generic [ref=e914]: "78"
+              - generic [ref=e915]:
+                - strong [ref=e916]: "A faster way to use Anatomy of Persistent Memory's 3 Layers: Comparing ContextNest, Mem0 and Zep"
+                - generic [ref=e917]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e918]: "0"
+              - generic [ref=e919]: needs_review
+          - group [ref=e920]:
+            - 'generic "79 A faster way to use Android Developer Verification: Threat masquerading as protection Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e921] [cursor=pointer]':
+              - generic [ref=e922]: "79"
+              - generic [ref=e923]:
+                - strong [ref=e924]: "A faster way to use Android Developer Verification: Threat masquerading as protection"
+                - generic [ref=e925]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e926]: "0"
+              - generic [ref=e927]: needs_review
+          - group [ref=e928]:
+            - 'generic "80 A faster way to use Apricot Computers: An underrated British brand Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e929] [cursor=pointer]':
+              - generic [ref=e930]: "80"
+              - generic [ref=e931]:
+                - strong [ref=e932]: "A faster way to use Apricot Computers: An underrated British brand"
+                - generic [ref=e933]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e934]: "0"
+              - generic [ref=e935]: needs_review
+          - group [ref=e936]:
+            - generic "81 A faster way to use Are you telling me a readonly property is wrecking my performance? Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e937] [cursor=pointer]:
+              - generic [ref=e938]: "81"
+              - generic [ref=e939]:
+                - strong [ref=e940]: A faster way to use Are you telling me a readonly property is wrecking my performance?
+                - generic [ref=e941]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e942]: "0"
+              - generic [ref=e943]: needs_review
+          - group [ref=e944]:
+            - generic "82 A faster way to use Backtrack-Free Cursive Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e945] [cursor=pointer]:
+              - generic [ref=e946]: "82"
+              - generic [ref=e947]:
+                - strong [ref=e948]: A faster way to use Backtrack-Free Cursive
+                - generic [ref=e949]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e950]: "0"
+              - generic [ref=e951]: needs_review
+          - group [ref=e952]:
+            - generic "83 A faster way to use Beavis Ultrasound PnP ISA Sound Card Replica Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e953] [cursor=pointer]:
+              - generic [ref=e954]: "83"
+              - generic [ref=e955]:
+                - strong [ref=e956]: A faster way to use Beavis Ultrasound PnP ISA Sound Card Replica
+                - generic [ref=e957]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e958]: "0"
+              - generic [ref=e959]: needs_review
+          - group [ref=e960]:
+            - generic "84 A faster way to use Becoming a dad changes men's brains Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e961] [cursor=pointer]:
+              - generic [ref=e962]: "84"
+              - generic [ref=e963]:
+                - strong [ref=e964]: A faster way to use Becoming a dad changes men's brains
+                - generic [ref=e965]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e966]: "0"
+              - generic [ref=e967]: needs_review
+          - group [ref=e968]:
+            - 'generic "85 A faster way to use Better Models: Worse Tools Developers · Tips & tricks · long first 0 needs_review" [ref=e969] [cursor=pointer]':
+              - generic [ref=e970]: "85"
+              - generic [ref=e971]:
+                - strong [ref=e972]: "A faster way to use Better Models: Worse Tools"
+                - generic [ref=e973]: Developers · Tips & tricks · long first
+              - emphasis [ref=e974]: "0"
+              - generic [ref=e975]: needs_review
+          - group [ref=e976]:
+            - generic "86 A faster way to use Blogger defeats photographer's copyright claim Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e977] [cursor=pointer]:
+              - generic [ref=e978]: "86"
+              - generic [ref=e979]:
+                - strong [ref=e980]: A faster way to use Blogger defeats photographer's copyright claim
+                - generic [ref=e981]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e982]: "0"
+              - generic [ref=e983]: needs_review
+          - group [ref=e984]:
+            - generic "87 A faster way to use Britain's prime minister to step down, Burnham puts himself forward as successor Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e985] [cursor=pointer]:
+              - generic [ref=e986]: "87"
+              - generic [ref=e987]:
+                - strong [ref=e988]: A faster way to use Britain's prime minister to step down, Burnham puts himself forward as successor
+                - generic [ref=e989]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e990]: "0"
+              - generic [ref=e991]: needs_review
+          - group [ref=e992]:
+            - generic "88 A faster way to use British Columbia, Time Zones, and Postgres Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e993] [cursor=pointer]:
+              - generic [ref=e994]: "88"
+              - generic [ref=e995]:
+                - strong [ref=e996]: A faster way to use British Columbia, Time Zones, and Postgres
+                - generic [ref=e997]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e998]: "0"
+              - generic [ref=e999]: needs_review
+          - group [ref=e1000]:
+            - generic "89 A faster way to use Building a World Map with only 500 bytes Everyday productivity users · Tips & tricks · long first 0 needs_review" [ref=e1001] [cursor=pointer]:
+              - generic [ref=e1002]: "89"
+              - generic [ref=e1003]:
+                - strong [ref=e1004]: A faster way to use Building a World Map with only 500 bytes
+                - generic [ref=e1005]: Everyday productivity users · Tips & tricks · long first
+              - emphasis [ref=e1006]: "0"
+              - generic [ref=e1007]: needs_review
+          - group [ref=e1008]:
+            - generic "90 A faster way to use Canada is looking to build up to 10 new nuclear reactors over the next 15 years Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1009] [cursor=pointer]:
+              - generic [ref=e1010]: "90"
+              - generic [ref=e1011]:
+                - strong [ref=e1012]: A faster way to use Canada is looking to build up to 10 new nuclear reactors over the next 15 years
+                - generic [ref=e1013]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1014]: "0"
+              - generic [ref=e1015]: needs_review
+          - group [ref=e1016]:
+            - generic "91 A faster way to use Canyon HUD helmet for road riding Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1017] [cursor=pointer]:
+              - generic [ref=e1018]: "91"
+              - generic [ref=e1019]:
+                - strong [ref=e1020]: A faster way to use Canyon HUD helmet for road riding
+                - generic [ref=e1021]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1022]: "0"
+              - generic [ref=e1023]: needs_review
+          - group [ref=e1024]:
+            - generic "92 A faster way to use CarPlay Is Additive Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1025] [cursor=pointer]:
+              - generic [ref=e1026]: "92"
+              - generic [ref=e1027]:
+                - strong [ref=e1028]: A faster way to use CarPlay Is Additive
+                - generic [ref=e1029]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1030]: "0"
+              - generic [ref=e1031]: needs_review
+          - group [ref=e1032]:
+            - generic "93 A faster way to use Chevron signs 20-year power agreement with Microsoft for West Texas data center Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1033] [cursor=pointer]:
+              - generic [ref=e1034]: "93"
+              - generic [ref=e1035]:
+                - strong [ref=e1036]: A faster way to use Chevron signs 20-year power agreement with Microsoft for West Texas data center
+                - generic [ref=e1037]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1038]: "0"
+              - generic [ref=e1039]: needs_review
+          - group [ref=e1040]:
+            - generic "94 A faster way to use Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1041] [cursor=pointer]:
+              - generic [ref=e1042]: "94"
+              - generic [ref=e1043]:
+                - strong [ref=e1044]: A faster way to use Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k
+                - generic [ref=e1045]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1046]: "0"
+              - generic [ref=e1047]: needs_review
+          - group [ref=e1048]:
+            - generic "95 A faster way to use Claude Fable is relentlessly proactive Developers · Tips & tricks · long first 0 needs_review" [ref=e1049] [cursor=pointer]:
+              - generic [ref=e1050]: "95"
+              - generic [ref=e1051]:
+                - strong [ref=e1052]: A faster way to use Claude Fable is relentlessly proactive
+                - generic [ref=e1053]: Developers · Tips & tricks · long first
+              - emphasis [ref=e1054]: "0"
+              - generic [ref=e1055]: needs_review
+          - group [ref=e1056]:
+            - generic "96 A faster way to use Claude-real-video － any LLM can watch a video Creators & educators · Tips & tricks · short first 0 needs_review" [ref=e1057] [cursor=pointer]:
+              - generic [ref=e1058]: "96"
+              - generic [ref=e1059]:
+                - strong [ref=e1060]: A faster way to use Claude-real-video － any LLM can watch a video
+                - generic [ref=e1061]: Creators & educators · Tips & tricks · short first
+              - emphasis [ref=e1062]: "0"
+              - generic [ref=e1063]: needs_review
+          - group [ref=e1064]:
+            - generic "97 A faster way to use Commodore 64 Basic for PostgreSQL Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1065] [cursor=pointer]:
+              - generic [ref=e1066]: "97"
+              - generic [ref=e1067]:
+                - strong [ref=e1068]: A faster way to use Commodore 64 Basic for PostgreSQL
+                - generic [ref=e1069]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1070]: "0"
+              - generic [ref=e1071]: needs_review
+          - group [ref=e1072]:
+            - generic "98 A faster way to use Converting colors in JavaScript at 6B operations per second Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1073] [cursor=pointer]:
+              - generic [ref=e1074]: "98"
+              - generic [ref=e1075]:
+                - strong [ref=e1076]: A faster way to use Converting colors in JavaScript at 6B operations per second
+                - generic [ref=e1077]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1078]: "0"
+              - generic [ref=e1079]: needs_review
+          - group [ref=e1080]:
+            - generic "99 A faster way to use Count Binface Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1081] [cursor=pointer]:
+              - generic [ref=e1082]: "99"
+              - generic [ref=e1083]:
+                - strong [ref=e1084]: A faster way to use Count Binface
+                - generic [ref=e1085]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1086]: "0"
+              - generic [ref=e1087]: needs_review
+          - group [ref=e1088]:
+            - generic "100 A faster way to use Cowboys, Frontiersmen, Settlers, Townspeople, Cityfolk Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1089] [cursor=pointer]:
+              - generic [ref=e1090]: "100"
+              - generic [ref=e1091]:
+                - strong [ref=e1092]: A faster way to use Cowboys, Frontiersmen, Settlers, Townspeople, Cityfolk
+                - generic [ref=e1093]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1094]: "0"
+              - generic [ref=e1095]: needs_review
+          - group [ref=e1096]:
+            - generic "101 A faster way to use CursorBench 3.1 Vibe coders · Tips & tricks · short first 0 needs_review" [ref=e1097] [cursor=pointer]:
+              - generic [ref=e1098]: "101"
+              - generic [ref=e1099]:
+                - strong [ref=e1100]: A faster way to use CursorBench 3.1
+                - generic [ref=e1101]: Vibe coders · Tips & tricks · short first
+              - emphasis [ref=e1102]: "0"
+              - generic [ref=e1103]: needs_review
+          - group [ref=e1104]:
+            - generic "102 A faster way to use Cyberpunk Comics, Manga and Graphic Novels Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1105] [cursor=pointer]:
+              - generic [ref=e1106]: "102"
+              - generic [ref=e1107]:
+                - strong [ref=e1108]: A faster way to use Cyberpunk Comics, Manga and Graphic Novels
+                - generic [ref=e1109]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1110]: "0"
+              - generic [ref=e1111]: needs_review
+          - group [ref=e1112]:
+            - generic "103 A faster way to use Danish privacy activist Lars Andersen raided by police Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1113] [cursor=pointer]:
+              - generic [ref=e1114]: "103"
+              - generic [ref=e1115]:
+                - strong [ref=e1116]: A faster way to use Danish privacy activist Lars Andersen raided by police
+                - generic [ref=e1117]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1118]: "0"
+              - generic [ref=e1119]: needs_review
+          - group [ref=e1120]:
+            - generic "104 A faster way to use Deno Desktop Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1121] [cursor=pointer]:
+              - generic [ref=e1122]: "104"
+              - generic [ref=e1123]:
+                - strong [ref=e1124]: A faster way to use Deno Desktop
+                - generic [ref=e1125]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1126]: "0"
+              - generic [ref=e1127]: needs_review
+          - group [ref=e1128]:
+            - generic "105 A faster way to use Designing and assembling my first PCB Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1129] [cursor=pointer]:
+              - generic [ref=e1130]: "105"
+              - generic [ref=e1131]:
+                - strong [ref=e1132]: A faster way to use Designing and assembling my first PCB
+                - generic [ref=e1133]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1134]: "0"
+              - generic [ref=e1135]: needs_review
+          - group [ref=e1136]:
+            - generic "106 A faster way to use Did my old job only exist because of fraud? Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1137] [cursor=pointer]:
+              - generic [ref=e1138]: "106"
+              - generic [ref=e1139]:
+                - strong [ref=e1140]: A faster way to use Did my old job only exist because of fraud?
+                - generic [ref=e1141]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1142]: "0"
+              - generic [ref=e1143]: needs_review
+          - group [ref=e1144]:
+            - generic "107 A faster way to use Die analysis of the 8087 math coprocessor's fast bit shifter (2020) Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1145] [cursor=pointer]:
+              - generic [ref=e1146]: "107"
+              - generic [ref=e1147]:
+                - strong [ref=e1148]: A faster way to use Die analysis of the 8087 math coprocessor's fast bit shifter (2020)
+                - generic [ref=e1149]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1150]: "0"
+              - generic [ref=e1151]: needs_review
+          - group [ref=e1152]:
+            - generic "108 A faster way to use DisplayMate Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1153] [cursor=pointer]:
+              - generic [ref=e1154]: "108"
+              - generic [ref=e1155]:
+                - strong [ref=e1156]: A faster way to use DisplayMate
+                - generic [ref=e1157]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1158]: "0"
+              - generic [ref=e1159]: needs_review
+          - group [ref=e1160]:
+            - generic "109 A faster way to use EFF letter to FTC on X consent order (2 July 2026) [pdf] Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1161] [cursor=pointer]:
+              - generic [ref=e1162]: "109"
+              - generic [ref=e1163]:
+                - strong [ref=e1164]: A faster way to use EFF letter to FTC on X consent order (2 July 2026) [pdf]
+                - generic [ref=e1165]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1166]: "0"
+              - generic [ref=e1167]: needs_review
+          - group [ref=e1168]:
+            - generic "110 A faster way to use EFF letter to FTC on X consent order [pdf] Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1169] [cursor=pointer]:
+              - generic [ref=e1170]: "110"
+              - generic [ref=e1171]:
+                - strong [ref=e1172]: A faster way to use EFF letter to FTC on X consent order [pdf]
+                - generic [ref=e1173]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1174]: "0"
+              - generic [ref=e1175]: needs_review
+          - group [ref=e1176]:
+            - generic "111 A faster way to use Efficient C++ Programming for Modern C++ CPUs, Chapter 4/part 2 Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1177] [cursor=pointer]:
+              - generic [ref=e1178]: "111"
+              - generic [ref=e1179]:
+                - strong [ref=e1180]: A faster way to use Efficient C++ Programming for Modern C++ CPUs, Chapter 4/part 2
+                - generic [ref=e1181]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1182]: "0"
+              - generic [ref=e1183]: needs_review
+          - group [ref=e1184]:
+            - generic "112 A faster way to use Every AI Visibility Tool Is Lying to You Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1185] [cursor=pointer]:
+              - generic [ref=e1186]: "112"
+              - generic [ref=e1187]:
+                - strong [ref=e1188]: A faster way to use Every AI Visibility Tool Is Lying to You
+                - generic [ref=e1189]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1190]: "0"
+              - generic [ref=e1191]: needs_review
+          - group [ref=e1192]:
+            - generic "113 A faster way to use Everything is logarithms Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1193] [cursor=pointer]:
+              - generic [ref=e1194]: "113"
+              - generic [ref=e1195]:
+                - strong [ref=e1196]: A faster way to use Everything is logarithms
+                - generic [ref=e1197]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1198]: "0"
+              - generic [ref=e1199]: needs_review
+          - group [ref=e1200]:
+            - generic "114 A faster way to use Exapunks (2018) Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1201] [cursor=pointer]:
+              - generic [ref=e1202]: "114"
+              - generic [ref=e1203]:
+                - strong [ref=e1204]: A faster way to use Exapunks (2018)
+                - generic [ref=e1205]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1206]: "0"
+              - generic [ref=e1207]: needs_review
+          - group [ref=e1208]:
+            - generic "115 A faster way to use Finding the Best Dog Treat with Statistics Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1209] [cursor=pointer]:
+              - generic [ref=e1210]: "115"
+              - generic [ref=e1211]:
+                - strong [ref=e1212]: A faster way to use Finding the Best Dog Treat with Statistics
+                - generic [ref=e1213]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1214]: "0"
+              - generic [ref=e1215]: needs_review
+          - group [ref=e1216]:
+            - generic "116 A faster way to use First look at Quest, the final ship of Antarctic explorer Shackleton Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1217] [cursor=pointer]:
+              - generic [ref=e1218]: "116"
+              - generic [ref=e1219]:
+                - strong [ref=e1220]: A faster way to use First look at Quest, the final ship of Antarctic explorer Shackleton
+                - generic [ref=e1221]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1222]: "0"
+              - generic [ref=e1223]: needs_review
+          - group [ref=e1224]:
+            - generic "117 A faster way to use Flock-Powered Police Chiefs Stalking Women Shows Why Warrants Are Needed Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1225] [cursor=pointer]:
+              - generic [ref=e1226]: "117"
+              - generic [ref=e1227]:
+                - strong [ref=e1228]: A faster way to use Flock-Powered Police Chiefs Stalking Women Shows Why Warrants Are Needed
+                - generic [ref=e1229]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1230]: "0"
+              - generic [ref=e1231]: needs_review
+          - group [ref=e1232]:
+            - generic "118 A faster way to use FoundationDB's Flow – Bringing Actor-Based Concurrency to C++11 Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1233] [cursor=pointer]:
+              - generic [ref=e1234]: "118"
+              - generic [ref=e1235]:
+                - strong [ref=e1236]: A faster way to use FoundationDB's Flow – Bringing Actor-Based Concurrency to C++11
+                - generic [ref=e1237]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1238]: "0"
+              - generic [ref=e1239]: needs_review
+          - group [ref=e1240]:
+            - generic "119 A faster way to use GLM 5.2 vs. Opus Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1241] [cursor=pointer]:
+              - generic [ref=e1242]: "119"
+              - generic [ref=e1243]:
+                - strong [ref=e1244]: A faster way to use GLM 5.2 vs. Opus
+                - generic [ref=e1245]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1246]: "0"
+              - generic [ref=e1247]: needs_review
+          - group [ref=e1248]:
+            - generic "120 A faster way to use Gemini Code Assist will be shut down on July 17 Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1249] [cursor=pointer]:
+              - generic [ref=e1250]: "120"
+              - generic [ref=e1251]:
+                - strong [ref=e1252]: A faster way to use Gemini Code Assist will be shut down on July 17
+                - generic [ref=e1253]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1254]: "0"
+              - generic [ref=e1255]: needs_review
+          - group [ref=e1256]:
+            - generic "121 A faster way to use German button maker searched rivers of American Midwest for valuable shells Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1257] [cursor=pointer]:
+              - generic [ref=e1258]: "121"
+              - generic [ref=e1259]:
+                - strong [ref=e1260]: A faster way to use German button maker searched rivers of American Midwest for valuable shells
+                - generic [ref=e1261]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1262]: "0"
+              - generic [ref=e1263]: needs_review
+          - group [ref=e1264]:
+            - generic "122 A faster way to use GhostLock, a stack-UAF that has existed in all Linux distributions for 15 years Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1265] [cursor=pointer]:
+              - generic [ref=e1266]: "122"
+              - generic [ref=e1267]:
+                - strong [ref=e1268]: A faster way to use GhostLock, a stack-UAF that has existed in all Linux distributions for 15 years
+                - generic [ref=e1269]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1270]: "0"
+              - generic [ref=e1271]: needs_review
+          - group [ref=e1272]:
+            - generic "123 A faster way to use Give Smart People the Tools to Do Smart Things Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1273] [cursor=pointer]:
+              - generic [ref=e1274]: "123"
+              - generic [ref=e1275]:
+                - strong [ref=e1276]: A faster way to use Give Smart People the Tools to Do Smart Things
+                - generic [ref=e1277]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1278]: "0"
+              - generic [ref=e1279]: needs_review
+          - group [ref=e1280]:
+            - generic "124 A faster way to use Good results fine tuning a local LLM like Qwen 3:0.6B to categorize questions Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1281] [cursor=pointer]:
+              - generic [ref=e1282]: "124"
+              - generic [ref=e1283]:
+                - strong [ref=e1284]: A faster way to use Good results fine tuning a local LLM like Qwen 3:0.6B to categorize questions
+                - generic [ref=e1285]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1286]: "0"
+              - generic [ref=e1287]: needs_review
+          - group [ref=e1288]:
+            - generic "125 A faster way to use Great Salt Lake Tracker – Grow the Flow Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1289] [cursor=pointer]:
+              - generic [ref=e1290]: "125"
+              - generic [ref=e1291]:
+                - strong [ref=e1292]: A faster way to use Great Salt Lake Tracker – Grow the Flow
+                - generic [ref=e1293]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1294]: "0"
+              - generic [ref=e1295]: needs_review
+          - group [ref=e1296]:
+            - generic "126 A faster way to use Guy took Jupiter photo with Game Boy Camera, giant telescope, publishes tutorial Creators & educators · Tips & tricks · short first 0 needs_review" [ref=e1297] [cursor=pointer]:
+              - generic [ref=e1298]: "126"
+              - generic [ref=e1299]:
+                - strong [ref=e1300]: A faster way to use Guy took Jupiter photo with Game Boy Camera, giant telescope, publishes tutorial
+                - generic [ref=e1301]: Creators & educators · Tips & tricks · short first
+              - emphasis [ref=e1302]: "0"
+              - generic [ref=e1303]: needs_review
+          - group [ref=e1304]:
+            - generic "127 A faster way to use Hackers shoveled snow for company, were rewarded with network admin access Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1305] [cursor=pointer]:
+              - generic [ref=e1306]: "127"
+              - generic [ref=e1307]:
+                - strong [ref=e1308]: A faster way to use Hackers shoveled snow for company, were rewarded with network admin access
+                - generic [ref=e1309]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1310]: "0"
+              - generic [ref=e1311]: needs_review
+          - group [ref=e1312]:
+            - generic "128 A faster way to use Hazel (YC W24) Is Hiring for Our Largest Government Contract Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1313] [cursor=pointer]:
+              - generic [ref=e1314]: "128"
+              - generic [ref=e1315]:
+                - strong [ref=e1316]: A faster way to use Hazel (YC W24) Is Hiring for Our Largest Government Contract
+                - generic [ref=e1317]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1318]: "0"
+              - generic [ref=e1319]: needs_review
+          - group [ref=e1320]:
+            - generic "129 A faster way to use Help I accidentally a wigglegram Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1321] [cursor=pointer]:
+              - generic [ref=e1322]: "129"
+              - generic [ref=e1323]:
+                - strong [ref=e1324]: A faster way to use Help I accidentally a wigglegram
+                - generic [ref=e1325]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1326]: "0"
+              - generic [ref=e1327]: needs_review
+          - group [ref=e1328]:
+            - generic "130 A faster way to use How I play video games with spinal muscular atrophy Creators & educators · Tips & tricks · short first 0 needs_review" [ref=e1329] [cursor=pointer]:
+              - generic [ref=e1330]: "130"
+              - generic [ref=e1331]:
+                - strong [ref=e1332]: A faster way to use How I play video games with spinal muscular atrophy
+                - generic [ref=e1333]: Creators & educators · Tips & tricks · short first
+              - emphasis [ref=e1334]: "0"
+              - generic [ref=e1335]: needs_review
+          - group [ref=e1336]:
+            - generic "131 A faster way to use How VictoriaLogs Stores Your Logs in a Columnar Layout Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1337] [cursor=pointer]:
+              - generic [ref=e1338]: "131"
+              - generic [ref=e1339]:
+                - strong [ref=e1340]: A faster way to use How VictoriaLogs Stores Your Logs in a Columnar Layout
+                - generic [ref=e1341]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1342]: "0"
+              - generic [ref=e1343]: needs_review
+          - group [ref=e1344]:
+            - generic "132 A faster way to use How to ask for help from people who don't know you Creators & educators · Tips & tricks · short first 0 needs_review" [ref=e1345] [cursor=pointer]:
+              - generic [ref=e1346]: "132"
+              - generic [ref=e1347]:
+                - strong [ref=e1348]: A faster way to use How to ask for help from people who don't know you
+                - generic [ref=e1349]: Creators & educators · Tips & tricks · short first
+              - emphasis [ref=e1350]: "0"
+              - generic [ref=e1351]: needs_review
+          - group [ref=e1352]:
+            - generic "133 A faster way to use How to read more books Creators & educators · Tips & tricks · short first 0 needs_review" [ref=e1353] [cursor=pointer]:
+              - generic [ref=e1354]: "133"
+              - generic [ref=e1355]:
+                - strong [ref=e1356]: A faster way to use How to read more books
+                - generic [ref=e1357]: Creators & educators · Tips & tricks · short first
+              - emphasis [ref=e1358]: "0"
+              - generic [ref=e1359]: needs_review
+          - group [ref=e1360]:
+            - generic "134 A faster way to use How we can reduce traffic congestion Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1361] [cursor=pointer]:
+              - generic [ref=e1362]: "134"
+              - generic [ref=e1363]:
+                - strong [ref=e1364]: A faster way to use How we can reduce traffic congestion
+                - generic [ref=e1365]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1366]: "0"
+              - generic [ref=e1367]: needs_review
+          - group [ref=e1368]:
+            - generic "135 A faster way to use How working with a blind client revealed invisible accessibility gaps Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1369] [cursor=pointer]:
+              - generic [ref=e1370]: "135"
+              - generic [ref=e1371]:
+                - strong [ref=e1372]: A faster way to use How working with a blind client revealed invisible accessibility gaps
+                - generic [ref=e1373]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1374]: "0"
+              - generic [ref=e1375]: needs_review
+          - group [ref=e1376]:
+            - generic "136 A faster way to use I Learned to Read Again Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1377] [cursor=pointer]:
+              - generic [ref=e1378]: "136"
+              - generic [ref=e1379]:
+                - strong [ref=e1380]: A faster way to use I Learned to Read Again
+                - generic [ref=e1381]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1382]: "0"
+              - generic [ref=e1383]: needs_review
+          - group [ref=e1384]:
+            - generic "137 A faster way to use I Type Holes in Keyboard Covers – This One Survived Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1385] [cursor=pointer]:
+              - generic [ref=e1386]: "137"
+              - generic [ref=e1387]:
+                - strong [ref=e1388]: A faster way to use I Type Holes in Keyboard Covers – This One Survived
+                - generic [ref=e1389]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1390]: "0"
+              - generic [ref=e1391]: needs_review
+          - group [ref=e1392]:
+            - generic "138 A faster way to use I love LLMs, I hate hype Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1393] [cursor=pointer]:
+              - generic [ref=e1394]: "138"
+              - generic [ref=e1395]:
+                - strong [ref=e1396]: A faster way to use I love LLMs, I hate hype
+                - generic [ref=e1397]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1398]: "0"
+              - generic [ref=e1399]: needs_review
+          - group [ref=e1400]:
+            - generic "139 A faster way to use Identity verification on Claude Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1401] [cursor=pointer]:
+              - generic [ref=e1402]: "139"
+              - generic [ref=e1403]:
+                - strong [ref=e1404]: A faster way to use Identity verification on Claude
+                - generic [ref=e1405]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1406]: "0"
+              - generic [ref=e1407]: needs_review
+          - group [ref=e1408]:
+            - generic "140 A faster way to use Immich 3.0 Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1409] [cursor=pointer]:
+              - generic [ref=e1410]: "140"
+              - generic [ref=e1411]:
+                - strong [ref=e1412]: A faster way to use Immich 3.0
+                - generic [ref=e1413]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1414]: "0"
+              - generic [ref=e1415]: needs_review
+          - group [ref=e1416]:
+            - 'generic "141 A faster way to use Interrail: 6,379Km and 13 Countries over 7 weeks Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1417] [cursor=pointer]':
+              - generic [ref=e1418]: "141"
+              - generic [ref=e1419]:
+                - strong [ref=e1420]: "A faster way to use Interrail: 6,379Km and 13 Countries over 7 weeks"
+                - generic [ref=e1421]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1422]: "0"
+              - generic [ref=e1423]: needs_review
+          - group [ref=e1424]:
+            - generic "142 A faster way to use Investors get real-time view of UK bond market activity for the first time Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1425] [cursor=pointer]:
+              - generic [ref=e1426]: "142"
+              - generic [ref=e1427]:
+                - strong [ref=e1428]: A faster way to use Investors get real-time view of UK bond market activity for the first time
+                - generic [ref=e1429]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1430]: "0"
+              - generic [ref=e1431]: needs_review
+          - group [ref=e1432]:
+            - generic "143 A faster way to use Is One Layer Enough? A Single Transformer Layer Matches Full-Parameter RL Train Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1433] [cursor=pointer]:
+              - generic [ref=e1434]: "143"
+              - generic [ref=e1435]:
+                - strong [ref=e1436]: A faster way to use Is One Layer Enough? A Single Transformer Layer Matches Full-Parameter RL Train
+                - generic [ref=e1437]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1438]: "0"
+              - generic [ref=e1439]: needs_review
+          - group [ref=e1440]:
+            - generic "144 A faster way to use Is the iPhone birth control? Causal evidence from AT&T's 2007-2011 monopoly [pdf] Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1441] [cursor=pointer]:
+              - generic [ref=e1442]: "144"
+              - generic [ref=e1443]:
+                - strong [ref=e1444]: A faster way to use Is the iPhone birth control? Causal evidence from AT&T's 2007-2011 monopoly [pdf]
+                - generic [ref=e1445]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1446]: "0"
+              - generic [ref=e1447]: needs_review
+          - group [ref=e1448]:
+            - generic "145 A faster way to use Jamesob's guide to running SOTA LLMs locally Creators & educators · Tips & tricks · short first 0 needs_review" [ref=e1449] [cursor=pointer]:
+              - generic [ref=e1450]: "145"
+              - generic [ref=e1451]:
+                - strong [ref=e1452]: A faster way to use Jamesob's guide to running SOTA LLMs locally
+                - generic [ref=e1453]: Creators & educators · Tips & tricks · short first
+              - emphasis [ref=e1454]: "0"
+              - generic [ref=e1455]: needs_review
+          - group [ref=e1456]:
+            - generic "146 A faster way to use Japanese symbols that speak without words Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1457] [cursor=pointer]:
+              - generic [ref=e1458]: "146"
+              - generic [ref=e1459]:
+                - strong [ref=e1460]: A faster way to use Japanese symbols that speak without words
+                - generic [ref=e1461]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1462]: "0"
+              - generic [ref=e1463]: needs_review
+          - group [ref=e1464]:
+            - generic "147 A faster way to use Japanese verb conjugation the simple hard way Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1465] [cursor=pointer]:
+              - generic [ref=e1466]: "147"
+              - generic [ref=e1467]:
+                - strong [ref=e1468]: A faster way to use Japanese verb conjugation the simple hard way
+                - generic [ref=e1469]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1470]: "0"
+              - generic [ref=e1471]: needs_review
+          - group [ref=e1472]:
+            - generic "148 A faster way to use Job application asked for my SAT scores Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1473] [cursor=pointer]:
+              - generic [ref=e1474]: "148"
+              - generic [ref=e1475]:
+                - strong [ref=e1476]: A faster way to use Job application asked for my SAT scores
+                - generic [ref=e1477]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1478]: "0"
+              - generic [ref=e1479]: needs_review
+          - group [ref=e1480]:
+            - 'generic "149 A faster way to use Job seekers giving up: Labor force participation falls to lowest in 50 years Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1481] [cursor=pointer]':
+              - generic [ref=e1482]: "149"
+              - generic [ref=e1483]:
+                - strong [ref=e1484]: "A faster way to use Job seekers giving up: Labor force participation falls to lowest in 50 years"
+                - generic [ref=e1485]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1486]: "0"
+              - generic [ref=e1487]: needs_review
+          - group [ref=e1488]:
+            - generic "150 A faster way to use Kimi K2.7 Code is generally available in GitHub Copilot Developers · Tips & tricks · short first 0 needs_review" [ref=e1489] [cursor=pointer]:
+              - generic [ref=e1490]: "150"
+              - generic [ref=e1491]:
+                - strong [ref=e1492]: A faster way to use Kimi K2.7 Code is generally available in GitHub Copilot
+                - generic [ref=e1493]: Developers · Tips & tricks · short first
+              - emphasis [ref=e1494]: "0"
+              - generic [ref=e1495]: needs_review
+          - group [ref=e1496]:
+            - generic "151 A faster way to use Kode Dot Programmable pocket device for makers, pentesters and geeks Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1497] [cursor=pointer]:
+              - generic [ref=e1498]: "151"
+              - generic [ref=e1499]:
+                - strong [ref=e1500]: A faster way to use Kode Dot Programmable pocket device for makers, pentesters and geeks
+                - generic [ref=e1501]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1502]: "0"
+              - generic [ref=e1503]: needs_review
+          - group [ref=e1504]:
+            - generic "152 A faster way to use Kyber (YC W23) Is Hiring a Head of Engineering Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1505] [cursor=pointer]:
+              - generic [ref=e1506]: "152"
+              - generic [ref=e1507]:
+                - strong [ref=e1508]: A faster way to use Kyber (YC W23) Is Hiring a Head of Engineering
+                - generic [ref=e1509]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1510]: "0"
+              - generic [ref=e1511]: needs_review
+          - group [ref=e1512]:
+            - generic "153 A faster way to use LARP – Revenue infrastructure for serious founders Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1513] [cursor=pointer]:
+              - generic [ref=e1514]: "153"
+              - generic [ref=e1515]:
+                - strong [ref=e1516]: A faster way to use LARP – Revenue infrastructure for serious founders
+                - generic [ref=e1517]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1518]: "0"
+              - generic [ref=e1519]: needs_review
+          - group [ref=e1520]:
+            - generic "154 A faster way to use LLMs do not merely reflect the bias of their training, they police it Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1521] [cursor=pointer]:
+              - generic [ref=e1522]: "154"
+              - generic [ref=e1523]:
+                - strong [ref=e1524]: A faster way to use LLMs do not merely reflect the bias of their training, they police it
+                - generic [ref=e1525]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1526]: "0"
+              - generic [ref=e1527]: needs_review
+          - group [ref=e1528]:
+            - generic "155 A faster way to use Lightning Memory-Mapped Database Manager (LMDB) 1.0 Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1529] [cursor=pointer]:
+              - generic [ref=e1530]: "155"
+              - generic [ref=e1531]:
+                - strong [ref=e1532]: A faster way to use Lightning Memory-Mapped Database Manager (LMDB) 1.0
+                - generic [ref=e1533]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1534]: "0"
+              - generic [ref=e1535]: needs_review
+          - group [ref=e1536]:
+            - generic "156 A faster way to use Linux and Secure Boot certificate expiration (2025) Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1537] [cursor=pointer]:
+              - generic [ref=e1538]: "156"
+              - generic [ref=e1539]:
+                - strong [ref=e1540]: A faster way to use Linux and Secure Boot certificate expiration (2025)
+                - generic [ref=e1541]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1542]: "0"
+              - generic [ref=e1543]: needs_review
+          - group [ref=e1544]:
+            - generic "157 A faster way to use Local Reasoning for Global Properties Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1545] [cursor=pointer]:
+              - generic [ref=e1546]: "157"
+              - generic [ref=e1547]:
+                - strong [ref=e1548]: A faster way to use Local Reasoning for Global Properties
+                - generic [ref=e1549]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1550]: "0"
+              - generic [ref=e1551]: needs_review
+          - group [ref=e1552]:
+            - 'generic "158 A faster way to use Manticore Search 27.1.5: Auth, sharding, conversational and faster vector search Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1553] [cursor=pointer]':
+              - generic [ref=e1554]: "158"
+              - generic [ref=e1555]:
+                - strong [ref=e1556]: "A faster way to use Manticore Search 27.1.5: Auth, sharding, conversational and faster vector search"
+                - generic [ref=e1557]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1558]: "0"
+              - generic [ref=e1559]: needs_review
+          - group [ref=e1560]:
+            - generic "159 A faster way to use Maria Isabel Sánchez Vegara on Her 100th \"Little People, Big Dreams\" Book Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1561] [cursor=pointer]:
+              - generic [ref=e1562]: "159"
+              - generic [ref=e1563]:
+                - strong [ref=e1564]: A faster way to use Maria Isabel Sánchez Vegara on Her 100th "Little People, Big Dreams" Book
+                - generic [ref=e1565]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1566]: "0"
+              - generic [ref=e1567]: needs_review
+          - group [ref=e1568]:
+            - generic "160 A faster way to use Meet the lawyer who beat Elon Musk — twice Developers · Tips & tricks · short first 0 needs_review" [ref=e1569] [cursor=pointer]:
+              - generic [ref=e1570]: "160"
+              - generic [ref=e1571]:
+                - strong [ref=e1572]: A faster way to use Meet the lawyer who beat Elon Musk — twice
+                - generic [ref=e1573]: Developers · Tips & tricks · short first
+              - emphasis [ref=e1574]: "0"
+              - generic [ref=e1575]: needs_review
+          - group [ref=e1576]:
+            - generic "161 A faster way to use Memory Safe Inline Assembly Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1577] [cursor=pointer]:
+              - generic [ref=e1578]: "161"
+              - generic [ref=e1579]:
+                - strong [ref=e1580]: A faster way to use Memory Safe Inline Assembly
+                - generic [ref=e1581]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1582]: "0"
+              - generic [ref=e1583]: needs_review
+          - group [ref=e1584]:
+            - generic "162 A faster way to use Memory crisis is getting so bad that even retro RAM prices are going to the Moon Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1585] [cursor=pointer]:
+              - generic [ref=e1586]: "162"
+              - generic [ref=e1587]:
+                - strong [ref=e1588]: A faster way to use Memory crisis is getting so bad that even retro RAM prices are going to the Moon
+                - generic [ref=e1589]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1590]: "0"
+              - generic [ref=e1591]: needs_review
+          - group [ref=e1592]:
+            - 'generic "163 A faster way to use Migrating a production AI agent to GPT-5.6: 2.2x faster, 27% cheaper Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1593] [cursor=pointer]':
+              - generic [ref=e1594]: "163"
+              - generic [ref=e1595]:
+                - strong [ref=e1596]: "A faster way to use Migrating a production AI agent to GPT-5.6: 2.2x faster, 27% cheaper"
+                - generic [ref=e1597]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1598]: "0"
+              - generic [ref=e1599]: needs_review
+          - group [ref=e1600]:
+            - 'generic "164 A faster way to use Minecraft: Java Edition 26.2, the first version with Vulkan 1.2 Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1601] [cursor=pointer]':
+              - generic [ref=e1602]: "164"
+              - generic [ref=e1603]:
+                - strong [ref=e1604]: "A faster way to use Minecraft: Java Edition 26.2, the first version with Vulkan 1.2"
+                - generic [ref=e1605]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1606]: "0"
+              - generic [ref=e1607]: needs_review
+          - group [ref=e1608]:
+            - 'generic "165 A faster way to use Moebius: 0.2B image inpainting model with 10B-level performance Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1609] [cursor=pointer]':
+              - generic [ref=e1610]: "165"
+              - generic [ref=e1611]:
+                - strong [ref=e1612]: "A faster way to use Moebius: 0.2B image inpainting model with 10B-level performance"
+                - generic [ref=e1613]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1614]: "0"
+              - generic [ref=e1615]: needs_review
+          - group [ref=e1616]:
+            - 'generic "166 A faster way to use Munich 1991: The Roots of the Current AI Boom Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1617] [cursor=pointer]':
+              - generic [ref=e1618]: "166"
+              - generic [ref=e1619]:
+                - strong [ref=e1620]: "A faster way to use Munich 1991: The Roots of the Current AI Boom"
+                - generic [ref=e1621]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1622]: "0"
+              - generic [ref=e1623]: needs_review
+          - group [ref=e1624]:
+            - generic "167 A faster way to use My Mathematical Regression Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1625] [cursor=pointer]:
+              - generic [ref=e1626]: "167"
+              - generic [ref=e1627]:
+                - strong [ref=e1628]: A faster way to use My Mathematical Regression
+                - generic [ref=e1629]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1630]: "0"
+              - generic [ref=e1631]: needs_review
+          - group [ref=e1632]:
+            - generic "168 A faster way to use Mystery identity of 'Green Boots' climber is finally solved after DNA test Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1633] [cursor=pointer]:
+              - generic [ref=e1634]: "168"
+              - generic [ref=e1635]:
+                - strong [ref=e1636]: A faster way to use Mystery identity of 'Green Boots' climber is finally solved after DNA test
+                - generic [ref=e1637]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1638]: "0"
+              - generic [ref=e1639]: needs_review
+          - group [ref=e1640]:
+            - generic "169 A faster way to use Nearly Half of LG Smart TV Apps Contain Residential Proxy SDKs Developers · Tips & tricks · short first 0 needs_review" [ref=e1641] [cursor=pointer]:
+              - generic [ref=e1642]: "169"
+              - generic [ref=e1643]:
+                - strong [ref=e1644]: A faster way to use Nearly Half of LG Smart TV Apps Contain Residential Proxy SDKs
+                - generic [ref=e1645]: Developers · Tips & tricks · short first
+              - emphasis [ref=e1646]: "0"
+              - generic [ref=e1647]: needs_review
+          - group [ref=e1648]:
+            - generic "170 A faster way to use Nintendo Wii U games running from a 1980's Bernoulli disk [video] Creators & educators · Tips & tricks · short first 0 needs_review" [ref=e1649] [cursor=pointer]:
+              - generic [ref=e1650]: "170"
+              - generic [ref=e1651]:
+                - strong [ref=e1652]: A faster way to use Nintendo Wii U games running from a 1980's Bernoulli disk [video]
+                - generic [ref=e1653]: Creators & educators · Tips & tricks · short first
+              - emphasis [ref=e1654]: "0"
+              - generic [ref=e1655]: needs_review
+          - group [ref=e1656]:
+            - generic "171 A faster way to use No LLM Code in Dependencies Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1657] [cursor=pointer]:
+              - generic [ref=e1658]: "171"
+              - generic [ref=e1659]:
+                - strong [ref=e1660]: A faster way to use No LLM Code in Dependencies
+                - generic [ref=e1661]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1662]: "0"
+              - generic [ref=e1663]: needs_review
+          - group [ref=e1664]:
+            - generic "172 A faster way to use Nvidia Halos Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1665] [cursor=pointer]:
+              - generic [ref=e1666]: "172"
+              - generic [ref=e1667]:
+                - strong [ref=e1668]: A faster way to use Nvidia Halos
+                - generic [ref=e1669]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1670]: "0"
+              - generic [ref=e1671]: needs_review
+          - group [ref=e1672]:
+            - generic "173 A faster way to use OpenAI is teasing new hardware… for Codex Creators & educators · Tips & tricks · short first 0 needs_review" [ref=e1673] [cursor=pointer]:
+              - generic [ref=e1674]: "173"
+              - generic [ref=e1675]:
+                - strong [ref=e1676]: A faster way to use OpenAI is teasing new hardware… for Codex
+                - generic [ref=e1677]: Creators & educators · Tips & tricks · short first
+              - emphasis [ref=e1678]: "0"
+              - generic [ref=e1679]: needs_review
+          - group [ref=e1680]:
+            - 'generic "174 A faster way to use Optocam Zero: a Pi Zero based digital camera made using off the shelf components Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1681] [cursor=pointer]':
+              - generic [ref=e1682]: "174"
+              - generic [ref=e1683]:
+                - strong [ref=e1684]: "A faster way to use Optocam Zero: a Pi Zero based digital camera made using off the shelf components"
+                - generic [ref=e1685]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1686]: "0"
+              - generic [ref=e1687]: needs_review
+          - group [ref=e1688]:
+            - generic "175 A faster way to use PeerTube is a free, decentralized and federated video platform Creators & educators · Tips & tricks · short first 0 needs_review" [ref=e1689] [cursor=pointer]:
+              - generic [ref=e1690]: "175"
+              - generic [ref=e1691]:
+                - strong [ref=e1692]: A faster way to use PeerTube is a free, decentralized and federated video platform
+                - generic [ref=e1693]: Creators & educators · Tips & tricks · short first
+              - emphasis [ref=e1694]: "0"
+              - generic [ref=e1695]: needs_review
+          - group [ref=e1696]:
+            - generic "176 A faster way to use Perform DFU Restores on Apple Silicon Macs with Macvdmtool (2021) Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1697] [cursor=pointer]:
+              - generic [ref=e1698]: "176"
+              - generic [ref=e1699]:
+                - strong [ref=e1700]: A faster way to use Perform DFU Restores on Apple Silicon Macs with Macvdmtool (2021)
+                - generic [ref=e1701]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1702]: "0"
+              - generic [ref=e1703]: needs_review
+          - group [ref=e1704]:
+            - generic "177 A faster way to use PivCo-Huffman \"Merge\" Operations Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1705] [cursor=pointer]:
+              - generic [ref=e1706]: "177"
+              - generic [ref=e1707]:
+                - strong [ref=e1708]: A faster way to use PivCo-Huffman "Merge" Operations
+                - generic [ref=e1709]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1710]: "0"
+              - generic [ref=e1711]: needs_review
+          - group [ref=e1712]:
+            - generic "178 A faster way to use Pledging Another $400k to the Zig Software Foundation Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1713] [cursor=pointer]:
+              - generic [ref=e1714]: "178"
+              - generic [ref=e1715]:
+                - strong [ref=e1716]: A faster way to use Pledging Another $400k to the Zig Software Foundation
+                - generic [ref=e1717]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1718]: "0"
+              - generic [ref=e1719]: needs_review
+          - group [ref=e1720]:
+            - generic "179 A faster way to use Podman v6.0.0 Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1721] [cursor=pointer]:
+              - generic [ref=e1722]: "179"
+              - generic [ref=e1723]:
+                - strong [ref=e1724]: A faster way to use Podman v6.0.0
+                - generic [ref=e1725]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1726]: "0"
+              - generic [ref=e1727]: needs_review
+          - group [ref=e1728]:
+            - 'generic "180 A faster way to use PostgreSQL and the OOM Killer: Why We Use Strict Memory Overcommit Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1729] [cursor=pointer]':
+              - generic [ref=e1730]: "180"
+              - generic [ref=e1731]:
+                - strong [ref=e1732]: "A faster way to use PostgreSQL and the OOM Killer: Why We Use Strict Memory Overcommit"
+                - generic [ref=e1733]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1734]: "0"
+              - generic [ref=e1735]: needs_review
+          - group [ref=e1736]:
+            - generic "181 A faster way to use PowerFox Browser Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1737] [cursor=pointer]:
+              - generic [ref=e1738]: "181"
+              - generic [ref=e1739]:
+                - strong [ref=e1740]: A faster way to use PowerFox Browser
+                - generic [ref=e1741]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1742]: "0"
+              - generic [ref=e1743]: needs_review
+          - group [ref=e1744]:
+            - 'generic "182 A faster way to use Program-as-Weights: A Programming Paradigm for Fuzzy Functions Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1745] [cursor=pointer]':
+              - generic [ref=e1746]: "182"
+              - generic [ref=e1747]:
+                - strong [ref=e1748]: "A faster way to use Program-as-Weights: A Programming Paradigm for Fuzzy Functions"
+                - generic [ref=e1749]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1750]: "0"
+              - generic [ref=e1751]: needs_review
+          - group [ref=e1752]:
+            - generic "183 A faster way to use Prompt Injection as Role Confusion Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1753] [cursor=pointer]:
+              - generic [ref=e1754]: "183"
+              - generic [ref=e1755]:
+                - strong [ref=e1756]: A faster way to use Prompt Injection as Role Confusion
+                - generic [ref=e1757]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1758]: "0"
+              - generic [ref=e1759]: needs_review
+          - group [ref=e1760]:
+            - generic "184 A faster way to use Quadrupling code performance with a \"useless\" if Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1761] [cursor=pointer]:
+              - generic [ref=e1762]: "184"
+              - generic [ref=e1763]:
+                - strong [ref=e1764]: A faster way to use Quadrupling code performance with a "useless" if
+                - generic [ref=e1765]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1766]: "0"
+              - generic [ref=e1767]: needs_review
+          - group [ref=e1768]:
+            - generic "185 A faster way to use Quake in 13 Kilobytes (2021) Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1769] [cursor=pointer]:
+              - generic [ref=e1770]: "185"
+              - generic [ref=e1771]:
+                - strong [ref=e1772]: A faster way to use Quake in 13 Kilobytes (2021)
+                - generic [ref=e1773]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1774]: "0"
+              - generic [ref=e1775]: needs_review
+          - group [ref=e1776]:
+            - generic "186 A faster way to use Reality has a surprising amount of detail (2017) Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1777] [cursor=pointer]:
+              - generic [ref=e1778]: "186"
+              - generic [ref=e1779]:
+                - strong [ref=e1780]: A faster way to use Reality has a surprising amount of detail (2017)
+                - generic [ref=e1781]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1782]: "0"
+              - generic [ref=e1783]: needs_review
+          - group [ref=e1784]:
+            - generic "187 A faster way to use Right to Local Intelligence Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1785] [cursor=pointer]:
+              - generic [ref=e1786]: "187"
+              - generic [ref=e1787]:
+                - strong [ref=e1788]: A faster way to use Right to Local Intelligence
+                - generic [ref=e1789]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1790]: "0"
+              - generic [ref=e1791]: needs_review
+          - group [ref=e1792]:
+            - generic "188 A faster way to use Sakana Fugu Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1793] [cursor=pointer]:
+              - generic [ref=e1794]: "188"
+              - generic [ref=e1795]:
+                - strong [ref=e1796]: A faster way to use Sakana Fugu
+                - generic [ref=e1797]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1798]: "0"
+              - generic [ref=e1799]: needs_review
+          - group [ref=e1800]:
+            - generic "189 A faster way to use Sam Neill has died Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1801] [cursor=pointer]:
+              - generic [ref=e1802]: "189"
+              - generic [ref=e1803]:
+                - strong [ref=e1804]: A faster way to use Sam Neill has died
+                - generic [ref=e1805]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1806]: "0"
+              - generic [ref=e1807]: needs_review
+          - group [ref=e1808]:
+            - 'generic "190 A faster way to use Show HN: CLI tool for detecting non-exact code duplication with embedding models Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1809] [cursor=pointer]':
+              - generic [ref=e1810]: "190"
+              - generic [ref=e1811]:
+                - strong [ref=e1812]: "A faster way to use Show HN: CLI tool for detecting non-exact code duplication with embedding models"
+                - generic [ref=e1813]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1814]: "0"
+              - generic [ref=e1815]: needs_review
+          - group [ref=e1816]:
+            - 'generic "191 A faster way to use Show HN: Criterion Closet as a website – pull any of 1,247 films off the shelf Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1817] [cursor=pointer]':
+              - generic [ref=e1818]: "191"
+              - generic [ref=e1819]:
+                - strong [ref=e1820]: "A faster way to use Show HN: Criterion Closet as a website – pull any of 1,247 films off the shelf"
+                - generic [ref=e1821]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1822]: "0"
+              - generic [ref=e1823]: needs_review
+          - group [ref=e1824]:
+            - 'generic "192 A faster way to use Show HN: Gitstock–Transform you GitHub commit history into K-line and animations Developers · Tips & tricks · short first 0 needs_review" [ref=e1825] [cursor=pointer]':
+              - generic [ref=e1826]: "192"
+              - generic [ref=e1827]:
+                - strong [ref=e1828]: "A faster way to use Show HN: Gitstock–Transform you GitHub commit history into K-line and animations"
+                - generic [ref=e1829]: Developers · Tips & tricks · short first
+              - emphasis [ref=e1830]: "0"
+              - generic [ref=e1831]: needs_review
+          - group [ref=e1832]:
+            - 'generic "193 A faster way to use Show HN: Got sick of ads, so I made my own logic puzzle site Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1833] [cursor=pointer]':
+              - generic [ref=e1834]: "193"
+              - generic [ref=e1835]:
+                - strong [ref=e1836]: "A faster way to use Show HN: Got sick of ads, so I made my own logic puzzle site"
+                - generic [ref=e1837]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1838]: "0"
+              - generic [ref=e1839]: needs_review
+          - group [ref=e1840]:
+            - 'generic "194 A faster way to use Show HN: Inkwell – An RSS reader for e-ink devices Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1841] [cursor=pointer]':
+              - generic [ref=e1842]: "194"
+              - generic [ref=e1843]:
+                - strong [ref=e1844]: "A faster way to use Show HN: Inkwell – An RSS reader for e-ink devices"
+                - generic [ref=e1845]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1846]: "0"
+              - generic [ref=e1847]: needs_review
+          - group [ref=e1848]:
+            - 'generic "195 A faster way to use Show HN: Pieces – Social network for people Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1849] [cursor=pointer]':
+              - generic [ref=e1850]: "195"
+              - generic [ref=e1851]:
+                - strong [ref=e1852]: "A faster way to use Show HN: Pieces – Social network for people"
+                - generic [ref=e1853]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1854]: "0"
+              - generic [ref=e1855]: needs_review
+          - group [ref=e1856]:
+            - 'generic "196 A faster way to use Show HN: TaskPeace – a task queue my AI coding agents pull work from over MCP Vibe coders · Tips & tricks · short first 0 needs_review" [ref=e1857] [cursor=pointer]':
+              - generic [ref=e1858]: "196"
+              - generic [ref=e1859]:
+                - strong [ref=e1860]: "A faster way to use Show HN: TaskPeace – a task queue my AI coding agents pull work from over MCP"
+                - generic [ref=e1861]: Vibe coders · Tips & tricks · short first
+              - emphasis [ref=e1862]: "0"
+              - generic [ref=e1863]: needs_review
+          - group [ref=e1864]:
+            - 'generic "197 A faster way to use Show HN: Teach your kids perfect pitch Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1865] [cursor=pointer]':
+              - generic [ref=e1866]: "197"
+              - generic [ref=e1867]:
+                - strong [ref=e1868]: "A faster way to use Show HN: Teach your kids perfect pitch"
+                - generic [ref=e1869]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1870]: "0"
+              - generic [ref=e1871]: needs_review
+          - group [ref=e1872]:
+            - 'generic "198 A faster way to use Show HN: zkGolf – Competitive optimization of formally verified circuits Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1873] [cursor=pointer]':
+              - generic [ref=e1874]: "198"
+              - generic [ref=e1875]:
+                - strong [ref=e1876]: "A faster way to use Show HN: zkGolf – Competitive optimization of formally verified circuits"
+                - generic [ref=e1877]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1878]: "0"
+              - generic [ref=e1879]: needs_review
+          - group [ref=e1880]:
+            - generic "199 A faster way to use Since Linux 6.9, LUKS suspend stopped wiping disk-encryption keys from memory Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1881] [cursor=pointer]:
+              - generic [ref=e1882]: "199"
+              - generic [ref=e1883]:
+                - strong [ref=e1884]: A faster way to use Since Linux 6.9, LUKS suspend stopped wiping disk-encryption keys from memory
+                - generic [ref=e1885]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1886]: "0"
+              - generic [ref=e1887]: needs_review
+          - group [ref=e1888]:
+            - generic "200 A faster way to use So you want to learn physics (second edition, 2021) Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1889] [cursor=pointer]:
+              - generic [ref=e1890]: "200"
+              - generic [ref=e1891]:
+                - strong [ref=e1892]: A faster way to use So you want to learn physics (second edition, 2021)
+                - generic [ref=e1893]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1894]: "0"
+              - generic [ref=e1895]: needs_review
+          - group [ref=e1896]:
+            - generic "201 A faster way to use Spain Orders Blacklist of Palantir from Public and Private Companies Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1897] [cursor=pointer]:
+              - generic [ref=e1898]: "201"
+              - generic [ref=e1899]:
+                - strong [ref=e1900]: A faster way to use Spain Orders Blacklist of Palantir from Public and Private Companies
+                - generic [ref=e1901]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1902]: "0"
+              - generic [ref=e1903]: needs_review
+          - group [ref=e1904]:
+            - generic "202 A faster way to use Superpowers 6 Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1905] [cursor=pointer]:
+              - generic [ref=e1906]: "202"
+              - generic [ref=e1907]:
+                - strong [ref=e1908]: A faster way to use Superpowers 6
+                - generic [ref=e1909]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1910]: "0"
+              - generic [ref=e1911]: needs_review
+          - group [ref=e1912]:
+            - generic "203 A faster way to use The AI Compass Creators & educators · Tips & tricks · long first 0 needs_review" [ref=e1913] [cursor=pointer]:
+              - generic [ref=e1914]: "203"
+              - generic [ref=e1915]:
+                - strong [ref=e1916]: A faster way to use The AI Compass
+                - generic [ref=e1917]: Creators & educators · Tips & tricks · long first
+              - emphasis [ref=e1918]: "0"
+              - generic [ref=e1919]: needs_review
+          - group [ref=e1920]:
+            - generic "204 A faster way to use The Egg Bandits Made a Thousand Times the Fine They Just Paid for Price Fixing Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1921] [cursor=pointer]:
+              - generic [ref=e1922]: "204"
+              - generic [ref=e1923]:
+                - strong [ref=e1924]: A faster way to use The Egg Bandits Made a Thousand Times the Fine They Just Paid for Price Fixing
+                - generic [ref=e1925]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1926]: "0"
+              - generic [ref=e1927]: needs_review
+          - group [ref=e1928]:
+            - generic "205 A faster way to use The Fall and Rise of Screwworm Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1929] [cursor=pointer]:
+              - generic [ref=e1930]: "205"
+              - generic [ref=e1931]:
+                - strong [ref=e1932]: A faster way to use The Fall and Rise of Screwworm
+                - generic [ref=e1933]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1934]: "0"
+              - generic [ref=e1935]: needs_review
+          - group [ref=e1936]:
+            - 'generic "206 A faster way to use The Free Market Lie: Why Switzerland Has 25 Gbit Internet and America Doesn''t Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1937] [cursor=pointer]':
+              - generic [ref=e1938]: "206"
+              - generic [ref=e1939]:
+                - strong [ref=e1940]: "A faster way to use The Free Market Lie: Why Switzerland Has 25 Gbit Internet and America Doesn't"
+                - generic [ref=e1941]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1942]: "0"
+              - generic [ref=e1943]: needs_review
+          - group [ref=e1944]:
+            - generic "207 A faster way to use The Graph That Should Be Front-Page News Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1945] [cursor=pointer]:
+              - generic [ref=e1946]: "207"
+              - generic [ref=e1947]:
+                - strong [ref=e1948]: A faster way to use The Graph That Should Be Front-Page News
+                - generic [ref=e1949]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1950]: "0"
+              - generic [ref=e1951]: needs_review
+          - group [ref=e1952]:
+            - generic "208 A faster way to use The Safari MCP server for web developers Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1953] [cursor=pointer]:
+              - generic [ref=e1954]: "208"
+              - generic [ref=e1955]:
+                - strong [ref=e1956]: A faster way to use The Safari MCP server for web developers
+                - generic [ref=e1957]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1958]: "0"
+              - generic [ref=e1959]: needs_review
+          - group [ref=e1960]:
+            - generic "209 A faster way to use The fall of the theorem economy Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1961] [cursor=pointer]:
+              - generic [ref=e1962]: "209"
+              - generic [ref=e1963]:
+                - strong [ref=e1964]: A faster way to use The fall of the theorem economy
+                - generic [ref=e1965]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1966]: "0"
+              - generic [ref=e1967]: needs_review
+          - group [ref=e1968]:
+            - generic "210 A faster way to use The short leash AI coding method for beating Fable Vibe coders · Tips & tricks · short first 0 needs_review" [ref=e1969] [cursor=pointer]:
+              - generic [ref=e1970]: "210"
+              - generic [ref=e1971]:
+                - strong [ref=e1972]: A faster way to use The short leash AI coding method for beating Fable
+                - generic [ref=e1973]: Vibe coders · Tips & tricks · short first
+              - emphasis [ref=e1974]: "0"
+              - generic [ref=e1975]: needs_review
+          - group [ref=e1976]:
+            - 'generic "211 A faster way to use The social physics of conversation: Communication patterns matter Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1977] [cursor=pointer]':
+              - generic [ref=e1978]: "211"
+              - generic [ref=e1979]:
+                - strong [ref=e1980]: "A faster way to use The social physics of conversation: Communication patterns matter"
+                - generic [ref=e1981]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1982]: "0"
+              - generic [ref=e1983]: needs_review
+          - group [ref=e1984]:
+            - generic "212 A faster way to use The text in Claude Code’s “Extended Thinking” output Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1985] [cursor=pointer]:
+              - generic [ref=e1986]: "212"
+              - generic [ref=e1987]:
+                - strong [ref=e1988]: A faster way to use The text in Claude Code’s “Extended Thinking” output
+                - generic [ref=e1989]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1990]: "0"
+              - generic [ref=e1991]: needs_review
+          - group [ref=e1992]:
+            - generic "213 A faster way to use There is minimal downside to switching to open models Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e1993] [cursor=pointer]:
+              - generic [ref=e1994]: "213"
+              - generic [ref=e1995]:
+                - strong [ref=e1996]: A faster way to use There is minimal downside to switching to open models
+                - generic [ref=e1997]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e1998]: "0"
+              - generic [ref=e1999]: needs_review
+          - group [ref=e2000]:
+            - generic "214 A faster way to use Tiny Emulators Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e2001] [cursor=pointer]:
+              - generic [ref=e2002]: "214"
+              - generic [ref=e2003]:
+                - strong [ref=e2004]: A faster way to use Tiny Emulators
+                - generic [ref=e2005]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e2006]: "0"
+              - generic [ref=e2007]: needs_review
+          - group [ref=e2008]:
+            - generic "215 A faster way to use Underwater Suit-Wearing Cyborg Insect Capable of Diving and Terra-Aqua Travel Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e2009] [cursor=pointer]:
+              - generic [ref=e2010]: "215"
+              - generic [ref=e2011]:
+                - strong [ref=e2012]: A faster way to use Underwater Suit-Wearing Cyborg Insect Capable of Diving and Terra-Aqua Travel
+                - generic [ref=e2013]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e2014]: "0"
+              - generic [ref=e2015]: needs_review
+          - group [ref=e2016]:
+            - generic "216 A faster way to use Unsloth GLM-5.2 – How to Run Locally Creators & educators · Tips & tricks · short first 0 needs_review" [ref=e2017] [cursor=pointer]:
+              - generic [ref=e2018]: "216"
+              - generic [ref=e2019]:
+                - strong [ref=e2020]: A faster way to use Unsloth GLM-5.2 – How to Run Locally
+                - generic [ref=e2021]: Creators & educators · Tips & tricks · short first
+              - emphasis [ref=e2022]: "0"
+              - generic [ref=e2023]: needs_review
+          - group [ref=e2024]:
+            - generic "217 A faster way to use Valve open source the Steam Machine e-ink screen so you can make your own Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e2025] [cursor=pointer]:
+              - generic [ref=e2026]: "217"
+              - generic [ref=e2027]:
+                - strong [ref=e2028]: A faster way to use Valve open source the Steam Machine e-ink screen so you can make your own
+                - generic [ref=e2029]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e2030]: "0"
+              - generic [ref=e2031]: needs_review
+          - group [ref=e2032]:
+            - generic "218 A faster way to use Virginia bans sale of geolocation data Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e2033] [cursor=pointer]:
+              - generic [ref=e2034]: "218"
+              - generic [ref=e2035]:
+                - strong [ref=e2036]: A faster way to use Virginia bans sale of geolocation data
+                - generic [ref=e2037]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e2038]: "0"
+              - generic [ref=e2039]: needs_review
+          - group [ref=e2040]:
+            - generic "219 A faster way to use Vulkan is now available on NetBSD Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e2041] [cursor=pointer]:
+              - generic [ref=e2042]: "219"
+              - generic [ref=e2043]:
+                - strong [ref=e2044]: A faster way to use Vulkan is now available on NetBSD
+                - generic [ref=e2045]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e2046]: "0"
+              - generic [ref=e2047]: needs_review
+          - group [ref=e2048]:
+            - 'generic "220 A faster way to use What xAI''s Grok build CLI sends to xAI: A wire-level analysis Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e2049] [cursor=pointer]':
+              - generic [ref=e2050]: "220"
+              - generic [ref=e2051]:
+                - strong [ref=e2052]: "A faster way to use What xAI's Grok build CLI sends to xAI: A wire-level analysis"
+                - generic [ref=e2053]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e2054]: "0"
+              - generic [ref=e2055]: needs_review
+          - group [ref=e2056]:
+            - generic "221 A faster way to use Why Drawing Tablet Brands Won't Collaborate on Linux Floss Drivers Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e2057] [cursor=pointer]:
+              - generic [ref=e2058]: "221"
+              - generic [ref=e2059]:
+                - strong [ref=e2060]: A faster way to use Why Drawing Tablet Brands Won't Collaborate on Linux Floss Drivers
+                - generic [ref=e2061]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e2062]: "0"
+              - generic [ref=e2063]: needs_review
+          - group [ref=e2064]:
+            - generic "222 A faster way to use Why Vanilla JavaScript Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e2065] [cursor=pointer]:
+              - generic [ref=e2066]: "222"
+              - generic [ref=e2067]:
+                - strong [ref=e2068]: A faster way to use Why Vanilla JavaScript
+                - generic [ref=e2069]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e2070]: "0"
+              - generic [ref=e2071]: needs_review
+          - group [ref=e2072]:
+            - generic "223 A faster way to use Why write code in 2026 Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e2073] [cursor=pointer]:
+              - generic [ref=e2074]: "223"
+              - generic [ref=e2075]:
+                - strong [ref=e2076]: A faster way to use Why write code in 2026
+                - generic [ref=e2077]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e2078]: "0"
+              - generic [ref=e2079]: needs_review
+          - group [ref=e2080]:
+            - generic "224 A faster way to use WinPE as a stateless harness for Windows driver testing and fuzzing Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e2081] [cursor=pointer]:
+              - generic [ref=e2082]: "224"
+              - generic [ref=e2083]:
+                - strong [ref=e2084]: A faster way to use WinPE as a stateless harness for Windows driver testing and fuzzing
+                - generic [ref=e2085]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e2086]: "0"
+              - generic [ref=e2087]: needs_review
+          - group [ref=e2088]:
+            - generic "225 A faster way to use Writing Postcards with a 3D Printer Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e2089] [cursor=pointer]:
+              - generic [ref=e2090]: "225"
+              - generic [ref=e2091]:
+                - strong [ref=e2092]: A faster way to use Writing Postcards with a 3D Printer
+                - generic [ref=e2093]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e2094]: "0"
+              - generic [ref=e2095]: needs_review
+          - group [ref=e2096]:
+            - generic "226 A faster way to use Zuckerberg 'Admits' Meta's Layoffs Were Ineffective Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e2097] [cursor=pointer]:
+              - generic [ref=e2098]: "226"
+              - generic [ref=e2099]:
+                - strong [ref=e2100]: A faster way to use Zuckerberg 'Admits' Meta's Layoffs Were Ineffective
+                - generic [ref=e2101]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e2102]: "0"
+              - generic [ref=e2103]: needs_review
+          - group [ref=e2104]:
+            - 'generic "227 A faster way to use crustc: entirety of `rustc`, translated to C Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e2105] [cursor=pointer]':
+              - generic [ref=e2106]: "227"
+              - generic [ref=e2107]:
+                - strong [ref=e2108]: "A faster way to use crustc: entirety of `rustc`, translated to C"
+                - generic [ref=e2109]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e2110]: "0"
+              - generic [ref=e2111]: needs_review
+          - group [ref=e2112]:
+            - generic "228 A faster way to use window.showDirectoryPicker opens up a whole new world Everyday productivity users · Tips & tricks · short first 0 needs_review" [ref=e2113] [cursor=pointer]:
+              - generic [ref=e2114]: "228"
+              - generic [ref=e2115]:
+                - strong [ref=e2116]: A faster way to use window.showDirectoryPicker opens up a whole new world
+                - generic [ref=e2117]: Everyday productivity users · Tips & tricks · short first
+              - emphasis [ref=e2118]: "0"
+              - generic [ref=e2119]: needs_review
+          - group [ref=e2120]:
+            - 'generic "229 A rubric-based controlled comparison of frontier language models on expert-authored clinical reasoning tasks: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e2121] [cursor=pointer]':
+              - generic [ref=e2122]: "229"
+              - generic [ref=e2123]:
+                - strong [ref=e2124]: "A rubric-based controlled comparison of frontier language models on expert-authored clinical reasoning tasks: what changes for Everyday productivity users"
+                - generic [ref=e2125]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e2126]: "0"
+              - generic [ref=e2127]: needs_review
+          - group [ref=e2128]:
+            - 'generic "230 AGI Maze as a Benchmark Framework for World-Modeling Agents: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e2129] [cursor=pointer]':
+              - generic [ref=e2130]: "230"
+              - generic [ref=e2131]:
+                - strong [ref=e2132]: "AGI Maze as a Benchmark Framework for World-Modeling Agents: what changes for Everyday productivity users"
+                - generic [ref=e2133]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e2134]: "0"
+              - generic [ref=e2135]: needs_review
+          - group [ref=e2136]:
+            - 'generic "231 AI Native Games: A Survey and Roadmap: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e2137] [cursor=pointer]':
+              - generic [ref=e2138]: "231"
+              - generic [ref=e2139]:
+                - strong [ref=e2140]: "AI Native Games: A Survey and Roadmap: what changes for Everyday productivity users"
+                - generic [ref=e2141]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e2142]: "0"
+              - generic [ref=e2143]: needs_review
+          - group [ref=e2144]:
+            - 'generic "232 AI is cursing renters with the promise of impossible homes: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e2145] [cursor=pointer]':
+              - generic [ref=e2146]: "232"
+              - generic [ref=e2147]:
+                - strong [ref=e2148]: "AI is cursing renters with the promise of impossible homes: what changes for Everyday productivity users"
+                - generic [ref=e2149]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e2150]: "0"
+              - generic [ref=e2151]: needs_review
+          - group [ref=e2152]:
+            - 'generic "233 Adobe’s redesigned AI studio remembers what your creations look like: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e2153] [cursor=pointer]':
+              - generic [ref=e2154]: "233"
+              - generic [ref=e2155]:
+                - strong [ref=e2156]: "Adobe’s redesigned AI studio remembers what your creations look like: what changes for Everyday productivity users"
+                - generic [ref=e2157]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e2158]: "0"
+              - generic [ref=e2159]: needs_review
+          - group [ref=e2160]:
+            - 'generic "234 Agentic generation of verifiable rules for deterministic, self-expanding reaction classification: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e2161] [cursor=pointer]':
+              - generic [ref=e2162]: "234"
+              - generic [ref=e2163]:
+                - strong [ref=e2164]: "Agentic generation of verifiable rules for deterministic, self-expanding reaction classification: what changes for Everyday productivity users"
+                - generic [ref=e2165]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e2166]: "0"
+              - generic [ref=e2167]: needs_review
+          - group [ref=e2168]:
+            - 'generic "235 AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e2169] [cursor=pointer]':
+              - generic [ref=e2170]: "235"
+              - generic [ref=e2171]:
+                - strong [ref=e2172]: "AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents: what changes for Everyday productivity users"
+                - generic [ref=e2173]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e2174]: "0"
+              - generic [ref=e2175]: needs_review
+          - group [ref=e2176]:
+            - 'generic "236 Agora: Enhancing LLM Agent Reasoning Via Auction-Based Task Allocation: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e2177] [cursor=pointer]':
+              - generic [ref=e2178]: "236"
+              - generic [ref=e2179]:
+                - strong [ref=e2180]: "Agora: Enhancing LLM Agent Reasoning Via Auction-Based Task Allocation: what changes for Everyday productivity users"
+                - generic [ref=e2181]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e2182]: "0"
+              - generic [ref=e2183]: needs_review
+          - group [ref=e2184]:
+            - 'generic "237 Agri-SAGE: Simulation-Grounded Multi-Agent LLM for Context-Aware Agricultural Advisory Generation: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e2185] [cursor=pointer]':
+              - generic [ref=e2186]: "237"
+              - generic [ref=e2187]:
+                - strong [ref=e2188]: "Agri-SAGE: Simulation-Grounded Multi-Agent LLM for Context-Aware Agricultural Advisory Generation: what changes for Everyday productivity users"
+                - generic [ref=e2189]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e2190]: "0"
+              - generic [ref=e2191]: needs_review
+          - group [ref=e2192]:
+            - 'generic "238 Alishahryar1 / free-claude-code: what changes for Developers Developers · AI & tech news updates · short first 0 needs_review" [ref=e2193] [cursor=pointer]':
+              - generic [ref=e2194]: "238"
+              - generic [ref=e2195]:
+                - strong [ref=e2196]: "Alishahryar1 / free-claude-code: what changes for Developers"
+                - generic [ref=e2197]: Developers · AI & tech news updates · short first
+              - emphasis [ref=e2198]: "0"
+              - generic [ref=e2199]: needs_review
+          - group [ref=e2200]:
+            - 'generic "239 Amazon employees say they’re facing termination for backing data center limits: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e2201] [cursor=pointer]':
+              - generic [ref=e2202]: "239"
+              - generic [ref=e2203]:
+                - strong [ref=e2204]: "Amazon employees say they’re facing termination for backing data center limits: what changes for Everyday productivity users"
+                - generic [ref=e2205]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e2206]: "0"
+              - generic [ref=e2207]: needs_review
+          - group [ref=e2208]:
+            - generic "240 Anthropic got hit by export rules nobody understands, explained for Everyday productivity users Everyday productivity users · Concept education · long first 0 needs_review" [ref=e2209] [cursor=pointer]:
+              - generic [ref=e2210]: "240"
+              - generic [ref=e2211]:
+                - strong [ref=e2212]: Anthropic got hit by export rules nobody understands, explained for Everyday productivity users
+                - generic [ref=e2213]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e2214]: "0"
+              - generic [ref=e2215]: needs_review
+          - group [ref=e2216]:
+            - 'generic "241 Anthropic wants to develop its own drugs: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e2217] [cursor=pointer]':
+              - generic [ref=e2218]: "241"
+              - generic [ref=e2219]:
+                - strong [ref=e2220]: "Anthropic wants to develop its own drugs: what changes for Everyday productivity users"
+                - generic [ref=e2221]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e2222]: "0"
+              - generic [ref=e2223]: needs_review
+          - group [ref=e2224]:
+            - 'generic "242 Anthropic&#8217;s long-sidelined Fable 5 is greenlit to return: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e2225] [cursor=pointer]':
+              - generic [ref=e2226]: "242"
+              - generic [ref=e2227]:
+                - strong [ref=e2228]: "Anthropic&#8217;s long-sidelined Fable 5 is greenlit to return: what changes for Everyday productivity users"
+                - generic [ref=e2229]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e2230]: "0"
+              - generic [ref=e2231]: needs_review
+          - group [ref=e2232]:
+            - 'generic "243 Apertus – Open Foundation Model for Sovereign AI: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e2233] [cursor=pointer]':
+              - generic [ref=e2234]: "243"
+              - generic [ref=e2235]:
+                - strong [ref=e2236]: "Apertus – Open Foundation Model for Sovereign AI: what changes for Everyday productivity users"
+                - generic [ref=e2237]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e2238]: "0"
+              - generic [ref=e2239]: needs_review
+          - group [ref=e2240]:
+            - generic "244 Archify, explained for Everyday productivity users Everyday productivity users · Concept education · long first 0 needs_review" [ref=e2241] [cursor=pointer]:
+              - generic [ref=e2242]: "244"
+              - generic [ref=e2243]:
+                - strong [ref=e2244]: Archify, explained for Everyday productivity users
+                - generic [ref=e2245]: Everyday productivity users · Concept education · long first
+              - emphasis [ref=e2246]: "0"
+              - generic [ref=e2247]: needs_review
+          - group [ref=e2248]:
+            - 'generic "245 AutoMem: Automated Learning of Memory as a Cognitive Skill: what changes for Everyday productivity users Everyday productivity users · AI & tech news updates · short first 0 needs_review" [ref=e2249] [cursor=pointer]':
+              - generic [ref=e2250]: "245"
+              - generic [ref=e2251]:
+                - strong [ref=e2252]: "AutoMem: Automated Learning of Memory as a Cognitive Skill: what changes for Everyday productivity users"
+                - generic [ref=e2253]: Everyday productivity users · AI & tech news updates · short first
+              - emphasis [ref=e2254]: "0"
+              - generic [ref=e2255]: needs_review
+          - group [ref=e2256]:
+            - 'generic "246 Automate this manual workflow: Blazly Backlinker Everyday productivity users · Manual-task automation · long first 0 needs_review" [ref=e2257] [cursor=pointer]':
+              - generic [ref=e2258]: "246"
+              - generic [ref=e2259]:
+                - strong [ref=e2260]: "Automate this manual workflow: Blazly Backlinker"
+                - generic [ref=e2261]: Everyday productivity users · Manual-task automation · long first
+              - emphasis [ref=e2262]: "0"
+              - generic [ref=e2263]: needs_review
+          - group [ref=e2264]:
+            - 'generic "247 Automate this manual workflow: Mark by Airtop Everyday productivity users · Manual-task automation · long first 0 needs_review" [ref=e2265] [cursor=pointer]':
+              - generic [ref=e2266]: "247"
+              - generic [ref=e2267]:
+                - strong [ref=e2268]: "Automate this manual workflow: Mark by Airtop"
+                - generic [ref=e2269]: Everyday productivity users · Manual-task automation · long first
+              - emphasis [ref=e2270]: "0"
+              - generic [ref=e2271]: needs_review
+          - group [ref=e2272]:
+            - 'generic "248 Automate this manual workflow: Mellum by JetBrains Everyday productivity users · Manual-task automation · long first 0 needs_review" [ref=e2273] [cursor=pointer]':
+              - generic [ref=e2274]: "248"
+              - generic [ref=e2275]:
+                - strong [ref=e2276]: "Automate this manual workflow: Mellum by JetBrains"
+                - generic [ref=e2277]: Everyday productivity users · Manual-task automation · long first
+              - emphasis [ref=e2278]: "0"
+              - generic [ref=e2279]: needs_review
+          - group [ref=e2280]:
+            - 'generic "249 Automate this manual workflow: PrefectHQ / prefect Developers · Manual-task automation · long first 0 needs_review" [ref=e2281] [cursor=pointer]':
+              - generic [ref=e2282]: "249"
+              - generic [ref=e2283]:
+                - strong [ref=e2284]: "Automate this manual workflow: PrefectHQ / prefect"
+                - generic [ref=e2285]: Developers · Manual-task automation · long first
+              - emphasis [ref=e2286]: "0"
+              - generic [ref=e2287]: needs_review
+          - group [ref=e2288]:
+            - 'generic "250 Automate this manual workflow: Q&A with Micron''s VP and GM of Memory Everyday productivity users · Manual-task automation · long first 0 needs_review" [ref=e2289] [cursor=pointer]':
+              - generic [ref=e2290]: "250"
+              - generic [ref=e2291]:
+                - strong [ref=e2292]: "Automate this manual workflow: Q&A with Micron's VP and GM of Memory"
+                - generic [ref=e2293]: Everyday productivity users · Manual-task automation · long first
+              - emphasis [ref=e2294]: "0"
+              - generic [ref=e2295]: needs_review
+  - navigation "Console views" [ref=e52]:
+    - button "◎ Overview" [ref=e53] [cursor=pointer]:
+      - generic [ref=e54]: ◎
+      - generic [ref=e55]: Overview
+    - button ">_ Live" [ref=e56] [cursor=pointer]:
+      - generic [ref=e57]: ">_"
+      - generic [ref=e58]: Live
+    - button "⌁ Sources" [ref=e59] [cursor=pointer]:
+      - generic [ref=e60]: ⌁
+      - generic [ref=e61]: Sources
+    - button "⊞ Discover" [ref=e62] [cursor=pointer]:
+      - generic [ref=e63]: ⊞
+      - generic [ref=e64]: Discover
+    - button "≡ Access" [ref=e65] [cursor=pointer]:
+      - generic [ref=e66]: ≡
+      - generic [ref=e67]: Access
+    - button "≔ Results" [ref=e68] [cursor=pointer]:
+      - generic [ref=e69]: ≔
+      - generic [ref=e70]: Results
+    - button "◇ Ideas" [active] [ref=e71] [cursor=pointer]:
+      - generic [ref=e72]: ◇
+      - generic [ref=e73]: Ideas
+    - button "⌘ Categories" [ref=e74] [cursor=pointer]:
+      - generic [ref=e75]: ⌘
+      - generic [ref=e76]: Categories
+    - button "! Failures" [ref=e77] [cursor=pointer]:
+      - generic [ref=e78]: "!"
+      - generic [ref=e79]: Failures
+    - button "↯ Trace" [ref=e80] [cursor=pointer]:
+      - generic [ref=e81]: ↯
+      - generic [ref=e82]: Trace
+    - button "▣ Archive" [ref=e83] [cursor=pointer]:
+      - generic [ref=e84]: ▣
+      - generic [ref=e85]: Archive
+    - button "◷ Schedule" [ref=e86] [cursor=pointer]:
+      - generic [ref=e87]: ◷
+      - generic [ref=e88]: Schedule
+    - button "⚙ Config" [ref=e89] [cursor=pointer]:
+      - generic [ref=e90]: ⚙
+      - generic [ref=e91]: Config
+    - button "✓ Audit" [ref=e92] [cursor=pointer]:
+      - generic [ref=e93]: ✓
+      - generic [ref=e94]: Audit

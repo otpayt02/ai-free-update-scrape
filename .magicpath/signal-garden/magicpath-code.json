@@ -1,0 +1,29 @@
+{
+  "mode": "edit",
+  "componentId": "426279162660130816",
+  "projectId": "426275699289100288",
+  "selectedRevisionId": "426279162660130817",
+  "jobId": "426275699016470528-external-agent-426279661023170560",
+  "generatedName": "lively-path-5653",
+  "name": "Signal Garden Landing",
+  "dimensions": {
+    "width": 1440,
+    "height": 1000
+  },
+  "selectedImages": [],
+  "editableFiles": [
+    {
+      "path": "src/App.tsx",
+      "sha256": "0b5f754e5fa439f4ecf8d468eb261274f5998ad9e815c6c47eab3c968acb1ab0"
+    },
+    {
+      "path": "src/components/generated/SignalGardenLanding.tsx",
+      "sha256": "aaa6ac3930caee626e4d7327c44ce6676ca2fdef2757c2c6ab8564a423ee31d5"
+    },
+    {
+      "path": "src/index.css",
+      "sha256": "3af92f9f6b5e93767188381bda25e0b3e26d2885569cffb8b46ff6d8966b1860"
+    }
+  ],
+  "baseRevisionId": "426279162660130817"
+}

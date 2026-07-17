@@ -1,0 +1,37 @@
+{
+  "rss": [
+    {
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "type": "rss",
+      "enabled": true,
+      "source_id": "source-c-02",
+      "category": "Reasoning models | Multimodal models | AI agents"
+    },
+    {
+      "name": "GitHub AI and ML",
+      "url": "https://github.blog/ai-and-ml/feed/",
+      "type": "rss",
+      "enabled": true,
+      "source_id": "source-c-03",
+      "category": "AI agents | Developer SDKs and APIs | Coding assistants"
+    },
+    {
+      "name": "arXiv Computer Science AI",
+      "url": "https://rss.arxiv.org/rss/cs.AI",
+      "type": "rss",
+      "enabled": true,
+      "source_id": "source-c-07",
+      "category": "Foundation model releases | Reasoning models | AI agents"
+    },
+    {
+      "name": "Hacker News AI",
+      "url": "https://hnrss.org/newest?q=AI",
+      "type": "rss",
+      "enabled": true,
+      "source_id": "source-c-08",
+      "category": "AI agents | MCP servers and integrations | Developer SDKs and APIs"
+    }
+  ],
+  "scrape": []
+}

@@ -1,0 +1,25 @@
+{
+  "journal": [
+    {
+      "id": "ff9af4ac-c758-4397-9ee4-116c7deea5d9",
+      "text": "Ran the full scraper cycle, compared three video directions, selected Signal Brief, and rendered a private review MP4.",
+      "stage": "render",
+      "created_at": "2026-07-13T04:03:39",
+      "automation_candidate": true
+    }
+  ],
+  "templates": [
+    {
+      "id": "fdf7db7c-630b-4a9c-bbc9-1310a70f90a4",
+      "title": "Signal Brief / v1",
+      "source_title": "How to use ChatGPT Work for everyday tasks",
+      "source_url": "https://openai.com/academy/how-to-use-chatgpt-work-for-everyday-tasks",
+      "hook": "Stop starting important work from a blank prompt.",
+      "proof": "Give the agent real inputs, constraints, review expectations, and the destination format.",
+      "cta": "Turn one repeated workflow into a reusable template.",
+      "format": "signal-brief",
+      "status": "draft",
+      "created_at": "2026-07-13T04:03:38"
+    }
+  ]
+}

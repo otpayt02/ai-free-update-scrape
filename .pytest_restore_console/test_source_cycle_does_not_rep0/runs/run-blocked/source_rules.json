@@ -1,0 +1,18 @@
+[
+  {
+    "source_id": "run-bloc-01",
+    "name": "News search · Models",
+    "url": "https://news.google.com/rss/search?q=Models%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Models",
+    "discovered_at": "2026-07-13T12:25:04.264348+00:00",
+    "origin": "automatic category discovery",
+    "status": "rejected",
+    "reason": "blocked",
+    "http_status": 403,
+    "robots": "reviewed",
+    "parser": "feedparser",
+    "instruction": "",
+    "selector_notes": ""
+  }
+]

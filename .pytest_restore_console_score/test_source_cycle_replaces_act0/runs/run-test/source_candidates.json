@@ -1,0 +1,20 @@
+[
+  {
+    "source_id": "run-test-01",
+    "name": "News search · Models",
+    "url": "https://news.google.com/rss/search?q=Models%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Models",
+    "discovered_at": "2026-07-13T12:31:51.625739+00:00",
+    "origin": "automatic category discovery"
+  },
+  {
+    "source_id": "run-test-02",
+    "name": "News search · Blocked",
+    "url": "https://news.google.com/rss/search?q=Blocked%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "type": "rss",
+    "category": "Blocked",
+    "discovered_at": "2026-07-13T12:31:51.625739+00:00",
+    "origin": "automatic category discovery"
+  }
+]

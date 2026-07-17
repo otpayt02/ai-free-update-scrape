@@ -1,0 +1,26 @@
+[
+  {
+    "id": "run-test:run-test-01",
+    "run_id": "run-test",
+    "source_id": "run-test-01",
+    "source": "News search · Models",
+    "url": "https://news.google.com/rss/search?q=Models%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "status": "ready",
+    "reason": "test rule",
+    "retry": false,
+    "created_at": "2026-07-13T12:25:04.124126+00:00",
+    "archive": "runs\\run-test"
+  },
+  {
+    "id": "run-test:run-test-02",
+    "run_id": "run-test",
+    "source_id": "run-test-02",
+    "source": "News search · Blocked",
+    "url": "https://news.google.com/rss/search?q=Blocked%20AI%20when%3A1d&hl=en-US&gl=US&ceid=US:en",
+    "status": "rejected",
+    "reason": "test rule",
+    "retry": true,
+    "created_at": "2026-07-13T12:25:04.124126+00:00",
+    "archive": "runs\\run-test"
+  }
+]

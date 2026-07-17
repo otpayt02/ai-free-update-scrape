@@ -1,0 +1,350 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - button "Open overview" [ref=e5] [cursor=pointer]
+    - generic [ref=e9]: SIGNAL CONSOLE / TERMINALDiscover
+    - generic [ref=e10]:
+      - generic [ref=e11]: idle
+      - button "Refresh" [ref=e12] [cursor=pointer]
+  - main [ref=e13]:
+    - generic [ref=e797]:
+      - generic [ref=e798]:
+        - heading "Video source lanes" [level=2] [ref=e800]
+        - paragraph [ref=e801]: Choose the video intent first, then open an approved feed or API candidate. RSS candidates remain inactive until the current cycle passes access and parser checks.
+        - generic [ref=e802]:
+          - article [ref=e803]:
+            - generic [ref=e804]:
+              - generic [ref=e805]:
+                - text: news updates
+                - heading "News updates" [level=3] [ref=e806]
+              - button "Show News updates parameters" [ref=e808] [cursor=pointer]: •••
+            - paragraph [ref=e809]: New releases, research announcements, and platform changes.
+            - generic [ref=e810]: Publisher RSS with a fresh access check on every cycle.
+            - generic [ref=e811]:
+              - link "Hugging Face Blog RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e812] [cursor=pointer]:
+                - /url: https://huggingface.co/blog/feed.xml
+                - generic [ref=e813]:
+                  - generic [ref=e814]: Hugging Face Blog
+                  - generic [ref=e815]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e816]: ↗
+              - link "GitHub AI and ML RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e817] [cursor=pointer]:
+                - /url: https://github.blog/ai-and-ml/feed/
+                - generic [ref=e818]:
+                  - generic [ref=e819]: GitHub AI and ML
+                  - generic [ref=e820]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e821]: ↗
+              - link "OpenAI News RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e822] [cursor=pointer]:
+                - /url: https://openai.com/news/rss.xml
+                - generic [ref=e823]:
+                  - generic [ref=e824]: OpenAI News
+                  - generic [ref=e825]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e826]: ↗
+              - link "Google AI Blog RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e827] [cursor=pointer]:
+                - /url: https://blog.google/technology/ai/rss/
+                - generic [ref=e828]:
+                  - generic [ref=e829]: Google AI Blog
+                  - generic [ref=e830]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e831]: ↗
+              - link "NVIDIA Deep Learning RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e832] [cursor=pointer]:
+                - /url: https://blogs.nvidia.com/blog/category/deep-learning/feed/
+                - generic [ref=e833]:
+                  - generic [ref=e834]: NVIDIA Deep Learning
+                  - generic [ref=e835]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e836]: ↗
+          - article [ref=e837]:
+            - generic [ref=e838]:
+              - generic [ref=e839]:
+                - text: development workflows
+                - heading "Development workflows" [level=3] [ref=e840]
+              - button "Show Development workflows parameters" [ref=e842] [cursor=pointer]: •••
+            - paragraph [ref=e843]: Engineering changes, implementation patterns, and tool adoption signals.
+            - generic [ref=e844]: GitHub RSS plus the official GitHub Issues API when configured.
+            - generic [ref=e845]:
+              - link "GitHub AI and ML RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e846] [cursor=pointer]:
+                - /url: https://github.blog/ai-and-ml/feed/
+                - generic [ref=e847]:
+                  - generic [ref=e848]: GitHub AI and ML
+                  - generic [ref=e849]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e850]: ↗
+              - link "Hacker News AI RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e851] [cursor=pointer]:
+                - /url: https://hnrss.org/newest?q=AI
+                - generic [ref=e852]:
+                  - generic [ref=e853]: Hacker News AI
+                  - generic [ref=e854]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e855]: ↗
+              - link "GitHub REST Issues API official API · Configure an approved GitHub token when needed. ↗" [ref=e856] [cursor=pointer]:
+                - /url: https://docs.github.com/en/rest/issues/issues
+                - generic [ref=e857]:
+                  - generic [ref=e858]: GitHub REST Issues API
+                  - generic [ref=e859]: official API · Configure an approved GitHub token when needed.
+                - generic [ref=e860]: ↗
+          - article [ref=e861]:
+            - generic [ref=e862]:
+              - generic [ref=e863]:
+                - text: tutorials
+                - heading "Tutorials" [level=3] [ref=e864]
+              - button "Show Tutorials parameters" [ref=e866] [cursor=pointer]: •••
+            - paragraph [ref=e867]: Teach a repeatable build, integration, or technical concept.
+            - generic [ref=e868]: Publisher RSS and documented developer sources.
+            - generic [ref=e869]:
+              - link "Hugging Face Blog RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e870] [cursor=pointer]:
+                - /url: https://huggingface.co/blog/feed.xml
+                - generic [ref=e871]:
+                  - generic [ref=e872]: Hugging Face Blog
+                  - generic [ref=e873]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e874]: ↗
+              - link "AWS Machine Learning Blog RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e875] [cursor=pointer]:
+                - /url: https://aws.amazon.com/blogs/machine-learning/feed/
+                - generic [ref=e876]:
+                  - generic [ref=e877]: AWS Machine Learning Blog
+                  - generic [ref=e878]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e879]: ↗
+              - link "GitHub AI and ML RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e880] [cursor=pointer]:
+                - /url: https://github.blog/ai-and-ml/feed/
+                - generic [ref=e881]:
+                  - generic [ref=e882]: GitHub AI and ML
+                  - generic [ref=e883]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e884]: ↗
+          - article [ref=e885]:
+            - generic [ref=e886]:
+              - generic [ref=e887]:
+                - text: pain points
+                - heading "Pain-point research" [level=3] [ref=e888]
+              - button "Show Pain-point research parameters" [ref=e890] [cursor=pointer]: •••
+            - paragraph [ref=e891]: Find recurring questions, failures, requests, and workflow friction.
+            - generic [ref=e892]: Official community APIs and public feeds, collected with required credentials.
+            - generic [ref=e893]:
+              - link "Hacker News AI RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e894] [cursor=pointer]:
+                - /url: https://hnrss.org/newest?q=AI
+                - generic [ref=e895]:
+                  - generic [ref=e896]: Hacker News AI
+                  - generic [ref=e897]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e898]: ↗
+              - link "Stack Exchange API official API · Use the documented API key and OAuth flow when required. ↗" [ref=e899] [cursor=pointer]:
+                - /url: https://api.stackexchange.com/docs
+                - generic [ref=e900]:
+                  - generic [ref=e901]: Stack Exchange API
+                  - generic [ref=e902]: official API · Use the documented API key and OAuth flow when required.
+                - generic [ref=e903]: ↗
+              - link "Reddit Data API official API · OAuth and Reddit developer terms are required; direct scraping is disabled. ↗" [ref=e904] [cursor=pointer]:
+                - /url: https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki
+                - generic [ref=e905]:
+                  - generic [ref=e906]: Reddit Data API
+                  - generic [ref=e907]: official API · OAuth and Reddit developer terms are required; direct scraping is disabled.
+                - generic [ref=e908]: ↗
+          - article [ref=e909]:
+            - generic [ref=e910]:
+              - generic [ref=e911]:
+                - text: website design problems
+                - heading "Website-design problems" [level=3] [ref=e912]
+              - button "Show Website-design problems parameters" [ref=e914] [cursor=pointer]: •••
+            - paragraph [ref=e915]: Surface UX, accessibility, CSS, and implementation problems worth solving on video.
+            - generic [ref=e916]: Official issue/community APIs and relevant publisher feeds.
+            - generic [ref=e917]:
+              - link "Stack Exchange API official API · Use the documented API key and OAuth flow when required. ↗" [ref=e918] [cursor=pointer]:
+                - /url: https://api.stackexchange.com/docs
+                - generic [ref=e919]:
+                  - generic [ref=e920]: Stack Exchange API
+                  - generic [ref=e921]: official API · Use the documented API key and OAuth flow when required.
+                - generic [ref=e922]: ↗
+              - link "GitHub REST Issues API official API · Configure an approved GitHub token when needed. ↗" [ref=e923] [cursor=pointer]:
+                - /url: https://docs.github.com/en/rest/issues/issues
+                - generic [ref=e924]:
+                  - generic [ref=e925]: GitHub REST Issues API
+                  - generic [ref=e926]: official API · Configure an approved GitHub token when needed.
+                - generic [ref=e927]: ↗
+              - link "Hacker News AI RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation. ↗" [ref=e928] [cursor=pointer]:
+                - /url: https://hnrss.org/newest?q=AI
+                - generic [ref=e929]:
+                  - generic [ref=e930]: Hacker News AI
+                  - generic [ref=e931]: RSS candidate · Re-probed for HTTP, robots, content type, and parseability before activation.
+                - generic [ref=e932]: ↗
+      - generic [ref=e933]:
+        - generic [ref=e934]:
+          - heading "Permanent source candidate registry" [level=2] [ref=e935]
+          - button "Discover novel sources" [ref=e936] [cursor=pointer]
+        - paragraph [ref=e937]: Hacker News' official API supplies outbound domains. New domains enter this durable registry as review candidates only; a permitted RSS/API route and trust review are required before activation.
+        - generic [ref=e938]:
+          - group [ref=e939]:
+            - generic "review_required 8bit.gioorgi.com trust evidence 5/100 · 8Bit Computers" [ref=e940] [cursor=pointer]:
+              - generic [ref=e941]: review_required
+              - generic [ref=e942]: 8bit.gioorgi.com
+              - generic [ref=e943]: trust evidence 5/100 · 8Bit Computers
+          - group [ref=e944]:
+            - generic "review_required abc.net.au trust evidence 5/100 · Spotify removes 75 million \"AI slop\" songs" [ref=e945] [cursor=pointer]:
+              - generic [ref=e946]: review_required
+              - generic [ref=e947]: abc.net.au
+              - generic [ref=e948]: trust evidence 5/100 · Spotify removes 75 million "AI slop" songs
+          - group [ref=e949]:
+            - generic "review_required blog.codacy.com trust evidence 5/100 · Why AI code review is not enough" [ref=e950] [cursor=pointer]:
+              - generic [ref=e951]: review_required
+              - generic [ref=e952]: blog.codacy.com
+              - generic [ref=e953]: trust evidence 5/100 · Why AI code review is not enough
+          - group [ref=e954]:
+            - generic "review_required bloomberg.com trust evidence 5/100 · Uber Agrees to Buy Delivery Hero in $14.8 Billion Deal" [ref=e955] [cursor=pointer]:
+              - generic [ref=e956]: review_required
+              - generic [ref=e957]: bloomberg.com
+              - generic [ref=e958]: trust evidence 5/100 · Uber Agrees to Buy Delivery Hero in $14.8 Billion Deal
+          - group [ref=e959]:
+            - generic "review_required chronicle.com trust evidence 5/100 · Is Anthropology Hopelessly Politicized?" [ref=e960] [cursor=pointer]:
+              - generic [ref=e961]: review_required
+              - generic [ref=e962]: chronicle.com
+              - generic [ref=e963]: trust evidence 5/100 · Is Anthropology Hopelessly Politicized?
+          - group [ref=e964]:
+            - generic "review_required cnbc.com trust evidence 5/100 · Apple in talks with PrismML, which shrinks AI models up to 15x to run on iPhones" [ref=e965] [cursor=pointer]:
+              - generic [ref=e966]: review_required
+              - generic [ref=e967]: cnbc.com
+              - generic [ref=e968]: trust evidence 5/100 · Apple in talks with PrismML, which shrinks AI models up to 15x to run on iPhones
+          - group [ref=e969]:
+            - generic "review_required github.com trust evidence 5/100 · Horse – Fast, Opinionated, Minimalist Web Framework for Delphi and Lazarus" [ref=e970] [cursor=pointer]:
+              - generic [ref=e971]: review_required
+              - generic [ref=e972]: github.com
+              - generic [ref=e973]: trust evidence 5/100 · Horse – Fast, Opinionated, Minimalist Web Framework for Delphi and Lazarus
+          - group [ref=e974]:
+            - generic "review_required hackviser.com trust evidence 5/100 · A free, hands-on cybersecurity foundations certificate" [ref=e975] [cursor=pointer]:
+              - generic [ref=e976]: review_required
+              - generic [ref=e977]: hackviser.com
+              - generic [ref=e978]: trust evidence 5/100 · A free, hands-on cybersecurity foundations certificate
+          - group [ref=e979]:
+            - generic "review_required health.aws.amazon.com trust evidence 5/100 · AWS CloudFront Is Down" [ref=e980] [cursor=pointer]:
+              - generic [ref=e981]: review_required
+              - generic [ref=e982]: health.aws.amazon.com
+              - generic [ref=e983]: trust evidence 5/100 · AWS CloudFront Is Down
+          - group [ref=e984]:
+            - generic "review_required johndcook.com trust evidence 5/100 · ICD-10 chapters and code letters" [ref=e985] [cursor=pointer]:
+              - generic [ref=e986]: review_required
+              - generic [ref=e987]: johndcook.com
+              - generic [ref=e988]: trust evidence 5/100 · ICD-10 chapters and code letters
+          - group [ref=e989]:
+            - generic "review_required klarasystems.com trust evidence 5/100 · Native Inotify in FreeBSD" [ref=e990] [cursor=pointer]:
+              - generic [ref=e991]: review_required
+              - generic [ref=e992]: klarasystems.com
+              - generic [ref=e993]: trust evidence 5/100 · Native Inotify in FreeBSD
+          - group [ref=e994]:
+            - generic "review_required medium.com trust evidence 5/100 · We Rebuilt a Securities Firm's FICC Data Stack – Queries Got 10x Faster" [ref=e995] [cursor=pointer]:
+              - generic [ref=e996]: review_required
+              - generic [ref=e997]: medium.com
+              - generic [ref=e998]: trust evidence 5/100 · We Rebuilt a Securities Firm's FICC Data Stack – Queries Got 10x Faster
+          - group [ref=e999]:
+            - 'generic "review_required micro.mu trust evidence 5/100 · Show HN: Build your own apps on Mu" [ref=e1000] [cursor=pointer]':
+              - generic [ref=e1001]: review_required
+              - generic [ref=e1002]: micro.mu
+              - generic [ref=e1003]: "trust evidence 5/100 · Show HN: Build your own apps on Mu"
+          - group [ref=e1004]:
+            - generic "review_required open-atelier.app trust evidence 5/100 · Atelier, an open source local AI desktop app for everyone" [ref=e1005] [cursor=pointer]:
+              - generic [ref=e1006]: review_required
+              - generic [ref=e1007]: open-atelier.app
+              - generic [ref=e1008]: trust evidence 5/100 · Atelier, an open source local AI desktop app for everyone
+          - group [ref=e1009]:
+            - 'generic "review_required play.google.com trust evidence 5/100 · GPS Map Camera: Timestamp" [ref=e1010] [cursor=pointer]':
+              - generic [ref=e1011]: review_required
+              - generic [ref=e1012]: play.google.com
+              - generic [ref=e1013]: "trust evidence 5/100 · GPS Map Camera: Timestamp"
+          - group [ref=e1014]:
+            - generic "review_required quantamagazine.org trust evidence 5/100 · Thermodynamic Computers Go with the (Energy) Flow" [ref=e1015] [cursor=pointer]:
+              - generic [ref=e1016]: review_required
+              - generic [ref=e1017]: quantamagazine.org
+              - generic [ref=e1018]: trust evidence 5/100 · Thermodynamic Computers Go with the (Energy) Flow
+          - group [ref=e1019]:
+            - generic "review_required religiondispatches.org trust evidence 5/100 · Men Without Guns- Tribute to Larry McMurtry" [ref=e1020] [cursor=pointer]:
+              - generic [ref=e1021]: review_required
+              - generic [ref=e1022]: religiondispatches.org
+              - generic [ref=e1023]: trust evidence 5/100 · Men Without Guns- Tribute to Larry McMurtry
+          - group [ref=e1024]:
+            - 'generic "review_required royalroad.com trust evidence 5/100 · Nervé: Some Things Here Are Not Right" [ref=e1025] [cursor=pointer]':
+              - generic [ref=e1026]: review_required
+              - generic [ref=e1027]: royalroad.com
+              - generic [ref=e1028]: "trust evidence 5/100 · Nervé: Some Things Here Are Not Right"
+          - group [ref=e1029]:
+            - generic "review_required rtings.com trust evidence 5/100 · Rtings Is Now Paywalled" [ref=e1030] [cursor=pointer]:
+              - generic [ref=e1031]: review_required
+              - generic [ref=e1032]: rtings.com
+              - generic [ref=e1033]: trust evidence 5/100 · Rtings Is Now Paywalled
+          - group [ref=e1034]:
+            - generic "review_required seatunnel.apache.org trust evidence 5/100 · From Modern Data Stack to Agentic Data Stack" [ref=e1035] [cursor=pointer]:
+              - generic [ref=e1036]: review_required
+              - generic [ref=e1037]: seatunnel.apache.org
+              - generic [ref=e1038]: trust evidence 5/100 · From Modern Data Stack to Agentic Data Stack
+          - group [ref=e1039]:
+            - generic "review_required status.huggingface.co trust evidence 5/100 · HuggingFace is down due to global AWS outage" [ref=e1040] [cursor=pointer]:
+              - generic [ref=e1041]: review_required
+              - generic [ref=e1042]: status.huggingface.co
+              - generic [ref=e1043]: trust evidence 5/100 · HuggingFace is down due to global AWS outage
+          - group [ref=e1044]:
+            - generic "review_required status.workos.com trust evidence 5/100 · WorkOS Having a Major Outage" [ref=e1045] [cursor=pointer]:
+              - generic [ref=e1046]: review_required
+              - generic [ref=e1047]: status.workos.com
+              - generic [ref=e1048]: trust evidence 5/100 · WorkOS Having a Major Outage
+          - group [ref=e1049]:
+            - generic "review_required tenderlovemaking.com trust evidence 5/100 · Detecting Full Table Scans with SQLite" [ref=e1050] [cursor=pointer]:
+              - generic [ref=e1051]: review_required
+              - generic [ref=e1052]: tenderlovemaking.com
+              - generic [ref=e1053]: trust evidence 5/100 · Detecting Full Table Scans with SQLite
+          - group [ref=e1054]:
+            - generic "review_required thewitn.com trust evidence 5/100 · Engineering Leader's Guide to Outcome-Based Pricing" [ref=e1055] [cursor=pointer]:
+              - generic [ref=e1056]: review_required
+              - generic [ref=e1057]: thewitn.com
+              - generic [ref=e1058]: trust evidence 5/100 · Engineering Leader's Guide to Outcome-Based Pricing
+          - group [ref=e1059]:
+            - generic "review_required tomjohnell.com trust evidence 5/100 · OpenInterstate – Canonicalized U.S. Interstate Highway Data" [ref=e1060] [cursor=pointer]:
+              - generic [ref=e1061]: review_required
+              - generic [ref=e1062]: tomjohnell.com
+              - generic [ref=e1063]: trust evidence 5/100 · OpenInterstate – Canonicalized U.S. Interstate Highway Data
+          - group [ref=e1064]:
+            - generic "review_required zayenz.se trust evidence 5/100 · Gecode 6.3.0 and 6.4.0 are released" [ref=e1065] [cursor=pointer]:
+              - generic [ref=e1066]: review_required
+              - generic [ref=e1067]: zayenz.se
+              - generic [ref=e1068]: trust evidence 5/100 · Gecode 6.3.0 and 6.4.0 are released
+          - group [ref=e1069]:
+            - generic "review_required zzbbyy.substack.com trust evidence 5/100 · Reinventing Daydreaming Machines" [ref=e1070] [cursor=pointer]:
+              - generic [ref=e1071]: review_required
+              - generic [ref=e1072]: zzbbyy.substack.com
+              - generic [ref=e1073]: trust evidence 5/100 · Reinventing Daydreaming Machines
+      - generic [ref=e1074]:
+        - generic [ref=e1075]:
+          - heading "Automatic source cycle" [level=2] [ref=e1076]
+          - button "Discover and replace" [ref=e1077] [cursor=pointer]
+        - paragraph [ref=e1078]: Creates current RSS candidates from enabled categories, rejects inaccessible or non-parseable candidates, archives the rules, then replaces the active source set.
+        - generic [ref=e1079]: No cycle has been run in this view.
+  - navigation "Console views" [ref=e52]:
+    - button "◎ Overview" [ref=e53] [cursor=pointer]:
+      - generic [ref=e54]: ◎
+      - generic [ref=e55]: Overview
+    - button ">_ Live" [ref=e56] [cursor=pointer]:
+      - generic [ref=e57]: ">_"
+      - generic [ref=e58]: Live
+    - button "⌁ Sources" [ref=e59] [cursor=pointer]:
+      - generic [ref=e60]: ⌁
+      - generic [ref=e61]: Sources
+    - button "⊞ Discover" [active] [ref=e62] [cursor=pointer]:
+      - generic [ref=e63]: ⊞
+      - generic [ref=e64]: Discover
+    - button "≡ Access" [ref=e65] [cursor=pointer]:
+      - generic [ref=e66]: ≡
+      - generic [ref=e67]: Access
+    - button "≔ Results" [ref=e68] [cursor=pointer]:
+      - generic [ref=e69]: ≔
+      - generic [ref=e70]: Results
+    - button "◇ Ideas" [ref=e71] [cursor=pointer]:
+      - generic [ref=e72]: ◇
+      - generic [ref=e73]: Ideas
+    - button "⌘ Categories" [ref=e74] [cursor=pointer]:
+      - generic [ref=e75]: ⌘
+      - generic [ref=e76]: Categories
+    - button "! Failures" [ref=e77] [cursor=pointer]:
+      - generic [ref=e78]: "!"
+      - generic [ref=e79]: Failures
+    - button "↯ Trace" [ref=e80] [cursor=pointer]:
+      - generic [ref=e81]: ↯
+      - generic [ref=e82]: Trace
+    - button "▣ Archive" [ref=e83] [cursor=pointer]:
+      - generic [ref=e84]: ▣
+      - generic [ref=e85]: Archive
+    - button "◷ Schedule" [ref=e86] [cursor=pointer]:
+      - generic [ref=e87]: ◷
+      - generic [ref=e88]: Schedule
+    - button "⚙ Config" [ref=e89] [cursor=pointer]:
+      - generic [ref=e90]: ⚙
+      - generic [ref=e91]: Config
+    - button "✓ Audit" [ref=e92] [cursor=pointer]:
+      - generic [ref=e93]: ✓
+      - generic [ref=e94]: Audit

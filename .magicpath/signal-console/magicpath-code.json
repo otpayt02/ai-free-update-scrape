@@ -1,0 +1,29 @@
+{
+  "mode": "edit",
+  "componentId": "427322444165042176",
+  "projectId": "427321902353244160",
+  "selectedRevisionId": "427322444165042177",
+  "jobId": "426275699016470528-external-agent-427322950723715072",
+  "generatedName": "cool-brook-6589",
+  "name": "Signal Console",
+  "dimensions": {
+    "width": 1440,
+    "height": 1000
+  },
+  "selectedImages": [],
+  "editableFiles": [
+    {
+      "path": "src/App.tsx",
+      "sha256": "48a1dcd4b8226a0f9697d3a81ba6597e865bc98a100226693523fcb33278c197"
+    },
+    {
+      "path": "src/components/generated/SignalConsole.tsx",
+      "sha256": "fbbd432e1313e54b84ec7badacc9d2befead1f3570c39674be4b1f0676b9e094"
+    },
+    {
+      "path": "src/index.css",
+      "sha256": "e8c165f67a687ef484e7f812cfd24385753a86ae650c292fd7e189f9cd66aa64"
+    }
+  ],
+  "baseRevisionId": "427322444165042177"
+}

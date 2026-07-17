@@ -1,0 +1,13 @@
+{
+  "rss": [
+    {
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "type": "rss",
+      "enabled": true,
+      "source_id": "run-test-01",
+      "category": "Models"
+    }
+  ],
+  "scrape": []
+}

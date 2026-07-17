@@ -1,0 +1,38 @@
+[
+  {
+    "id": "run-test:run-test-01",
+    "run_id": "run-test",
+    "source_id": "run-test-01",
+    "source": "Hugging Face Blog",
+    "url": "https://huggingface.co/blog/feed.xml",
+    "status": "ready",
+    "reason": "test rule",
+    "retry": false,
+    "created_at": "2026-07-15T23:17:14.106632+00:00",
+    "archive": "runs\\run-test"
+  },
+  {
+    "id": "run-test:run-test-02",
+    "run_id": "run-test",
+    "source_id": "run-test-02",
+    "source": "AWS Machine Learning Blog",
+    "url": "https://aws.amazon.com/blogs/machine-learning/feed/",
+    "status": "rejected",
+    "reason": "test rule",
+    "retry": true,
+    "created_at": "2026-07-15T23:17:14.106632+00:00",
+    "archive": "runs\\run-test"
+  },
+  {
+    "id": "run-test:run-test-03",
+    "run_id": "run-test",
+    "source_id": "run-test-03",
+    "source": "NVIDIA Deep Learning",
+    "url": "https://blogs.nvidia.com/blog/category/deep-learning/feed/",
+    "status": "rejected",
+    "reason": "test rule",
+    "retry": true,
+    "created_at": "2026-07-15T23:17:14.106632+00:00",
+    "archive": "runs\\run-test"
+  }
+]
