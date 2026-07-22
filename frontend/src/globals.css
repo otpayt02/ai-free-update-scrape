@@ -1,0 +1,40 @@
+/*
+ * Astryx cascade layer order MUST be declared before any @import.
+ * This ensures Astryx base styles never override your project styles,
+ * and Tailwind 4 (unlayered) correctly wins over astryx-base.
+ */
+@layer reset, astryx-base, base, components, utilities;
+
+/* --- Astryx core --- */
+@import '@astryxdesign/core/reset.css';
+@import '@astryxdesign/core/astryx.css';
+
+/* --- Theme: neutral (muted minimal, matches dark dashboard aesthetic) --- */
+@import '@astryxdesign/theme-neutral/theme.css';
+
+/*
+ * Project-level overrides go here.
+ * These are unlayered so they always win over astryx-base.
+ *
+ * Our dashboard uses a custom dark palette on top of the neutral theme.
+ * The CSS vars below remap Astryx tokens to the signal-console dark scheme.
+ */
+:root {
+  /* Remap Astryx surface tokens to dashboard dark colours */
+  --color-bg-page:       #0d1117;
+  --color-bg-surface:    #161b22;
+  --color-bg-overlay:    #1c2128;
+  --color-border:        #30363d;
+  --color-text-primary:  #e6edf3;
+  --color-text-secondary:#8b949e;
+  --color-accent:        #58a6ff;
+  --color-success:       #3fb950;
+  --color-warning:       #d29922;
+  --color-danger:        #f85149;
+}
+
+body {
+  background: var(--color-bg-page);
+  color: var(--color-text-primary);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}

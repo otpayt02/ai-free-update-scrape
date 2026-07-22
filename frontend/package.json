@@ -3,8 +3,16 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "scripts": {"dev": "vite", "build": "tsc -b && vite build", "typecheck": "tsc -b --pretty false", "lint": "eslint ."},
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc -b --pretty false",
+    "lint": "eslint .",
+    "astryx": "node node_modules/@astryxdesign/cli/bin/astryx.mjs"
+  },
   "dependencies": {
+    "@astryxdesign/core": "latest",
+    "@astryxdesign/theme-neutral": "latest",
     "@tanstack/react-table": "^8.21.3",
     "echarts": "^5.6.0",
     "echarts-for-react": "^3.0.2",
@@ -12,6 +20,7 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@astryxdesign/cli": "latest",
     "@tailwindcss/vite": "^4.1.11",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
